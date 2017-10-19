@@ -1,0 +1,46 @@
+- name: gym
+  latitude: 38.98161249999998
+  longitude: -76.54066015625
+  radius: 250
+  icon: mdi:dumbbell
+
+- name: cwk
+  latitude: 38.9771475
+  longitude: -76.49055078125001
+  radius: 250
+  icon: mdi:domain
+
+- name: keystone
+  latitude: 40.2146549
+  longitude: -76.8756656
+  radius: 250
+  icon: mdi:domain
+
+- name: obx
+  latitude: 36.171669
+  longitude: -75.7546697
+  radius: 2000
+  icon: mdi:beach
+
+- name: baseball field
+  latitude: 39.0793197
+  longitude: -76.6412869
+  radius: 500
+  icon: mdi:soccer-field
+
+- name: severn
+  latitude: 39.07025129999999
+  longitude: -76.5476911
+  radius: 1000
+  icon: mdi:school
+
+- name: naps
+  latitude: 38.995489899999995
+  longitude: -76.45799869999999
+  radius: 500
+  icon: mdi:school
+
+# - name: home
+#   lat:38.9733875
+#   lon:-76.49843359375001
+#   rad:250

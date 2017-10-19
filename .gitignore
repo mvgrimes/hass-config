@@ -1,0 +1,14 @@
+deps/
+home-assistant.log
+home-assistant.log*
+home-assistant*.db
+home-assistant_v2.db
+OZW_Log.txt
+plex.conf
+pyozw.sqlite
+secrets.yaml
+tts/
+zibgee.db
+zwscene.xml
+.uuid
+.HA_VERSION

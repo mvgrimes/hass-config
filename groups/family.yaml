@@ -1,0 +1,7 @@
+family:
+  name: Family
+  entities:
+    - device_tracker.mgrimes_oneplus3t
+    - device_tracker.carrie_d81aebcb473e4ef7ab1e8965aecaa6c9
+    - device_tracker.carrie_iphone6
+    - device_tracker.campbell_iphone

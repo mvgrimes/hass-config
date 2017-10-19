@@ -1,0 +1,27 @@
+
+mgrimes_oneplus3t:
+  hide_if_away: false
+  icon:
+  mac:
+  name: mgrimes
+  picture:
+  track: true
+  vendor:
+
+carrie_d81aebcb473e4ef7ab1e8965aecaa6c9:
+  hide_if_away: false
+  icon:
+  mac:
+  name: carrie
+  picture:
+  track: true
+  vendor:
+
+campbell_iphone:
+  hide_if_away: false
+  icon:
+  mac:
+  name: campbell
+  picture:
+  track: true
+  vendor:

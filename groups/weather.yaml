@@ -1,0 +1,10 @@
+weather:
+  name: Weather
+  entities:
+    - sensor.pws_alerts
+    - sensor.pws_dewpoint_f
+    - sensor.pws_precip_1d_in
+    - sensor.pws_precip_today_in
+    - sensor.pws_temp_f
+    - sensor.yr_symbol
+    - sun.sun
