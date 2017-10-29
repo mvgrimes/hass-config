@@ -9,7 +9,7 @@ homeassistant:
   customize: !include customize.yaml
 
 # Show links to resources in log and frontend
-introduction:
+# introduction:
 
 # Enables the frontend
 frontend:
@@ -31,7 +31,7 @@ updater:
   # include_used_components: true
 
 # Discover some devices automatically
-discovery:
+# discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -72,30 +72,50 @@ notify:
     api_key: !secret pushover_api_key
     user_key: !secret pushover_user_key
 
+map:
+
+python_script:
+
 # media_player:
 #   - platform: squeezebox
 #     name: lms
 #     host: 127.0.0.1
 #     port: 9001
 
-# logger:
-#   default: warning
-#   logs:
-#     homeassistant.core: warning
-#     homeassistant.components.mqtt: info
-#     homeassistant.components.zha: debug
-#     homeassistant.components.modem_callerid: debug
-#     # bellows.zigbee.application: debug
-#     # bellows.zigbee: debug
-#     # bellows: debug
-#     # bellows.ezsp: debug
-#     # bellows.uart: debug
-#     # bellows.zigbee.zcl: debug
-#     # bellows.zigbee.endpoint: debug
+panel_custom:
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include floorplan.yaml
+
+# Allow Amazon Echo to control some things
+# emulated_hue:
+
+logger:
+  default: warning
+  logs:
+    homeassistant.core: warning
+    homeassistant.components.mqtt: info
+    homeassistant.components.zha: debug
+    homeassistant.components.modem_callerid: debug
+    homeassistant.components.python_script.publish_if.py: debug
+    homeassistant.components.python_script: debug
+    homeassistant.components.shell_command: debug
+    homeassistant.components.shell_commands: debug
+    # bellows.zigbee.application: debug
+    # bellows.zigbee: debug
+    # bellows: debug
+    # bellows.ezsp: debug
+    # bellows.uart: debug
+    # bellows.zigbee.zcl: debug
+    # bellows.zigbee.endpoint: debug
 
 light: !include lights.yaml
 sensor: !include_dir_merge_list sensors
+switch: !include_dir_merge_list switches
 zone: !include zones.yaml
 group: !include_dir_merge_named groups
 automation: !include_dir_merge_list automations
 script: !include scripts.yaml
+shell_command: !include_dir_merge_named shell_commands
