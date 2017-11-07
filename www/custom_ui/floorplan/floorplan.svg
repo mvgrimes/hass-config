@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1024px" height="768px" viewBox="0 0 1024 768" enable-background="new 0 0 1024 768" xml:space="preserve">
+<g id="First_Floor" transform="skewX(25) scale(0.9)">
+	<g id="First_Floor_Objects">
+		<path id="switch.floor_lamp" d="M477.97,294.608h7.998l4,12.003h-16L477.97,294.608 M480.968,307.609h2.002l0,5h5l0.003,2H475.97
+			l-0.002-2h5L480.968,307.609z"/>
+		<path id="switch.reading_lamp" d="M335.627,295.054h7.999l4.001,12.002h-15.998L335.627,295.054 M338.627,308.054h2.001l-0.002,5
+			h5l0.004,2h-12.001l-0.004-2h5L338.627,308.054z"/>
+		
+			<text id="sensor.sn1_real_feel" transform="matrix(1.007 0 0 1.007 397.3671 288.2948)" opacity="0.88" fill="#33CCFF" enable-background="new    " font-family="'Menlo-Regular'" font-size="35.7499">72</text>
+		<g id="switch.front_porch_lights_switch">
+			<path d="M635.013,141.864c-3.867,0-7,3.134-7,7c-0.001,2.38,1.187,4.47,2.999,5.74l-0.001,2.26c0,0.553,0.446,1,1.001,1h6.004
+				c0.549,0,0.995-0.447,0.998-1l-0.003-2.26c1.811-1.271,3-3.36,3.001-5.74C642.014,144.998,638.878,141.864,635.013,141.864
+				 M632.013,160.865c-0.001,0.553,0.446,1,0.999,1h4.001c0.549,0,0.994-0.447,0.999-1l0.002-1h-6l0,1H632.013z"/>
+			<path d="M635.984,198.932c-3.866,0-7,3.135-6.999,7.001c-0.001,2.378,1.188,4.47,2.999,5.741l0,2.26
+				c0.005,0.553,0.448,1.001,0.999,1.001h6c0.551,0,1-0.448,1-1.001l-0.001-2.26c1.813-1.272,3.003-3.362,3-5.741
+				C642.985,202.067,639.848,198.932,635.984,198.932 M632.985,217.934c-0.002,0.553,0.445,1,1.001,1h4.001
+				c0.55,0,0.997-0.447,0.999-1l0-1.001h-5.998L632.985,217.934z"/>
+		</g>
+		<g id="switch.exteriorlights_switch">
+			<path d="M621.021,164.974c2.117,0,3.828,1.424,3.834,3.18c0,1.757-1.715,3.18-3.832,3.18s-3.831-1.423-3.832-3.18
+				C617.191,166.398,618.905,164.974,621.021,164.974z"/>
+			<path d="M621.021,193.975c2.115,0,3.832,1.423,3.83,3.18c0.002,1.755-1.715,3.18-3.829,3.18c-2.117,0-3.831-1.425-3.832-3.18
+				C617.19,195.399,618.907,193.975,621.021,193.975z"/>
+			<path d="M621.021,184.511c2.117,0,3.833,1.423,3.834,3.18c0,1.757-1.715,3.18-3.832,3.18s-3.832-1.423-3.832-3.18
+				C617.189,185.933,618.906,184.511,621.021,184.511z"/>
+			<path d="M621.02,175.474c2.118,0,3.83,1.424,3.83,3.18c0.005,1.756-1.713,3.181-3.829,3.181c-2.114,0-3.831-1.425-3.827-3.181
+				C617.19,176.898,618.906,175.474,621.02,175.474z"/>
+		</g>
+	</g>
+	<g id="First_Floor_Walls">
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M617.553,33.694H10.923"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M10.923,33.694l0,78.77"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M10.923,112.464h5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M16.123,112.464l0-73.57"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M16.123,38.894h178.87"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M194.993,38.894l0,32.94"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M194.993,71.834h39.63"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M234.623,71.834l0-32.94"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M234.623,38.894h114.15"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M348.773,38.894l0,44.12"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M348.773,83.014h23.48"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M372.253,83.014v2.65"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M372.253,85.664h5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M377.453,85.664l0.001-13.83"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M377.453,71.834h67.497"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M444.953,71.834l0.002-5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M444.953,66.634h-67.503"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M377.453,66.634l0-27.74"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M377.453,38.894h103.34"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M480.794,38.894l-0.001,32.94"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M480.793,71.834h19.742"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M500.532,71.834l0,51.24"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M500.532,123.074h5.201"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M505.733,123.074l0-84.18"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M505.733,38.894h106.62"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M612.353,38.894l0,126.08"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M612.353,164.974h5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M617.553,164.974l0-131.28"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M617.553,33.694L617.553,33.694"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M353.983,77.814l0.002-38.92"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M353.983,38.894h18.271"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M372.253,38.894v38.92"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M372.253,77.814h-18.271"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M353.983,77.814L353.983,77.814"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M485.992,66.634l0-27.74"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M485.992,38.894h14.54"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M500.532,38.894l0,27.74"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M500.532,66.634h-14.54"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M485.992,66.634L485.992,66.634"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M200.193,66.634l0-27.74"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M200.193,38.894h29.23"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M229.423,38.894l0,27.74"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M229.423,66.634h-29.23"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M200.193,66.634L200.193,66.634"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M320.572,181.915h86.271"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M406.843,181.915l0-5.201"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M406.843,176.714h-29.39"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M377.453,176.714l0-71.74"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M377.453,104.974h-5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M372.253,104.974l0,1.94"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M372.253,106.914h-23.48"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M348.773,106.914v46.49"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M348.773,153.404h-120.08"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M228.693,153.404l0,86.88"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M228.693,240.284h5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M233.893,240.284l0-21.35"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M233.893,218.934h24.5"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M258.393,218.934l0-5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M258.393,213.734h-24.5"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M233.893,213.734l0-31.819"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M233.893,181.915h81.48"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M315.373,181.915l0.001,31.819"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M315.373,213.734h-30.68"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M284.693,213.734l0,5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M284.693,218.934h30.68"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M315.373,218.934l0,23.89"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M315.373,242.824h5.199"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M320.572,242.824l0-60.909"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M320.572,181.915L320.572,181.915"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M233.893,176.714l0-18.11"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M233.893,158.604h120.09"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M353.983,158.604l0-46.49"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M353.983,112.114h18.271"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M372.253,112.114l0,64.6"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M372.253,176.714h-138.36"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M233.893,176.714L233.893,176.714"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M617.553,201.244h-5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M612.353,201.244l0,121.091"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M612.353,322.334h-106.62"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M505.733,322.334l0-170.47"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M505.733,151.864h-5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M500.532,151.864l0,24.85"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M500.532,176.714h-41.199"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M459.333,176.714l0,5.201"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M459.333,181.915h41.199"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M500.532,181.915l0.001,140.42"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M500.532,322.334h-179.96"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M320.572,322.334l0-52.261"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M320.572,270.074h-5.199"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M315.373,270.074l0,52.261"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M315.372,322.334h-81.479"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M233.893,322.334l0-45.601"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M233.893,276.734h-5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M228.693,276.734l0,23.12"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M228.693,299.854h-17.58"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M211.113,299.854l0,5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M211.113,305.054h17.58"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M228.693,305.054l0,22.479"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M228.693,327.534h388.86"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M617.553,327.534l0-126.29"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M617.553,201.244L617.553,201.244"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M174.833,299.854h-8.55"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M166.283,299.854l0-56.06"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M166.283,243.794h27.26"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M193.543,243.794l0-5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M193.543,238.594h-54.61"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M138.933,238.594l0-61.88"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M138.933,176.714h54.61"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M193.543,176.714l0-5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M193.543,171.514h-59.81"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M133.733,171.514l0,67.08"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M133.733,238.594H16.123"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M16.123,238.594l0-72.63"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M16.123,165.964h-5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M10.923,165.964l0,77.831"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M10.923,243.794h122.81"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M133.733,243.794l0,61.26"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M133.733,305.054h41.1"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M174.833,305.054l0-5.2"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M174.833,299.854L174.833,299.854"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M138.933,299.854l0-56.06"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M138.933,243.794h22.15"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M161.083,243.794l0,56.06"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M161.083,299.854h-22.15"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M138.933,299.854L138.933,299.854"/>
+		</g>
+	</g>
+	<g id="First_Floor_Names">
+		
+			<text transform="matrix(1.007 0 0 1.007 519.9926 316.2934)" fill="#888D8E" font-family="'MyriadPro-Semibold'" font-size="11.9166">Porch</text>
+		
+			<text transform="matrix(1.007 0 0 1.007 334.7616 201.2446)" fill="#888D8E" font-family="'MyriadPro-Semibold'" font-size="11.9166">Living Room</text>
+		
+			<text transform="matrix(1.007 0 0 1.007 292.9272 144.4152)" fill="#888D8E" font-family="'MyriadPro-Semibold'" font-size="11.9166">Kitchen</text>
+	</g>
+</g>
+<g id="Basement" transform="skewX(25) scale(0.9) translate(-140,20)">
+	<g id="Basement_Walls">
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M501.872,360.789l-154.583,0.4"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M347.289,361.189H-13.283"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M-13.283,361.189l0,216.506"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M-13.283,577.696h273.22"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M259.938,577.696l0,91.89"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M259.938,669.588h241.935"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M501.871,669.588l0.001-308.799"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M501.872,360.789L501.872,360.789"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M265.31,664.214l0-93.619"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M265.309,570.597h90.034"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M355.344,570.597l0-42.945"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M355.344,527.652h62.573"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M417.915,527.652l-0.001,94.668"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M417.916,622.32h5.362"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M423.28,622.32l0.001-94.668"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M423.28,527.652h29.917"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M453.197,527.652l0-5.362"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M453.197,522.29H344.254"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M344.255,522.29l-0.001,5.362"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M344.255,527.652h5.726"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M349.978,527.652l0,37.58"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M349.978,565.233h-84.669"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M265.31,565.233l0-37.579"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M265.311,527.652h47.497"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M312.808,527.652v-5.362"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M312.808,522.29h-52.869"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M259.939,522.29l0.001,50.037"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M259.938,572.325H-7.91"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M-7.91,572.325l0-205.773"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M-7.911,366.553H262.62"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M262.62,366.553l-0.001,105.021"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M262.62,471.573h46.681"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M309.301,471.573l0-30.141"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M309.301,441.432h-5.372"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M303.929,441.432l0.001,24.768"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M303.93,466.2h-35.939"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M267.991,466.2l0.001-99.647"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M267.992,366.553h35.938"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M303.93,366.553l0,41.791"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M303.93,408.344h5.371"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M309.301,408.344l0.001-41.695"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M309.302,366.649l54.631-0.137"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M363.933,366.513l-0.001,47.614"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M363.932,414.125h85.596"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M449.529,414.125l0-5.373"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M449.529,408.752h-80.225"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M369.305,408.752l-0.001-42.255"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M369.304,366.497l127.195-0.321"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M496.5,366.176l-0.001,156.113"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M496.499,522.29h-17.878"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M478.623,522.29l0.002,5.362"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M478.623,527.652h17.875"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M496.499,527.652l-0.001,136.565"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M496.499,664.214h-73.222"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M423.279,664.214l0-14.402"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M423.279,649.812h-5.365"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M417.914,649.812l0.001,14.402"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M417.914,664.214H265.31"/>
+		</g>
+		<g>
+			<path fill="none" stroke="#3FA9FF" stroke-width="3" d="M265.31,664.214L265.31,664.214"/>
+		</g>
+	</g>
+	<g id="Basement_Names">
+		
+			<text transform="matrix(1.007 0 0 1.007 395.2866 515.1888)" fill="#888D8E" font-family="'MyriadPro-Semibold'" font-size="11.9166">TV Room</text>
+		
+			<text transform="matrix(1.007 0 0 1.007 272.8735 658.2975)" fill="#888D8E" font-family="'MyriadPro-Semibold'" font-size="11.9166">Furnace Room</text>
+		
+			<text transform="matrix(1.007 0 0 1.007 8.1887 560.5046)" fill="#888D8E" font-family="'MyriadPro-Semibold'" font-size="11.9166">Game Room</text>
+	</g>
+	<g id="Basement_Objects">
+		<g id="switch.basement_lights">
+			<path d="M479.73,428.505c-3.867,0-7.003,3.136-7.001,7.002c-0.002,2.382,1.187,4.467,2.997,5.74l0.002,2.258
+				c-0.001,0.553,0.442,0.999,1.001,0.999h5.997c0.551,0,0.999-0.446,1.001-0.999l-0.002-2.258c1.814-1.274,3.003-3.358,3-5.74
+				C486.732,431.641,483.595,428.505,479.73,428.505 M476.73,447.505c0.003,0.551,0.449,0.998,1,0.998h4.001
+				c0.551,0,0.997-0.447,1-0.998l0.001-0.999h-5.997L476.73,447.505z"/>
+			<path d="M480.796,483.894c-3.866,0-6.999,3.135-7,7.001c-0.001,2.38,1.188,4.468,3.002,5.74l-0.004,2.259
+				c0,0.552,0.448,0.998,1,0.998h6c0.551,0,0.998-0.446,0.998-0.998l-0.001-2.259c1.813-1.272,3.005-3.36,3.001-5.74
+				C487.798,487.03,484.661,483.894,480.796,483.894 M477.797,502.895c0.001,0.553,0.447,1,1.004,1h3.997
+				c0.552,0,0.998-0.447,1.001-1l-0.002-0.999h-6.004L477.797,502.895z"/>
+		</g>
+		<path id="switch.basement_step_lights" d="M286.098,486.913c-3.867,0-7,3.134-7,7c-0.002,2.382,1.185,4.473,2.999,5.74
+			l-0.001,2.26c0.001,0.552,0.447,0.999,1,0.999h6.002c0.552,0,1.002-0.447,0.999-0.999l-0.002-2.26
+			c1.812-1.271,3.003-3.358,3.001-5.74C293.1,490.049,289.963,486.913,286.098,486.913 M283.099,505.914c0,0.553,0.446,1,0.997,1h4
+			c0.552,0,0.998-0.447,1.001-1l-0.001-0.998h-6.003L283.099,505.914z"/>
+	</g>
+</g>
+<g id="Panels" transform="scale(1.2) translate(-120,40)">
+	<rect x="770.5" y="45.213" fill="none" stroke="#6C8D9E" stroke-miterlimit="10" width="90" height="90"/>
+	<text transform="matrix(0.8333 0 0 0.8333 775.0001 62.7095)" fill="#DDDDDD" font-family="'Calibri'" font-size="14.3976">Mark</text>
+	<path id="device_tracker.mgrimes_oneplus3t" fill="#8AA8A7" d="M815.676,96.335c-3.396,0-6.148-2.752-6.148-6.148
+		c0-3.396,2.752-6.147,6.148-6.147s6.147,2.751,6.147,6.147C821.824,93.583,819.071,96.335,815.676,96.335 M815.676,72.971
+		c-9.509,0-17.218,7.708-17.218,17.216c0,12.913,17.218,31.973,17.218,31.973s17.216-19.061,17.216-31.973
+		C832.892,80.678,825.185,72.971,815.676,72.971z"/>
+	<rect x="875.662" y="45.213" fill="none" stroke="#6C8D9E" stroke-miterlimit="10" width="90" height="90"/>
+	<text transform="matrix(0.8333 0 0 0.8333 885.0001 62.7095)" fill="#DDDDDD" font-family="'Calibri'" font-size="14.3976">Carrie</text>
+	<path id="device_tracker.carrie_d81aebcb473e4ef7ab1e8965aecaa6c9" fill="#8AA8A7" d="M913.978,96.693
+		c-3.448,0-6.243-2.795-6.243-6.243c0-3.449,2.795-6.243,6.243-6.243c3.448,0,6.244,2.795,6.244,6.243
+		S917.427,96.693,913.978,96.693 M913.978,72.969c-9.655,0-17.48,7.826-17.48,17.481c0,13.11,17.48,32.465,17.48,32.465
+		s17.481-19.355,17.481-32.465C931.46,80.795,923.635,72.969,913.978,72.969z"/>
+</g>
+<text transform="matrix(0.781 0 0.3642 0.9313 551.5118 642.0664)" fill="#888D8E" font-family="'MyriadPro-Semibold'" font-size="13.8285">Basement</text>
+<text transform="matrix(0.781 0 0.3642 0.9313 625.0333 310.21)" fill="#888D8E" font-family="'MyriadPro-Semibold'" font-size="13.8285">First Floor</text>
+<rect id="group.family_room" x="780.814" y="218.4" fill="none" stroke="#6C8D9E" stroke-miterlimit="10" width="233.986" height="108"/>
+<text transform="matrix(1 0 0 1 788.004 237.8281)" fill="#DDDDDD" font-family="'Calibri'" font-size="14.3976">Lights</text>
+<text transform="matrix(1 0 0 1 820.5958 280.8979)" fill="#6D9BB2" font-family="'Calibri'" font-size="31.1952">Living Room</text>
+<rect id="group.exterior_lights" x="780.814" y="339.749" fill="none" stroke="#6C8D9E" stroke-miterlimit="10" width="233.986" height="108"/>
+<text transform="matrix(1 0 0 1 788.004 359.1777)" fill="#DDDDDD" font-family="'Calibri'" font-size="14.3976">Lights</text>
+<text transform="matrix(1 0 0 1 848.4171 402.248)" fill="#6D9BB2" font-family="'Calibri'" font-size="31.1952">Outside</text>
+<rect id="group.basement_lights" x="780.806" y="459.077" fill="none" stroke="#6C8D9E" stroke-miterlimit="10" width="233.986" height="108"/>
+<text transform="matrix(1 0 0 1 787.9962 478.5059)" fill="#DDDDDD" font-family="'Calibri'" font-size="14.3976">Lights</text>
+<text transform="matrix(1 0 0 1 834.3351 521.5762)" fill="#6D9BB2" font-family="'Calibri'" font-size="31.1952">Basement</text>
+<rect x="780.798" y="579.277" fill="none" stroke="#6C8D9E" stroke-miterlimit="10" width="233.986" height="108"/>
+<text transform="matrix(1 0 0 1 787.9884 598.7061)" fill="#DDDDDD" font-family="'Calibri'" font-size="14.3976">Caller</text>
+<text id="sensor.modem_callerid" transform="matrix(1 0 0 1 865.4073 641.7754)" fill="#6D9BB2" font-family="'Calibri'" font-size="31.1952">none</text>
+</svg>

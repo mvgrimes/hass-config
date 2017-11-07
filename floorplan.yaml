@@ -1,0 +1,70 @@
+name: Demo Floorplan
+image: /local/custom_ui/floorplan/floorplan.svg
+stylesheet: /local/custom_ui/floorplan/floorplan.css
+warnings:
+
+# hide_app_toolbar:
+# pan_zoom:
+# last_motion_entity: sensor.template_last_motion
+# last_motion_class: last-motion
+
+groups:
+  - name: Lights
+    entities:
+      - switch.floor_lamp
+      - switch.reading_lamp
+      - switch.basement_lights
+      - switch.basement_step_lights
+      - switch.exteriorlights_switch
+      - switch.front_porch_lights_switch
+    states:
+      - state: 'on'
+        class: 'light-on'
+      - state: 'off'
+        class: 'light-off'
+
+  - name: Family Room Temp
+    entities:
+      - sensor.sn1_real_feel
+    text_template: "${entity.state ? Math.ceil(entity.state) + '°' : 'undefined' }"
+    class_template: 'return "static-temp";'
+
+  - name: Presence
+    entities:
+      - device_tracker.mgrimes_oneplus3t
+      - device_tracker.carrie_d81aebcb473e4ef7ab1e8965aecaa6c9
+    states:
+      - state: 'home'
+        class: 'device-home'
+
+  - name: LightButtons
+    entities:
+      - group.family_room
+      - group.basement_lights
+      - group.exterior_lights
+    states:
+      - state: 'on'
+        class: 'button-on'
+      - state: 'off'
+        class: 'button-off'
+    action:
+      service: toggle
+
+  - name: CallerId
+    entities:
+      - sensor.modem_callerid
+    text_template: '${entity.state ? entity.state : "unknown"}'
+
+  # - name: Media Players
+  #   entities:
+  #     - media_player.kitchen_speaker
+  #     - media_player.master_bedroom_speaker
+  #   states:
+  #     - state: 'off'
+  #       class: 'squeezebox-off'
+  #     - state: 'idle'
+  #       class: 'squeezebox-off'
+  #     - state: 'paused'
+  #       class: 'squeezebox-off'
+  #     - state: 'playing'
+  #       class: 'squeezebox-on'

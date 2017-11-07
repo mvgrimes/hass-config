@@ -1,13 +1,30 @@
-- alias: Turn on family room lights on motion
+- alias: Turn on family room lights
   trigger:
     platform: state
     entity_id: sensor.sn1_pir
     to: "motion detected"
   condition:
-    - condition: template
-      value_template: '{{ states.sensor.sn1_ldr.state | float < 500 }}'
+    - condition: numeric_state
+      entity_id: sensor.sn1_ldr
+      below: 500
+    # - condition: template
+    #   value_template: '{{ states.sensor.sn1_ldr.state | float < 500 }}'
   action:
     service: switch.turn_on
     entity_id:
-      - switch.floor_lamp
-      - switch.reading_lamp
+      - group.family_room
+
+- alias: Turn off family room lights
+  trigger:
+    - platform: state
+      entity_id: sensor.sn1_pir
+      to: "standby"
+      for:
+        minutes: 15
+  # condition:
+  #   - condition: time
+  #     after: '21:00:00'
+  action:
+    service: switch.turn_off
+    entity_id:
+      - group.family_room

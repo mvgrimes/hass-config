@@ -7,6 +7,7 @@ homeassistant:
   unit_system: imperial
   time_zone: America/New_York
   customize: !include customize.yaml
+  packages: !include_dir_named packages
 
 # Show links to resources in log and frontend
 # introduction:
@@ -82,6 +83,9 @@ python_script:
 #     host: 127.0.0.1
 #     port: 9001
 
+# media_player:
+#    - platform: cast
+
 panel_custom:
   - name: floorplan
     sidebar_title: Floorplan
@@ -92,25 +96,7 @@ panel_custom:
 # Allow Amazon Echo to control some things
 # emulated_hue:
 
-logger:
-  default: warning
-  logs:
-    homeassistant.core: warning
-    homeassistant.components.mqtt: info
-    homeassistant.components.zha: debug
-    homeassistant.components.modem_callerid: debug
-    homeassistant.components.python_script.publish_if.py: debug
-    homeassistant.components.python_script: debug
-    homeassistant.components.shell_command: debug
-    homeassistant.components.shell_commands: debug
-    # bellows.zigbee.application: debug
-    # bellows.zigbee: debug
-    # bellows: debug
-    # bellows.ezsp: debug
-    # bellows.uart: debug
-    # bellows.zigbee.zcl: debug
-    # bellows.zigbee.endpoint: debug
-
+logger: !include logger.yaml
 light: !include lights.yaml
 sensor: !include_dir_merge_list sensors
 switch: !include_dir_merge_list switches

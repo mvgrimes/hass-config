@@ -1,0 +1,21 @@
+# script:
+#   streamtest:
+#     alias: Play Stream on Chromecast Audio
+#     sequence:
+#       - service: media_player.volume_set
+#         data:
+#           entity_id: media_player.kitchen_speaker
+#           volume_level: '0.75'
+#       - service: media_player.play_media
+#         data_template:
+#           entity_id:
+#             - media_player.kitchen_speaker
+#           # media_content_id: "http://pip:8000/snoopy-ice-pl.ogg.m3u"
+#           # media_content_id: "http://listen.181fm.com/181-kickincountry_128k.mp3"
+#           media_content_id: "http://192.168.1.201:8000/test.mp3"
+#           media_content_type: 'audio/mp4'
+#
+# # customize:
+# #   script.streamtest:
+# #     friendly_name: Start Playing
+# #     icon: mdi:play

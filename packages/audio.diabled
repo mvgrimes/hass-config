@@ -1,0 +1,30 @@
+# Chromecasts respond to pause/unpause/next, but not play_media
+
+homeassistant:
+
+input_boolean:
+  house_station:
+    name: House Station
+    initial: off
+
+automation:
+  - alias: 'Play icecast'
+
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.house_station
+        to: 'on'
+        from: 'off'
+
+    action:
+      - service: media_player.turn_on
+        entity_id: media_player.kitchen_speaker
+
+      - service: media_player.play_media
+        data_template:
+          entity_id:
+            - media_player.kitchen_speaker
+          # media_content_id: "http://pip:8000/snoopy-ice-pl.ogg.m3u"
+          media_content_id: "http://listen.181fm.com/181-kickincountry_128k.mp3"
+          media_content_type: audio/mp4

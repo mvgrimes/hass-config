@@ -1,0 +1,38 @@
+# Can only filter on what is inside []
+
+default: info
+logs:
+  aiohttp.access: critical
+  aiohttp.server: critical
+  bellows.ezsp: debug
+  bellows.uart: debug
+  bellows.zigbee.appdb: debug
+  homeassistant.components.automation: warn
+  homeassistant.components.climate.nest: warn
+  homeassistant.components.device_tracker: warn
+  homeassistant.components.discovery: warn
+  homeassistant.components.http: warn
+  homeassistant.components.media_player.plex: warn
+  homeassistant.components.media_player.squeezebox: warn
+  homeassistant.components.media_player: warn
+  homeassistant.components.modem_callerid: debug
+  homeassistant.components.mqtt: info
+  homeassistant.components.python_script.publish_if.py: debug
+  homeassistant.components.python_script: debug
+  homeassistant.components.recorder: error
+  homeassistant.components.sensor.darksky: warn
+  homeassistant.components.sensor.pi_hole: critical
+  homeassistant.components.shell_command: debug
+  homeassistant.components.shell_commands: debug
+  homeassistant.components.switch.tplink: warn
+  homeassistant.components.switch: warn
+  homeassistant.components.updater: info
+  homeassistant.components.zha: debug
+  homeassistant.components.zwave: warn
+  homeassistant.core: warn
+  homeassistant.exceptions: info
+  homeassistant.helpers.entity: critical
+  homeassistant.helpers.script: info
+  py.warnings: error
+  pychromecast: warn
+  root: warn

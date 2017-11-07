@@ -1,0 +1,4 @@
+phone:
+  name: Phone
+  entities:
+    - sensor.modem_callerid

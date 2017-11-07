@@ -1,0 +1,26 @@
+- alias: Make basement switches turn on all lights
+  trigger:
+    platform: state
+    entity_id:
+      - switch.basement_step_lights
+      # - switch.basement_lights
+    to: "on"
+  action:
+    service: switch.turn_on
+    entity_id:
+      # - group.basement_lights
+      - switch.basement_lights
+
+- alias: Make basement switches turn off all lights
+  trigger:
+    platform: state
+    entity_id:
+      - switch.basement_step_lights
+      # - switch.basement_lights
+    to: "off"
+  action:
+    service: switch.turn_off
+    entity_id:
+      # - group.basement_lights
+      - switch.basement_lights
+

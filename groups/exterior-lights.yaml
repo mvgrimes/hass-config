@@ -1,0 +1,5 @@
+exterior_lights:
+  name: Exterior Lights
+  entities:
+    - switch.front_porch_lights_switch
+    - switch.exteriorlights_switch
