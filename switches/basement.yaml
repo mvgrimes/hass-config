@@ -5,4 +5,4 @@
 - platform: tplink
   host: 192.168.1.28
   name: Basement Step Lights
-
+  scan_interval: 10

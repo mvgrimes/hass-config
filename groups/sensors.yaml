@@ -41,6 +41,7 @@ sensornode_master_card:
 sensornode_livingroom_card:
   name: Living Room Sensor
   entities:
+    - sensor.livingroom_button
     - sensor.livingroom_temperature
     - sensor.livingroom_humidity
     - sensor.livingroom_ldr

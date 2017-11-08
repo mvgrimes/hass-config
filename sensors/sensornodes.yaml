@@ -88,6 +88,14 @@
   unit_of_measurement: "°F"
   value_template: '{{ value_json.heatIndex | round(1) }}'
 
+# Light switch
+# XXXX: Should this be in binary_sensor/
+- platform: mqtt
+  state_topic: "hass/sensor-livingroom"
+  name: "LivingRoom Button"
+  # device_class:
+  value_template: '{{ value_json.button }}'
+
 - platform: mqtt
   state_topic: "hass/sensor-basement"
   name: "Basement Humidity"

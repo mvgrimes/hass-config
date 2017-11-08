@@ -7,6 +7,8 @@
     - condition: numeric_state
       entity_id: sensor.sn1_ldr
       below: 500
+    - condition: template
+      value_template: '{{ as_timestamp(now()) - as_timestamp(states.sensor.livingroom_button.last_updated) | int > 60 }}'
     # - condition: template
     #   value_template: '{{ states.sensor.sn1_ldr.state | float < 500 }}'
   action:
@@ -21,10 +23,23 @@
       to: "standby"
       for:
         minutes: 15
-  # condition:
+  condition:
+    - condition: template
+      value_template: '{{ as_timestamp(now()) - as_timestamp(states.sensor.livingroom_button.last_updated) | int > 60 }}'
   #   - condition: time
   #     after: '21:00:00'
   action:
     service: switch.turn_off
+    entity_id:
+      - group.family_room
+
+- alias: Toggle family room lights
+  trigger:
+    platform: state
+    entity_id: sensor.livingroom_button
+    # to: "ON"
+    # to: "OFF"
+  action:
+    service: switch.toggle
     entity_id:
       - group.family_room
