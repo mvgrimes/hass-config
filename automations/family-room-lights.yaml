@@ -33,13 +33,28 @@
     entity_id:
       - group.family_room
 
-- alias: Toggle family room lights
+- alias: Toggle family room lights off
   trigger:
     platform: state
     entity_id: sensor.livingroom_button
-    # to: "ON"
-    # to: "OFF"
+  condition:
+    - condition: state
+      entity_id: group.family_room
+      state: "ON"
   action:
-    service: switch.toggle
+    service: switch.turn_off
+    entity_id:
+      - group.family_room
+
+- alias: Toggle family room lights on
+  trigger:
+    platform: state
+    entity_id: sensor.livingroom_button
+  condition:
+    - condition: state
+      entity_id: group.family_room
+      state: "OFF"
+  action:
+    service: switch.turn_on
     entity_id:
       - group.family_room
