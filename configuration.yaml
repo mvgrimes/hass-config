@@ -97,7 +97,7 @@ panel_custom:
 # emulated_hue:
 
 logger: !include logger.yaml
-light: !include lights.yaml
+light: !include_dir_merge_list lights
 sensor: !include_dir_merge_list sensors
 switch: !include_dir_merge_list switches
 zone: !include zones.yaml
