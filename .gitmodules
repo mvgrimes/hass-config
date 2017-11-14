@@ -1,0 +1,6 @@
+# [submodule "ha-floorplan"]
+# 	path = floorplan
+# 	url = https://github.com/pkozul/ha-floorplan.git
+[submodule "floorplan"]
+	path = floorplan
+	url = https://github.com/pkozul/ha-floorplan.git
