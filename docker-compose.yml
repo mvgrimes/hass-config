@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    image: homeassistant/home-assistant
+    # ports:
+    #   - "8123:8123"
+    volumes:
+      - ./:/config
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/ttyUSB1:/dev/ttyUSB1
+      - /dev/ttyACM0:/dev/ttyACM0
+    restart: always
+    network_mode: host
