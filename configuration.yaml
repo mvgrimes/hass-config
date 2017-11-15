@@ -55,7 +55,7 @@ zwave:
 #   database_path: /var/lib/hass/zibgee.db
 
 mqtt:
-  broker: 127.0.0.1
+  broker: mqtt
   port: 1883
   username: hass
   password: !secret mqtt_password

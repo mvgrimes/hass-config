@@ -1,1 +1,1 @@
-notify_if_known: '/var/lib/hass/scripts/notify-if-known.sh -n "{{ states.sensor.modem_callerid.attributes.cid_name }}" -p "{{ states.sensor.modem_callerid.attributes.cid_number }}"'
+notify_if_known: '/config/scripts/notify-if-known.sh -n "{{ states.sensor.modem_callerid.attributes.cid_name }}" -p "{{ states.sensor.modem_callerid.attributes.cid_number }}"'

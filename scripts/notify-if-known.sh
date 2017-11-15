@@ -1,15 +1,11 @@
 #!/bin/bash
 
-exec >> /tmp/notify-if-known.log
-exec 2>&1
-
-echo "$(date) $@"
-
 url="http://localhost:8123"
 http_api_password="***REMOVED***"
 mqtt_password="***REMOVED***"
 topic="hass/callerid/say"
-database="/var/lib/hass/phones.sqlite"
+database="/config/phones.sqlite"
+pysqlite="/config/scripts/check-is-known.py"
 
 usage() {
   echo "usage: notify-if-known -p <phone number> -n <name> -t <mqtt topic>"
@@ -52,7 +48,7 @@ is-friend() {
     [ -n "$phone" ] || return 1  # false
 
     echo "checking $phone"
-    res=$( sqlite3 -init /dev/null "$database" "select name from phones where phone like '$phone'" )
+    res=$( $pysqlite "$database" "$phone" )
     err=$?
 
     # echo "is-friend -> $res"
