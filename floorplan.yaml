@@ -15,8 +15,8 @@ groups:
       - switch.reading_lamp
       - switch.basement_lights
       - switch.basement_step_lights
-      - switch.exteriorlights_switch
-      - switch.front_porch_lights_switch
+      - switch.zwave_plug_switch
+      - switch.porch_lights_switch
     states:
       - state: 'on'
         class: 'light-on'
@@ -25,7 +25,7 @@ groups:
 
   - name: Family Room Temp
     entities:
-      - sensor.sn1_real_feel
+      - sensor.livingroom_real_feel
     text_template: "${entity.state ? Math.ceil(entity.state) + '°' : 'undefined' }"
     class_template: 'return "static-temp";'
 

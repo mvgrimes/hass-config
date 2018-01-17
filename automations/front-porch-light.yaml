@@ -6,7 +6,7 @@
   action:
     service: switch.turn_on
     entity_id:
-      - switch.front_porch_lights_switch
+      - switch.porch_lights_switch
 
 - alias: Turn off porch light at sunrise
   trigger:
@@ -16,7 +16,7 @@
   action:
     service: switch.turn_off
     entity_id:
-      - switch.front_porch_lights_switch
+      - switch.porch_lights_switch
 
 - alias: Turn on trim lights
   trigger:
@@ -25,7 +25,7 @@
   action:
     service: switch.turn_on
     entity_id:
-      - switch.exteriorlights_switch
+      - switch.zwave_plug_switch
 
 - alias: Turn off trim lights
   trigger:
@@ -34,4 +34,4 @@
   action:
     service: switch.turn_off
     entity_id:
-      - switch.exteriorlights_switch
+      - switch.zwave_plug_switch
