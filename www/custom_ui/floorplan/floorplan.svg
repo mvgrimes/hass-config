@@ -10,8 +10,8 @@
 		<path id="switch.reading_lamp" d="M335.627,295.054h7.999l4.001,12.002h-15.998L335.627,295.054 M338.627,308.054h2.001l-0.002,5
 			h5l0.004,2h-12.001l-0.004-2h5L338.627,308.054z"/>
 		
-			<text id="sensor.sn1_real_feel" transform="matrix(1.007 0 0 1.007 397.3671 288.2948)" opacity="0.88" fill="#33CCFF" enable-background="new    " font-family="'Menlo-Regular'" font-size="35.7499">72</text>
-		<g id="switch.front_porch_lights_switch">
+			<text id="sensor.livingroom_real_feel" transform="matrix(1.007 0 0 1.007 397.3671 288.2948)" opacity="0.88" fill="#33CCFF" enable-background="new    " font-family="'Menlo-Regular'" font-size="35.7499">72</text>
+		<g id="switch.porch_lights_switch">
 			<path d="M635.013,141.864c-3.867,0-7,3.134-7,7c-0.001,2.38,1.187,4.47,2.999,5.74l-0.001,2.26c0,0.553,0.446,1,1.001,1h6.004
 				c0.549,0,0.995-0.447,0.998-1l-0.003-2.26c1.811-1.271,3-3.36,3.001-5.74C642.014,144.998,638.878,141.864,635.013,141.864
 				 M632.013,160.865c-0.001,0.553,0.446,1,0.999,1h4.001c0.549,0,0.994-0.447,0.999-1l0.002-1h-6l0,1H632.013z"/>
