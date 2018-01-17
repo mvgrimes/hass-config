@@ -75,6 +75,12 @@ mqtt:
   password: !secret mqtt_password
 
 device_tracker:
+  - platform: actiontec
+    host: 192.168.1.1
+    username: !secret fios_username
+    password: !secret fios_password
+    new_device_defaults:
+      track_new_devices: false
   - platform: owntracks
 
 # Text to speech

@@ -1,27 +1,424 @@
-
 mgrimes_oneplus3t:
   hide_if_away: false
-  icon:
+  icon: mdi:cellphone-android
   mac:
-  name: mgrimes
+  name: Mark's Owntrack
   picture:
   track: true
   vendor:
 
 carrie_d81aebcb473e4ef7ab1e8965aecaa6c9:
   hide_if_away: false
-  icon:
+  icon: mdi:cellphone-iphone
   mac:
-  name: carrie
+  name: Carrie's Owntrack
   picture:
   track: true
   vendor:
 
 campbell_iphone:
   hide_if_away: false
-  icon:
+  icon: mdi:cellphone-iphone
   mac:
-  name: campbell
+  name: Campbell's Owntrack
   picture:
   track: true
   vendor:
+
+'carrie_iphone':
+  hide_if_away: false
+  icon: mdi:cellphone-iphone
+  mac: C0:CC:F8:22:0D:00
+  name: Carrie's iPhone
+  picture:
+  track: true
+  vendor: Apple, Inc.
+
+'mark_laptop_spike':
+  hide_if_away: false
+  icon: mdi:laptop-mac
+  mac: F4:5C:89:A7:E5:DF
+  name: spike
+  picture:
+  track: true
+  vendor: Apple, Inc.
+
+'antminer_01':
+  hide_if_away: false
+  icon: mdi:minecraft
+  mac: 88:C2:55:6A:F6:4B
+  name: antminer
+  picture:
+  track: true
+  vendor: Texas Instruments
+
+'campbell_iphone_mac':
+  hide_if_away: false
+  icon: mdi:cellphone-iphone
+  mac: 00:56:CD:B5:E8:ED
+  name: Campbell's iPhone
+  picture:
+  track: true
+  vendor: Apple, Inc.
+
+'campbell_ipad':
+  hide_if_away: false
+  icon: mdi:tablet-ipad
+  mac: EC:AD:B8:78:8E:21
+  name: Campbell's iPad
+  picture:
+  track: true
+  vendor: Apple, Inc.
+
+'mark_android':
+  hide_if_away: false
+  icon: mdi:cellphone-android
+  mac: C0:EE:FB:F4:F0:2E
+  name: Mark's Android
+  picture:
+  track: true
+  vendor: unknown
+
+'whitney_ipad':
+  hide_if_away: false
+  icon: mdi:tablet-ipad
+  mac: 20:EE:28:43:A2:42
+  name: Whitney's iPad
+  picture:
+  track: true
+  vendor: Apple, Inc.
+
+'carrie_ipad':
+  hide_if_away: false
+  icon: mdi:tablet-ipad
+  mac: 04:E5:36:0B:D4:55
+  name: Carrie's iPad
+  picture:
+  track: true
+  vendor: Apple, Inc.
+
+# Untracked -------------------------
+
+'1921681225':
+  hide_if_away: false
+  icon:
+  mac: A4:EE:57:73:1D:EE
+  name: 192.168.1.225
+  picture:
+  track: false
+  vendor: Seiko Epson Corporation
+
+'19216816':
+  hide_if_away: false
+  icon:
+  mac: BC:83:85:95:8B:9D
+  name: 192.168.1.6
+  picture:
+  track: false
+  vendor: unknown
+
+'19216819':
+  hide_if_away: false
+  icon:
+  mac: 70:4F:57:80:4E:19
+  name: 192.168.1.9
+  picture:
+  track: false
+  vendor: unknown
+
+'192168111':
+  hide_if_away: false
+  icon:
+  mac: 30:8C:FB:80:12:E1
+  name: 192.168.1.11
+  picture:
+  track: false
+  vendor: unknown
+
+'192168112':
+  hide_if_away: false
+  icon:
+  mac: 7C:C3:A1:A0:42:DB
+  name: 192.168.1.12
+  picture:
+  track: false
+  vendor: unknown
+
+'192168116':
+  hide_if_away: false
+  icon:
+  mac: D0:52:A8:00:24:B3
+  name: 192.168.1.16
+  picture:
+  track: false
+  vendor: unknown
+
+'192168117':
+  hide_if_away: false
+  icon:
+  mac: 00:11:D9:87:AC:BB
+  name: 192.168.1.17
+  picture:
+  track: false
+  vendor: unknown
+
+'192168118':
+  hide_if_away: false
+  icon:
+  mac: 00:11:D9:86:88:16
+  name: 192.168.1.18
+  picture:
+  track: false
+  vendor: unknown
+
+'192168122':
+  hide_if_away: false
+  icon:
+  mac: 50:C7:BF:A6:D2:20
+  name: 192.168.1.22
+  picture:
+  track: false
+  vendor: unknown
+
+'192168123':
+  hide_if_away: false
+  icon:
+  mac: 50:C7:BF:92:77:9B
+  name: 192.168.1.23
+  picture:
+  track: false
+  vendor: unknown
+
+'192168128':
+  hide_if_away: false
+  icon:
+  mac: 50:C7:BF:B8:5E:FC
+  name: 192.168.1.28
+  picture:
+  track: false
+  vendor: unknown
+
+'192168130':
+  hide_if_away: false
+  icon:
+  mac: 00:16:3E:10:09:80
+  name: 192.168.1.30
+  picture:
+  track: false
+  vendor: unknown
+
+'192168138':
+  hide_if_away: false
+  icon:
+  mac: 2C:3A:E8:42:61:66
+  name: 192.168.1.38
+  picture:
+  track: false
+  vendor: unknown
+
+'1921681201':
+  hide_if_away: false
+  icon:
+  mac: 00:16:3E:10:09:73
+  name: 192.168.1.201
+  picture:
+  track: false
+  vendor: unknown
+
+'1921681253':
+  hide_if_away: false
+  icon:
+  mac: 60:38:E0:75:58:C7
+  name: 192.168.1.253
+  picture:
+  track: false
+  vendor: Belkin International Inc.
+
+'192168124':
+  hide_if_away: false
+  icon:
+  mac: 50:C7:BF:DA:CB:BA
+  name: 192.168.1.24
+  picture:
+  track: false
+  vendor: TP-LINK TECHNOLOGIES CO.,LTD.
+
+'192168133':
+  hide_if_away: false
+  icon:
+  mac: 34:D2:70:BE:77:97
+  name: 192.168.1.33
+  picture:
+  track: false
+  vendor: Amazon Technologies Inc.
+
+'192168113':
+  hide_if_away: false
+  icon:
+  mac: 00:04:F2:A9:A1:90
+  name: 192.168.1.13
+  picture:
+  track: false
+  vendor: Polycom
+
+'192168120':
+  hide_if_away: false
+  icon:
+  mac: 74:DA:38:5B:B9:BD
+  name: 192.168.1.20
+  picture:
+  track: false
+  vendor: unknown
+
+'1921681200':
+  hide_if_away: false
+  icon:
+  mac: 44:8A:5B:21:C7:F5
+  name: 192.168.1.200
+  picture:
+  track: false
+  vendor: Micro-Star INT'L CO., LTD.
+
+'192168115':
+  hide_if_away: false
+  icon:
+  mac: 74:DA:38:42:61:5F
+  name: 192.168.1.15
+  picture:
+  track: false
+  vendor: Edimax Technology Co. Ltd.
+
+'192168110':
+  hide_if_away: false
+  icon:
+  mac: 78:88:6D:4A:E4:E5
+  name: 192.168.1.10
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+'192168131':
+  hide_if_away: false
+  icon:
+  mac: 2C:3A:E8:39:1A:EE
+  name: 192.168.1.31
+  picture:
+  track: false
+  vendor: Espressif Inc.
+
+'192168127':
+  hide_if_away: false
+  icon:
+  mac: 70:56:81:9F:3A:F2
+  name: 192.168.1.27
+  picture:
+  track: false
+  vendor: unknown
+
+'192168132':
+  hide_if_away: false
+  icon:
+  mac: 2C:3A:E8:43:12:4C
+  name: 192.168.1.32
+  picture:
+  track: false
+  vendor: Espressif Inc.
+
+'19216818':
+  hide_if_away: false
+  icon:
+  mac: 30:8C:FB:B3:9D:0D
+  name: 192.168.1.8
+  picture:
+  track: false
+  vendor: Dropcam
+
+'19216814':
+  hide_if_away: false
+  icon:
+  mac: F0:B4:79:1D:C2:8F
+  name: 192.168.1.4
+  picture:
+  track: false
+  vendor: unknown
+
+'192168126':
+  hide_if_away: false
+  icon:
+  mac: 5C:F5:DA:6B:0A:04
+  name: 192.168.1.26
+  picture:
+  track: false
+  vendor: unknown
+
+'19216813_2':
+  hide_if_away: false
+  icon:
+  mac: 40:9C:28:D2:F6:46
+  name: 192.168.1.3
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+'192168120_2':
+  hide_if_away: false
+  icon:
+  mac: 00:FC:8B:0E:C5:F7
+  name: 192.168.1.20
+  picture:
+  track: false
+  vendor: Amazon Technologies Inc.
+
+'192168125':
+  hide_if_away: false
+  icon:
+  mac: 2C:3A:E8:43:13:2C
+  name: 192.168.1.25
+  picture:
+  track: false
+  vendor: Espressif Inc.
+
+'192168129':
+  hide_if_away: false
+  icon:
+  mac: 68:EF:43:3B:7D:90
+  name: 192.168.1.29
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+'192168131_2':
+  hide_if_away: false
+  icon:
+  mac: 98:CA:33:27:20:0F
+  name: 192.168.1.31
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+'192168133_2':
+  hide_if_away: false
+  icon:
+  mac: 20:EE:28:40:A6:8D
+  name: 192.168.1.33
+  picture:
+  track: false
+  vendor: unknown
+
+'192168134':
+  hide_if_away: false
+  icon:
+  mac: 38:C9:86:13:AA:2D
+  name: 192.168.1.34
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+'192168119':
+  hide_if_away: false
+  icon:
+  mac: 74:DA:38:5A:6E:F1
+  name: 192.168.1.19
+  picture:
+  track: false
+  vendor: Edimax Technology Co. Ltd.
