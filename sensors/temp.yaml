@@ -1,0 +1,23 @@
+- platform: mqtt
+  state_topic: "smartthings/Den Thermostat/temperature"
+  name: "Den Thermostat Temp"
+  unit_of_measurement: "°F"
+  retain: true
+
+- platform: mqtt
+  state_topic: "smartthings/Kitchen Thermostat/temperature"
+  name: "Kitchen Thermostat Temp"
+  unit_of_measurement: "°F"
+  retain: true
+
+- platform: mqtt
+  state_topic: "smartthings/Girls BR Temp/temperature"
+  name: "Girls BR Temp"
+  unit_of_measurement: "°F"
+  retain: true
+
+- platform: mqtt
+  state_topic: "smartthings/MBR Temp/temperature"
+  name: "MBR Temp"
+  unit_of_measurement: "°F"
+  retain: true

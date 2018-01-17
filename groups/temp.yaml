@@ -1,0 +1,7 @@
+temps:
+  name: Temps
+  entities:
+    - sensor.den_thermostat_temp
+    - sensor.kitchen_thermostat_temp
+    - sensor.girls_br_temp
+    - sensor.mbr_temp
