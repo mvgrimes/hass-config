@@ -21,12 +21,12 @@ sensornode_kitchen_card:
 sensornode_basement_card:
   name: Basement Sensor
   entities:
-    - sensor.basement_temperature
-    - sensor.basement_humidity
-    - sensor.basement_ldr
-    - sensor.basement_pir
-    - sensor.basement_real_feel
-    - light.basement_led
+    - sensor.baesment_temperature
+    - sensor.baesment_humidity
+    - sensor.baesment_ldr
+    - sensor.baesment_pir
+    - sensor.baesment_real_feel
+    - light.baesment_led
 
 sensornode_master_card:
   name: Master Bedroom Sensor
