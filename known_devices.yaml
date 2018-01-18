@@ -422,3 +422,12 @@ campbell_iphone:
   picture:
   track: false
   vendor: Edimax Technology Co. Ltd.
+
+'192168127_2':
+  hide_if_away: false
+  icon:
+  mac: 64:C6:67:04:73:EC
+  name: 192.168.1.27
+  picture:
+  track: false
+  vendor: unknown
