@@ -1,0 +1,24 @@
+group:
+  weather:
+    name: Weather
+    entities:
+      - sensor.pws_alerts
+      - sensor.pws_dewpoint_f
+      - sensor.pws_precip_today_in
+      - sensor.pws_precip_1d_in
+      - sensor.pws_precip_2d_in
+      - sensor.pws_temp_f
+      - sensor.yr_symbol
+      - sun.sun
+
+sensor:
+  - platform: yr
+  - platform: wunderground
+    api_key: 7f3aca4c15a1fc9a
+    monitored_conditions:
+      - alerts
+      - dewpoint_f
+      - temp_f
+      - precip_today_in
+      - precip_1d_in
+      - precip_2d_in
