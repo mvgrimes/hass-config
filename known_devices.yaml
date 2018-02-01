@@ -431,3 +431,12 @@ campbell_iphone:
   picture:
   track: false
   vendor: unknown
+
+'192168131_3':
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:2D:5B:72
+  name: 192.168.1.31
+  picture:
+  track: false
+  vendor: Raspberry Pi Foundation
