@@ -1,0 +1,27 @@
+welcome_home:
+  sequence:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.home_mode
+
+    - service: notify.pushover
+      data:
+        message: 'Home: {{ states.input_boolean.home_mode.state }} (yes)'
+
+    - service: media_player.media_play
+      entity_id: media_player.kitchen
+
+goodbye:
+  sequence:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.home_mode
+
+    - service: notify.pushover
+      data:
+        message: 'Home: {{ states.input_boolean.home_mode.state }} (no)'
+
+    - service: media_player.media_pause
+      entity_id: media_player.kitchen
+    - service: switch.turn_off
+      entity_id: group.family_room
+    - service: switch.turn_off
+      entity_id: group.basement_lights

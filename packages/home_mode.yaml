@@ -1,0 +1,15 @@
+# homeassistant:
+#   customize:
+#     switch.floor_lamp:
+#       emulated_hue_hidden: false
+
+input_boolean:
+  home_mode:
+    name: 'Home Mode'
+    icon: 'mdi:home'
+
+group:
+  home:
+    name: Home Mode
+    entities:
+      - input_boolean.home_mode

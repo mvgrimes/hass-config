@@ -1,0 +1,15 @@
+---
+host_ip: 192.168.1.201
+listen_port: 8300
+# type: alexa
+# upnp_bind_multicast: false
+# need to turn off firewall to discover devices
+# $ sudo ufw disable
+off_maps_to_on_domains:
+  - script
+# expose_by_default: false
+expose_by_default: true
+exposed_domains:
+  - switch
+  - input_boolean
+  - script

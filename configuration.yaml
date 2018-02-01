@@ -97,11 +97,11 @@ map:
 
 python_script:
 
-# media_player:
-#   - platform: squeezebox
-#     name: lms
-#     host: 127.0.0.1
-#     port: 9001
+media_player:
+  - platform: squeezebox
+    name: lms
+    host: 127.0.0.1
+    port: 9001
 
 # media_player:
 #    - platform: cast
@@ -114,7 +114,7 @@ panel_custom:
     config: !include floorplan.yaml
 
 # Allow Amazon Echo to control some things
-# emulated_hue:
+emulated_hue: !include alexa.yaml
 
 logger: !include logger.yaml
 light: !include_dir_merge_list lights
@@ -123,5 +123,5 @@ switch: !include_dir_merge_list switches
 zone: !include zones.yaml
 group: !include_dir_merge_named groups
 automation: !include_dir_merge_list automations
-script: !include scripts.yaml
+script: !include_dir_merge_named scripts
 shell_command: !include_dir_merge_named shell_commands

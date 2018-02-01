@@ -1,0 +1,13 @@
+{
+    "1": "switch.basement_step_lights",
+    "10": "script.goodbye",
+    "11": "script.welcome_home",
+    "2": "switch.antique_lamp",
+    "3": "switch.basement_lights",
+    "4": "switch.reading_lamp",
+    "5": "switch.floor_lamp",
+    "6": "switch.switch",
+    "7": "switch.porch_lights_switch",
+    "8": "input_boolean.vacation_mode",
+    "9": "input_boolean.home_mode"
+}

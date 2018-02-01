@@ -4,6 +4,7 @@ services:
     image: homeassistant/home-assistant
     # ports:
     #   - "8123:8123"
+    #   - "8300:8300"  # emulated_hue
     volumes:
       - ./:/config
       - /etc/localtime:/etc/localtime:ro
