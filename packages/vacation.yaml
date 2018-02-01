@@ -9,7 +9,7 @@ input_boolean:
 
 group:
   vaction:
-    name: Modes
+    name: Vacation Mode
     entities:
       - input_boolean.vacation_mode
 
