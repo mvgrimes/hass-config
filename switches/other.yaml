@@ -1,0 +1,7 @@
+- platform: tplink
+  host: 192.168.1.27
+  name: Plug 1
+
+- platform: tplink
+  host: 192.168.1.35
+  name: Plug 2
