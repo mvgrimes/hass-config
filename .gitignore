@@ -15,3 +15,5 @@ zwscene.xml
 backup/
 *.db-shm
 *.db-wal
+nest.conf
+Session.vim

@@ -16,11 +16,11 @@
   radius: 250
   icon: mdi:domain
 
-- name: obx
-  latitude: 36.171669
-  longitude: -75.7546697
-  radius: 2000
-  icon: mdi:beach
+# - name: obx
+#   latitude: 36.171669
+#   longitude: -75.7546697
+#   radius: 2000
+#   icon: mdi:beach
 
 - name: baseball field
   latitude: 39.0793197
