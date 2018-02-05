@@ -2,6 +2,7 @@
     "1": "switch.basement_step_lights",
     "10": "script.goodbye",
     "11": "script.welcome_home",
+    "12": "script.goodnight",
     "2": "switch.antique_lamp",
     "3": "switch.basement_lights",
     "4": "switch.reading_lamp",

@@ -3,9 +3,9 @@ welcome_home:
     - service: input_boolean.turn_on
       entity_id: input_boolean.home_mode
 
-    - service: notify.pushover
-      data:
-        message: 'Home: {{ states.input_boolean.home_mode.state }} (yes)'
+    # - service: notify.pushover
+    #   data:
+    #     message: 'Home: {{ states.input_boolean.home_mode.state }} (yes)'
 
     - service: media_player.media_play
       entity_id: media_player.kitchen
@@ -15,9 +15,9 @@ goodbye:
     - service: input_boolean.turn_off
       entity_id: input_boolean.home_mode
 
-    - service: notify.pushover
-      data:
-        message: 'Home: {{ states.input_boolean.home_mode.state }} (no)'
+    # - service: notify.pushover
+    #   data:
+    #     message: 'Home: {{ states.input_boolean.home_mode.state }} (no)'
 
     - service: media_player.media_pause
       entity_id: media_player.kitchen
@@ -25,3 +25,13 @@ goodbye:
       entity_id: group.family_room
     - service: switch.turn_off
       entity_id: group.basement_lights
+
+goodnight:
+  sequence:
+    - service: media_player.media_pause
+      entity_id: media_player.kitchen
+    - service: switch.turn_off
+      entity_id: group.basement_lights
+    - delay: 00:05:00
+    - service: switch.turn_off
+      entity_id: group.family_room
