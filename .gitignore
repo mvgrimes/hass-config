@@ -13,3 +13,5 @@ zwscene.xml
 .uuid
 .HA_VERSION
 backup/
+*.db-shm
+*.db-wal
