@@ -10,9 +10,9 @@ services:
       - /etc/localtime:/etc/localtime:ro
     devices:
       # zwave
-      - /dev/ttyUSB0:/dev/ttyUSB0
+      # - /dev/ttyUSB0:/dev/ttyUSB0
       # zigbee
-      - /dev/ttyUSB1:/dev/ttyUSB1
+      # - /dev/ttyUSB1:/dev/ttyUSB1
       # modem
       - /dev/ttyACM0:/dev/ttyACM0
     restart: always
