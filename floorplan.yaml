@@ -15,8 +15,7 @@ groups:
       - switch.reading_lamp
       - switch.basement_lights
       - switch.basement_step_lights
-      - switch.zwave_plug_switch
-      - switch.porch_lights_switch
+      - light.porch_lights
     states:
       - state: 'on'
         class: 'light-on'

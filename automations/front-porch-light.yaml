@@ -4,9 +4,9 @@
     event: sunset
     offset: -00:30
   action:
-    service: switch.turn_on
+    service: light.turn_on
     entity_id:
-      - switch.porch_lights_switch
+      - light.porch_lights
 
 - alias: Turn off porch light at sunrise
   trigger:
@@ -14,24 +14,24 @@
     event: sunrise
     offset: +00:30
   action:
-    service: switch.turn_off
+    service: light.turn_off
     entity_id:
-      - switch.porch_lights_switch
+      - light.porch_lights
 
-- alias: Turn on trim lights
-  trigger:
-    platform: time
-    at: '14:00:00'
-  action:
-    service: switch.turn_on
-    entity_id:
-      - switch.zwave_plug_switch
-
-- alias: Turn off trim lights
-  trigger:
-    platform: time
-    at: '8:20:00'
-  action:
-    service: switch.turn_off
-    entity_id:
-      - switch.zwave_plug_switch
+# - alias: Turn on trim lights
+#   trigger:
+#     platform: time
+#     at: '14:00:00'
+#   action:
+#     service: switch.turn_on
+#     entity_id:
+#       - switch.zwave_plug_switch
+#
+# - alias: Turn off trim lights
+#   trigger:
+#     platform: time
+#     at: '8:20:00'
+#   action:
+#     service: switch.turn_off
+#     entity_id:
+#       - switch.zwave_plug_switch

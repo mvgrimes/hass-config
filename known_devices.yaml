@@ -306,15 +306,6 @@ campbell_iphone:
   track: false
   vendor: Espressif Inc.
 
-'192168127':
-  hide_if_away: false
-  icon:
-  mac: 70:56:81:9F:3A:F2
-  name: 192.168.1.27
-  picture:
-  track: false
-  vendor: unknown
-
 '192168132':
   hide_if_away: false
   icon:
@@ -378,15 +369,6 @@ campbell_iphone:
   track: false
   vendor: Espressif Inc.
 
-'192168129':
-  hide_if_away: false
-  icon:
-  mac: 68:EF:43:3B:7D:90
-  name: 192.168.1.29
-  picture:
-  track: false
-  vendor: Apple, Inc.
-
 '192168131_2':
   hide_if_away: false
   icon:
@@ -423,15 +405,6 @@ campbell_iphone:
   track: false
   vendor: Edimax Technology Co. Ltd.
 
-'192168127_2':
-  hide_if_away: false
-  icon:
-  mac: 64:C6:67:04:73:EC
-  name: 192.168.1.27
-  picture:
-  track: false
-  vendor: unknown
-
 '192168131_3':
   hide_if_away: false
   icon:
@@ -440,3 +413,57 @@ campbell_iphone:
   picture:
   track: false
   vendor: Raspberry Pi Foundation
+
+'192168129':
+  hide_if_away: false
+  icon:
+  mac: 70:4F:57:80:54:D4
+  name: 192.168.1.29
+  picture:
+  track: false
+  vendor: TP-LINK TECHNOLOGIES CO.,LTD.
+
+'192168133_3':
+  hide_if_away: false
+  icon:
+  mac: E4:25:E7:A1:36:56
+  name: 192.168.1.33
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+'192168127':
+  hide_if_away: false
+  icon:
+  mac: B0:4E:26:36:5E:95
+  name: 192.168.1.27
+  picture:
+  track: false
+  vendor: TP-LINK TECHNOLOGIES CO.,LTD.
+
+'192168114':
+  hide_if_away: false
+  icon:
+  mac: 58:EF:68:BB:31:89
+  name: 192.168.1.14
+  picture:
+  track: false
+  vendor: Belkin International Inc.
+
+'192168135':
+  hide_if_away: false
+  icon:
+  mac: B0:4E:26:36:53:3A
+  name: 192.168.1.35
+  picture:
+  track: false
+  vendor: TP-LINK TECHNOLOGIES CO.,LTD.
+
+'192168120_3':
+  hide_if_away: false
+  icon:
+  mac: 64:C6:67:04:73:EC
+  name: 192.168.1.20
+  picture:
+  track: false
+  vendor: Barnes&Noble
