@@ -3,4 +3,4 @@ family_room:
   entities:
     - switch.floor_lamp
     - switch.reading_lamp
-    # - switch.antique_lamp
+    - switch.antique_lamp

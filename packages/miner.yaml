@@ -6,4 +6,4 @@ group:
   miner:
     name: Miner
     entities:
-      - switch.antique_lamp
+      - switch.miner_power
