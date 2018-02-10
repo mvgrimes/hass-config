@@ -467,3 +467,12 @@ campbell_iphone:
   picture:
   track: false
   vendor: Barnes&Noble
+
+'19216815':
+  hide_if_away: false
+  icon:
+  mac: 18:74:2E:00:5F:E5
+  name: 192.168.1.5
+  picture:
+  track: false
+  vendor: Amazon Technologies Inc.

@@ -5,6 +5,7 @@ switch_view:
     - group.exterior_lights
     - group.basement_lights
     - group.locks
+    - group.family_room
 
 
 locks:

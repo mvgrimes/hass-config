@@ -1,6 +1,8 @@
 group.all_automations:
   name: Automations
+  friendly_name: Automations
   hidden: false
 group.all_scripts:
   name: Scripts
+  friendly_name: Scripts
   hidden: false

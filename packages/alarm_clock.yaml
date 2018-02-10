@@ -35,22 +35,34 @@ light:
     command_topic: floorplan/clock_screensaver/set
     brightness: true
 
-sensor:
-  - platform: mqtt
-    state_topic: "clock/alarm_time"
-    name: clock_alarm_time
-    retain: true
-    hidden: true
+# sensor:
+#   - platform: mqtt
+#     state_topic: "clock/alarm_time"
+#     name: clock_alarm_time
+#     retain: true
+#     hidden: true
+
+input_datetime:
+  alarm_time:
+    name: Alarm Time
+    has_date: false
+    has_time: true
 
 input_boolean:
   clock_snooze:
     name: Clock Snooze
-    initial: 'off'
+    # initial: 'off'
+    icon: mdi:alarm-snooze
 
   alarm_mode:
     name: Alarm Mode
-    initial: 'off'
+    # initial: 'off'
     icon: mdi:alarm
+
+  carpool_week:
+    name: Drive Carpool Friday
+    # initial: 'off'
+    icon: mdi:bus-school
 
 group:
   alarm_clock:
@@ -60,7 +72,9 @@ group:
       - binary_sensor.clock_plugged
       - input_boolean.clock_snooze
       - input_boolean.alarm_mode
+      - input_boolean.carpool_week
       - light.bedroom_screensaver
+      - input_datetime.alarm_time
 
 automation:
   - alias: 'Snooze Button off in 10 minutes'
@@ -102,7 +116,7 @@ automation:
         to: 'off'
         from: 'on'
       - platform: template
-        value_template: '{{states.sensor.time.state == states.sensor.clock_alarm_time.state}}'
+        value_template: '{{states.sensor.time.state == states.input_datetime.alarm_time.state}}'
     condition:
       - condition: state
         entity_id: input_boolean.alarm_mode

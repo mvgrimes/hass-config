@@ -1,6 +1,7 @@
 name: Clock
 image: /local/custom_ui/floorplan/clock.svg
 stylesheet: /local/custom_ui/floorplan/clock.css
+# hide_app_toolbar: true
 warnings:
 
 variables:
@@ -19,7 +20,7 @@ groups:
   #       page_id: clock_config
 
   - entities:
-      - sensor.clock_alarm_time
+      - input_datetime.alarm_time
     text_template: '${entity.state ? entity.state.slice(0, 5) : "00:00"}'
 
   - entities:
@@ -30,7 +31,7 @@ groups:
 
   - entities:
       - input_boolean.alarm_mode
-    image_template: '/local/custom_ui/floorplan/buttons/${(entity.state === "on") ? "school_on" : "school_off"}.svg'
+    text_template: '${(entity.state === "on") ? "Active" : "Inactive"}'
     action:
       service: toggle
 
@@ -64,6 +65,22 @@ groups:
     text_template: '${entity.state ? entity.state : "undefined"}'
     class_template: 'return "static-text";'
 
+  - name: text_carpool_today
+    entities:
+      - sensor.clock_day
+    element: sensor.carpool_today
+    more_info: false
+    text_template: '${ ["Monday","Wednesday"].include(entity.state) ? "Grimes" : "Brianas"}'
+    class_template: 'return "static-text";'
+
+  - name: text_carpool_tomorrow
+    entities:
+      - sensor.clock_day
+    element: sensor.carpool_tomorrow
+    more_info: false
+    text_template: '${ ["Sunday","Tuesday"].include(entity.state) ? "Grimes" : "Brianas"}'
+    class_template: 'return "static-text";'
+
   - name: text_font_date
     entities:
       - sensor.clock_date
@@ -88,7 +105,6 @@ groups:
     more_info: false
     text_template: '${entity.state ? entity.state : "undefined"}'
     class_template: 'return "static-text-am_pm";'
-
 
   # - name: Presence
   #   entities:
