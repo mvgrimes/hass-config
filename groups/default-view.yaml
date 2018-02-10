@@ -1,5 +1,20 @@
-# default_view:
-#   view: yes
-#   name: Default
-#   entities:
-#
+default_view:
+  view: yes
+  name: Default
+  entities:
+    - group.switch_group
+    - group.mode_group
+
+mode_group:
+  name: Modes
+  entities:
+    - group.home
+    - group.vaction
+
+switch_group:
+  name: Switches
+  entities:
+    - group.exterior_lights
+    - group.basement_lights
+    - group.locks
+    - group.family_room
