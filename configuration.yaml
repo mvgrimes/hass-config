@@ -34,10 +34,7 @@ updater:
 # Discover some devices automatically
 # discovery:
 
-# Record events to database (default is home-assistant_v2.db sqlite)
-# recorder:
-#   purge_interval: 1
-#   purge_keep_days: 14
+recorder: !include recorder.yaml
 
 # Record events in influxdb
 influxdb:
@@ -115,7 +112,21 @@ panel_custom:
     sidebar_title: Floorplan
     sidebar_icon: mdi:home
     url_path: floorplan
-    config: !include floorplan.yaml
+    config: !include floorplan_config/floorplan.yaml
+  - name: clock
+    sidebar_title: Clock
+    sidebar_icon: mdi:alarm
+    url_path: clock
+    config: !include floorplan_config/clock.yaml
+  # This is a WIP. Think he used variables: floorplan.minutes
+  # to avoid the lag going back to mqtt, etc. Don't think
+  # variables are availabe in the version of floorplan we are
+  # using.
+  # - name: clock_config
+  #   sidebar_title: Clock Config
+  #   sidebar_icon: mdi:tune
+  #   url_path: clock_config
+  #   config: !include floorplan_config/clock_config.yaml
 
 # Allow Amazon Echo to control some things
 emulated_hue: !include alexa.yaml

@@ -11,6 +11,15 @@ group:
       - sensor.yr_symbol
       - sun.sun
 
+      - sensor.dark_sky_precip_intensity
+      - sensor.dark_sky_precip_intensity_max
+      - sensor.dark_sky_temperature
+      - sensor.dark_sky_wind_speed
+      - sensor.dark_sky_cloud_cover
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_minutely_summary
+      - sensor.dark_sky_uv_index
+
 sensor:
   - platform: yr
   - platform: wunderground
@@ -22,3 +31,22 @@ sensor:
       - precip_today_in
       - precip_1d_in
       - precip_2d_in
+  - platform: darksky
+    api_key: !secret darksky_key
+    monitored_conditions:
+      # - summary
+      # - precip_type
+      - precip_intensity
+      - precip_intensity_max
+      - temperature
+      # - dew_point
+      - wind_speed
+      # - wind_bearing
+      - cloud_cover
+      - humidity
+      # - nearest_storm_distance
+      - minutely_summary
+      # - pressure
+      # - visibility
+      # - ozone
+      - uv_index

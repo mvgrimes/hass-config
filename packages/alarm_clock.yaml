@@ -1,0 +1,146 @@
+# -------------------------------------------
+#  Fire Tablet Alarm Panel -
+#  From: https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/packages/alarm_clock.yaml
+#  http://www.vmwareinfo.com/2017/07/visualizing-smart-home-using-home.html
+# -------------------------------------------
+
+homeassistant:
+  customize_glob:
+    "input_boolean.clock_snooze":
+      hidden: false
+
+media_player:
+  - platform: floorplan_speaker
+    name: Alarm Clock
+
+# ---Sensors for Fire Tablet-----------------------------
+binary_sensor:
+  - platform: mqtt
+    state_topic: floorplan/clock_motion
+    name: Clock Motion
+    device_class: motion
+    retain: true
+    hidden: false
+
+  - platform: mqtt
+    state_topic: floorplan/clock_plugged
+    name: Clock Plugged
+    retain: true
+    hidden: false
+
+light:
+  - platform: mqtt_json
+    name: Clock Screensaver
+    state_topic: floorplan/clock_screensaver
+    command_topic: floorplan/clock_screensaver/set
+    brightness: true
+
+sensor:
+  - platform: mqtt
+    state_topic: "clock/alarm_time"
+    name: clock_alarm_time
+    retain: true
+    hidden: true
+
+input_boolean:
+  clock_snooze:
+    name: Clock Snooze
+    initial: 'off'
+
+  alarm_mode:
+    name: Alarm Mode
+    initial: 'off'
+    icon: mdi:alarm
+
+group:
+  alarm_clock:
+    name: Alarm Clock
+    entities:
+      - binary_sensor.clock_motion
+      - binary_sensor.clock_plugged
+
+automation:
+  - alias: 'Snooze Button off in 10 minutes'
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.clock_snooze
+        to: 'on'
+        from: 'off'
+    action:
+      - delay:
+          minutes: 10
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.clock_snooze
+
+  # Turn on the clock - turn off the screensaver so we can see it.
+  # - alias: Turn off Screensaver so we can see the time
+  #   trigger:
+  #     - platform: state
+  #       entity_id:
+  #         - binary_sensor.sleepnumber_carlo_carlo_is_in_bed
+  #         - binary_sensor.sleepnumber_carlo_stacey_is_in_bed
+  #         - light.bedroom_screensaver
+  #       to: 'off'
+  #
+  #   action:
+  #     - service: light.turn_off
+  #       entity_id: light.clock_screensaver
+  #     - wait_template: "{{ is_state(trigger.entity_id, 'on') }}"
+  #     - service: light.turn_on
+  #       entity_id: light.clock_screensaver
+
+  # -----Turn on the Music--------------------------------------
+  - alias: 'Play Radio when Snooze button is turned off.'
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.clock_snooze
+        to: 'off'
+        from: 'on'
+      - platform: template
+        value_template: '{{states.sensor.time.state == states.sensor.clock_alarm_time.state}}'
+    condition:
+      - condition: state
+        entity_id: input_boolean.alarm_mode
+        state: 'on'
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      # - condition: state
+      #   entity_id: group.family
+      #   state: 'home'
+    action:
+      - service: notify.pushover
+        data:
+          message: 'ALARM CLOCK!'
+      - service: media_player.volume_set
+        data_template:
+          entity_id:
+            - media_player.alarm_clock
+          volume_level: 0.3
+      - service: media_player.play_media
+        data_template:
+          entity_id:
+            - media_player.alarm_clock
+          media_content_id: "http://listen.djcmedia.com:80/americascountryhigh"
+          media_content_type: audio/mp4
+      - service: light.turn_off
+        entity_id: light.clock_screensaver
+
+  # -----Turn off the Music--------------------------------------
+  - alias: 'Turn off the Radio when the snooze is turned on.'
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.clock_snooze
+        to: 'on'
+        from: 'off'
+
+    action:
+      - service: media_player.media_stop
+        entity_id: media_player.alarm_clock

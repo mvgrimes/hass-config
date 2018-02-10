@@ -1,0 +1,21 @@
+# Record events to database (default is home-assistant_v2.db sqlite)
+
+purge_interval: 1
+purge_keep_days: 14
+
+exclude:
+  # domains:
+  #   - updater
+  #   - automation
+  #   - device_tracker
+  #   - group
+  #   - scene
+  #   - script
+  entities:
+    - sensor.clock_day
+    - sensor.clock_time
+    - sensor.clock_am_pm
+    - sensor.clock_date
+    # - sensor.clock_alarm_time
+    - sensor.time
+    - sensor.date
