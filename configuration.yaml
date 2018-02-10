@@ -112,21 +112,16 @@ panel_custom:
     sidebar_title: Floorplan
     sidebar_icon: mdi:home
     url_path: floorplan
-    config: !include floorplan_config/floorplan.yaml
+    config:
+      config: /local/custom_ui/floorplan/floorplan.yaml
+      # hide_app_toolbar:
   - name: clock
     sidebar_title: Clock
     sidebar_icon: mdi:alarm
     url_path: clock
-    config: !include floorplan_config/clock.yaml
-  # This is a WIP. Think he used variables: floorplan.minutes
-  # to avoid the lag going back to mqtt, etc. Don't think
-  # variables are availabe in the version of floorplan we are
-  # using.
-  # - name: clock_config
-  #   sidebar_title: Clock Config
-  #   sidebar_icon: mdi:tune
-  #   url_path: clock_config
-  #   config: !include floorplan_config/clock_config.yaml
+    config:
+      config: /local/custom_ui/floorplan/floorclock.yaml
+      hide_app_toolbar:
 
 # Allow Amazon Echo to control some things
 emulated_hue: !include alexa.yaml

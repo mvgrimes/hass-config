@@ -1,7 +1,6 @@
-name: Clock
+page_id: Clock
 image: /local/custom_ui/floorplan/clock.svg
 stylesheet: /local/custom_ui/floorplan/clock.css
-# hide_app_toolbar: true
 warnings:
 
 variables:
@@ -12,7 +11,7 @@ defaults:
   hover_over: false
   more_info: false
 
-groups:
+rules:
   # - element: floorplan.clock_button
   #   action:
   #     service: floorplan.page_navigate
@@ -70,16 +69,16 @@ groups:
       - sensor.clock_day
     element: sensor.carpool_today
     more_info: false
-    text_template: '${ ["Monday","Wednesday"].include(entity.state) ? "Grimes" : "Brianas"}'
-    class_template: 'return "static-text";'
+    text_template: '${ ["Monday","Wednesday"].includes(entity.state) ? "Grimes" : "Brianas"}'
+    # class_template: 'return "static-text";'
 
   - name: text_carpool_tomorrow
     entities:
       - sensor.clock_day
     element: sensor.carpool_tomorrow
     more_info: false
-    text_template: '${ ["Sunday","Tuesday"].include(entity.state) ? "Grimes" : "Brianas"}'
-    class_template: 'return "static-text";'
+    text_template: '${ ["Sunday","Tuesday"].includes(entity.state) ? "Grimes" : "Brianas"}'
+    # class_template: 'return "static-text";'
 
   - name: text_font_date
     entities:

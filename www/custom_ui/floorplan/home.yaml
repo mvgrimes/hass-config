@@ -1,14 +1,13 @@
-name: My Floorplan
+page_id: Home
 image: /local/custom_ui/floorplan/floorplan.svg
 stylesheet: /local/custom_ui/floorplan/floorplan.css
 warnings:
 
-# hide_app_toolbar:
 # pan_zoom:
 # last_motion_entity: sensor.template_last_motion
 # last_motion_class: last-motion
 
-groups:
+rules:
   - name: The Lights
     entities:
       - switch.floor_lamp
