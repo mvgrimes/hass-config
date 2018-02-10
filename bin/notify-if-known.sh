@@ -4,8 +4,8 @@ url="http://localhost:8123"
 http_api_password="***REMOVED***"
 mqtt_password="***REMOVED***"
 topic="hass/callerid/say"
-database="/config/phones.sqlite"
-pysqlite="/config/bin/check-is-known.py"
+database="/srv/app/hass/config/phones.sqlite"
+pysqlite="/srv/app/hass/config/bin/check-is-known.py"
 
 usage() {
   echo "usage: notify-if-known -p <phone number> -n <name> -t <mqtt topic>"
