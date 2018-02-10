@@ -17,3 +17,5 @@ backup/
 *.db-wal
 nest.conf
 Session.vim
+*.pyc
+entity_registry.yaml
