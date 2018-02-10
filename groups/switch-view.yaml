@@ -1,0 +1,18 @@
+switch_view:
+  view: yes
+  name: Switches
+  entities:
+    - group.exterior_lights
+    - group.basement_lights
+    - group.locks
+
+
+locks:
+  name: Side Door
+  entities:
+    - lock.mqtt_lock
+
+unused_switch:
+  name: Unused
+  entities:
+    - switch.plug_2

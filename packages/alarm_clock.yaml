@@ -58,6 +58,9 @@ group:
     entities:
       - binary_sensor.clock_motion
       - binary_sensor.clock_plugged
+      - input_boolean.clock_snooze
+      - input_boolean.alarm_mode
+      - light.bedroom_screensaver
 
 automation:
   - alias: 'Snooze Button off in 10 minutes'

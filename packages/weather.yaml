@@ -1,6 +1,6 @@
 group:
-  weather:
-    name: Weather
+  weather_wu:
+    name: Weather Underground
     entities:
       - sensor.pws_alerts
       - sensor.pws_dewpoint_f
@@ -8,14 +8,21 @@ group:
       - sensor.pws_precip_1d_in
       - sensor.pws_precip_2d_in
       - sensor.pws_temp_f
-      - sensor.yr_symbol
-      - sun.sun
 
+  weather_sun:
+    name: Sun
+    entities:
+      - sun.sun
+      - sensor.yr_symbol
+
+  weather_ds:
+    name: DarkSky
+    entities:
       - sensor.dark_sky_precip_intensity
-      - sensor.dark_sky_precip_intensity_max
+      - sensor.dark_sky_daily_max_precip_intensity
       - sensor.dark_sky_temperature
       - sensor.dark_sky_wind_speed
-      - sensor.dark_sky_cloud_cover
+      - sensor.dark_sky_cloud_coverage
       - sensor.dark_sky_humidity
       - sensor.dark_sky_minutely_summary
       - sensor.dark_sky_uv_index

@@ -1,0 +1,7 @@
+miner_view:
+  view: yes
+  name: Miner
+  entities:
+    - group.miner
+
+

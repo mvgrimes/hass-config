@@ -1,0 +1,6 @@
+clock_view:
+  view: yes
+  name: Clock
+  entities:
+    - group.alarm_clock
+    - media_player.alarm_clock

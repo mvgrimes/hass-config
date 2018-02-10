@@ -1,0 +1,6 @@
+presence_view:
+  view: yes
+  name: Presence
+  entities:
+    - group.family
+

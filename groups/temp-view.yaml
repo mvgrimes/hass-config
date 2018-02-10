@@ -1,0 +1,12 @@
+temp_view:
+  view: yes
+  name: Temps
+  entities:
+    - group.temps
+    - group.sensor_node_1_card
+    - group.sensornode_basement_card
+    - group.sensornode_bedrooms_card
+    - group.sensornode_kitchen_card
+    - group.sensornode_livingroom_card
+    - group.sensornode_master_card
+    - group.sensornode_porch_card

@@ -1,0 +1,15 @@
+weather_view:
+  view: yes
+  name: Weather
+  entities:
+    - group.weather_wu
+    - group.weather_ds
+    - group.weather_sun
+    - group.date_time
+
+
+date_time:
+  name: Date/Time
+  entities:
+    - sensor.date
+    - sensor.time
