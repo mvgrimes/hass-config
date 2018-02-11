@@ -24,24 +24,29 @@ rules:
 
   - entities:
       - input_boolean.clock_snooze
-    image_template: '/local/custom_ui/floorplan/buttons/${(entity.state === "on") ? "snooze_on" : "snooze"}.svg'
+    text_template: '${(entity.state === "on") ? "Zzzzzz" : "Snooze"}'
     action:
-      service: toggle
+      service: input_boolean.toggle
+      data:
+        entity_id: input_boolean.clock_snooze
 
   - entities:
       - input_boolean.alarm_mode
     text_template: '${(entity.state === "on") ? "Active" : "Inactive"}'
     action:
-      service: toggle
+      service: input_boolean.toggle
+      data:
+        entity_id: input_boolean.alarm_mode
 
   - entities:
       - media_player.alarm_clock
-    image_template: '/local/custom_ui/floorplan/buttons/${(entity.state === "playing") ? "stop" : "radio_on"}.svg'
+    text_template: '${(entity.state === "playing") ? "Stop" : "Radio"}'
     action:
       service_template: '${(entity.state === "playing") ? "media_player.media_stop" : "media_player.play_media"}'
       data:
-        media_content_id: http://listen.djcmedia.com:80/americascountryhigh
+        media_content_id: "https://playerservices.streamtheworld.com/api/livestream-redirect/WYPR_HD1.mp3"
         media_content_type: audio/mp4
+        entity_id: media_player.alarm_clock
 
   - name: thermostats_temp
     entities:
@@ -58,27 +63,84 @@ rules:
 
   - name: text_states
     entities:
-      - sensor.dark_sky_minutely_summary
+      - sensor.pws_weather_1d
     hover_over: false
-    more_info: false
+    # more_info: false
     text_template: '${entity.state ? entity.state : "undefined"}'
-    class_template: 'return "static-text";'
+    # class_template: 'return "static-text";'
+
+  - name: text_carpool_week
+    entities:
+      - input_boolean.carpool_week
+    element: input_boolean.carpool_week
+    more_info: false
+    text_template: '${(entity.state === "on") ? "G" : "B"}'
+    action:
+      service: input_boolean.toggle
+      data:
+        entity_id: input_boolean.carpool_week
 
   - name: text_carpool_today
     entities:
       - sensor.clock_day
     element: sensor.carpool_today
     more_info: false
-    text_template: '${ ["Monday","Wednesday"].includes(entity.state) ? "Grimes" : "Brianas"}'
-    # class_template: 'return "static-text";'
+    text_template: '
+      var driver;
+      var day = entity.state ? entity.state : "";
+
+      switch (day) {
+        case "Monday":
+        case "Wednesday":
+          driver = "Grimes";
+          break;
+
+        case "Tuesday":
+        case "Thursday":
+          driver = "Brianas";
+          break;
+
+        case "Friday":
+          driver = entities["input_boolean.carpool_week"].state === "on" ? "Grimes" : "Brianas";
+          break;
+
+        default:
+          driver = "--";
+      }
+
+      return driver;
+      '
 
   - name: text_carpool_tomorrow
     entities:
       - sensor.clock_day
     element: sensor.carpool_tomorrow
     more_info: false
-    text_template: '${ ["Sunday","Tuesday"].includes(entity.state) ? "Grimes" : "Brianas"}'
-    # class_template: 'return "static-text";'
+    text_template: '
+      var driver;
+      var day = entity.state ? entity.state : "";
+
+      switch (day) {
+        case "Sunday":
+        case "Tuesday":
+          driver = "Grimes";
+          break;
+
+        case "Monday":
+        case "Wednesday":
+          driver = "Brianas";
+          break;
+
+        case "Thursday":
+          driver = entities["input_boolean.carpool_week"].state === "on" ? "Grimes" : "Brianas";
+          break;
+
+        default:
+          driver = "--";
+      }
+
+      return driver;
+      '
 
   - name: text_font_date
     entities:

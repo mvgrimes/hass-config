@@ -12,6 +12,7 @@ rules:
     entities:
       - switch.floor_lamp
       - switch.reading_lamp
+      - switch.antique_lamp
       - switch.basement_lights
       - switch.basement_step_lights
       - light.porch_lights
@@ -35,10 +36,34 @@ rules:
       - state: 'home'
         class: 'device-home'
 
-  - name: LightButtons
+  - name: Family Room Button
     entities:
       - group.family_room
+    states:
+      - state: 'on'
+        class: 'button-on'
+      - state: 'off'
+        class: 'button-off'
+    action:
+      service: homeassistant.toggle
+      data:
+        entity_id: group.family_room
+
+  - name: Basement Button
+    entities:
       - group.basement_lights
+    states:
+      - state: 'on'
+        class: 'button-on'
+      - state: 'off'
+        class: 'button-off'
+    action:
+      service: homeassistant.toggle
+      data:
+        entity_id: group.basement_lights
+
+  - name: Exterior Button
+    entities:
       - group.exterior_lights
     states:
       - state: 'on'
@@ -46,7 +71,9 @@ rules:
       - state: 'off'
         class: 'button-off'
     action:
-      service: toggle
+      service: homeassistant.toggle
+      data:
+        entity_id: group.exterior_lights
 
   - name: CallerId
     entities:

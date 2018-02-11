@@ -67,6 +67,7 @@ input_boolean:
 group:
   alarm_clock:
     name: Alarm Clock
+    control: hidden
     entities:
       - binary_sensor.clock_motion
       - binary_sensor.clock_plugged
@@ -108,7 +109,7 @@ automation:
   #       entity_id: light.clock_screensaver
 
   # -----Turn on the Music--------------------------------------
-  - alias: 'Play Radio when Snooze button is turned off.'
+  - alias: 'Play Radio at Alarm Time or End of Snooze.'
     trigger:
       - platform: state
         entity_id:
@@ -116,7 +117,7 @@ automation:
         to: 'off'
         from: 'on'
       - platform: template
-        value_template: '{{states.sensor.time.state == states.input_datetime.alarm_time.state}}'
+        value_template: '{{ states.input_datetime.alarm_time.state == states.sensor.time.state + ":00" }}'
     condition:
       - condition: state
         entity_id: input_boolean.alarm_mode
@@ -128,6 +129,7 @@ automation:
           - wed
           - thu
           - fri
+          - sat
       # - condition: state
       #   entity_id: group.family
       #   state: 'home'
@@ -139,15 +141,28 @@ automation:
         data_template:
           entity_id:
             - media_player.alarm_clock
-          volume_level: 0.3
+          volume_level: 0.1
       - service: media_player.play_media
         data_template:
           entity_id:
             - media_player.alarm_clock
-          media_content_id: "http://listen.djcmedia.com:80/americascountryhigh"
+          # media_content_id: "http://listen.djcmedia.com:80/americascountryhigh"
+          media_content_id: "https://playerservices.streamtheworld.com/api/livestream-redirect/WYPR_HD1.mp3"
           media_content_type: audio/mp4
       - service: light.turn_off
         entity_id: light.clock_screensaver
+      - delay: 0:00:15
+      - service: media_player.volume_set
+        data_template:
+          entity_id:
+            - media_player.alarm_clock
+          volume_level: 0.2
+      - delay: 0:00:15
+      - service: media_player.volume_set
+        data_template:
+          entity_id:
+            - media_player.alarm_clock
+          volume_level: 0.3
 
   # -----Turn off the Music--------------------------------------
   - alias: 'Turn off the Radio when the snooze is turned on.'
@@ -161,3 +176,16 @@ automation:
     action:
       - service: media_player.media_stop
         entity_id: media_player.alarm_clock
+
+  # -----Switch Carpool Week on Sat--------------------------------------
+  - alias: 'Switch carpool week on Sat'
+    trigger:
+      - platform: time
+        at: '10:00:00'
+    condition:
+      - condition: state
+        entity_id: sensor.clock_day
+        state: "Friday"
+    action:
+      - service: homeassistant.toggle
+        entity_id: input_boolean.carpool_week

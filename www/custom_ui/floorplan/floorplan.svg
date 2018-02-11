@@ -5,9 +5,15 @@
 	 width="1024px" height="768px" viewBox="0 0 1024 768" enable-background="new 0 0 1024 768" xml:space="preserve">
 <g id="First_Floor" transform="skewX(25) scale(0.9)">
 	<g id="First_Floor_Objects">
-		<path id="switch.floor_lamp" d="M477.97,294.608h7.998l4,12.003h-16L477.97,294.608 M480.968,307.609h2.002l0,5h5l0.003,2H475.97
+		<path id="switch.antique_lamp"
+      d="M335.627,195.054h7.999l4.001,12.002h-15.998L335.627,195.054
+      M338.627,208.054h2.001l-0.002,5
+			h5l0.004,2h-12.001l-0.004-2h5L338.627,308.054z"/>
+		<path id="switch.floor_lamp" d="M477.97,294.608h7.998l4,12.003h-16L477.97,294.608
+      M480.968,307.609h2.002l0,5h5l0.003,2H475.97
 			l-0.002-2h5L480.968,307.609z"/>
-		<path id="switch.reading_lamp" d="M335.627,295.054h7.999l4.001,12.002h-15.998L335.627,295.054 M338.627,308.054h2.001l-0.002,5
+		<path id="switch.reading_lamp" d="M335.627,295.054h7.999l4.001,12.002h-15.998L335.627,295.054
+      M338.627,308.054h2.001l-0.002,5
 			h5l0.004,2h-12.001l-0.004-2h5L338.627,308.054z"/>
 		
 			<text id="sensor.livingroom_real_feel" transform="matrix(1.007 0 0 1.007 397.3671 288.2948)" opacity="0.88" fill="#33CCFF" enable-background="new    " font-family="'Menlo-Regular'" font-size="35.7499">72</text>
@@ -402,7 +408,7 @@
 		
 			<text transform="matrix(1.007 0 0 1.007 519.9926 316.2934)" fill="#888D8E" font-family="'MyriadPro-Semibold'" font-size="11.9166">Porch</text>
 		
-			<text transform="matrix(1.007 0 0 1.007 334.7616 201.2446)" fill="#888D8E" font-family="'MyriadPro-Semibold'" font-size="11.9166">Living Room</text>
+			<text transform="matrix(1.007 0 0 1.007 384.7616 201.2446)" fill="#888D8E" font-family="'MyriadPro-Semibold'" font-size="11.9166">Living Room</text>
 		
 			<text transform="matrix(1.007 0 0 1.007 292.9272 144.4152)" fill="#888D8E" font-family="'MyriadPro-Semibold'" font-size="11.9166">Kitchen</text>
 	</g>

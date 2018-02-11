@@ -4,15 +4,18 @@ default_view:
   entities:
     - group.switch_group
     - group.mode_group
+    - group.alarm_clock
 
 mode_group:
   name: Modes
+  control: hidden
   entities:
     - group.home
     - group.vaction
 
 switch_group:
   name: Switches
+  control: hidden
   entities:
     - group.exterior_lights
     - group.basement_lights
