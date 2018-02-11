@@ -62,3 +62,19 @@ rules:
       data:
         topic: "pets/dogwalked"
         payload_template: "{{ as_timestamp(now()) }}"
+
+  - elements:
+      - reset
+    action:
+      - service: mqtt.publish
+        data:
+          topic: "pets/dogfed"
+          payload: null
+      - service: mqtt.publish
+        data:
+          topic: "pets/catfed"
+          payload: null
+      - service: mqtt.publish
+        data:
+          topic: "pets/dogwalked"
+          payload: null
