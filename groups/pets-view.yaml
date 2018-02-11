@@ -1,0 +1,12 @@
+pets_view:
+  view: yes
+  name: Pets
+  entities:
+    - group.pets
+
+pets:
+  name: Chores
+  entities:
+    - sensor.dogfed_time
+    - sensor.catfed_time
+    - sensor.dogwalked_time

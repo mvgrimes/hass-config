@@ -1,0 +1,76 @@
+# -------------------------------------------
+#  Fire Tablet Pet Panel -
+# -------------------------------------------
+
+homeassistant:
+  customize_glob:
+    "input_boolean.clock_snooze":
+      hidden: false
+
+# ---Sensors for Fire Tablet-----------------------------
+binary_sensor:
+  - platform: mqtt
+    state_topic: floorplan/clock_motion
+    name: Clock Motion
+    device_class: motion
+    retain: true
+    hidden: false
+
+  - platform: mqtt
+    state_topic: floorplan/clock_plugged
+    name: Clock Plugged
+    retain: true
+    hidden: false
+
+sensor:
+  - platform: mqtt
+    state_topic: "pets/dogfed"
+    name: dogfed_time
+    retain: true
+    # hidden: true
+  - platform: mqtt
+    state_topic: "pets/catfed"
+    name: catfed_time
+    retain: true
+    # hidden: true
+  - platform: mqtt
+    state_topic: "pets/dogwalked"
+    name: dogwalked_time
+    retain: true
+    # hidden: true
+
+group:
+  pets:
+    name: Pets
+    control: hidden
+    entities:
+      - sensor.dogfed_time
+      - sensor.catfed_time
+      - sensor.dogwalked_time
+
+automation:
+  # - alias: 'Snooze Button off in 10 minutes'
+  #   trigger:
+  #     - platform: state
+  #       entity_id:
+  #         - input_boolean.clock_snooze
+  #       to: 'on'
+  #       from: 'off'
+  #   action:
+  #     - delay:
+  #         minutes: 10
+  #     - service: input_boolean.turn_off
+  #       entity_id: input_boolean.clock_snooze
+
+  # -----Switch Carpool Week on Sat--------------------------------------
+  # - alias: 'Switch carpool week on Sat'
+  #   trigger:
+  #     - platform: time
+  #       at: '10:00:00'
+  #   condition:
+  #     - condition: state
+  #       entity_id: sensor.clock_day
+  #       state: "Friday"
+  #   action:
+  #     - service: homeassistant.toggle
+  #       entity_id: input_boolean.carpool_week
