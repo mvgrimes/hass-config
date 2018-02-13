@@ -24,19 +24,19 @@ binary_sensor:
 
 sensor:
   - platform: mqtt
-    state_topic: "pets/dogfed"
+    state_topic: "pets/dogfed_time"
     name: dogfed_time
     retain: true
     # hidden: true
 
   - platform: mqtt
-    state_topic: "pets/catfed"
+    state_topic: "pets/catfed_time"
     name: catfed_time
     retain: true
     # hidden: true
 
   - platform: mqtt
-    state_topic: "pets/dogwalked"
+    state_topic: "pets/dogwalked_time"
     name: dogwalked_time
     retain: true
     # hidden: true

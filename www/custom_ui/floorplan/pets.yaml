@@ -20,38 +20,10 @@ rules:
 
   - entities:
       - sensor.dogfed_time
-    class_template: '
-      if( entity.state > (Date.now() / 1000) - (6*60*60) ) {
-        return "chore-done";
-      } else {
-        return "chore-waiting";
-      }
-    '
-    action:
-      service: mqtt.publish
-      data:
-        topic: "pets/dogfed"
-        payload_template: "{{ as_timestamp(now()) }}"
-
-  - entities:
       - sensor.catfed_time
-    class_template: '
-      if( entity.state > (Date.now() / 1000) - (6*60*60) ) {
-        return "chore-done";
-      } else {
-        return "chore-waiting";
-      }
-    '
-    action:
-      service: mqtt.publish
-      data:
-        topic: "pets/catfed"
-        payload_template: "{{ as_timestamp(now()) }}"
-
-  - entities:
       - sensor.dogwalked_time
     class_template: '
-      if( entity.state > (Date.now() / 1000) - (6*60*60) ) {
+      if( Date.parse( entity.state ) > (Date.now() - 6*60*60*1000 ) ) {
         return "chore-done";
       } else {
         return "chore-waiting";
@@ -59,9 +31,12 @@ rules:
     '
     action:
       service: mqtt.publish
-      data:
-        topic: "pets/dogwalked"
-        payload_template: "{{ as_timestamp(now()) }}"
+      data_template: >
+        {
+          "topic": "pets/${ entity.attributes.friendly_name }",
+          "payload": "${ new Date().toJSON() }",
+          "retain": true
+        }
 
   - elements:
       - reset
