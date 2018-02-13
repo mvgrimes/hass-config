@@ -22,8 +22,10 @@ rules:
       - sensor.dogfed_time
       - sensor.catfed_time
       - sensor.dogwalked_time
+      - sensor.pigfed_time
+      - sensor.fishfed_time
     class_template: '
-      if( Date.parse( entity.state ) > (Date.now() - 6*60*60*1000 ) ) {
+      if( Date.parse( entity.state  ) > (Date.now() - 6*60*60*1000 )  ) {
         return "chore-done";
       } else {
         return "chore-waiting";
@@ -33,8 +35,8 @@ rules:
       service: mqtt.publish
       data_template: >
         {
-          "topic": "pets/${ entity.attributes.friendly_name }",
-          "payload": "${ new Date().toJSON() }",
+          "topic": "pets/${ entity.attributes.friendly_name  }",
+          "payload": "${ new Date().toJSON()  }",
           "retain": true
         }
 
@@ -44,12 +46,15 @@ rules:
       - service: mqtt.publish
         data:
           topic: "pets/dogfed"
+          retain: true
           payload: null
       - service: mqtt.publish
         data:
           topic: "pets/catfed"
+          retain: true
           payload: null
       - service: mqtt.publish
         data:
           topic: "pets/dogwalked"
+          retain: true
           payload: null

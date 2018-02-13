@@ -129,7 +129,6 @@ automation:
           - wed
           - thu
           - fri
-          - sat
       # - condition: state
       #   entity_id: group.family
       #   state: 'home'

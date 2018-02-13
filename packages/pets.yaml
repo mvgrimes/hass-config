@@ -41,6 +41,18 @@ sensor:
     retain: true
     # hidden: true
 
+  - platform: mqtt
+    state_topic: "pets/fishfed_time"
+    name: fishfed_time
+    retain: true
+    # hidden: true
+
+  - platform: mqtt
+    state_topic: "pets/pigfed_time"
+    name: pigfed_time
+    retain: true
+    # hidden: true
+
 group:
   pets:
     name: Pets
@@ -49,6 +61,8 @@ group:
       - sensor.dogfed_time
       - sensor.catfed_time
       - sensor.dogwalked_time
+      - sensor.fishfed_time
+      - sensor.pigfed_time
 
 # automation:
 #   # - alias: 'Snooze Button off in 10 minutes'

@@ -6,9 +6,9 @@ welcome_home:
     - service: media_player.media_play
       entity_id: media_player.kitchen
 
-    # - service: nest.set_mode
-    #   data:
-    #     home_mode: home
+    - service: nest.set_mode
+      data:
+        home_mode: home
 
 goodbye:
   sequence:
@@ -22,10 +22,10 @@ goodbye:
     - service: switch.turn_off
       entity_id: group.basement_lights
 
-    # - delay: 00:15:00
-    # - service: nest.set_mode
-    #   data:
-    #     home_mode: away
+    - delay: 00:15:00
+    - service: nest.set_mode
+      data:
+        home_mode: away
 
 goodnight:
   sequence:
