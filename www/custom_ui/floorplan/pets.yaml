@@ -58,3 +58,11 @@ rules:
           topic: "pets/dogwalked"
           retain: true
           payload: null
+
+  - name: text_font_time
+    entities:
+      - sensor.clock_time
+      - sensor.clock_am_pm
+    hover_over: false
+    more_info: false
+    text_template: '${entity.state ? entity.state : "undefined"}'

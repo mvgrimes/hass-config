@@ -27,5 +27,7 @@
 <circle r="4" cx="811.243042px" fill="#ccc" cy="120.487px"></circle>
 <path fill="#ccc" d="M841.755005,109.466003 c-0.73639,0.73639 -1.931216,0.73639 -2.667607,0 l-27.770458,-27.770094 c-0.73639,-0.73639 -0.73639,-1.931031 -0,-2.667423 l16.347708,-16.347708 c0.73639,-0.736761 1.931216,-0.736761 2.667607,0 L858.102539,90.45108 c0.736574,0.73639 0.736574,1.930661 -0,2.667423 L841.755005,109.466003  z "></path>
 </g>
+<text id="sensor.clock_time" transform="matrix(0.8191 0 0 1 950 30)" style="fill:#00ADEE;enable-background:new; font-family:'Helvetica'; font-size:20;">10:36</text>
+<text id="sensor.clock_am_pm" transform="matrix(0.8191 0 0 1 995 30)" style="fill:#00ADEE; font-family:'Helvetica'; font-size:12px;">XX</text>
 </g>
 </svg>
