@@ -1,0 +1,5 @@
+nest_home:
+  sequence:
+    - service: nest.set_mode
+      data:
+        home_mode: home
