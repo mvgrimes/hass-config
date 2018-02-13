@@ -5,4 +5,5 @@ group.all_automations:
 group.all_scripts:
   name: Scripts
   friendly_name: Scripts
+  control: hidden
   hidden: false

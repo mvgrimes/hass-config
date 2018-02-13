@@ -1,4 +1,5 @@
 - alias: Turn on porch light at sunset
+  initial_state: 'on'
   trigger:
     platform: sun
     event: sunset
@@ -9,6 +10,7 @@
       - light.porch_lights
 
 - alias: Turn off porch light at sunrise
+  initial_state: 'on'
   trigger:
     platform: sun
     event: sunrise
@@ -19,6 +21,7 @@
       - light.porch_lights
 
 # - alias: Turn on trim lights
+#   initial_state: 'on'
 #   trigger:
 #     platform: time
 #     at: '14:00:00'
@@ -28,6 +31,7 @@
 #       - switch.zwave_plug_switch
 #
 # - alias: Turn off trim lights
+#   initial_state: 'on'
 #   trigger:
 #     platform: time
 #     at: '8:20:00'

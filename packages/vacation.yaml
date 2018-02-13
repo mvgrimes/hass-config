@@ -15,6 +15,7 @@ group:
 
 automation:
   - alias: 'Vaction Mode: Living Room evening ON'
+    initial_state: 'on'
     trigger:
       platform: sun
       event: sunset
@@ -28,6 +29,7 @@ automation:
       entity_id: group.family_room
 
   - alias: 'Vaction Mode: Living Room evening OFF'
+    initial_state: 'on'
     trigger:
       platform: sun
       event: sunset
@@ -41,6 +43,7 @@ automation:
       entity_id: group.family_room
 
   - alias: 'Vaction Mode: Living Room morning ON'
+    initial_state: 'on'
     trigger:
       platform: sun
       event: sunrise
@@ -54,6 +57,7 @@ automation:
       entity_id: group.family_room
 
   - alias: 'Vaction Mode: Living Room morning OFF'
+    initial_state: 'on'
     trigger:
       platform: sun
       event: sunrise
@@ -66,26 +70,30 @@ automation:
       service: switch.turn_off
       entity_id: group.family_room
 
-  # - alias: 'Vaction Mode: Living Room test ON'
-  #   trigger:
-  #     platform: time
-  #     at: '15:00:00'
-  #   condition:
-  #     condition: state
-  #     entity_id: input_boolean.vacation_mode
-  #     state: 'on'
-  #   action:
-  #     service: switch.turn_on
-  #     entity_id: group.family_room
-  #
-  # - alias: 'Vaction Mode: Living Room test OFF'
-  #   trigger:
-  #     platform: time
-  #     at: '15:10:00'
-  #   condition:
-  #     condition: state
-  #     entity_id: input_boolean.vacation_mode
-  #     state: 'on'
-  #   action:
-  #     service: switch.turn_off
-  #     entity_id: group.family_room
+  - alias: 'Vaction Mode: Living Room test ON'
+    initial_state: 'off'
+    trigger:
+      platform: time
+      minutes: '/5'
+      seconds: '00'
+    condition:
+      condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'on'
+    action:
+      service: switch.turn_on
+      entity_id: group.family_room
+
+  - alias: 'Vaction Mode: Living Room test OFF'
+    initial_state: 'off'
+    trigger:
+      platform: time
+      minutes: '/5'
+      seconds: '45'
+    condition:
+      condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'on'
+    action:
+      service: switch.turn_off
+      entity_id: group.family_room
