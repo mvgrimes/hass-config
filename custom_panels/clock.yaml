@@ -1,0 +1,7 @@
+- name: clock
+  sidebar_title: Clock
+  sidebar_icon: mdi:alarm
+  url_path: clock
+  config:
+    config: /local/custom_ui/floorplan/floorclock.yaml
+    hide_app_toolbar:

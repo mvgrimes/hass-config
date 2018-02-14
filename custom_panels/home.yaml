@@ -1,0 +1,7 @@
+- name: floorplan
+  sidebar_title: Floorplan
+  sidebar_icon: mdi:home
+  url_path: floorplan
+  config:
+    config: /local/custom_ui/floorplan/floorplan.yaml
+    # hide_app_toolbar:

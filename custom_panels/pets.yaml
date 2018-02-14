@@ -1,0 +1,7 @@
+- name: pets
+  sidebar_title: Pets
+  sidebar_icon: mdi:paw
+  url_path: pets
+  config:
+    config: /local/custom_ui/floorplan/floorpets.yaml
+    hide_app_toolbar:

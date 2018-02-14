@@ -107,28 +107,7 @@ media_player:
 # media_player:
 #    - platform: cast
 
-panel_custom:
-  - name: floorplan
-    sidebar_title: Floorplan
-    sidebar_icon: mdi:home
-    url_path: floorplan
-    config:
-      config: /local/custom_ui/floorplan/floorplan.yaml
-      # hide_app_toolbar:
-  - name: clock
-    sidebar_title: Clock
-    sidebar_icon: mdi:alarm
-    url_path: clock
-    config:
-      config: /local/custom_ui/floorplan/floorclock.yaml
-      hide_app_toolbar:
-  - name: pets
-    sidebar_title: Pets
-    sidebar_icon: mdi:paw
-    url_path: pets
-    config:
-      config: /local/custom_ui/floorplan/floorpets.yaml
-      hide_app_toolbar:
+panel_custom: !include_dir_merge_list custom_panels
 
 # Allow Amazon Echo to control some things
 emulated_hue: !include alexa.yaml
