@@ -29,6 +29,10 @@
     to: "callerid"
   action:
     service: shell_command.notify_if_known
+    data:
+      http_pw: !secret http_api_password
+      mqtt_pw: !secret mqtt_password
+
 
 # Disable voice annoucements
 #   - Don't like the TTS on rPi

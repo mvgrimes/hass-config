@@ -1,8 +1,6 @@
 #!/bin/bash
 
 url="http://localhost:8123"
-http_api_password="***REMOVED***"
-mqtt_password="***REMOVED***"
 topic="hass/callerid/say"
 database="/srv/app/hass/config/phones.sqlite"
 pysqlite="/srv/app/hass/config/bin/check-is-known.py"
@@ -13,15 +11,19 @@ usage() {
   echo "   -p  phone number to lookup"
   echo "   -n  name to use in notification"
   echo "   -t  topic to publish to (default: $topic)"
+  echo "   -m  <mqtt password>"
+  echo "   -H  <http password>"
   echo "   -h  help"
   exit 1
 }
 
-while getopts ":p:n:t:" opt; do
+while getopts ":p:n:t:m:H:" opt; do
     case $opt in
         p)  phone="$OPTARG"                               ;;
         n)  name="$OPTARG"                                ;;
         t)  topic="$OPTARG"                               ;;
+        m)  mqtt_password="$OPTARG"                       ;;
+        H)  http_api_password="$OPTARG"                   ;;
         \?) usage "Invalid option: -$OPTARG"              ;;
         :)  usage "Option -$OPTARG requires an argument." ;;
     esac
