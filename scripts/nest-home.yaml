@@ -3,3 +3,9 @@ nest_home:
     - service: nest.set_mode
       data:
         home_mode: home
+
+nest_away:
+  sequence:
+    - service: nest.set_mode
+      data:
+        home_mode: away
