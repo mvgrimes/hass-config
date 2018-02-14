@@ -7,6 +7,16 @@
 #     "input_boolean.clock_snooze":
 #       hidden: false
 
+homeassistant:
+  customize_glob:
+    "sensor.*fed_time":
+      hours_between: 6
+    "sensor.*walked_time":
+      hours_between: 6
+  customize:
+    "sensor.fishfed_time":
+      hours_between: 18
+
 # ---Sensors for Fire Tablet-----------------------------
 binary_sensor:
   - platform: mqtt
@@ -26,32 +36,27 @@ sensor:
   - platform: mqtt
     state_topic: "pets/dogfed_time"
     name: dogfed_time
-    retain: true
-    # hidden: true
+    value_template: '{{ value | float | timestamp_local }}'
 
   - platform: mqtt
     state_topic: "pets/catfed_time"
     name: catfed_time
-    retain: true
-    # hidden: true
+    value_template: '{{ value | float | timestamp_local }}'
 
   - platform: mqtt
     state_topic: "pets/dogwalked_time"
     name: dogwalked_time
-    retain: true
-    # hidden: true
+    value_template: '{{ value | float | timestamp_local }}'
 
   - platform: mqtt
     state_topic: "pets/fishfed_time"
     name: fishfed_time
-    retain: true
-    # hidden: true
+    value_template: '{{ value | float | timestamp_local }}'
 
   - platform: mqtt
     state_topic: "pets/pigfed_time"
     name: pigfed_time
-    retain: true
-    # hidden: true
+    value_template: '{{ value | float | timestamp_local }}'
 
 group:
   pets:

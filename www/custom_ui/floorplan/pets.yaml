@@ -25,7 +25,8 @@ rules:
       - sensor.pigfed_time
       - sensor.fishfed_time
     class_template: '
-      if( Date.parse( entity.state  ) > (Date.now() - 6*60*60*1000 )  ) {
+      // console.log( entity.attributes.friendly_name, entity.state, new Date( Date.parse( entity.state ) ) );
+      if( Date.parse( entity.state ) > ( Date.now() - entity.attributes.hours_between*60*60*1000 ) ) {
         return "chore-done";
       } else {
         return "chore-waiting";
@@ -36,7 +37,7 @@ rules:
       data_template: >
         {
           "topic": "pets/${ entity.attributes.friendly_name  }",
-          "payload": "${ new Date().toJSON()  }",
+          "payload": "${ Date.now() / 1000  }",
           "retain": true
         }
 

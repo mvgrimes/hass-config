@@ -27,18 +27,10 @@ sensor:
         friendly_name: 'AM/PM'
         value_template: >-
           {{now().strftime("%p")}}
-
-  - platform: template
-    scan_interval: 30000
-    sensors:
       clock_day:
         friendly_name: 'Day'
         value_template: >-
           {{now().strftime("%A")}}
-
-  - platform: template
-    scan_interval: 30000
-    sensors:
       clock_date:
         friendly_name: 'Clock Date'
         value_template: >-
