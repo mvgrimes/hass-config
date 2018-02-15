@@ -1,3 +1,8 @@
+# -------------------------------------------
+#  Fire Tablet Pet Panel - Keep track of last feeding/walking
+#  Floorplan config file
+# -------------------------------------------
+
 page_id: Pets
 image: /local/custom_ui/floorplan/pets.svg
 stylesheet: /local/custom_ui/floorplan/pets.css
@@ -12,21 +17,14 @@ defaults:
   more_info: true
 
 rules:
-  # - element: floorplan.clock_button
-  #   action:
-  #     service: floorplan.page_navigate
-  #     data:
-  #       page_id: clock_config
-
   - entities:
-      - sensor.dogfed_time
-      - sensor.catfed_time
-      - sensor.dogwalked_time
-      - sensor.pigfed_time
-      - sensor.fishfed_time
+      - sensor.dogfed
+      - sensor.catfed
+      - sensor.dogwalked
+      - sensor.pigfed
+      - sensor.fishfed
     class_template: '
-      // console.log( entity.attributes.friendly_name, entity.state, new Date( Date.parse( entity.state ) ) );
-      if( Date.parse( entity.state ) > ( Date.now() - entity.attributes.hours_between*60*60*1000 ) ) {
+      if( entity.state < entity.attributes.hours_between ) {
         return "chore-done";
       } else {
         return "chore-waiting";
@@ -36,7 +34,7 @@ rules:
       service: mqtt.publish
       data_template: >
         {
-          "topic": "pets/${ entity.attributes.friendly_name  }",
+          "topic": "pets/${ entity.attributes.friendly_name  }_time",
           "payload": "${ Date.now() / 1000  }",
           "retain": true
         }
@@ -46,17 +44,27 @@ rules:
     action:
       - service: mqtt.publish
         data:
-          topic: "pets/dogfed"
+          topic: "pets/dogfed_time"
           retain: true
           payload: null
       - service: mqtt.publish
         data:
-          topic: "pets/catfed"
+          topic: "pets/catfed_time"
           retain: true
           payload: null
       - service: mqtt.publish
         data:
-          topic: "pets/dogwalked"
+          topic: "pets/dogwalked_time"
+          retain: true
+          payload: null
+      - service: mqtt.publish
+        data:
+          topic: "pets/pigfed_time"
+          retain: true
+          payload: null
+      - service: mqtt.publish
+        data:
+          topic: "pets/fishfed_time"
           retain: true
           payload: null
 

@@ -13,3 +13,4 @@ date_time:
   entities:
     - sensor.date
     - sensor.time
+    - sensor.date__time

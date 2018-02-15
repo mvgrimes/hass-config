@@ -1,20 +1,16 @@
 # -------------------------------------------
-#  Fire Tablet Pet Panel -
+#  Fire Tablet Pet Panel - Keep track of last feeding/walking
+#  Custom sensors and groups
 # -------------------------------------------
-
-# homeassistant:
-#   customize_glob:
-#     "input_boolean.clock_snooze":
-#       hidden: false
 
 homeassistant:
   customize_glob:
-    "sensor.*fed_time":
+    "sensor.*fed":
       hours_between: 6
-    "sensor.*walked_time":
+    "sensor.*walked":
       hours_between: 6
   customize:
-    "sensor.fishfed_time":
+    "sensor.fishfed":
       hours_between: 18
 
 # ---Sensors for Fire Tablet-----------------------------
@@ -32,6 +28,12 @@ binary_sensor:
     retain: true
     hidden: false
 
+# This is a bit complicated b/c we to trigger an update based on
+# a combination of the <pet>fed_time and now().
+#
+# Fed times are stored as seconds since epoch in MQTT.
+# Displayed as <pet>fed_time in human readable format.
+# Then converted back to epoch to compare with current time.
 sensor:
   - platform: mqtt
     state_topic: "pets/dogfed_time"
@@ -58,6 +60,47 @@ sensor:
     name: pigfed_time
     value_template: '{{ value | float | timestamp_local }}'
 
+  - platform: template
+    sensors:
+      dogfed:
+        unit_of_measurement: 'hours'
+        entity_id:
+          - sensor.dogfed_time
+          - sensor.clock_time
+        value_template: >-
+          {{ ( ( as_timestamp(now()) - as_timestamp(strptime(states.sensor.dogfed_time.state, "%Y-%m-%d %H:%M:%S")) ) / ( 60*60 ) ) | round(1) }}
+      catfed:
+        unit_of_measurement: 'hours'
+        entity_id:
+          - sensor.catfed_time
+          - sensor.clock_time
+        value_template: >-
+          {{ ( ( as_timestamp(now()) - as_timestamp(strptime(states.sensor.catfed_time.state, "%Y-%m-%d %H:%M:%S")) ) / ( 60*60 ) ) | round(1) }}
+      dogwalked:
+        unit_of_measurement: 'hours'
+        entity_id:
+          - sensor.dogwalked_time
+          - sensor.clock_time
+        value_template: >-
+          {{ ( ( as_timestamp(now()) - as_timestamp(strptime(states.sensor.dogwalked_time.state, "%Y-%m-%d %H:%M:%S")) ) / ( 60*60 ) ) | round(1) }}
+      fishfed:
+        unit_of_measurement: 'hours'
+        entity_id:
+          - sensor.fishfed_time
+          - sensor.clock_time
+        value_template: >-
+          {{ ( ( as_timestamp(now()) - as_timestamp(strptime(states.sensor.fishfed_time.state, "%Y-%m-%d %H:%M:%S")) ) / ( 60*60 ) ) | round(1) }}
+      pigfed:
+        unit_of_measurement: 'hours'
+        entity_id:
+          - sensor.pigfed_time
+          - sensor.clock_time
+        value_template: >-
+          {{ ( ( as_timestamp(now()) - as_timestamp(strptime(states.sensor.pigfed_time.state, "%Y-%m-%d %H:%M:%S")) ) / ( 60*60 ) ) | round(1) }}
+
+    # True/False
+    # {{ as_timestamp(strptime(states.sensor.dogfed_time.state, "%Y-%m-%d %H:%M:%S")) > ( as_timestamp(now()) - 60 ) }}
+
 group:
   pets:
     name: Pets
@@ -68,30 +111,3 @@ group:
       - sensor.dogwalked_time
       - sensor.fishfed_time
       - sensor.pigfed_time
-
-# automation:
-#   # - alias: 'Snooze Button off in 10 minutes'
-#   #   trigger:
-#   #     - platform: state
-#   #       entity_id:
-#   #         - input_boolean.clock_snooze
-#   #       to: 'on'
-#   #       from: 'off'
-#   #   action:
-#   #     - delay:
-#   #         minutes: 10
-#   #     - service: input_boolean.turn_off
-#   #       entity_id: input_boolean.clock_snooze
-#
-#   # -----Switch Carpool Week on Sat--------------------------------------
-#   # - alias: 'Switch carpool week on Sat'
-#   #   trigger:
-#   #     - platform: time
-#   #       at: '10:00:00'
-#   #   condition:
-#   #     - condition: state
-#   #       entity_id: sensor.clock_day
-#   #       state: "Friday"
-#   #   action:
-#   #     - service: homeassistant.toggle
-#   #       entity_id: input_boolean.carpool_week

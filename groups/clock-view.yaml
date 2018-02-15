@@ -4,3 +4,4 @@ clock_view:
   entities:
     - group.alarm_clock
     - media_player.alarm_clock
+    - group.date_time
