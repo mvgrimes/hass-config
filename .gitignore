@@ -19,3 +19,4 @@ nest.conf
 Session.vim
 *.pyc
 entity_registry.yaml
+.DS_Store
