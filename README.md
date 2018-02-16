@@ -20,20 +20,17 @@ A script (mqtt-say) monitors MQTT for messages and plays a .mp3 or makes a TTS
 announcement. Last, I use another script to pull my contacts from Google
 Contacts and store them in the SQLite database.
 
-- [sensors/modem.yaml](sensors/modem.yaml)
-- [automations/callerid.yaml](automations/callerid.yaml)
+- [packages/callerid.yaml](packages/callerid.yaml)
 - [bin/check-is-known.py*](bin/check-is-known.py*)
 - [bin/notify-if-known.sh*](bin/notify-if-known.sh*)
-- [python_scripts/publish_if.py](python_scripts/publish_if.py)
-- [shell_commands/callerid.yaml](shell_commands/callerid.yaml)
 - mqtt-say (TODO: release/document)
 - Google contact script (TODO: release/document)
 
 ## Floorplan
 
 I am running three different (floorplan)[https://github.com/pkozul/ha-floorplan]
-some of these are a work-in-process. All of these require an unreleased (as of
-Feb 2018) version of floorplan (included in this repo).
+some of these are a work-in-process. All of these require a the fully kiosk
+version of (flooplan)[https://github.com/pkozul/ha-floorplan-kiosk]
 
 ### House
 
