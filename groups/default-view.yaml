@@ -2,9 +2,11 @@ default_view:
   view: yes
   name: Default
   entities:
+    - group.weather_simple
     - group.switch_group
     - group.mode_group
     - group.alarm_clock
+    # - group.finance
 
 mode_group:
   name: Modes

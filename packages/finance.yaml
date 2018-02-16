@@ -1,0 +1,25 @@
+# Would like to have this, but alpha_vantage isn't stable
+
+# homeassistant:
+#   customize:
+#
+# group:
+#   finance:
+#     name: Finance
+#     entities:
+#       - sensor.spy
+#       - sensor.bitcoin
+#
+# sensor:
+#
+#   - platform: alpha_vantage
+#     api_key: 88FLPUU853WT9BH0
+#     symbols:
+#       - name: SPY
+#         currency: USD
+#         symbol: SPY
+#     foreign_exchange:
+#       - from: BTC
+#         to: USD
+#         name: Bitcoin
+#

@@ -1,4 +1,16 @@
+homeassistant:
+  customize:
+    sensor.pws_weather_1d:
+      friendly_name: WU Forcast
+
 group:
+  weather_simple:
+    name: Weather
+    entities:
+      - sensor.pws_weather_1d
+      - sensor.dark_sky_temperature
+      - sensor.dark_sky_wind_speed
+
   weather_wu:
     name: Weather Underground
     entities:
@@ -34,7 +46,7 @@ sensor:
   - platform: yr
 
   - platform: wunderground
-    api_key: 7f3aca4c15a1fc9a
+    api_key: !secret wu_api_key
     monitored_conditions:
       - alerts
       - dewpoint_f
