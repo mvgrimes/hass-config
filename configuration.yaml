@@ -97,8 +97,8 @@ notify:
 map:
 
 # Alexa via the "Home Assistant" skill
-# Also see intent_script:
 alexa:
+intent_script: !include_dir_merge_named intent_scripts
 
 python_script:
 

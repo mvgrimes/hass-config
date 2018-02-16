@@ -85,6 +85,21 @@ Files:
 I've created a simplified [default_view](groups/default-view.yaml) and put all
 the rest of my components in different views (groups/\*<name>-view.yaml).
 
+## Alexa
+
+Two different Alexa integrations:
+
+1. emulated_hue -- the echo looks for devices on the network (as presented by
+   HA over port 8300) and exposes them as "Smart Home" devices.
+
+2. alexa -- a custom skill (invoked by "Alexa, ask Home Assistant...") is
+   created in Amazon's Alexa Skills Kit console and the interaction model is
+   defined. The skill forwards actions to:
+
+       https://hass.markandcarrie.com/api/alexa?api_password=XXXX
+
+  Intent scripts are defined in the intent_script/ directory.
+
 ## Others
 
 A few other things that I'm really happy with and would like to document more:
