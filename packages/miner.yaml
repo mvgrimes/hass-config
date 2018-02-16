@@ -6,4 +6,27 @@ group:
   miner:
     name: Miner
     entities:
+      - sensor.mean_rate
+      - script.restart_miner
       - switch.miner_power
+
+shell_command:
+  restart_miner: '/srv/app/hass/config/bin/restart-miner.sh'
+
+script:
+  restart_miner:
+    sequence:
+      - service: shell_command.restart_miner
+
+sensor:
+  platform: influxdb
+  host: pip
+  queries:
+    - name: mean rate
+      unit_of_measurement: "GH/s"
+      where: 'time > now() - 1h'
+      measurement: miner_rate
+      field: value
+      group_function: mean
+      database: home_assistant
+      value_template: '{{ value | round(1) }}'
