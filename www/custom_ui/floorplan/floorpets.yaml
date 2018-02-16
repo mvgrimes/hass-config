@@ -6,12 +6,13 @@
 # log_level: debug
 
 # fully_kiosk:
-#   - name: Alarm Clock
-#     address: 18:74:2E:00:5F:E5
-#     motion_sensor: binary_sensor.clock_motion
-#     plugged_sensor: binary_sensor.clock_plugged
-#     screensaver_light: light.clock_screensaver
-#     media_player: media_player.alarm_clock
+#   - name: Pet Panel
+#     address: 34:D2:70:BE:77:97
+#     address: 18:74:2E:00:19:8F
+#     motion_sensor: binary_sensor.pet_panel_motion
+#     plugged_sensor: binary_sensor.pet_panel_plugged
+#     screensaver_light: light.pet_panel_screensaver
+#     media_player: media_player.pet_panel
 
 pages:
   - /local/custom_ui/floorplan/pets.yaml

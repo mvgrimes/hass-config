@@ -266,7 +266,7 @@
           link.type = 'text/css';
           link.innerHTML = stylesheet;
           this.doc.appendChild(link);
-
+          
           let cssRules = this.getArray(link.sheet.cssRules);
           this.cssRules = this.cssRules.concat(cssRules);
 
@@ -279,7 +279,7 @@
         .then(result => {
           let svg = $(result).siblings('svg')[0];
           svg = svg ? svg : $(result);
-
+          
           if (pageInfo) {
             $(svg).attr('id', pageInfo.config.page_id);
           }
@@ -380,7 +380,7 @@
 
           let svgElement = $(result).siblings('svg')[0];
           svgElement = svgElement ? svgElement : $(result);
-
+          
           let height = Number.parseFloat($(svgElement).attr('height'));
           let width = Number.parseFloat($(svgElement).attr('width'));
           if (!$(svgElement).attr('viewBox')) {

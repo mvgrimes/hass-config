@@ -16,15 +16,15 @@ homeassistant:
 # ---Sensors for Fire Tablet-----------------------------
 binary_sensor:
   - platform: mqtt
-    state_topic: floorplan/clock_motion
-    name: Clock Motion
+    state_topic: floorplan/pet_panel_motion
+    name: Pet Panel Motion
     device_class: motion
     retain: true
     hidden: false
 
   - platform: mqtt
-    state_topic: floorplan/clock_plugged
-    name: Clock Plugged
+    state_topic: floorplan/pet_panel_plugged
+    name: Pet Panel Clock Plugged
     retain: true
     hidden: false
 
