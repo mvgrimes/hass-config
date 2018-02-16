@@ -37,3 +37,4 @@ logs:
   pychromecast: warn
   root: warn
   custom_components.media_player.floorplan_speaker: warn
+  homeassistant.components.sensor.influxdb: warn
