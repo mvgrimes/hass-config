@@ -96,6 +96,10 @@ notify:
 
 map:
 
+# Alexa via the "Home Assistant" skill
+# Also see intent_script:
+alexa:
+
 python_script:
 
 media_player:
