@@ -40,3 +40,4 @@ logs:
   # Stop warnings from tplink plug 1/2 while they are unplugged
   # homeassistant.components.switch.tplink: warn
   homeassistant.components.switch.tplink: error
+  urllib3.connectionpool: error
