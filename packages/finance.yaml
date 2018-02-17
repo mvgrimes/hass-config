@@ -1,25 +1,51 @@
-# Would like to have this, but alpha_vantage isn't stable
 
-# homeassistant:
-#   customize:
-#
-# group:
-#   finance:
-#     name: Finance
-#     entities:
-#       - sensor.spy
-#       - sensor.bitcoin
-#
-# sensor:
-#
-#   - platform: alpha_vantage
-#     api_key: 88FLPUU853WT9BH0
-#     symbols:
-#       - name: SPY
-#         currency: USD
-#         symbol: SPY
-#     foreign_exchange:
-#       - from: BTC
-#         to: USD
-#         name: Bitcoin
-#
+homeassistant:
+  # customize:
+
+group:
+  finance:
+    name: Finance
+    entities:
+      - sensor.sp500
+      - sensor.sp500_change
+      - sensor.bitcoin
+      - sensor.bitcoin_change
+
+sensor:
+
+  # 1200s = 20min
+  - platform: scrape
+    scan_interval: 1200
+    resource: 'https://www.cnbc.com/quotes/?symbol=.SPX'
+    select: '#structured-data [itemprop="priceChangePercent"]'
+    name: SP500 Change
+    friendly_name: 'S&P 500 Change'
+    unit_of_measurement: '%'
+    attribute: content
+
+  - platform: scrape
+    scan_interval: 1200
+    resource: 'https://www.cnbc.com/quotes/?symbol=.SPX'
+    select: '#structured-data [itemprop="price"]'
+    name: SP500
+    friendly_name: 'S&P 500'
+    unit_of_measurement: '$'
+    attribute: content
+
+  - platform: scrape
+    scan_interval: 1200
+    resource: 'https://www.cnbc.com/quotes/?symbol=BTC.BS%3D'
+    select: '#structured-data [itemprop="priceChangePercent"]'
+    name: Bitcoin Change
+    friendly_name: 'Bitcoin Change'
+    unit_of_measurement: '%'
+    attribute: content
+
+  - platform: scrape
+    scan_interval: 1200
+    resource: 'https://www.cnbc.com/quotes/?symbol=BTC.BS%3D'
+    select: '#structured-data [itemprop="price"]'
+    name: Bitcoin
+    friendly_name: 'Bitcoin'
+    unit_of_measurement: '$'
+    attribute: content

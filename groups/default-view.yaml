@@ -6,7 +6,7 @@ default_view:
     - group.switch_group
     - group.mode_group
     - group.alarm_clock
-    # - group.finance
+    - group.finance
 
 mode_group:
   name: Modes
