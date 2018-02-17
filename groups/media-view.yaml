@@ -2,11 +2,7 @@ media_view:
   view: yes
   name: Media
   entities:
-    - media_player.kitchen
-    - media_player.outside
-    - media_player.livingroom
-    - media_player.porch
-    - media_player.mbr
+    - group.music
     - configurator.nest
     - camera.entryway
     - camera.kitchen

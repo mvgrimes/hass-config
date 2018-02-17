@@ -102,15 +102,6 @@ intent_script: !include_dir_merge_named intent_scripts
 
 python_script:
 
-media_player:
-  - platform: squeezebox
-    name: lms
-    host: 127.0.0.1
-    port: 9001
-
-# media_player:
-#    - platform: cast
-
 panel_custom: !include_dir_merge_list custom_panels
 
 # Allow Amazon Echo to control some things
