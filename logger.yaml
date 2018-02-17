@@ -24,7 +24,6 @@ logs:
   homeassistant.components.sensor.pi_hole: critical
   homeassistant.components.shell_command: debug
   homeassistant.components.shell_commands: debug
-  homeassistant.components.switch.tplink: warn
   homeassistant.components.switch: warn
   homeassistant.components.updater: info
   homeassistant.components.zha: debug
@@ -38,3 +37,6 @@ logs:
   root: warn
   custom_components.media_player.floorplan_speaker: warn
   homeassistant.components.sensor.influxdb: warn
+  # Stop warnings from tplink plug 1/2 while they are unplugged
+  # homeassistant.components.switch.tplink: warn
+  homeassistant.components.switch.tplink: error
