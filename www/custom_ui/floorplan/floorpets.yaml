@@ -5,14 +5,13 @@
 # date_format: MMM-DD-YYYY
 # log_level: debug
 
-# fully_kiosk:
-#   - name: Pet Panel
-#     address: 34:D2:70:BE:77:97
-#     address: 18:74:2E:00:19:8F
-#     motion_sensor: binary_sensor.pet_panel_motion
-#     plugged_sensor: binary_sensor.pet_panel_plugged
-#     screensaver_light: light.pet_panel_screensaver
-#     media_player: media_player.pet_panel
+fully_kiosk:
+  - name: Pet Panel
+    address: 18:74:2e:00:19:8f
+    motion_sensor: binary_sensor.pet_panel_motion
+    plugged_sensor: binary_sensor.pet_panel_plugged
+    screensaver_light: light.pet_panel_screensaver
+    media_player: media_player.pet_panel
 
 pages:
   - /local/custom_ui/floorplan/pets.yaml
