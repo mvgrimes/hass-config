@@ -111,3 +111,20 @@ group:
       - sensor.dogwalked_time
       - sensor.fishfed_time
       - sensor.pigfed_time
+
+intent_script:
+  WhenPetFedIntent:
+    speech:
+      text: >
+        {%- for petsenor in states.sensor -%}
+          {%- if petsenor.name.lower() == Pet.lower() + "fed" -%}
+            The {{ Pet }} was last fed {{ petsenor.state  }} {{ petsenor.attributes.unit_of_measurement  }} ago.
+          {%- endif -%}
+        {%- else -%}
+          I am sorry, I do not know when {{ Pet }} was last fed.
+        {%- endfor -%}
+    # async_action: true
+    # action:
+    #   service: notify.pushover
+    #   data_template:
+    #     message: Hello all from an intent!

@@ -1,15 +1,17 @@
 LocateIntent:  # Intent type
   speech:
-    text: Mark is at {{ states.device_tracker.mgrimes_oneplus3t.state }}.
-  action:
-    service: notify.pushover
-    data_template:
-      message: Hello from an intent!
+    text: '{{ User }} is at {{ states.device_tracker.mgrimes_oneplus3t.state }}.'
+  # async_action: true
+  # action:
+  #   service: notify.pushover
+  #   data_template:
+  #     message: Hello from an intent!
 
 WhereAreWeIntent:
   speech:
     text: We are at {{ states.device_tracker.mgrimes_oneplus3t.state }}.
-  action:
-    service: notify.pushover
-    data_template:
-      message: Hello all from an intent!
+  # async_action: true
+  # action:
+  #   service: notify.pushover
+  #   data_template:
+  #     message: Hello all from an intent!
