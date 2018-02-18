@@ -32,3 +32,19 @@ intent_script:
     action:
       service: media_player.media_next_track
       entity_id: media_player.kitchen
+  PlaySongIntent:
+    speech:
+      text: >
+        Ok. Playing music in kitchen.
+    async_action: true
+    action:
+      service: media_player.media_play
+      entity_id: media_player.kitchen
+  StopStongIntent:
+    speech:
+      text: >
+        Ok. Stopping music in kitchen.
+    async_action: true
+    action:
+      service: media_player.media_stop
+      entity_id: media_player.kitchen
