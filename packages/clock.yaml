@@ -184,11 +184,11 @@ automation:
     initial_state: 'on'
     trigger:
       - platform: time
-        at: '10:00:00'
+        at: '2:23:00'
     condition:
       - condition: state
         entity_id: sensor.clock_day
-        state: "Friday"
+        state: "Saturday"
     action:
       - service: homeassistant.toggle
         entity_id: input_boolean.carpool_week
