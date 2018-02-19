@@ -21,8 +21,7 @@ group:
       - switch.restart_miner
 
 shell_command:
-  restart_miner: '/Users/mgrimes/src/hass/config/bin/restart-miner.sh'
-  # restart_miner: '/srv/app/hass/config/bin/restart-miner.sh'
+  restart_miner: '/srv/app/hass/config/bin/restart-miner.sh'
 
 # Don't really need the script anymore, but keeping in case we want to
 # add more steps to the sequence
