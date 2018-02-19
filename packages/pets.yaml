@@ -10,8 +10,18 @@ homeassistant:
     "sensor.*walked":
       hours_between: 6
   customize:
-    "sensor.fishfed":
+    sensor.fishfed:
       hours_between: 18
+    sensor.dogfed_time:
+      friendly_name: Dog Fed
+    sensor.catfed_time:
+      friendly_name: Cat Fed
+    sensor.pigfed_time:
+      friendly_name: Pig Fed
+    sensor.fishfed_time:
+      friendly_name: Fish Fed
+    sensor.dogwalk_time:
+      friendly_name: Dog Walked
 
 media_player:
   - platform: floorplan_speaker

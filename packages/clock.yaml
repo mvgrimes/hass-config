@@ -8,6 +8,10 @@ homeassistant:
   customize_glob:
     "input_boolean.clock_snooze":
       hidden: false
+  customize:
+    input_boolean.carpool_week:
+      custom_ui_state_card: state-card-custom-ui
+      show_last_changed: true
 
 media_player:
   - platform: floorplan_speaker

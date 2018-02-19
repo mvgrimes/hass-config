@@ -1,6 +1,23 @@
 
 homeassistant:
-  # customize:
+  customize:
+    sensor.sp500:
+      friendly_name: 'S&P 500'
+      custom_ui_state_card: state-card-custom-ui
+      show_last_changed: true
+    sensor.sp500_change:
+      friendly_name: 'S&P 500 Change'
+      custom_ui_state_card: state-card-custom-ui
+      show_last_changed: true
+      # custom_ui_state_card: state-card-stock-price
+    sensor.bitcoin:
+      friendly_name: 'Bitcoin'
+      custom_ui_state_card: state-card-custom-ui
+      show_last_changed: true
+    sensor.bitcoin_change:
+      friendly_name: 'Bitcoin Change'
+      custom_ui_state_card: state-card-custom-ui
+      show_last_changed: true
 
 group:
   finance:
@@ -12,14 +29,13 @@ group:
       - sensor.bitcoin_change
 
 sensor:
-
   # 1200s = 20min
+
   - platform: scrape
     scan_interval: 1200
     resource: 'https://www.cnbc.com/quotes/?symbol=.SPX'
     select: '#structured-data [itemprop="priceChangePercent"]'
     name: SP500 Change
-    friendly_name: 'S&P 500 Change'
     unit_of_measurement: '%'
     attribute: content
 
@@ -28,7 +44,6 @@ sensor:
     resource: 'https://www.cnbc.com/quotes/?symbol=.SPX'
     select: '#structured-data [itemprop="price"]'
     name: SP500
-    friendly_name: 'S&P 500'
     unit_of_measurement: '$'
     attribute: content
 
@@ -37,7 +52,6 @@ sensor:
     resource: 'https://www.cnbc.com/quotes/?symbol=BTC.BS%3D'
     select: '#structured-data [itemprop="priceChangePercent"]'
     name: Bitcoin Change
-    friendly_name: 'Bitcoin Change'
     unit_of_measurement: '%'
     attribute: content
 
@@ -46,6 +60,5 @@ sensor:
     resource: 'https://www.cnbc.com/quotes/?symbol=BTC.BS%3D'
     select: '#structured-data [itemprop="price"]'
     name: Bitcoin
-    friendly_name: 'Bitcoin'
     unit_of_measurement: '$'
     attribute: content
