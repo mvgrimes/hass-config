@@ -13,6 +13,10 @@ homeassistant:
     "sensor.fishfed":
       hours_between: 18
 
+media_player:
+  - platform: floorplan_speaker
+    name: Pet Panel
+
 # ---Sensors for Fire Tablet-----------------------------
 binary_sensor:
   - platform: mqtt
