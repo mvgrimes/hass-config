@@ -21,6 +21,7 @@ frontend:
     # - /local/custom_ui/state-card-stock-price.html
   extra_html_url_es5:
     - /local/custom_ui/state-card-custom-ui-es5.html
+  themes: !include themes.yaml
 
 # customizer:
 #   custom_ui: local

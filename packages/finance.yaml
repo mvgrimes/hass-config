@@ -4,61 +4,47 @@ homeassistant:
     sensor.sp500:
       friendly_name: 'S&P 500'
       custom_ui_state_card: state-card-custom-ui
-      show_last_changed: true
-    sensor.sp500_change:
-      friendly_name: 'S&P 500 Change'
-      custom_ui_state_card: state-card-custom-ui
-      show_last_changed: true
-      # custom_ui_state_card: state-card-stock-price
+      extra_data_template: 
+        - '${attributes.priceChangePercent}%'
+        - 'last updated ${attributes.quoteTime}'
+      templates:
+        theme: >
+          if (attributes.priceChangePercent > 0) return 'green'; else return 'red';
     sensor.bitcoin:
       friendly_name: 'Bitcoin'
       custom_ui_state_card: state-card-custom-ui
-      show_last_changed: true
-    sensor.bitcoin_change:
-      friendly_name: 'Bitcoin Change'
-      custom_ui_state_card: state-card-custom-ui
-      show_last_changed: true
+      extra_data_template: 
+        - '${attributes.priceChangePercent}%'
+        - 'last updated ${attributes.quoteTime}'
+      templates:
+        theme: >
+          if (attributes.priceChangePercent > 0) return 'green'; else return 'red';
 
 group:
   finance:
     name: Finance
     entities:
       - sensor.sp500
-      - sensor.sp500_change
       - sensor.bitcoin
-      - sensor.bitcoin_change
 
 sensor:
-  # 1200s = 20min
-
-  - platform: scrape
-    scan_interval: 1200
-    resource: 'https://www.cnbc.com/quotes/?symbol=.SPX'
-    select: '#structured-data [itemprop="priceChangePercent"]'
-    name: SP500 Change
-    unit_of_measurement: '%'
-    attribute: content
-
-  - platform: scrape
-    scan_interval: 1200
-    resource: 'https://www.cnbc.com/quotes/?symbol=.SPX'
-    select: '#structured-data [itemprop="price"]'
+  - platform: mqtt
+    state_topic: 'hass/stock-price/SPY'
     name: SP500
     unit_of_measurement: '$'
-    attribute: content
+    value_template: '{{ value_json.price }}'
+    json_attributes:
+      - name
+      - priceChangePercent
+      - quoteTime
 
-  - platform: scrape
-    scan_interval: 1200
-    resource: 'https://www.cnbc.com/quotes/?symbol=BTC.BS%3D'
-    select: '#structured-data [itemprop="priceChangePercent"]'
-    name: Bitcoin Change
-    unit_of_measurement: '%'
-    attribute: content
-
-  - platform: scrape
-    scan_interval: 1200
-    resource: 'https://www.cnbc.com/quotes/?symbol=BTC.BS%3D'
-    select: '#structured-data [itemprop="price"]'
+  - platform: mqtt
+    state_topic: 'hass/stock-price/BTC='
     name: Bitcoin
     unit_of_measurement: '$'
-    attribute: content
+    value_template: '{{ value_json.price }}'
+    json_attributes:
+      - name
+      - priceChangePercent
+      - quoteTime
+
