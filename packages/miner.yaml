@@ -19,6 +19,7 @@ group:
       - sensor.mean_rate
       - switch.miner_power
       - switch.restart_miner
+      - sensor.basement_temperature
 
 shell_command:
   restart_miner: '/srv/app/hass/config/bin/restart-miner.sh'
