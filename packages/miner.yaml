@@ -12,6 +12,13 @@ homeassistant:
       custom_ui_state_card: state-card-custom-ui
       confirm_controls_show_lock: true
 
+    switch.miner_power:
+      custom_ui_state_card: state-card-custom-ui
+      confirm_controls_show_lock: true
+
+    group.miner:
+      control: hidden
+
 group:
   miner:
     name: Miner
