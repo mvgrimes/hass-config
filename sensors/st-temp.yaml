@@ -1,3 +1,11 @@
+# Make sure mqtt-bridge is running:
+#
+#   $ cd /srv/docker/mqtt-bridge
+#   $ docker-compose up -d
+#
+# Plus the Smarter SmartThings Devices and SmartApp
+#   https://home-assistant.io/blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/
+
 - platform: mqtt
   state_topic: "smartthings/Den Thermostat/temperature"
   name: "Den Thermostat Temp"
