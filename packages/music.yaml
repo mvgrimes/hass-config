@@ -51,12 +51,12 @@ intent_script:
   ChangePlaylistIntent:
     speech:
       text: >
-        Ok. Playing {Playlist} in kitchen.
+        Ok. Playing {{Playlist}} in kitchen.
     async_action: true
     action:
       service: media_player.play_media
-      entity_id: media_player.kitchen
-      data:
+      data_template:
+        entity_id: media_player.kitchen
         media_content_id: >
           {% if   Playlist.lower(), 'jazz' %} pandora://3141420448449849928.mp3
           {% elif Playlist.lower(), "van morrison" %} pandora://3374695489688595016.mp3
@@ -80,3 +80,5 @@ intent_script:
           {% elif Playlist.lower(), 'chistmas' %} pandora://675568853530470984.mp3
           {% elif Playlist.lower(), 'celtic christmas' %} pandora://1188289361993558600.mp3
           {% else %} pandora://3141420448449849928.mp3
+          {% endif %}
+        media_content_type: 'audio/mp3'
