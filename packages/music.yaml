@@ -51,34 +51,56 @@ intent_script:
   ChangePlaylistIntent:
     speech:
       text: >
-        Ok. Playing {{Playlist}} in kitchen.
+        {% if   Playlist.lower() == 'jazz' %} Ok. Playing jazz in kitchen.
+        {% elif Playlist.lower() == 'van morrison' %} Ok. Playing van morrison in kitchen.
+        {% elif Playlist.lower() == 'blues' %} Ok. Playing blues in kitchen.
+        {% elif Playlist.lower() == 'amos lee' %} Ok. Playing amos lee in kitchen.
+        {% elif Playlist.lower() == 'amos less' %} Ok. Playing amos less in kitchen.
+        {% elif Playlist.lower() == 'dishwashing' %} Ok. Playing dishwashing in kitchen.
+        {% elif Playlist.lower() == 'jack johnson' %} Ok. Playing jack johnson in kitchen.
+        {% elif Playlist.lower() == 'james taylor' %} Ok. Playing james taylor in kitchen.
+        {% elif Playlist.lower() == 'zac brown' %} Ok. Playing zac brown in kitchen.
+        {% elif Playlist.lower() == 'billy joel' %} Ok. Playing billy joel in kitchen.
+        {% elif Playlist.lower() == 'tom petty' %} Ok. Playing tom petty in kitchen.
+        {% elif Playlist.lower() == 'lyle lovett' %} Ok. Playing lyle lovett in kitchen.
+        {% elif Playlist.lower() == 'david grey' %} Ok. Playing david grey in kitchen.
+        {% elif Playlist.lower() == 'the head and the heart' %} Ok. Playing the head and the heart in kitchen.
+        {% elif Playlist.lower() == 'ray lamontagne' %} Ok. Playing ray lamontagne in the kitchen.
+        {% elif Playlist.lower() == 'robert earle keen' %} Ok. Playing robert earle keen in kitchen.
+        {% elif Playlist.lower() == 'donavon' %} Ok. Playing donavon in kitchen.
+        {% elif Playlist.lower() == 'chisrtmas acapella' %} Ok. Playing chisrtmas acapella in kitchen.
+        {% elif Playlist.lower() == 'chrismas jazz' %} Ok. Playing chrismas jazz in kitchen.
+        {% elif Playlist.lower() == 'chistmas' %} Ok. Playing chistmas in kitchen.
+        {% elif Playlist.lower() == 'celtic christmas' %} Ok. Playing celtic christmas in kitchen.
+        {% else %} Sorry. I didn't recognized the {{Playlist}} playlist.
+        {% endif %}
     async_action: true
     action:
       service: media_player.play_media
       data_template:
         entity_id: media_player.kitchen
         media_content_id: >
-          {% if   Playlist.lower(), 'jazz' %} pandora://3141420448449849928.mp3
-          {% elif Playlist.lower(), "van morrison" %} pandora://3374695489688595016.mp3
-          {% elif Playlist.lower(), 'blues' %} pandora://3141422333940492872.mp3
-          {% elif Playlist.lower(), 'amos lee' %} pandora://1712674494826441288.mp3
-          {% elif Playlist.lower(), 'amos less' %} pandora://1712674494826441288.mp3
-          {% elif Playlist.lower(), 'dishwashing' %} pandora://1649044550041233992.mp3
-          {% elif Playlist.lower(), 'jack johnson' %} pandora://1451670186947013192.mp3
-          {% elif Playlist.lower(), 'james taylor' %} pandora://1247104798763805256.mp3
-          {% elif Playlist.lower(), 'zac brown' %} pandora://1489272784537283144.mp3
-          {% elif Playlist.lower(), 'billy joel' %} pandora://2733584939730627144.mp3
-          {% elif Playlist.lower(), 'tom petty' %} pandora://3611578032873040456.mp3
-          {% elif Playlist.lower(), 'lyle lovett' %} pandora://44464503630359112.mp3
-          {% elif Playlist.lower(), 'david grey' %} pandora://162868518528772680.mp3
-          {% elif Playlist.lower(), 'the head and the heart' %} pandora://2789020817059506760.mp3
-          {% elif Playlist.lower(), 'ray lamontagne' %} pandora://552400074928319048'
-          {% elif Playlist.lower(), 'robert earle keen' %} pandora://1232800826796304968.mp3
-          {% elif Playlist.lower(), 'donavon' %} pandora://3746286370692295240.mp3
-          {% elif Playlist.lower(), 'chisrtmas acapella' %} pandora://1231256695859079752.mp3
-          {% elif Playlist.lower(), 'chrismas jazz' %} pandora://6472240837192264.mp3
-          {% elif Playlist.lower(), 'chistmas' %} pandora://675568853530470984.mp3
-          {% elif Playlist.lower(), 'celtic christmas' %} pandora://1188289361993558600.mp3
+          {% if   Playlist.lower() == 'jazz' %} pandora://3141420448449849928.mp3
+          {% elif Playlist.lower() == 'van morrison' %} pandora://3374695489688595016.mp3
+          {% elif Playlist.lower() == 'blues' %} pandora://3141422333940492872.mp3
+          {% elif Playlist.lower() == 'amos lee' %} pandora://1712674494826441288.mp3
+          {% elif Playlist.lower() == 'amos less' %} pandora://1712674494826441288.mp3
+          {% elif Playlist.lower() == 'dishwashing' %} pandora://1649044550041233992.mp3
+          {% elif Playlist.lower() == 'jack johnson' %} pandora://1451670186947013192.mp3
+          {% elif Playlist.lower() == 'james taylor' %} pandora://1247104798763805256.mp3
+          {% elif Playlist.lower() == 'zac brown' %} pandora://1489272784537283144.mp3
+          {% elif Playlist.lower() == 'billy joel' %} pandora://2733584939730627144.mp3
+          {% elif Playlist.lower() == 'tom petty' %} pandora://3611578032873040456.mp3
+          {% elif Playlist.lower() == 'lyle lovett' %} pandora://44464503630359112.mp3
+          {% elif Playlist.lower() == 'david grey' %} pandora://162868518528772680.mp3
+          {% elif Playlist.lower() == 'the head and the heart' %} pandora://2789020817059506760.mp3
+          {% elif Playlist.lower() == 'ray lamontagne' %} pandora://552400074928319048
+          {% elif Playlist.lower() == 'robert earle keen' %} pandora://1232800826796304968.mp3
+          {% elif Playlist.lower() == 'donavon' %} pandora://3746286370692295240.mp3
+          {% elif Playlist.lower() == 'chisrtmas acapella' %} pandora://1231256695859079752.mp3
+          {% elif Playlist.lower() == 'chrismas jazz' %} pandora://6472240837192264.mp3
+          {% elif Playlist.lower() == 'chistmas' %} pandora://675568853530470984.mp3
+          {% elif Playlist.lower() == 'celtic christmas' %} pandora://1188289361993558600.mp3
           {% else %} pandora://3141420448449849928.mp3
           {% endif %}
-        media_content_type: 'audio/mp3'
+        media_content_type: music
