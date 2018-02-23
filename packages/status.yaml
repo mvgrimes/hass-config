@@ -1,0 +1,68 @@
+# -------------------------------------------
+#  Fire Tablet Alarm Panel -
+#  From: https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/packages/alarm_clock.yaml
+#  http://www.vmwareinfo.com/2017/07/visualizing-smart-home-using-home.html
+# -------------------------------------------
+
+homeassistant:
+  customize:
+    input_boolean.carpool_week:
+      custom_ui_state_card: state-card-custom-ui
+      show_last_changed: true
+
+media_player:
+  - platform: floorplan_speaker
+    name: Status Panel
+
+# ---Sensors for Fire Tablet-----------------------------
+binary_sensor:
+  - platform: mqtt
+    state_topic: floorplan/status_motion
+    name: Status Panel Motion
+    device_class: motion
+    retain: true
+    hidden: false
+
+  - platform: mqtt
+    state_topic: floorplan/status_plugged
+    name: Status Panel Plugged
+    retain: true
+    hidden: false
+
+light:
+  - platform: mqtt_json
+    name: Status Panel Screensaver
+    state_topic: floorplan/status_screensaver
+    command_topic: floorplan/status_screensaver/set
+    brightness: true
+
+input_boolean:
+  carpool_week:
+    name: Drive Carpool Friday
+    # initial: 'off'
+    icon: mdi:bus-school
+
+group:
+  status_panel:
+    name: Status Panel
+    control: hidden
+    entities:
+      - binary_sensor.status_panel_motion
+      - binary_sensor.status_panel_plugged
+      - input_boolean.carpool_week
+      - light.status_panel_screensaver
+
+automation:
+  # --- Switch Carpool Week on Sat ---
+  - alias: 'Switch carpool week on Sat'
+    initial_state: 'on'
+    trigger:
+      - platform: time
+        at: '2:23:00'
+    condition:
+      - condition: state
+        entity_id: sensor.clock_day
+        state: "Saturday"
+    action:
+      - service: homeassistant.toggle
+        entity_id: input_boolean.carpool_week

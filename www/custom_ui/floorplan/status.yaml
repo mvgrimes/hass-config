@@ -1,0 +1,218 @@
+# -------------------------------------------
+#  Fire Tablet Status Panel - Keep track of life!
+#  Floorplan config file
+# -------------------------------------------
+
+page_id: Status
+image: /local/custom_ui/floorplan/status.svg
+stylesheet: /local/custom_ui/floorplan/status.css
+warnings:
+
+defaults:
+  hover_over: true
+  more_info: true
+
+rules:
+  # --- Date/Time ----
+  - name: Cal Day of Month
+    entities:
+      - sensor.clock_dom
+    hover_over: false
+    more_info: false
+    text_template: '${entity.state ? entity.state : "n/a"}'
+    # class_template: 'return "static-text-date";'
+
+  - name: Clock Time
+    entities:
+      - sensor.clock_time
+    hover_over: false
+    more_info: false
+    text_template: '${entity.state ? entity.state : "n/a"}'
+    # class_template: 'return "static-text-time";'
+
+  - name: Clock Time AM/PM
+    entities:
+      - sensor.clock_am_pm
+    hover_over: false
+    more_info: false
+    text_template: '${entity.state ? entity.state : "n/a"}'
+    # class_template: 'return "static-text-am_pm";'
+
+  # --- Carpool ---
+  - name: Carpool Today
+    entities:
+      - input_boolean.carpool_week
+      - sensor.clock_day
+    element: sensor.carpool_today
+    more_info: false
+    text_template: '
+      var driver;
+      var day = entities["sensor.clock_day"] ? entities["sensor.clock_day"].state : "";
+
+      switch (day) {
+        case "Monday":
+        case "Wednesday":
+          driver = "Grimes";
+          break;
+
+        case "Tuesday":
+        case "Thursday":
+          driver = "Brianas";
+          break;
+
+        case "Friday":
+          driver = entities["input_boolean.carpool_week"].state === "on" ? "Grimes" : "Brianas";
+          break;
+
+        default:
+          driver = "--";
+      }
+
+      return driver;
+      '
+
+  - name: Carpool Tomorrow
+    entities:
+      - input_boolean.carpool_week
+      - sensor.clock_day
+    element: sensor.carpool_tomorrow
+    more_info: false
+    text_template: '
+      var driver;
+      var day = entities["sensor.clock_day"] ? entities["sensor.clock_day"].state : "";
+
+      switch (day) {
+        case "Sunday":
+        case "Tuesday":
+          driver = "Grimes";
+          break;
+
+        case "Monday":
+        case "Wednesday":
+          driver = "Brianas";
+          break;
+
+        case "Thursday":
+          driver = entities["input_boolean.carpool_week"].state === "on" ? "Grimes" : "Brianas";
+          break;
+
+        default:
+          driver = "--";
+      }
+
+      return driver;
+      '
+
+  - name: Click the Bus
+    entities:
+      - input_boolean.carpool_week
+    element: bus
+    # more_info: false
+    class_template: 'return entity.state === "on" ? "chore-done" : "chore-waiting";'
+    action:
+      service: input_boolean.toggle
+      data:
+        entity_id: input_boolean.carpool_week
+
+  # --- Thermostats ---
+  - name: Thermostat Temps
+    entities:
+      - sensor.mbr_temp
+      - sensor.kitchen_thermostat_temp
+      - sensor.girls_br_temp
+    text_template: '${entity.state ? Math.ceil(entity.state) + "°": "n/a"}'
+    # class_template: 'return "static-temp";'
+
+  # --- Weather ---
+  - name: Outside Temps
+    entities:
+      - sensor.dark_sky_temperature
+      - sensor.pws_temp_high_1d_f
+      - sensor.pws_temp_low_1d_f
+    text_template: '${entity.state ? Math.ceil(entity.state) + "°": "n/a"}'
+
+  # - name: Weather Forecast
+  #   entities:
+  #     - sensor.pws_weather_1d
+  #   hover_over: false
+  #   text_template: '${entity.state ? entity.state : "n/a"}'
+
+  - name: Weather Forecast Line 1
+    element: forecast1
+    entities:
+      - sensor.pws_weather_1d
+    hover_over: false
+    text_template: '${entity.state ? entity.state.substr(0,30) : "n/a"}'
+
+  - name: Weather Forecast Line 2
+    element: forecast2
+    entities:
+      - sensor.pws_weather_1d
+    hover_over: false
+    text_template: '${entity.state ? entity.state.substr(30,30) : "n/a"}'
+
+  - name: Weather Forecast Line 3
+    element: forecast3
+    entities:
+      - sensor.pws_weather_1d
+    hover_over: false
+    text_template: '${entity.state ? entity.state.substr(60,30) : "n/a"}'
+
+  - name: Weather Forecast Line 4
+    element: forecast4
+    entities:
+      - sensor.pws_weather_1d
+    hover_over: false
+    text_template: '${entity.state ? entity.state.substr(90,30) : "n/a"}'
+
+  - name: Weather Forecast Line 5
+    element: forecast5
+    entities:
+      - sensor.pws_weather_1d
+    hover_over: false
+    text_template: '${entity.state ? entity.state.substr(120,30) : "n/a"}'
+
+  - name: Wind Speed
+    entities:
+      - sensor.dark_sky_wind_speed
+    text_template: '${entity.state ? entity.state + " mph" : "n/a"}'
+
+  - name: Dark Sky Sensors
+    entities:
+      - sensor.dark_sky_minutely_summary
+    element: sensor.dark_sky_minutely_summary_icon
+    image_template: '
+      var imageName = "";
+
+      switch (entity.attributes.entity_picture) {
+        case "/static/images/darksky/weather-sunny.svg":
+          imageName = "sunny-1";
+          break;
+
+        case "/static/images/darksky/weather-night.svg":
+          imageName = "night-1";
+          break;
+
+        case "/static/images/darksky/weather-partlycloudy.svg":
+          imageName = "partlycloudy-day-1";
+          break;
+
+        case "/static/images/darksky/weather-cloudy.svg":
+          imageName = "partlycloudy-night-1";
+          break;
+
+        case "/static/images/darksky/weather-cloudy.svg":
+          imageName = "cloudy-day-1";
+          break;
+
+        case "/static/images/darksky/weather-pouring.svg":
+          imageName = "thunder";
+          break;
+
+        case "/static/images/darksky/weather-snowy.svg":
+          imageName = "snowy-day-1";
+          break;
+      }
+
+      return "/local/custom_ui/floorplan/images/weather/" + imageName + ".svg";
+      '

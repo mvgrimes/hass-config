@@ -22,6 +22,8 @@ group:
       - sensor.pws_temp_f
       - sensor.pws_weather
       - sensor.pws_weather_1d
+      - sensor.pws_temp_high_1d_f
+      - sensor.pws_temp_low_1d_f
 
   weather_sun:
     name: Sun
@@ -56,6 +58,8 @@ sensor:
       - precip_2d_in
       - weather
       - weather_1d
+      - temp_high_1d_f
+      - temp_low_1d_f
 
   - platform: darksky
     api_key: !secret darksky_key

@@ -1,0 +1,7 @@
+- name: status
+  sidebar_title: Summary
+  sidebar_icon: mdi:calendar-today
+  url_path: status
+  config:
+    config: /local/custom_ui/floorplan/floorstatus.yaml
+    hide_app_toolbar:

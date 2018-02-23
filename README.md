@@ -23,7 +23,7 @@ Contacts and store them in the SQLite database.
 - [packages/callerid.yaml](packages/callerid.yaml)
 - [bin/check-is-known.py*](bin/check-is-known.py*)
 - [bin/notify-if-known.sh*](bin/notify-if-known.sh*)
-- mqtt-say (TODO: release/document)
+- mqtt-say](https://github.com/mvgrimes/mqtt-say)
 - Google contact script (TODO: release/document)
 
 ## Floorplan
@@ -46,22 +46,28 @@ version of (flooplan)[https://github.com/pkozul/ha-floorplan-kiosk]
 - [www/custom_ui/floorplan/home.css](www/custom_ui/floorplan/home.css)
 - [www/custom_ui/floorplan/home.svg](www/custom_ui/floorplan/home.svg)
 
-### Clock
+### Morning Status Panel
 
-![Clock](./www/custom_ui/floorplan/clock.svg)
+![Status Panel](./www/custom_ui/floorplan/status.svg)
 
 Files:
 
-- [custom_panels/clock.yaml](custom_panels/clock.yaml) - define the panel
-- [packages/clock.yaml](packages/clock.yaml) - custom sensors and automations
-- [panels/clock.html](panels/clock.html) - the Polymer Component (mostly
+- [custom_panels/status.yaml](custom_panels/status.yaml) - define the panel
+- [packages/status.yaml](packages/status.yaml) - custom sensors and automations
+- [panels/status.html](panels/status.html) - the Polymer Component (mostly
   stock)
-- [www/custom_ui/floorplan/clock.yaml](www/custom_ui/floorplan/floorclock.yaml) - floorplan
-  config that specifies the clock.yaml page
-- [www/custom_ui/floorplan/clock.yaml](www/custom_ui/floorplan/clock.yaml) -
-  clock.yaml page; primary floorplan integrations
-- [www/custom_ui/floorplan/clock.css](www/custom_ui/floorplan/clock.css)
-- [www/custom_ui/floorplan/clock.svg](www/custom_ui/floorplan/clock.svg)
+- [www/custom_ui/floorplan/status.yaml](www/custom_ui/floorplan/floorstatus.yaml) - floorplan
+  config that specifies the status.yaml page
+- [www/custom_ui/floorplan/status.yaml](www/custom_ui/floorplan/status.yaml) -
+  status.yaml page; primary floorplan integrations
+- [www/custom_ui/floorplan/status.css](www/custom_ui/floorplan/status.css)
+- [www/custom_ui/floorplan/status.svg](www/custom_ui/floorplan/status.svg)
+
+This replaces my previous super clock floorplan. The clock was nice, but my
+Amzaon Fire Tablet wouldn't stay connected to HA consistently enough for me to
+rely on it as an alarm clock and the dimmed (but not off) screen was too bright
+to keep next to the bed. This presents a bunch of info that I find useful in
+the morning (date, weather, temps and who's turn it is to drive carpool).
 
 ### Pets
 
@@ -89,7 +95,7 @@ the rest of my components in different views (groups/\*<name>-view.yaml).
 
 Two different Alexa integrations:
 
-1. emulated_hue -- the echo looks for devices on the network (as presented by
+1. emulated\_hue -- the echo looks for devices on the network (as presented by
    HA over port 8300) and exposes them as "Smart Home" devices.
 
 2. alexa -- a custom skill (invoked by "Alexa, ask Home Assistant...") is
@@ -98,7 +104,7 @@ Two different Alexa integrations:
 
        https://hass.markandcarrie.com/api/alexa?api_password=XXXX
 
-  Intent scripts are defined in the intent_script/ directory.
+  Intent scripts are defined in the intent\_script/ directory.
 
 ## Others
 

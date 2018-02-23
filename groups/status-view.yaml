@@ -1,0 +1,6 @@
+status_view:
+  view: yes
+  name: Status
+  entities:
+    - group.status_panel
+    - group.date_time

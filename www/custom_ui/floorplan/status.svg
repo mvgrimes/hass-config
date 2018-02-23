@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" baseProfile="full" width="1024px" height="768px" viewBox="0 0 1024 768" preserveAspectRatio="xMidYMid meet" id="svg_document" style="zoom: 1;"><title id="svg_document_title">Untitled.svg</title><defs id="svg_document_defs"></defs>
+<g id="main_group">
+<rect x="0px" height="768px" y="0px" id="background_rect" width="1024px" fill="#000" visibility="visible"></rect>
+
+<path id="calendar" d="M817.03125,27.362152 c-3.313802,0 -6,2.6863 -6,6 l0,23.0625 c-6.957442,2.49682 -12,9.16884 -12,16.9375 c0,9.87006 8.129998,18 18,18 c9.87,0 18,-8.12994 18,-18 c0,-7.76866 -5.04256,-14.44068 -12,-16.9375 l0,-23.0625 c0,-3.3137 -2.686402,-6 -6,-6 z m92,0 c-3.3138,0 -6,2.6863 -6,6 l0,23.0625 c-6.95746,2.49682 -12,9.16884 -12,16.9375 c0,9.87006 8.129998,18 18,18 c9.87,0 17.999899,-8.12994 17.999899,-18 c0,-7.76866 -5.042398,-14.44068 -11.999898,-16.9375 l0,-23.0625 c0,-3.3137 -2.6864,-6 -6,-6 z m-120,12 c-12.117601,0 -22.062502,9.94502 -22.062502,22.0625 l0,123.874977 c0,12.1176 9.9449,22.062599 22.062502,22.062599 l147.874893,0 c12.117602,0 22.062599,-9.945 22.062599,-22.062599 l0,-123.874977 c0,-12.11748 -9.944998,-22.0625 -22.062599,-22.0625 l-11.9374,0 c-3.169802,-0.0448 -6.0625,2.8298 -6.0625,6 c0,3.1702 2.892698,6.04482 6.0625,6 l11.9374,0 c5.6658,0 10.0626,4.39674 10.0626,10.0625 l0,33.9375 l-168,0 l0,-33.9375 c0,-5.66576 4.396701,-10.0625 10.062501,-10.0625 l11.9375,0 c3.169798,0.0448 6.0625,-2.8298 6.0625,-6 c0,-3.1702 -2.892702,-6.04482 -6.0625,-6 z m43.9375,0 c-3.313802,0 -6,2.6862 -6,6 c0,3.3136 2.686198,6 6,6 l60,0 c3.313798,0 6,-2.6864 6,-6 c0,-3.3138 -2.686202,-6 -6,-6 z m-15.9375,28 c3.384798,0 6,2.61522 6,6 c0,3.38478 -2.615202,6 -6,6 c-3.3848,0 -6,-2.61522 -6,-6 c0,-3.38478 2.6152,-6 6,-6 z m92,0 c3.3848,0 6,2.61522 6,6 c0,3.38478 -2.6152,6 -6,6 c-3.384802,0 -6,-2.61522 -6,-6 c0,-3.38478 2.615198,-6 6,-6 z M778.96875,107.362244 L946.96875,107.362244 l0,77.937401 c0,5.6658 -4.3968,10.0626 -10.0626,10.0626 l-147.874893,0 c-5.6658,0 -10.062501,-4.3968 -10.062501,-10.0626 z" fill="#ccc"></path>
+<text id="sensor.clock_dom" y="142px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:64px;" transform="matrix(0.8191 0 0 1 995 30)" x="-201.688339px">12</text>
+
+<path id="house" d="M69.359009,617.906982 H55.436035 l15.189001,-24.365999 H192.148987 V553.350037 h-21.518999 L263.033051,486.264038 l31.644001,22.973999 v-13.914 H315.776031 v29.232002 L355.436035,553.350037 h-21.518999 v143.987991 H347.840088 v16.773001 h-135.440994 h-11.391 h-141.774002 v-16.773001 h10.125 V617.906982 z M273.683014,538.22699 h-21.299999 v21.299999 h21.299999 V538.22699 z M273.683014,584.843994 h-21.299999 v21.299999 h21.299999 V584.843994 z M289.832092,652.764038 h21.299999 v-21.299999 h-21.299999 V652.764038 z M289.832092,606.143921 h21.299999 v-21.299999 h-21.299999 V606.143921 z M250.373047,698.130066 h25.317001 V647.496094 h-25.317001 V698.130066 z M214.931061,652.764038 h21.299999 v-21.299999 h-21.299999 V652.764038 z M214.931061,606.143921 h21.299999 v-21.299999 h-21.299999 V606.143921 z M135.818054,610.87793 c-4.584,0 -8.295,3.717 -8.295,8.295 s3.714,8.295 8.295,8.295 c4.581,0 8.295,-3.717 8.295,-8.295 S140.398987,610.87793 135.818054,610.87793 z M88.24707,698.130066 H183.386108 V637.371094 h-95.139 V698.130066 z" fill="#ccc"></path>
+<text id="sensor.girls_br_temp" x="-694.912537px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:54px;" y="562px" text-anchor="middle" transform="matrix(0.8191 0 0 1 995 30)">99°</text>
+<text x="-973.266968px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:54px;" y="445px" id="sensor.mbr_temp" text-anchor="middle" transform="matrix(0.8191 0 0 1 995 30)">99°</text>
+<text id="sensor.kitchen_thermostat_temp" x="-714.446228px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:54px;" y="682px" text-anchor="middle" transform="matrix(0.8191 0 0 1 995 30)">99°</text>
+<line id="line1" stroke="#00ADEE" y1="682px" x1="318px" stroke-width="3px" y2="694px" x2="376px" transform=""></line>
+<line id="line2" stroke="#00ADEE" y1="570px" stroke-width="3px" x1="382px" y2="580px" x2="322px" transform=""></line>
+<line stroke="#00ADEE" y1="483px" id="line3" stroke-width="3px" x1="197px" y2="511px" x2="229px" transform=""></line>
+
+<path id="thermometer" d="M77.294006,53 l0,0 c4.94696,0 9.038897,4.030862 9.038897,8.977828 l0,56.004539 c5.374478,3.114763 8.977828,8.916757 8.977828,15.573788 c0,9.955008 -8.061718,17.955664 -18.016727,17.955664 c-9.893929,0 -17.955664,-8.000649 -17.955664,-17.955664 c0,-6.657037 3.603349,-12.459026 8.977828,-15.573788 l0,-56.004539 c0,-4.94696 4.091939,-8.977828 8.977828,-8.977828 z" fill="#ccc"></path>
+<text y="57px" id="sensor.pws_temp_high_1d_f" style="fill:#00ADEE; font-family:'Helvetica'; font-size:32px;" text-anchor="start" x="93px">199°</text>
+<text y="105px" id="sensor.dark_sky_temperature" style="fill:#00ADEE; font-family:'Helvetica'; font-size:32px;" text-anchor="end" x="61px">xx°</text>
+<text y="169px" id="sensor.pws_temp_low_1d_f" style="fill:#00ADEE; font-family:'Helvetica'; font-size:32px;" text-anchor="start" x="99px">-35°</text>
+
+<rect id="sensor.dark_sky_minutely_summary_icon" x="105px" y="70px" style="fill:#666666;" width="70.5" height="62.2"/>
+
+<g id="forecast">
+  <text id="forecast1" y="50px" style="fill:#00adee; font-family:'helvetica'; font-size:36px;" text-anchor="start" x="178px">forecast for today</text>
+  <text id="forecast2" y="90px" style="fill:#00adee; font-family:'helvetica'; font-size:36px;" text-anchor="start" x="178px">hell fire and …</text>
+  <text id="forecast3" y="130px" style="fill:#00adee; font-family:'helvetica'; font-size:36px;" text-anchor="start" x="178px">brimstone</text>
+  <text id="forecast4" y="170px" style="fill:#00adee; font-family:'helvetica'; font-size:36px;" text-anchor="start" x="178px">brimstone</text>
+  <text id="forecast5" y="210px" style="fill:#00adee; font-family:'helvetica'; font-size:36px;" text-anchor="start" x="178px">brimstone</text>
+</g>
+
+<text y="472px" id="text_today" style="fill:#ccc; font-family:'Helvetica'; font-size:42px;" text-anchor="middle" x="677.466003px">Today:</text>
+<text y="711px" id="text_tomorrow" style="fill:#ccc; font-family:'Helvetica'; font-size:36px;" text-anchor="middle" x="736.915039px">Tomorrow:</text>
+<text y="485px" id="sensor.carpool_today" style="fill:#00ADEE; font-family:'Helvetica'; font-size:64px;" text-anchor="start" x="746.546997px">...</text>
+<text y="726px" id="sensor.carpool_tomorrow" style="fill:#00ADEE; font-family:'Helvetica'; font-size:48px;" text-anchor="start" x="828.554016px">...</text>
+
+<g id="bus">
+  <path d="M869.328979,626.040039 c-15.944,0 -28.92,12.964 -28.92,28.92 c0,15.948 12.976,28.92 28.92,28.92 s28.92,-12.972 28.92,-28.92 C898.248901,639.004028 885.273071,626.040039 869.328979,626.040039  z M869.328979,669.420044 c-7.976,0 -14.46,-6.488 -14.46,-14.46 c0,-7.972 6.484,-14.46 14.46,-14.46 c7.98,0 14.464,6.492 14.464,14.46 C883.793091,662.927979 877.30896,669.420044 869.328979,669.420044  z " fill="#ccc"></path>
+  <path d="M730.862,625.040039 c-15.944,0 -28.92,12.964 -28.92,28.92 c0,15.948 12.976,28.92 28.92,28.92 s28.927999,-12.972 28.927999,-28.92 C759.789978,638.004028 746.806091,625.040039 730.862,625.040039 z M730.862,668.420044 c-7.98,0 -14.46,-6.488 -14.46,-14.46 c0,-7.972 6.48,-14.46 14.46,-14.46 c7.98,0 14.46,6.492 14.46,14.46 C745.326111,661.927979 738.84613,668.420044 730.862,668.420044 z" fill="#ccc"></path>
+  <path d="M710.752014,612.424011 c3.86,0 6.932,-2.892 7.208,-6.676 c0.312,-4.272 -3.468,-7.788 -7.752,-7.788 h-34.792 c-0.052,0 -0.088,-0.048 -0.08,-0.1 c3.336,-16.316 17.252001,-28.643999 34.535999,-28.823999 L724.296204,525.647888 l1.932,-4.192 c4.912,-14.752 18.799999,-24.728001 34.271999,-24.728001 H884.768127 c17.5,0 32.108002,12.436 35.431999,28.92 c0.044,0.224 0.084,0.452 0.12,0.672 c0.368,2.116 0.6,4.336 0.6,6.56 v65.075996 v14.464 v21.691999 c-0,8.8 -5.208,16.351999 -12.72,19.756001 c-1.012,-20.028 -17.620001,-36.004002 -37.891998,-36.004002 c-20.924,0 -37.948002,17.02 -37.948002,37.939999 h-61.98 c-0,-9.676 -3.644,-18.511999 -9.624,-25.216 l-4.896,-4.596 c-6.452,-5.088 -14.588,-8.132 -23.424,-8.132 c-20.903999,0 -37.916,16.996 -37.939999,37.900002 c-11.36,-0.672 -19.903999,-10.084 -19.903999,-21.648001 v-21.612 c-0,-0.044 0.036,-0.08 0.08,-0.08 H710.752014 z M876.304016,531.107971 v38.188 H905.220032 V525.647888 h-28.916 V531.107971 z M834.164124,531.107971 v38.188 h28.916 V525.647888 h-28.916 V531.107971 z M775.827942,643.867981 H819.6922 V583.496033 h-43.863998 V643.867981 z M775.827942,569.031921 v0.264 H819.6922 v-10.916 l0.008,-32.731998 h-43.872002 V569.031921 z M761.364075,569.031921 V525.647888 h-24.459999 l-13.904,43.383999 H761.364075 z" fill="#ccc"></path>
+</g>
+
+<g id="wind">
+  <path d="M177.042603,298 H107.542603 c-1.7,0 -3,-1.3 -3,-3 c0,-1.7 1.3,-3 3,-3 H177.042603 c4.7,0 8.5,-3.8 8.5,-8.5 S181.742615,275 177.042603,275 s-8.5,3.8 -8.5,8.5 c0,1.7 -1.3,3 -3,3 s-3,-1.3 -3,-3 C162.542603,275.5 169.042603,269 177.042603,269 s14.5,6.5 14.5,14.5 S185.042603,298 177.042603,298  z " fill="#ccc"></path>
+  <path d="M151.042603,333 c-8,0 -14.5,-6.5 -14.5,-14.5 c0,-1.7 1.3,-3 3,-3 s3,1.3 3,3 c0,4.7 3.8,8.5 8.5,8.5 s8.5,-3.8 8.5,-8.5 S155.742615,310 151.042603,310 H107.542603 c-1.7,0 -3,-1.3 -3,-3 s1.3,-3 3,-3 H151.042603 c8,0 14.5,6.5 14.5,14.5 S159.042603,333 151.042603,333  z " fill="#ccc"></path>
+  <path d="M137.042603,282 H107.542603 c-1.7,0 -3,-1.3 -3,-3 s1.3,-3 3,-3 H137.042603 c4.7,0 8.5,-3.8 8.5,-8.5 S141.742615,259 137.042603,259 s-8.5,3.8 -8.5,8.5 c0,1.7 -1.3,3 -3,3 s-3,-1.3 -3,-3 C122.542603,259.5 129.042603,253 137.042603,253 s14.5,6.5 14.5,14.5 S145.042603,282 137.042603,282  z " fill="#ccc"></path>
+</g>
+<text id="sensor.dark_sky_wind_speed" x="210px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:42px;" y="300px" text-anchor="start">100 mph</text>
+
+<text y="2px" id="sensor.clock_time" style="fill:#00ADEE; enable-background:new; font-family:'Helvetica'; font-size:24;" transform="matrix(0.8191 0 0 1 950 30)" x="-9.766819px">10:36</text>
+<text id="sensor.clock_am_pm" transform="matrix(0.8191 0 0 1 995 30)" style="fill:#00ADEE; font-family:'Helvetica'; font-size:12px;">XX</text>
+</g>
+</svg>

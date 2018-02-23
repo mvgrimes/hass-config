@@ -6,13 +6,12 @@
 # log_level: debug
 
 fully_kiosk:
-  - name: Alarm Clock
+  - name: Status Panel
     address: 18:74:2E:00:5F:E5
-    motion_sensor: binary_sensor.clock_motion
-    plugged_sensor: binary_sensor.clock_plugged
-    screensaver_light: light.clock_screensaver
-    media_player: media_player.alarm_clock
+    motion_sensor: binary_sensor.status_motion
+    plugged_sensor: binary_sensor.status_plugged
+    screensaver_light: light.status_screensaver
+    media_player: media_player.status_panel
 
 pages:
-  - /local/custom_ui/floorplan/clock.yaml
-  # - /local/custom_ui/floorplan/clock_config.yaml
+  - /local/custom_ui/floorplan/status.yaml

@@ -5,7 +5,7 @@ default_view:
     - group.weather_simple
     - group.switch_group
     - group.mode_group
-    - group.alarm_clock
+    - group.status_panel
     - group.finance
 
 mode_group:
