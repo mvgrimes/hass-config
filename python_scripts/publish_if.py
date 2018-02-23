@@ -2,7 +2,7 @@ phone = data.get( 'phone', 'n/a' );
 logger.info( "Checking for {} in database".format( phone ) )
 
 # result = subprocess.check_output( ['echo',phone] )
-topic = 'hass/callerid/say'
+topic = 'hass/mqtt-say/message'
 message = 'Call from {}'.format( phone )
 
 ### python_scripts in hass are very restricted. Doesn't appear to be any way to

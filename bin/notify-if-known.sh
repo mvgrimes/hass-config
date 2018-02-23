@@ -1,7 +1,8 @@
 #!/bin/bash
 
 url="http://localhost:8123"
-topic="hass/callerid/say"
+topic_ring="hass/mqtt-say/ring"
+topic_say="hass/mqtt-say/message"
 database="/srv/app/hass/config/phones.sqlite"
 pysqlite="/srv/app/hass/config/bin/check-is-known.py"
 
@@ -34,7 +35,8 @@ shift $(($OPTIND - 1))
 
 # TODO: ensure payload is properly escaped
 mqtt-publish() {
-    payload=$1
+    local topic=$1
+    local payload=$2
 
     echo "publish: $payload"
     curl -s -X POST \
@@ -69,7 +71,8 @@ is-friend() {
 
 if is-friend "$phone" ; then
     [ -n "$name" ] || name="$phone"
-    mqtt-publish "Incoming call from $name"
+    mqtt-publish "$topic_ring" "short-ring"
+    # mqtt-publish "$topic_say" "Incoming call from $name"
 else
     echo "We don't know you!"
 fi
