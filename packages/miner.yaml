@@ -24,6 +24,7 @@ group:
     name: Miner
     entities:
       - sensor.mean_rate
+      - sensor.miner_up_time
       - switch.miner_power
       - switch.restart_miner
       - sensor.basement_temperature
@@ -49,14 +50,20 @@ switch:
         turn_off:
 
 sensor:
-  platform: influxdb
-  host: pip
-  queries:
-    - name: mean rate
-      unit_of_measurement: "GH/s"
-      where: 'time > now() - 30m'
-      measurement: miner_rate
-      field: value
-      group_function: mean
-      database: home_assistant
-      value_template: '{{ value | round(1) }}'
+  - platform: influxdb
+    host: pip
+    queries:
+      - name: mean rate
+        unit_of_measurement: "GH/s"
+        where: 'time > now() - 30m'
+        measurement: miner_rate
+        field: value
+        group_function: mean
+        database: home_assistant
+        value_template: '{{ value | round(1) }}'
+
+  - platform: command_line
+    name: Miner Up Time
+    command: "sshpass -p admin ssh root@antminer '/bin/cat /proc/uptime'"
+    unit_of_measurement: minutes
+    value_template: '{{ ( float(value.split(" ")[0]) / 60 ) | round(0) }}'
