@@ -64,6 +64,7 @@ sensor:
 
   - platform: command_line
     name: Miner Up Time
+    scan_interval: 120
     command: "sshpass -p admin ssh root@antminer '/bin/cat /proc/uptime'"
     unit_of_measurement: minutes
     value_template: '{{ ( float(value.split(" ")[0]) / 60 ) | round(0) }}'

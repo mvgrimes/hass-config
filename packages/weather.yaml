@@ -1,7 +1,48 @@
 homeassistant:
   customize:
+    sensor.dark_sky_apparent_temperature:
+      friendly_name: 'Current Temperature'
+      icon: mdi:thermometer
+    sensor.dark_sky_daily_high_apparent_temperature:
+      friendly_name: 'Daily High'
+      icon: mdi:thermometer
+    sensor.dark_sky_daily_low_apparent_temperature:
+      friendly_name: 'Daily Low'
+      icon: mdi:thermometer
+    sensor.dark_sky_humidity:
+      friendly_name: 'Current Humidity'
+    sensor.dark_sky_temperature:
+      friendly_name: 'Current Temperature'
+    sensor.dark_sky_daily_summary:
+      friendly_name: 'Daily Summary'
+    # UV
+    sensor.pws_uv:
+      friendly_name: 'UV Index'
+      icon: mdi:white-balance-sunny
+    sensor.uv_burn_time:
+      friendly_name: 'Burn Time'
+      icon: mdi:fire
+    # WEATHER report
     sensor.pws_weather_1d:
-      friendly_name: WU Forcast
+      friendly_name: Today's Forcast
+    sensor.pws_alerts:
+      friendly_name: Weather Alerts
+    sensor.pws_dewpoint_f:
+      friendly_name: Dew Point
+    sensor.pws_precip_today_in:
+      friendly_name: Today's Precipitation
+    sensor.pws_precip_1d_in:
+      friendly_name: Rain Today
+    sensor.pws_precip_2d_in:
+      friendly_name: Rain Tomorrow
+    sensor.pws_temp_f:
+      friendly_name: Current Temperature
+    sensor.pws_weather:
+      friendly_name: Current Conditions
+    sensor.pws_temp_high_1d_f:
+      friendly_name: Today's expected high
+    sensor.pws_temp_low_1d_f:
+      friendly_name: Today's expected low
 
 group:
   weather_simple:
@@ -10,20 +51,22 @@ group:
       - sensor.pws_weather_1d
       - sensor.dark_sky_temperature
       - sensor.dark_sky_wind_speed
+      - sensor.uv_burn_time
 
   weather_wu:
     name: Weather Underground
     entities:
       - sensor.pws_alerts
+      - sensor.pws_weather
+      - sensor.pws_temp_f
       - sensor.pws_dewpoint_f
       - sensor.pws_precip_today_in
-      - sensor.pws_precip_1d_in
-      - sensor.pws_precip_2d_in
-      - sensor.pws_temp_f
-      - sensor.pws_weather
       - sensor.pws_weather_1d
       - sensor.pws_temp_high_1d_f
       - sensor.pws_temp_low_1d_f
+      - sensor.pws_precip_1d_in
+      - sensor.pws_precip_2d_in
+      - sensor.pws_uv
 
   weather_sun:
     name: Sun
@@ -60,6 +103,7 @@ sensor:
       - weather_1d
       - temp_high_1d_f
       - temp_low_1d_f
+      - UV
 
   - platform: darksky
     api_key: !secret darksky_key
@@ -81,3 +125,19 @@ sensor:
       # - ozone
       - uv_index
       - hourly_summary
+
+  # --- UV ----
+  # http://beautyinthebackcountry.com/2013/04/09/uv-index-and-spf-explained/
+  - platform: template
+    sensors:
+      uv_burn_time:
+        unit_of_measurement: Minutes
+        # Celtic (all babies and children) = 67Min // caucasian = 100Min // Central Europe = 200Min // south american = 200Min // Middle Eastern = 400Min // African = 500Min
+        value_template: >
+          {% if is_state('sensor.pws_uv', '0') %}
+            0
+          {% elif is_state('sensor.pws_uv', '-1') %}
+            0
+          {% else %}
+            {{ (67 / states.sensor.pws_uv.state | float) | round }}
+          {% endif %}
