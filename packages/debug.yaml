@@ -1,0 +1,16 @@
+automation:
+  - alias: Annouce HA Restarted
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+      - service: script.announce_ha_start
+
+script:
+  announce_ha_start:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: hass/mqtt-say/message
+          payload: Home Assistant Restarted
+          retain: false
