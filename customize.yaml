@@ -23,6 +23,8 @@ group.media_view:
   order: 7
 group.clock_view:
   order: 8
+group.status_view:
+  order: 8
 group.mode_view:
   order: 2
 group.weather_view:
