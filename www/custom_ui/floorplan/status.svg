@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" baseProfile="full" width="1024px" height="768px" viewBox="0 0 1024 768" preserveAspectRatio="xMidYMid meet" id="svg_document" style="zoom: 1;"><title id="svg_document_title">Untitled.svg</title><defs id="svg_document_defs"></defs>
+<svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:cc="http://web.resource.org/cc/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1"
+  baseProfile="full" width="1024px" height="600px" viewBox="0 0 1024 600"
+  preserveAspectRatio="xMidYMid meet" id="svg_document" style="zoom: 1;">
+<title id="svg_document_title">Untitled.svg</title>
+<defs id="svg_document_defs"></defs>
 <g id="main_group">
-<rect x="0px" height="768px" y="0px" id="background_rect" width="1024px" fill="#000" visibility="visible"></rect>
+<rect x="0px" height="600px" y="0px" id="background_rect" width="1024px" fill="#000" visibility="visible"></rect>
 
 <path id="calendar" d="M817.03125,27.362152 c-3.313802,0 -6,2.6863 -6,6 l0,23.0625 c-6.957442,2.49682 -12,9.16884 -12,16.9375 c0,9.87006 8.129998,18 18,18 c9.87,0 18,-8.12994 18,-18 c0,-7.76866 -5.04256,-14.44068 -12,-16.9375 l0,-23.0625 c0,-3.3137 -2.686402,-6 -6,-6 z m92,0 c-3.3138,0 -6,2.6863 -6,6 l0,23.0625 c-6.95746,2.49682 -12,9.16884 -12,16.9375 c0,9.87006 8.129998,18 18,18 c9.87,0 17.999899,-8.12994 17.999899,-18 c0,-7.76866 -5.042398,-14.44068 -11.999898,-16.9375 l0,-23.0625 c0,-3.3137 -2.6864,-6 -6,-6 z m-120,12 c-12.117601,0 -22.062502,9.94502 -22.062502,22.0625 l0,123.874977 c0,12.1176 9.9449,22.062599 22.062502,22.062599 l147.874893,0 c12.117602,0 22.062599,-9.945 22.062599,-22.062599 l0,-123.874977 c0,-12.11748 -9.944998,-22.0625 -22.062599,-22.0625 l-11.9374,0 c-3.169802,-0.0448 -6.0625,2.8298 -6.0625,6 c0,3.1702 2.892698,6.04482 6.0625,6 l11.9374,0 c5.6658,0 10.0626,4.39674 10.0626,10.0625 l0,33.9375 l-168,0 l0,-33.9375 c0,-5.66576 4.396701,-10.0625 10.062501,-10.0625 l11.9375,0 c3.169798,0.0448 6.0625,-2.8298 6.0625,-6 c0,-3.1702 -2.892702,-6.04482 -6.0625,-6 z m43.9375,0 c-3.313802,0 -6,2.6862 -6,6 c0,3.3136 2.686198,6 6,6 l60,0 c3.313798,0 6,-2.6864 6,-6 c0,-3.3138 -2.686202,-6 -6,-6 z m-15.9375,28 c3.384798,0 6,2.61522 6,6 c0,3.38478 -2.615202,6 -6,6 c-3.3848,0 -6,-2.61522 -6,-6 c0,-3.38478 2.6152,-6 6,-6 z m92,0 c3.3848,0 6,2.61522 6,6 c0,3.38478 -2.6152,6 -6,6 c-3.384802,0 -6,-2.61522 -6,-6 c0,-3.38478 2.615198,-6 6,-6 z M778.96875,107.362244 L946.96875,107.362244 l0,77.937401 c0,5.6658 -4.3968,10.0626 -10.0626,10.0626 l-147.874893,0 c-5.6658,0 -10.062501,-4.3968 -10.062501,-10.0626 z" fill="#ccc"></path>
 <text id="sensor.clock_dom" y="142px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:64px;" transform="matrix(0.8191 0 0 1 995 30)" x="-201.688339px">12</text>
 
 <path id="house" d="M69.359009,617.906982 H55.436035 l15.189001,-24.365999 H192.148987 V553.350037 h-21.518999 L263.033051,486.264038 l31.644001,22.973999 v-13.914 H315.776031 v29.232002 L355.436035,553.350037 h-21.518999 v143.987991 H347.840088 v16.773001 h-135.440994 h-11.391 h-141.774002 v-16.773001 h10.125 V617.906982 z M273.683014,538.22699 h-21.299999 v21.299999 h21.299999 V538.22699 z M273.683014,584.843994 h-21.299999 v21.299999 h21.299999 V584.843994 z M289.832092,652.764038 h21.299999 v-21.299999 h-21.299999 V652.764038 z M289.832092,606.143921 h21.299999 v-21.299999 h-21.299999 V606.143921 z M250.373047,698.130066 h25.317001 V647.496094 h-25.317001 V698.130066 z M214.931061,652.764038 h21.299999 v-21.299999 h-21.299999 V652.764038 z M214.931061,606.143921 h21.299999 v-21.299999 h-21.299999 V606.143921 z M135.818054,610.87793 c-4.584,0 -8.295,3.717 -8.295,8.295 s3.714,8.295 8.295,8.295 c4.581,0 8.295,-3.717 8.295,-8.295 S140.398987,610.87793 135.818054,610.87793 z M88.24707,698.130066 H183.386108 V637.371094 h-95.139 V698.130066 z" fill="#ccc"></path>
 <text id="sensor.girls_br_temp" x="-694.912537px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:54px;" y="562px" text-anchor="middle" transform="matrix(0.8191 0 0 1 995 30)">99°</text>
-<text x="-973.266968px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:54px;" y="445px" id="sensor.mbr_temp" text-anchor="middle" transform="matrix(0.8191 0 0 1 995 30)">99°</text>
+<text id="sensor.mbr_temp"x="-973.266968px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:54px;" y="445px"  text-anchor="middle" transform="matrix(0.8191 0 0 1 995 30)">99°</text>
 <text id="sensor.kitchen_thermostat_temp" x="-714.446228px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:54px;" y="682px" text-anchor="middle" transform="matrix(0.8191 0 0 1 995 30)">99°</text>
 <line id="line1" stroke="#00ADEE" y1="682px" x1="318px" stroke-width="3px" y2="694px" x2="376px" transform=""></line>
 <line id="line2" stroke="#00ADEE" y1="570px" stroke-width="3px" x1="382px" y2="580px" x2="322px" transform=""></line>
-<line stroke="#00ADEE" y1="483px" id="line3" stroke-width="3px" x1="197px" y2="511px" x2="229px" transform=""></line>
+<line id="line3" stroke="#00ADEE" y1="483px"  stroke-width="3px" x1="197px" y2="511px" x2="229px" transform=""></line>
 
 <path id="thermometer" d="M77.294006,53 l0,0 c4.94696,0 9.038897,4.030862 9.038897,8.977828 l0,56.004539 c5.374478,3.114763 8.977828,8.916757 8.977828,15.573788 c0,9.955008 -8.061718,17.955664 -18.016727,17.955664 c-9.893929,0 -17.955664,-8.000649 -17.955664,-17.955664 c0,-6.657037 3.603349,-12.459026 8.977828,-15.573788 l0,-56.004539 c0,-4.94696 4.091939,-8.977828 8.977828,-8.977828 z" fill="#ccc"></path>
 <text y="57px" id="sensor.pws_temp_high_1d_f" style="fill:#00ADEE; font-family:'Helvetica'; font-size:32px;" text-anchor="start" x="93px">199°</text>
