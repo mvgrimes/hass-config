@@ -1,19 +1,18 @@
-
 homeassistant:
   customize:
     sensor.sp500:
       friendly_name: 'S&P 500'
       custom_ui_state_card: state-card-custom-ui
-      extra_data_template: 
+      extra_data_template:
         - '${attributes.priceChangePercent}%'
         - 'last updated ${attributes.quoteTime}'
       templates:
         theme: >
           if (attributes.priceChangePercent > 0) return 'green'; else return 'red';
-    sensor.bitcoin:
+    sensor.bitcoin_value:
       friendly_name: 'Bitcoin'
       custom_ui_state_card: state-card-custom-ui
-      extra_data_template: 
+      extra_data_template:
         - '${attributes.priceChangePercent}%'
         - 'last updated ${attributes.quoteTime}'
       templates:
@@ -25,7 +24,7 @@ group:
     name: Finance
     entities:
       - sensor.sp500
-      - sensor.bitcoin
+      - sensor.bitcoin_value
 
 sensor:
   - platform: mqtt
@@ -40,11 +39,10 @@ sensor:
 
   - platform: mqtt
     state_topic: 'hass/stock-price/BTC='
-    name: Bitcoin
+    name: Bitcoin Value
     unit_of_measurement: '$'
     value_template: '{{ value_json.price }}'
     json_attributes:
       - name
       - priceChangePercent
       - quoteTime
-
