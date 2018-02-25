@@ -46,7 +46,7 @@ intent_script:
         Ok. Stopping music in kitchen.
     async_action: true
     action:
-      service: media_player.media_stop
+      service: media_player.media_pause
       entity_id: media_player.kitchen
   ChangePlaylistIntent:
     speech:
