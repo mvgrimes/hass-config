@@ -25,16 +25,10 @@ sensor:
     state_topic: "smartthings/Kitchen Thermostat/temperature"
     name: "Kitchen Thermostat Temp"
     unit_of_measurement: "°F"
-    retain: true
 
   - platform: mqtt
     name: "Kitchen Thermostat Current State"
     state_topic: "smartthings/Kitchen Thermostat/thermostatOperatingState"   # cooling | heating | idle
-
-  - platform: mqtt
-    name: "East Hall Humidity"
-    state_topic: "smartthings/Kitchen Thermostat/temperature"
-    unit_of_measurement: '%'
 
   - platform: mqtt
     name: "East Hall Thermostat Battery"
@@ -157,3 +151,27 @@ group:
     - input_number.kitchen_heating_target
     - input_number.kitchen_cooling_target
     - sensor.kitchen_thermostat_battery
+
+# smartthings/Kitchen Thermostat/thermostatMode heat
+# smartthings/Kitchen Thermostat/thermostatSetpoint 66
+# smartthings/Kitchen Thermostat/thermostatMode heat
+# smartthings/Rear Temp/thermostatMode heat
+# smartthings/Rear Temp/thermostatOperatingState heating
+# smartthings/Kitchen Thermostat/thermostatSetpoint 83
+# smartthings/Kitchen Thermostat/thermostatMode cool
+# smartthings/Kitchen Thermostat/thermostatMode cool
+# smartthings/Rear Temp/thermostatMode cool
+# smartthings/Rear Temp/thermostatOperatingState cooling
+# smartthings/Kitchen Thermostat/thermostatMode auto
+# smartthings/Kitchen Thermostat/thermostatMode auto
+# smartthings/Kitchen Thermostat/thermostatSetpoint 66
+# smartthings/Rear Temp/thermostatMode auto
+# smartthings/Rear Temp/thermostatOperatingState heating
+# smartthings/Kitchen Thermostat/thermostatMode off
+# smartthings/Kitchen Thermostat/thermostatMode off
+# smartthings/Kitchen Thermostat/thermostatMode heat
+# smartthings/Kitchen Thermostat/thermostatMode heat
+# smartthings/Rear Temp/thermostatMode heat
+# smartthings/Kitchen Thermostat/thermostatFanMode on
+# smartthings/Kitchen Thermostat/thermostatFanMode auto
+# smartthings/Office Sensor/temperature 65.1

@@ -25,23 +25,15 @@ sensor:
     state_topic: "smartthings/Den Thermostat/temperature"
     name: "Den Thermostat Temp"
     unit_of_measurement: "°F"
-    retain: true
 
   - platform: mqtt
     name: "Den Thermostat Current State"
     state_topic: "smartthings/Den Thermostat/thermostatOperatingState"   # cooling | heating | idle
 
   - platform: mqtt
-    name: "East Hall Humidity"
-    state_topic: "smartthings/Den Thermostat/temperature"
-    unit_of_measurement: '%'
-
-  - platform: mqtt
     name: "East Hall Thermostat Battery"
     state_topic: "smartthings/Den Thermostat/battery"
     unit_of_measurement: '%'
-
-    # smartthings/Front Temp/temperature 69
 
 switch:
   # --- Den Fan Mode ---
