@@ -1,5 +1,5 @@
 - name: status
-  sidebar_title: Summary
+  sidebar_title: Today Preview
   sidebar_icon: mdi:calendar-today
   url_path: status
   config:
