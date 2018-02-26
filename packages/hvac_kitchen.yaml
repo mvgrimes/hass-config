@@ -1,0 +1,159 @@
+# Make sure mqtt-bridge is running:
+#
+#   $ cd /srv/docker/mqtt-bridge
+#   $ docker-compose up -d
+#
+# Plus the Smarter SmartThings Devices and SmartApp
+#   https://home-assistant.io/blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/
+#
+# For the thermostat, see:
+#   https://community.home-assistant.io/t/adding-thermostat-controls-from-smartthings-via-mqtt/
+
+homeassistant:
+  customize:
+    group.kitchen_thermostat:
+      friendly_name: 'Kitchen Thermostat'
+      icon: mdi:fan
+#     # sensor.east_hall_humidity:
+#     #   icon: mdi:water-percent
+#     # sensor.east_hall_thermostat_battery:
+#     #   icon: mdi:battery
+
+sensor:
+  # --- Kitchen ---
+  - platform: mqtt
+    state_topic: "smartthings/Kitchen Thermostat/temperature"
+    name: "Kitchen Thermostat Temp"
+    unit_of_measurement: "°F"
+    retain: true
+
+  - platform: mqtt
+    name: "Kitchen Thermostat Current State"
+    state_topic: "smartthings/Kitchen Thermostat/thermostatOperatingState"   # cooling | heating | idle
+
+  - platform: mqtt
+    name: "East Hall Humidity"
+    state_topic: "smartthings/Kitchen Thermostat/temperature"
+    unit_of_measurement: '%'
+
+  - platform: mqtt
+    name: "East Hall Thermostat Battery"
+    state_topic: "smartthings/Kitchen Thermostat/battery"
+    unit_of_measurement: '%'
+
+switch:
+  # --- Kitchen Fan Mode ---
+  - platform: mqtt
+    name: "Kitchen Thermostat Fan Mode"
+    state_topic: "smartthings/Kitchen Thermostat/thermostatFanMode"   # auto | on
+    command_topic: "smartthings/Kitchen Thermostat/thermostatFanMode"   # auto | on
+    payload_on: "on"
+    payload_off: "auto"
+
+input_select:
+  # --- Kitchen Thermostate Mode dropdown ---
+  kitchen_thermostat_mode:
+    name: Kitchen Thermostat Mode
+    options:
+      - "auto"
+      - "off"
+      - "cool"
+      - "heat"
+    icon: mdi:air-conditioner
+
+input_number:
+  # -- Kitchen Therm targets ---
+  kitchen_heating_target:
+    name: Kitchen Heating Target
+    initial: 68
+    min: 64
+    max: 72
+    step: 1
+
+  kitchen_cooling_target:
+    name: Kitchen Cooling Target
+    initial: 76
+    min: 72
+    max: 78
+    step: 1
+
+automation:
+
+  # --- Kitchen Thermostat ---
+  # Keep mode in sync b/w MQTT/dropdown
+  - alias: Set Kitchen Thermostat Mode Selector
+    trigger:
+      - platform: mqtt
+        topic: "smartthings/Kitchen Thermostat/thermostatMode"
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.kitchen_thermostat_mode
+          option: '{{ trigger.payload }}'
+  - alias: Set Kitchen Thermostat Mode
+    trigger:
+      - platform: state
+        entity_id: input_select.kitchen_thermostat_mode
+      # Might need for this and for setpoint
+      # - platform: event
+      #   event_type: state_change
+      #   event_data:
+      #     entity_id: sensor.kitchen_thermostat_current_mode
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "smartthings/Kitchen Thermostat/thermostatMode"
+          payload: '{{ states.input_select.kitchen_thermostat_mode.state }}'
+          retain: true
+
+  # Keep heatSetpoint in sync b/w MQTT and slider
+  - alias: Kitchen Heating Target Set
+    trigger:
+      - platform: mqtt
+        topic: "smartthings/Kitchen Thermostat/heatingSetpoint"
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.kitchen_heating_target
+          value: '{{ trigger.payload}}'
+  - alias: Set Kitchen Heating Target
+    trigger:
+      - platform: state
+        entity_id: input_number.kitchen_heating_target
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "smartthings/Kitchen Thermostat/heatingSetpoint"
+          payload: '{{ states.input_number.kitchen_heating_target.state | int }}'
+          retain: true
+
+  # Keep coolingSetpoint in sync b/w MQTT and slider
+  - alias: Kitchen Cooling Target Set
+    trigger:
+      - platform: mqtt
+        topic: "smartthings/Kitchen Thermostat/coolingSetpoint"
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.kitchen_cooling_target
+          value: '{{ trigger.payload}}'
+  - alias: Set Kitchen Cooling Target
+    trigger:
+      - platform: state
+        entity_id: input_number.kitchen_cooling_target
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "smartthings/Kitchen Thermostat/coolingSetpoint"
+          payload: '{{ states.input_number.kitchen_cooling_target.state | int }}'
+          retain: true
+
+group:
+  kitchen_thermostat:
+    - sensor.kitchen_thermostat_temp
+    - input_select.kitchen_thermostat_mode
+    - switch.kitchen_thermostat_fan_mode
+    - sensor.kitchen_thermostat_current_state
+    - input_number.kitchen_heating_target
+    - input_number.kitchen_cooling_target
+    - sensor.kitchen_thermostat_battery

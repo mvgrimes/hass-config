@@ -1,0 +1,30 @@
+# Make sure mqtt-bridge is running:
+#
+#   $ cd /srv/docker/mqtt-bridge
+#   $ docker-compose up -d
+#
+# Plus the Smarter SmartThings Devices and SmartApp
+#   https://home-assistant.io/blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/
+#
+# For the thermostat, see:
+#   https://community.home-assistant.io/t/adding-thermostat-controls-from-smartthings-via-mqtt/
+
+sensor:
+  # --- Other Temp Sensors ---
+  - platform: mqtt
+    state_topic: "smartthings/Girls BR Temp/temperature"
+    name: "Girls BR Temp"
+    unit_of_measurement: "°F"
+    retain: true
+
+  - platform: mqtt
+    state_topic: "smartthings/MBR Temp/temperature"
+    name: "MBR Temp"
+    unit_of_measurement: "°F"
+    retain: true
+
+  - platform: mqtt
+    state_topic: "smartthings/Office Sensor/temperature"
+    name: "Office Temp"
+    unit_of_measurement: "°F"
+    retain: true

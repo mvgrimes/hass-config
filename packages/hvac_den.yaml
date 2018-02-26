@@ -1,0 +1,185 @@
+# Make sure mqtt-bridge is running:
+#
+#   $ cd /srv/docker/mqtt-bridge
+#   $ docker-compose up -d
+#
+# Plus the Smarter SmartThings Devices and SmartApp
+#   https://home-assistant.io/blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/
+#
+# For the thermostat, see:
+#   https://community.home-assistant.io/t/adding-thermostat-controls-from-smartthings-via-mqtt/
+
+homeassistant:
+  customize:
+    group.den_thermostat:
+      friendly_name: 'Den Thermostat'
+      icon: mdi:fan
+#     # sensor.east_hall_humidity:
+#     #   icon: mdi:water-percent
+#     # sensor.east_hall_thermostat_battery:
+#     #   icon: mdi:battery
+
+sensor:
+  # --- Den ---
+  - platform: mqtt
+    state_topic: "smartthings/Den Thermostat/temperature"
+    name: "Den Thermostat Temp"
+    unit_of_measurement: "°F"
+    retain: true
+
+  - platform: mqtt
+    name: "Den Thermostat Current State"
+    state_topic: "smartthings/Den Thermostat/thermostatOperatingState"   # cooling | heating | idle
+
+  - platform: mqtt
+    name: "East Hall Humidity"
+    state_topic: "smartthings/Den Thermostat/temperature"
+    unit_of_measurement: '%'
+
+  - platform: mqtt
+    name: "East Hall Thermostat Battery"
+    state_topic: "smartthings/Den Thermostat/battery"
+    unit_of_measurement: '%'
+
+    # smartthings/Front Temp/temperature 69
+
+switch:
+  # --- Den Fan Mode ---
+  - platform: mqtt
+    name: "Den Thermostat Fan Mode"
+    state_topic: "smartthings/Den Thermostat/thermostatFanMode"   # auto | on
+    command_topic: "smartthings/Den Thermostat/thermostatFanMode"   # auto | on
+    payload_on: "on"
+    payload_off: "auto"
+
+input_select:
+  # --- Den Thermostate Mode dropdown ---
+  den_thermostat_mode:
+    name: Den Thermostat Mode
+    options:
+      - "auto"
+      - "off"
+      - "cool"
+      - "heat"
+    icon: mdi:air-conditioner
+
+input_number:
+  # -- Den Therm targets ---
+  den_heating_target:
+    name: Den Heating Target
+    initial: 68
+    min: 64
+    max: 72
+    step: 1
+
+  den_cooling_target:
+    name: Den Cooling Target
+    initial: 76
+    min: 72
+    max: 78
+    step: 1
+
+automation:
+
+  # --- Den Thermostat ---
+  # Keep mode in sync b/w MQTT/dropdown
+  - alias: Set Den Thermostat Mode Selector
+    trigger:
+      - platform: mqtt
+        topic: "smartthings/Den Thermostat/thermostatMode"
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.den_thermostat_mode
+          option: '{{ trigger.payload }}'
+  - alias: Set Den Thermostat Mode
+    trigger:
+      - platform: state
+        entity_id: input_select.den_thermostat_mode
+      # Might need for this and for setpoint
+      # - platform: event
+      #   event_type: state_change
+      #   event_data:
+      #     entity_id: sensor.den_thermostat_current_mode
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "smartthings/Den Thermostat/thermostatMode"
+          payload: '{{ states.input_select.den_thermostat_mode.state }}'
+          retain: true
+
+  # Keep heatSetpoint in sync b/w MQTT and slider
+  - alias: Den Heating Target Set
+    trigger:
+      - platform: mqtt
+        topic: "smartthings/Den Thermostat/heatingSetpoint"
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.den_heating_target
+          value: '{{ trigger.payload}}'
+  - alias: Set Den Heating Target
+    trigger:
+      - platform: state
+        entity_id: input_number.den_heating_target
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "smartthings/Den Thermostat/heatingSetpoint"
+          payload: '{{ states.input_number.den_heating_target.state | int }}'
+          retain: true
+
+  # Keep coolingSetpoint in sync b/w MQTT and slider
+  - alias: Den Cooling Target Set
+    trigger:
+      - platform: mqtt
+        topic: "smartthings/Den Thermostat/coolingSetpoint"
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.den_cooling_target
+          value: '{{ trigger.payload}}'
+  - alias: Set Den Cooling Target
+    trigger:
+      - platform: state
+        entity_id: input_number.den_cooling_target
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "smartthings/Den Thermostat/coolingSetpoint"
+          payload: '{{ states.input_number.den_cooling_target.state | int }}'
+          retain: true
+
+group:
+  den_thermostat:
+    - sensor.den_thermostat_temp
+    - input_select.den_thermostat_mode
+    - switch.den_thermostat_fan_mode
+    - sensor.den_thermostat_current_state
+    - input_number.den_heating_target
+    - input_number.den_cooling_target
+    - sensor.den_thermostat_battery
+
+
+# Would like to use this, but:
+# - climate only has mode_state, we have mode (heat,cool,auto,off) and
+#   operatingState (heating, cooling, idle)
+# - think we need heat setpoint and coolsetpoint (not just thermostatSetpoint)
+#
+# climate:
+#   - platform: mqtt
+#     name: Den
+#     modes:
+#       - off
+#       - idle
+#       - cooling
+#       - heating
+#     current_temperature_topic: "smartthings/Den Thermostat/temperature"
+#     mode_state_topic: "smartthings/Den Thermostat/thermostatOperatingState"
+#     mode_command_topic: "smartthings/Den Thermostat/thermostatOperatingState"
+#     temperature_state_topic: "smartthings/Den Thermostat/thermostatSetpoint"
+#     temperature_command_topic: "smartthings/Den Thermostat/thermostatSetpoint"
+#     # thermostatMode
+#     # fan_mode_state_topic: "study/ac/fan/set"
+#     # fan_mode_command_topic: "study/ac/fan/set"
+#     retain: true
