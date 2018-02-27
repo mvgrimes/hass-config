@@ -1,0 +1,50 @@
+homeassistant:
+  customize:
+    group.front_thermostat:
+      friendly_name: 'Fron Temps/Thermostat'
+      icon: mdi:fan
+
+sensor:
+  - platform: min_max
+    name: "Front Temps"
+    type: mean  # min, max, mean
+    round_digits: 1
+    entity_ids:
+      - sensor.den_thermostat
+      - sensor.girls_br_temp
+
+input_select:
+  # --- Front Thermostate Mode dropdown ---
+  front_thermostat_mode:
+    name: Front Thermostat Mode
+    options:
+      - "auto"
+      - "off"
+      - "cool"
+      - "heat"
+    icon: mdi:fan
+
+input_number:
+  # -- Front Therm targets ---
+  front_heating_target:
+    name: Front Heating Target
+    initial: 68
+    min: 64
+    max: 72
+    step: 1
+
+  front_cooling_target:
+    name: Front Cooling Target
+    initial: 76
+    min: 72
+    max: 78
+    step: 1
+
+group:
+  front_thermostat:
+    - sensor.front_temps
+    - input_select.front_thermostat_mode
+    # - switch.front_thermostat_fan_mode
+    # - sensor.front_thermostat_current_state
+    - input_number.front_heating_target
+    - input_number.front_cooling_target

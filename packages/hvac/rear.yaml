@@ -1,0 +1,50 @@
+homeassistant:
+  customize:
+    group.rear_thermostat:
+      friendly_name: 'Rear Temps/Thermostat'
+      icon: mdi:fan
+
+sensor:
+  - platform: min_max
+    name: "Rear Temps"
+    type: mean  # min, max, mean
+    round_digits: 1
+    entity_ids:
+      - sensor.kitchen_thermostat
+      - sensor.mbr_temp
+
+input_select:
+  # --- Rear Thermostate Mode dropdown ---
+  rear_thermostat_mode:
+    name: Rear Thermostat Mode
+    options:
+      - "auto"
+      - "off"
+      - "cool"
+      - "heat"
+    icon: mdi:fan
+
+input_number:
+  # -- Rear Therm targets ---
+  rear_heating_target:
+    name: Rear Heating Target
+    initial: 68
+    min: 64
+    max: 72
+    step: 1
+
+  rear_cooling_target:
+    name: Rear Cooling Target
+    initial: 76
+    min: 72
+    max: 78
+    step: 1
+
+group:
+  rear_thermostat:
+    - sensor.rear_temps
+    - input_select.rear_thermostat_mode
+    # - switch.rear_thermostat_fan_mode
+    # - sensor.rear_thermostat_current_state
+    - input_number.rear_heating_target
+    - input_number.rear_cooling_target

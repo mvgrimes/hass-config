@@ -14,10 +14,6 @@ homeassistant:
     group.den_thermostat:
       friendly_name: 'Den Thermostat'
       icon: mdi:fan
-#     # sensor.east_hall_humidity:
-#     #   icon: mdi:water-percent
-#     # sensor.east_hall_thermostat_battery:
-#     #   icon: mdi:battery
 
 sensor:
   # --- Den ---
@@ -53,7 +49,7 @@ input_select:
       - "off"
       - "cool"
       - "heat"
-    icon: mdi:air-conditioner
+    icon: mdi:fan
 
 input_number:
   # -- Den Therm targets ---
