@@ -3,6 +3,8 @@ homeassistant:
     group.rear_thermostat:
       friendly_name: 'Rear Temps/Thermostat'
       icon: mdi:fan
+    sensor.rear_temps:
+      icon: mdi:thermometer
 
 sensor:
   - platform: min_max
@@ -10,7 +12,7 @@ sensor:
     type: mean  # min, max, mean
     round_digits: 1
     entity_ids:
-      - sensor.kitchen_thermostat
+      - sensor.kitchen_thermostat_temp
       - sensor.mbr_temp
 
 input_select:

@@ -27,7 +27,7 @@ sensor:
     state_topic: "smartthings/Den Thermostat/thermostatOperatingState"   # cooling | heating | idle
 
   - platform: mqtt
-    name: "East Hall Thermostat Battery"
+    name: "Den Thermostat Battery"
     state_topic: "smartthings/Den Thermostat/battery"
     unit_of_measurement: '%'
 

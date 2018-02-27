@@ -27,7 +27,7 @@ sensor:
     state_topic: "smartthings/Kitchen Thermostat/thermostatOperatingState"   # cooling | heating | idle
 
   - platform: mqtt
-    name: "East Hall Thermostat Battery"
+    name: "Kitchen Thermostat Battery"
     state_topic: "smartthings/Kitchen Thermostat/battery"
     unit_of_measurement: '%'
 

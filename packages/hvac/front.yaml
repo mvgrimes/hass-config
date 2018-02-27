@@ -3,6 +3,8 @@ homeassistant:
     group.front_thermostat:
       friendly_name: 'Fron Temps/Thermostat'
       icon: mdi:fan
+    sensor.front_temps:
+      icon: mdi:thermometer
 
 sensor:
   - platform: min_max
@@ -10,7 +12,7 @@ sensor:
     type: mean  # min, max, mean
     round_digits: 1
     entity_ids:
-      - sensor.den_thermostat
+      - sensor.den_thermostat_temp
       - sensor.girls_br_temp
 
 input_select:
