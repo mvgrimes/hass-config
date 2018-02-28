@@ -14,6 +14,7 @@ sensor:
     entity_ids:
       - sensor.kitchen_thermostat_temp
       - sensor.mbr_temp
+      - sensor.office_temp
 
 input_select:
   # --- Rear Thermostate Mode dropdown ---
@@ -47,6 +48,67 @@ group:
     - sensor.rear_temps
     - input_select.rear_thermostat_mode
     # - switch.rear_thermostat_fan_mode
-    # - sensor.rear_thermostat_current_state
+    - sensor.kitchen_thermostat_current_state
     - input_number.rear_heating_target
     - input_number.rear_cooling_target
+
+automation:
+
+  # --- Rear Thermostat ---
+  # Keep mode in sync b/w MQTT/dropdown
+  - alias: Set Rear Thermostat Mode Selector
+    trigger:
+      - platform: mqtt
+        topic: "smartthings/Kitchen Thermostat/thermostatMode"
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.rear_thermostat_mode
+          option: '{{ trigger.payload }}'
+  - alias: Set Rear Thermostat Mode
+    trigger:
+      - platform: state
+        entity_id: input_select.rear_thermostat_mode
+      # Might need for this and for setpoint
+      # - platform: event
+      #   event_type: state_change
+      #   event_data:
+      #     entity_id: sensor.rear_thermostat_current_mode
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "smartthings/Kitchen Thermostat/thermostatMode"
+          payload: '{{ states.input_select.rear_thermostat_mode.state }}'
+          retain: true
+
+  # Adj Kitchen Thermostat to meet Rear Temp (heat)
+  - alias: Rear Heating Target Set
+    trigger:
+      - platform: state
+        entity_id: input_number.rear_heating_target
+      - platform: state
+        entity_id: input_select.rear_thermostat_mode
+      - platform: state
+        entity_id: sensor.rear_temps
+    condition:
+      condition: state
+      entity_id: input_select.rear_thermostat_mode
+      state: 'heat'
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.kitchen_heating_target
+          value: >-
+            {%  set temp = { "observed":  float(states.sensor.rear_temps.state),
+                             "target":    float(states.input_number.rear_heating_target.state),
+                             "thermostat": float(states.sensor.kitchen_thermostat_temp.state) } %}
+            {% if temp.observed < temp.target- 1 %}
+                {{ [ temp.thermostat + 1.5, 70 ] | min }}
+            {% elif temp.observed >= temp.target- 1 %}
+                {{ [ temp.thermostat - 1.5, 50 ] | max }}
+            {% endif %}
+      - service: system_log.write
+        data_template:
+          message: >-
+            Changing kitchen_heating_target to {{ states.sensor.kitchen_heating_target.state }}
+          level: info

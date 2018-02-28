@@ -1,7 +1,7 @@
 homeassistant:
   customize:
     group.front_thermostat:
-      friendly_name: 'Fron Temps/Thermostat'
+      friendly_name: 'Front Temps/Thermostat'
       icon: mdi:fan
     sensor.front_temps:
       icon: mdi:thermometer
@@ -47,6 +47,97 @@ group:
     - sensor.front_temps
     - input_select.front_thermostat_mode
     # - switch.front_thermostat_fan_mode
-    # - sensor.front_thermostat_current_state
+    - sensor.den_thermostat_current_state
     - input_number.front_heating_target
     - input_number.front_cooling_target
+
+automation:
+
+  # --- Front Thermostat ---
+  # Keep mode in sync b/w MQTT/dropdown
+  - alias: Set Front Thermostat Mode Selector
+    trigger:
+      - platform: mqtt
+        topic: "smartthings/Den Thermostat/thermostatMode"
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.front_thermostat_mode
+          option: '{{ trigger.payload }}'
+  - alias: Set Front Thermostat Mode
+    trigger:
+      - platform: state
+        entity_id: input_select.front_thermostat_mode
+      # Might need for this and for setpoint
+      # - platform: event
+      #   event_type: state_change
+      #   event_data:
+      #     entity_id: sensor.front_thermostat_current_mode
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "smartthings/Den Thermostat/thermostatMode"
+          payload: '{{ states.input_select.front_thermostat_mode.state }}'
+          retain: true
+
+  # Adj Den Thermostat to meet Front Temp (heat)
+  - alias: Front Heating Target Set
+    trigger:
+      - platform: state
+        entity_id: input_number.front_heating_target
+      - platform: state
+        entity_id: input_select.front_thermostat_mode
+      - platform: state
+        entity_id: sensor.front_temps
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_select.front_thermostat_mode
+          state: 'heat'
+        - condition: template
+          value_template: >-
+            {{ float(states.sensor.front_temps.state)
+                < float(states.input_number.front_heating_target.state) - 1 }}
+    action:
+      - service: system_log.write
+        data_template:
+          message: >-
+            Changing den_heating_target to {{ states.sensor.den_thermostat_temp.state | float + 2 }}
+          level: info
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.den_heating_target
+          value: '{{ states.sensor.den_thermostat_temp.state | float + 2 }}'
+
+  # - alias: Set Front Heating Target
+  #   trigger:
+  #     - platform: state
+  #       entity_id: input_number.front_heating_target
+  #   action:
+  #     - service: mqtt.publish
+  #       data_template:
+  #         topic: "smartthings/Front Thermostat/heatingSetpoint"
+  #         payload: '{{ states.input_number.front_heating_target.state | int }}'
+  #         retain: true
+  #
+  # # Keep coolingSetpoint in sync b/w MQTT and slider
+  # - alias: Front Cooling Target Set
+  #   trigger:
+  #     - platform: mqtt
+  #       topic: "smartthings/Front Thermostat/coolingSetpoint"
+  #   action:
+  #     - service: input_number.set_value
+  #       data_template:
+  #         entity_id: input_number.front_cooling_target
+  #         value: '{{ trigger.payload}}'
+  # - alias: Set Front Cooling Target
+  #   trigger:
+  #     - platform: state
+  #       entity_id: input_number.front_cooling_target
+  #   action:
+  #     - service: mqtt.publish
+  #       data_template:
+  #         topic: "smartthings/Front Thermostat/coolingSetpoint"
+  #         payload: '{{ states.input_number.front_cooling_target.state | int }}'
+  #         retain: true

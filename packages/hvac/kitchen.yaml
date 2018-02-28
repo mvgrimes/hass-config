@@ -14,6 +14,12 @@ homeassistant:
     group.kitchen_thermostat:
       friendly_name: 'Kitchen Thermostat'
       icon: mdi:fan
+    switch.kitchen_thermostat_fan_mode:
+      icon: mdi:fan
+    sensor.kitchen_thermostat_current_state:
+      icon: mdi:fan
+    sensor.kitchen_thermostat_battery:
+      icon: mdi:battery-outline
 
 sensor:
   # --- Kitchen ---

@@ -14,6 +14,12 @@ homeassistant:
     group.den_thermostat:
       friendly_name: 'Den Thermostat'
       icon: mdi:fan
+    switch.den_thermostat_fan_mode:
+      icon: mdi:fan
+    sensor.den_thermostat_current_state:
+      icon: mdi:fan
+    sensor.den_thermostat_battery:
+      icon: mdi:battery-outline
 
 sensor:
   # --- Den ---
