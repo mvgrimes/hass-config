@@ -1,0 +1,20 @@
+group:
+  modes:
+    name: Modes
+    control: hidden
+    entities:
+      - input_boolean.home_mode
+      - input_boolean.vacation_mode
+      - input_boolean.renting_mode
+      - input_boolean.windows_open_mode
+
+# input_select:
+#   mode:
+#     name: Home Mode
+#     options:
+#       - Home
+#       - Away
+#       - Night
+#       - Renting
+#       - Windows Open
+#     icon: mdi:fan

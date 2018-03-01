@@ -31,15 +31,15 @@ input_number:
   front_heating_target:
     name: Front Heating Target
     initial: 68
-    min: 64
+    min: 55
     max: 72
     step: 1
 
   front_cooling_target:
     name: Front Cooling Target
     initial: 76
-    min: 72
-    max: 78
+    min: 70
+    max: 85
     step: 1
 
 group:
@@ -82,6 +82,7 @@ automation:
 
   # Adj Den Thermostat to meet Front Temp (heat)
   - alias: Front Heating Target Set
+    initial_state: 'off'
     trigger:
       - platform: state
         entity_id: input_number.front_heating_target
@@ -90,54 +91,57 @@ automation:
       - platform: state
         entity_id: sensor.front_temps
     condition:
-      condition: and
-      conditions:
-        - condition: state
-          entity_id: input_select.front_thermostat_mode
-          state: 'heat'
-        - condition: template
-          value_template: >-
-            {{ float(states.sensor.front_temps.state)
-                < float(states.input_number.front_heating_target.state) - 1 }}
+      condition: state
+      entity_id: input_select.front_thermostat_mode
+      state: 'heat'
     action:
-      - service: system_log.write
-        data_template:
-          message: >-
-            Changing den_heating_target to {{ states.sensor.den_thermostat_temp.state | float + 2 }}
-          level: info
       - service: input_number.set_value
         data_template:
           entity_id: input_number.den_heating_target
-          value: '{{ states.sensor.den_thermostat_temp.state | float + 2 }}'
+          value: >-
+            {%  set temp = { "observed":   float(states.sensor.front_temps.state),
+                             "target":     float(states.input_number.front_heating_target.state),
+                             "thermostat": float(states.sensor.den_thermostat_temp.state) } %}
+            {% if temp.observed < temp.target - 1 %}
+                {{ [ temp.thermostat + 1.5, 70 ] | min }}
+            {% elif temp.observed >= temp.target - 1 %}
+                {{ [ temp.thermostat - 1.5, 50 ] | max }}
+            {% endif %}
+      - service: system_log.write
+        data_template:
+          message: >-
+            Changing den_heating_target to {{ states.sensor.den_heating_target.state }}
+          level: info
 
-  # - alias: Set Front Heating Target
-  #   trigger:
-  #     - platform: state
-  #       entity_id: input_number.front_heating_target
-  #   action:
-  #     - service: mqtt.publish
-  #       data_template:
-  #         topic: "smartthings/Front Thermostat/heatingSetpoint"
-  #         payload: '{{ states.input_number.front_heating_target.state | int }}'
-  #         retain: true
-  #
-  # # Keep coolingSetpoint in sync b/w MQTT and slider
-  # - alias: Front Cooling Target Set
-  #   trigger:
-  #     - platform: mqtt
-  #       topic: "smartthings/Front Thermostat/coolingSetpoint"
-  #   action:
-  #     - service: input_number.set_value
-  #       data_template:
-  #         entity_id: input_number.front_cooling_target
-  #         value: '{{ trigger.payload}}'
-  # - alias: Set Front Cooling Target
-  #   trigger:
-  #     - platform: state
-  #       entity_id: input_number.front_cooling_target
-  #   action:
-  #     - service: mqtt.publish
-  #       data_template:
-  #         topic: "smartthings/Front Thermostat/coolingSetpoint"
-  #         payload: '{{ states.input_number.front_cooling_target.state | int }}'
-  #         retain: true
+  # Adj kitchen Thermostat to meet Front Temp (a/c)
+  - alias: Front A/C Target Set
+    initial_state: 'off'
+    trigger:
+      - platform: state
+        entity_id: input_number.rear_cooling_target
+      - platform: state
+        entity_id: input_select.rear_thermostat_mode
+      - platform: state
+        entity_id: sensor.rear_temps
+    condition:
+      condition: state
+      entity_id: input_select.rear_thermostat_mode
+      state: 'cool'
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.kitchen_cooling_target
+          value: >-
+            {%  set temp = { "observed":   float(states.sensor.rear_temps.state),
+                             "target":     float(states.input_number.rear_cooling_target.state),
+                             "thermostat": float(states.sensor.kitchen_thermostat_temp.state) } %}
+            {% if temp.observed > temp.target + 1 %}
+                {{ [ temp.thermostat - 1.5, 64 ] | max }}
+            {% elif temp.observed <= temp.target + 1 %}
+                {{ [ temp.thermostat - 1.5, 80 ] | min }}
+            {% endif %}
+      - service: system_log.write
+        data_template:
+          message: >-
+            Changing kitchen_cooling_target to {{ states.sensor.kitchen_cooling_target.state }}
+          level: info

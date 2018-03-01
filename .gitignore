@@ -21,3 +21,4 @@ Session.vim
 entity_registry.yaml
 .DS_Store
 phones.sqlite*
+active_pkgs/

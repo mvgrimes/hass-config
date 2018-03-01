@@ -1,0 +1,70 @@
+input_number:
+
+  front_heating_target_home:
+    name: Front Home Heating Target
+    initial: 68
+    min: 64
+    max: 72
+    step: 1
+
+  front_heating_target_away:
+    name: Front Away Heating Target
+    initial: 68
+    min: 64
+    max: 72
+    step: 1
+
+  front_heating_target_night:
+    name: Front Night Heating Target
+    initial: 68
+    min: 64
+    max: 72
+    step: 1
+
+  front_heating_target_renting:
+    name: Front Renting Heating Target
+    initial: 68
+    min: 64
+    max: 72
+    step: 1
+
+  rear_heating_target_home:
+    name: Rear Home Heating Target
+    initial: 68
+    min: 64
+    max: 72
+    step: 1
+
+  rear_heating_target_away:
+    name: Rear Away Heating Target
+    initial: 68
+    min: 64
+    max: 72
+    step: 1
+
+  rear_heating_target_night:
+    name: Rear Night Heating Target
+    initial: 68
+    min: 64
+    max: 72
+    step: 1
+
+  rear_heating_target_renting:
+    name: Rear Renting Heating Target
+    initial: 68
+    min: 64
+    max: 72
+    step: 1
+
+group:
+  heating_targets:
+    name: Heating Targets
+    entities:
+      - input_number.front_heating_target_home
+      - input_number.rear_heating_target_home
+      - input_number.front_heating_target_away
+      - input_number.rear_heating_target_away
+      - input_number.front_heating_target_night
+      - input_number.rear_heating_target_night
+      - input_number.front_heating_target_renting
+      - input_number.rear_heating_target_renting

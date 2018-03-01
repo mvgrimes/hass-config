@@ -1,0 +1,10 @@
+hvac_view:
+  view: yes
+  name: HVAC
+  entities:
+    - group.front_thermostat
+    - group.rear_thermostat
+    - group.den_thermostat
+    - group.kitchen_thermostat
+    - group.heating_targets
+    - group.cooling_targets

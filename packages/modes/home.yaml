@@ -1,0 +1,173 @@
+# Toggle to set home mode
+
+input_boolean:
+  home_mode:
+    name: 'Home Mode'
+    icon: 'mdi:home'
+
+automation:
+  # --- When arrive Home adjust temps ---
+  - alias: 'Home Mode: Home - adj therm targets'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.home_mode
+        to: 'on'
+      - platform: state
+        entity_id: input_boolean.windows_open_mode
+        to: 'off'
+      - platform: state
+        entity_id: input_boolean.vacation_mode
+        to: 'off'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.home_mode
+          state: 'on'
+        - condition: state
+          entity_id: input_boolean.renting_mode
+          state: 'off'
+        - condition: state
+          entity_id: input_boolean.windows_open_mode
+          state: 'off'
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.rear_heating_target
+          value: 64
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.rear_cooling_target
+          value: 74
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.front_heating_target
+          value: 64
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.front_cooling_target
+          value: 74
+
+  # --- When departing Home adjust temps ---
+  - alias: 'Home Mode: Away - adj therm targets'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.home_mode
+        to: 'off'
+      - platform: state
+        entity_id: input_boolean.windows_open_mode
+        to: 'off'
+      - platform: state
+        entity_id: input_boolean.vacation_mode
+        to: 'off'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.home_mode
+          state: 'off'
+        - condition: state
+          entity_id: input_boolean.renting_mode
+          state: 'off'
+        - condition: state
+          entity_id: input_boolean.windows_open_mode
+          state: 'off'
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.rear_heating_target
+          value: 64
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.rear_cooling_target
+          value: 74
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.front_heating_target
+          value: 64
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.front_cooling_target
+          value: 74
+
+  # --- When Home adjust temps at night ---
+  - alias: 'Night Mode: Update Thermostat Targets'
+    initial_state: 'on'
+    trigger:
+      platform: time
+      at: '10:00:00'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.renting_mode
+          state: 'off'
+        - condition: state
+          entity_id: input_boolean.windows_open_mode
+          state: 'off'
+        - condition: state
+          entity_id: input_boolean.home_mode
+          state: 'on'
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.rear_heating_target
+          value: 64
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.rear_cooling_target
+          value: 74
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.front_heating_target
+          value: 64
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.front_cooling_target
+          value: 74
+
+  # --- When Home adjust temps in the morning ---
+  - alias: 'End Night Mode: Update Thermostat Targets'
+    initial_state: 'on'
+    trigger:
+      platform: time
+      at: '6:30:00'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.renting_mode
+          state: 'off'
+        - condition: state
+          entity_id: input_boolean.windows_open_mode
+          state: 'off'
+        - condition: state
+          entity_id: input_boolean.home_mode
+          state: 'on'
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.rear_heating_target
+          value: 69
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.rear_cooling_target
+          value: 74
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.front_heating_target
+          value: 69
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.front_cooling_target
+          value: 74
+
+
+# script:
+#   set_temp_targets_home:
+#   set_temp_targets_away:
+#   set_temp_targets_night:
+#   set_temp_targets_windows_open:
+#   set_temp_targets_renting:

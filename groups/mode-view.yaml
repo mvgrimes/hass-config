@@ -2,5 +2,4 @@ mode_view:
   view: yes
   name: Modes
   entities:
-    - group.home
-    - group.vaction
+    - group.modes

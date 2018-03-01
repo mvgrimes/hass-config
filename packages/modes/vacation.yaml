@@ -1,4 +1,7 @@
 # Toggle to set vacation mode
+#
+# Just turns lights on/off on a schedule.
+# Thermostat adjustment controlled by Home/Away mode
 
 homeassistant:
 
@@ -14,6 +17,8 @@ group:
       - input_boolean.vacation_mode
 
 automation:
+
+  # --- Turn on/off lights on a schedule ---
   - alias: 'Vaction Mode: Living Room evening ON'
     initial_state: 'on'
     trigger:
