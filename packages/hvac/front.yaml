@@ -7,13 +7,29 @@ homeassistant:
       icon: mdi:thermometer
 
 sensor:
-  - platform: min_max
-    name: "Front Temps"
-    type: mean  # min, max, mean
-    round_digits: 1
-    entity_ids:
-      - sensor.den_thermostat_temp
-      - sensor.girls_br_temp
+  - platform: template
+    sensors:
+      front_temps:
+        friendly_name: "Front Temps"
+        unit_of_measurement: '°F'
+        entity_id:
+          - sensor.den_thermostat_temp
+          - sensor.girls_br_temp
+          - sensor.office_temp
+          - input_boolean.den_thermostat_occupied
+          - input_boolean.girls_br_occupied
+          - input_boolean.office_occupied
+        value_template: >
+            {% macro get_temp(rooms) -%}
+              {% for room in rooms -%}
+                {%- if states.input_boolean[room ~ "_occupied"].state == "on" -%}
+                  {{-states.sensor[room ~ "_temp"].state-}},
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endmacro %}
+            {% set the_rooms = ['den_thermostat', 'girls_br', 'office'] %}
+            {% set temps = get_temp(the_rooms).split(",") | reject('eq','') | map('float') | list %}
+            {{ (temps | sum) / (temps | length) }}
 
 input_select:
   # --- Front Thermostate Mode dropdown ---
@@ -42,6 +58,20 @@ input_number:
     max: 110
     step: 1
 
+input_boolean:
+  den_thermostat_occupied:
+    name: Den Occupied
+    initial: 'on'
+  girls_br_occupied:
+    name: Girls Bedroom Occupied
+    initial: 'on'
+  office_occupied:
+    name: Office Occupied
+    initial: 'off'
+      # - sensor.kitchen_thermostat_temp
+      # - sensor.mbr_temp
+      # - sensor.office_temp
+
 group:
   front_thermostat:
     - sensor.front_temps
@@ -50,6 +80,13 @@ group:
     - sensor.den_thermostat_current_state
     - input_number.front_heating_target
     - input_number.front_cooling_target
+  front_occupied:
+    name: Front Occupied
+    control: hidden
+    entities:
+      - input_boolean.den_thermostat_occupied
+      - input_boolean.girls_br_occupied
+      - input_boolean.office_occupied
 
 automation:
 

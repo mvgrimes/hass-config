@@ -7,14 +7,27 @@ homeassistant:
       icon: mdi:thermometer
 
 sensor:
-  - platform: min_max
-    name: "Rear Temps"
-    type: mean  # min, max, mean
-    round_digits: 1
-    entity_ids:
-      - sensor.kitchen_thermostat_temp
-      - sensor.mbr_temp
-      - sensor.office_temp
+  - platform: template
+    sensors:
+      rear_temps:
+        friendly_name: "Rear Temps"
+        unit_of_measurement: '°F'
+        entity_id:
+          - sensor.kitchen_thermostat_temp
+          - sensor.mbr_temp
+          - input_boolean.kitchen_thermostat_occupied
+          - input_boolean.mbr_occupied
+        value_template: >
+            {% macro get_temp(rooms) -%}
+              {% for room in rooms -%}
+                {%- if states.input_boolean[room ~ "_occupied"].state == "on" -%}
+                  {{-states.sensor[room ~ "_temp"].state-}},
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endmacro %}
+            {% set the_rooms = ['kitchen_thermostat', 'mbr'] %}
+            {% set temps = get_temp(the_rooms).split(",") | reject('eq','') | map('float') | list %}
+            {{ (temps | sum) / (temps | length) }}
 
 input_select:
   # --- Rear Thermostate Mode dropdown ---
@@ -43,6 +56,16 @@ input_number:
     max: 110
     step: 1
 
+input_boolean:
+  kitchen_thermostat_occupied:
+    name: Kitchen Occupied
+    initial: 'on'
+  mbr_occupied:
+    name: Master Bedroom Occupied
+    initial: 'on'
+      # - sensor.kitchen_thermostat_temp
+      # - sensor.mbr_temp
+
 group:
   rear_thermostat:
     - sensor.rear_temps
@@ -51,6 +74,12 @@ group:
     - sensor.kitchen_thermostat_current_state
     - input_number.rear_heating_target
     - input_number.rear_cooling_target
+  rear_occupied:
+    name: Rear Occupied
+    control: hidden
+    entities:
+      - input_boolean.kitchen_thermostat_occupied
+      - input_boolean.mbr_occupied
 
 automation:
 

@@ -6,5 +6,7 @@ hvac_view:
     - group.rear_thermostat
     - group.den_thermostat
     - group.kitchen_thermostat
+    - group.front_occupied
+    - group.rear_occupied
     - group.heating_targets
     - group.cooling_targets
