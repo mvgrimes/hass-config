@@ -26,19 +26,9 @@ automation:
 script:
   set_temp_targets_renting:
     sequence:
-      - service: input_number.set_value
+      - service: script.set_temp_targets
         data_template:
-          entity_id: input_number.rear_heating_target
-          value: 68
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.rear_cooling_target
-          value: 74
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.front_heating_target
-          value: 69
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.front_cooling_target
-          value: 74
+          rear_heating_target: "{{ states.input_number.rear_heating_target_renting.state }}"
+          rear_cooling_target: "{{ states.input_number.rear_cooling_target_renting.state }}"
+          front_heating_target: "{{ states.input_number.front_heating_target_renting.state }}"
+          front_cooling_target: "{{ states.input_number.front_cooling_target_renting.state }}"

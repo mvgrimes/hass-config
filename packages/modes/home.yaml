@@ -108,57 +108,27 @@ automation:
 script:
   set_temp_targets_home:
     sequence:
-      - service: input_number.set_value
+      - service: script.set_temp_targets
         data_template:
-          entity_id: input_number.rear_heating_target
-          value: 68
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.rear_cooling_target
-          value: 74
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.front_heating_target
-          value: 69
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.front_cooling_target
-          value: 74
+          rear_heating_target: "{{ states.input_number.rear_heating_target_home.state }}"
+          rear_cooling_target: "{{ states.input_number.rear_cooling_target_home.state }}"
+          front_heating_target: "{{ states.input_number.front_heating_target_home.state }}"
+          front_cooling_target: "{{ states.input_number.front_cooling_target_home.state }}"
 
   set_temp_targets_away:
     sequence:
-      - service: input_number.set_value
+      - service: script.set_temp_targets
         data_template:
-          entity_id: input_number.rear_heating_target
-          value: 62
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.rear_cooling_target
-          value: 79
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.front_heating_target
-          value: 62
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.front_cooling_target
-          value: 79
+          rear_heating_target: "{{ states.input_number.rear_heating_target_away.state }}"
+          rear_cooling_target: "{{ states.input_number.rear_cooling_target_away.state }}"
+          front_heating_target: "{{ states.input_number.front_heating_target_away.state }}"
+          front_cooling_target: "{{ states.input_number.front_cooling_target_away.state }}"
 
   set_temp_targets_night:
     sequence:
-      - service: input_number.set_value
+      - service: script.set_temp_targets
         data_template:
-          entity_id: input_number.rear_heating_target
-          value: 67
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.rear_cooling_target
-          value: 74
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.front_heating_target
-          value: 64
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.front_cooling_target
-          value: 73
+          rear_heating_target: "{{ states.input_number.rear_heating_target_night.state }}"
+          rear_cooling_target: "{{ states.input_number.rear_cooling_target_night.state }}"
+          front_heating_target: "{{ states.input_number.front_heating_target_night.state }}"
+          front_cooling_target: "{{ states.input_number.front_cooling_target_night.state }}"

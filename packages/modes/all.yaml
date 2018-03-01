@@ -8,6 +8,26 @@ group:
       - input_boolean.renting_mode
       - input_boolean.windows_open_mode
 
+script:
+  set_temp_targets:
+    sequence:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.rear_heating_target
+          value: "{{ rear_heating_target }}"
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.rear_cooling_target
+          value: "{{ rear_cooling_target }}"
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.front_heating_target
+          value: "{{ front_heating_target }}"
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.front_cooling_target
+          value: "{{ front_cooling_target }}"
+
 # input_select:
 #   mode:
 #     name: Home Mode
