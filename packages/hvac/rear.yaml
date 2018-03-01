@@ -32,15 +32,15 @@ input_number:
   rear_heating_target:
     name: Rear Heating Target
     initial: 68
-    min: 55
-    max: 72
+    min: 50
+    max: 75
     step: 1
 
   rear_cooling_target:
     name: Rear Cooling Target
     initial: 76
     min: 70
-    max: 85
+    max: 110
     step: 1
 
 group:

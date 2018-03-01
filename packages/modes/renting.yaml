@@ -21,10 +21,15 @@ automation:
       entity_id: input_boolean.windows_open_mode
       state: 'off'
     action:
+      service: script.set_temp_targets_renting
+
+script:
+  set_temp_targets_renting:
+    sequence:
       - service: input_number.set_value
         data_template:
           entity_id: input_number.rear_heating_target
-          value: 64
+          value: 68
       - service: input_number.set_value
         data_template:
           entity_id: input_number.rear_cooling_target
@@ -32,7 +37,7 @@ automation:
       - service: input_number.set_value
         data_template:
           entity_id: input_number.front_heating_target
-          value: 64
+          value: 69
       - service: input_number.set_value
         data_template:
           entity_id: input_number.front_cooling_target

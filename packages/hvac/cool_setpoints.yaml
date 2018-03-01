@@ -2,56 +2,56 @@ input_number:
 
   front_cooling_target_home:
     name: Front Home Cooling Target
-    initial: 76
+    initial: 74
     min: 70
     max: 85
     step: 1
 
   front_cooling_target_away:
     name: Front Away Cooling Target
-    initial: 76
+    initial: 79
     min: 70
     max: 85
     step: 1
 
   front_cooling_target_night:
     name: Front Night Cooling Target
-    initial: 76
+    initial: 74
     min: 70
     max: 85
     step: 1
 
   front_cooling_target_renting:
     name: Front Renting Cooling Target
-    initial: 76
+    initial: 74
     min: 70
     max: 85
     step: 1
 
   rear_cooling_target_home:
     name: Rear Home Cooling Target
-    initial: 76
+    initial: 74
     min: 70
     max: 85
     step: 1
 
   rear_cooling_target_away:
     name: Rear Away Cooling Target
-    initial: 76
+    initial: 79
     min: 70
     max: 85
     step: 1
 
   rear_cooling_target_night:
     name: Rear Night Cooling Target
-    initial: 76
+    initial: 74
     min: 70
     max: 85
     step: 1
 
   rear_cooling_target_renting:
     name: Rear Renting Cooling Target
-    initial: 76
+    initial: 74
     min: 70
     max: 85
     step: 1

@@ -18,6 +18,11 @@ automation:
       to: 'on'
     condition:
     action:
+      service: script.set_temp_targets_windows_open
+
+script:
+  set_temp_targets_windows_open:
+    sequence:
       - service: input_number.set_value
         data_template:
           entity_id: input_number.rear_heating_target

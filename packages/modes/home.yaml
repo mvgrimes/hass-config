@@ -32,22 +32,7 @@ automation:
           entity_id: input_boolean.windows_open_mode
           state: 'off'
     action:
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.rear_heating_target
-          value: 64
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.rear_cooling_target
-          value: 74
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.front_heating_target
-          value: 64
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.front_cooling_target
-          value: 74
+      service: script.set_temp_targets_home
 
   # --- When departing Home adjust temps ---
   - alias: 'Home Mode: Away - adj therm targets'
@@ -75,22 +60,7 @@ automation:
           entity_id: input_boolean.windows_open_mode
           state: 'off'
     action:
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.rear_heating_target
-          value: 64
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.rear_cooling_target
-          value: 74
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.front_heating_target
-          value: 64
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.front_cooling_target
-          value: 74
+      service: script.set_temp_targets_away
 
   # --- When Home adjust temps at night ---
   - alias: 'Night Mode: Update Thermostat Targets'
@@ -111,22 +81,7 @@ automation:
           entity_id: input_boolean.home_mode
           state: 'on'
     action:
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.rear_heating_target
-          value: 64
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.rear_cooling_target
-          value: 74
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.front_heating_target
-          value: 64
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.front_cooling_target
-          value: 74
+      service: script.set_temp_targets_night
 
   # --- When Home adjust temps in the morning ---
   - alias: 'End Night Mode: Update Thermostat Targets'
@@ -147,10 +102,16 @@ automation:
           entity_id: input_boolean.home_mode
           state: 'on'
     action:
+      service: script.set_temp_targets_home
+
+
+script:
+  set_temp_targets_home:
+    sequence:
       - service: input_number.set_value
         data_template:
           entity_id: input_number.rear_heating_target
-          value: 69
+          value: 68
       - service: input_number.set_value
         data_template:
           entity_id: input_number.rear_cooling_target
@@ -164,10 +125,40 @@ automation:
           entity_id: input_number.front_cooling_target
           value: 74
 
+  set_temp_targets_away:
+    sequence:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.rear_heating_target
+          value: 62
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.rear_cooling_target
+          value: 79
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.front_heating_target
+          value: 62
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.front_cooling_target
+          value: 79
 
-# script:
-#   set_temp_targets_home:
-#   set_temp_targets_away:
-#   set_temp_targets_night:
-#   set_temp_targets_windows_open:
-#   set_temp_targets_renting:
+  set_temp_targets_night:
+    sequence:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.rear_heating_target
+          value: 67
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.rear_cooling_target
+          value: 74
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.front_heating_target
+          value: 64
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.front_cooling_target
+          value: 73

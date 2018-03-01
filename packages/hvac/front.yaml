@@ -31,15 +31,15 @@ input_number:
   front_heating_target:
     name: Front Heating Target
     initial: 68
-    min: 55
-    max: 72
+    min: 50
+    max: 75
     step: 1
 
   front_cooling_target:
     name: Front Cooling Target
     initial: 76
     min: 70
-    max: 85
+    max: 110
     step: 1
 
 group:
