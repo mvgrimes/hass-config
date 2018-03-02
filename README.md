@@ -3,6 +3,17 @@
 This is my [Home Assistant](https://home-assistant.io/) configuration. Lot's in
 here. Here are some highlights:
 
+  * [Announce Known Callers](#announce-known-callers)
+  * [Floorplan](#floorplan)
+    + [House](#house)
+    + [Morning Status Panel](#morning-status-panel)
+    + [Pets](#pets)
+  * [HVAC](#hvac)
+  * [Multiple Views](#multiple-views)
+  * [Alexa](#alexa)
+  * [Others](#others)
+  * [Hardware/Software](#hardware-software)
+
 ## Announce Known Callers
 
 We get a lot of calls from telemarketers, so we use Home Assistant to play a
@@ -84,6 +95,41 @@ the morning (date, weather, temps and who's turn it is to drive carpool).
 - [www/custom_ui/floorplan/pets.css](www/custom_ui/floorplan/pets.css)
 - [www/custom_ui/floorplan/pets.svg](www/custom_ui/floorplan/pets.svg)
 
+## HVAC
+
+Our furnace and A/C unit services rooms on multiple floors, so a single
+temperature reading at the thermostat is never useful. HA uses multiple
+temperature sensors, some `input_boolean` occupancy sensors and a "combining
+function" to calculate the effective or virtual temperature, then adjusts the
+thermostat target as appropriate.
+
+![Front Temps](./docs/front-temps.png)
+
+In one group, we can see the _effective_ temperature, the combining function
+(min, max or mean), heat/cool, and the targets.
+
+![Den Thermostat](./docs/den-therm.png)
+
+Another group shows the actual thermostat. These heating/cooling targets are
+continually adjusted to keep the heat or A/C on as long as the virtual
+temperature hasn't met the desired target.
+
+![Front Occupancy](./docs/front-occupied.png)
+
+Simple `input_boolean`s are use to designate rooms as occupied. The temperature
+measurement from that room is included in the virtual temperature calculation,
+only if it is occupied. For now, the occupancy sensors are either manually
+toggled or toggled by automations (ie, we assume the kitchen isn't occupied at
+night). We could use PIR/Bluetooth/etc to sense actual presense in rooms but
+haven't.
+
+![Heating Targets](./docs/heating-targets.png)
+
+The last group contains heating/cooling targets for different modes. For
+example, when "Away" mode is active, the front heating target should adjust to
+62°F. Having these as `input_numbers` instead of hard-coded in the automation
+should make updating this much more friendly.
+
 ## Multiple Views
 
 ![Default View](./docs/hass-default-view.png)
@@ -127,3 +173,5 @@ A few other things that I'm really happy with and would like to document more:
 - One NodeMCU base DIY switch (TODO: document)
 - A SmartThings HUB to connect to various Z-Wave/ZigBee devices 
 - mqtt-say (TODO: document)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
