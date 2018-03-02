@@ -1,6 +1,6 @@
 <link rel="import" href="/local/custom_ui/floorplan/ha-floorplan.html" async>
 
-<dom-module id="ha-panel-clock">
+<dom-module id="ha-panel-hvac">
 
   <template>
     <style include="ha-style">
@@ -34,8 +34,8 @@
 </dom-module>
 
 <script>
-  class HaPanelFloorplanClock extends Polymer.Element {
-    static get is() { return 'ha-panel-clock'; }
+  class HaPanelFloorplanHVAC extends Polymer.Element {
+    static get is() { return 'ha-panel-hvac'; }
 
     static get properties() {
       return {
@@ -72,6 +72,6 @@
     }
   }
 
-  customElements.define(HaPanelFloorplanClock.is, HaPanelFloorplanClock);
+  customElements.define(HaPanelFloorplanHVAC.is, HaPanelFloorplanHVAC);
 
 </script>

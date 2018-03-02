@@ -130,6 +130,11 @@ example, when "Away" mode is active, the front heating target should adjust to
 62°F. Having these as `input_numbers` instead of hard-coded in the automation
 should make updating this much more friendly.
 
+![Friendly View](./www/custom_ui/floorplan/hvac.svg)
+
+Finally, we have a user friendly view of the current virtual temperature and
+the setpoint with the ability to change the virtual target.
+
 ## Multiple Views
 
 ![Default View](./docs/hass-default-view.png)

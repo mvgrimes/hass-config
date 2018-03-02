@@ -1,0 +1,7 @@
+- name: hvac
+  sidebar_title: HVAC
+  sidebar_icon: mdi:thermometer
+  url_path: hvac
+  config:
+    config: /local/custom_ui/floorplan/floorhvac.yaml
+    hide_app_toolbar:

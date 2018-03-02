@@ -1,0 +1,64 @@
+# -------------------------------------------
+#  Fire Tablet Pet Panel - Keep track of last feeding/walking
+#  Floorplan config file
+# -------------------------------------------
+
+page_id: HVAC
+image: /local/custom_ui/floorplan/hvac.svg
+stylesheet: /local/custom_ui/floorplan/hvac.css
+warnings:
+
+variables:
+  - name: floorplan.hours
+  - name: floorplan.minutes
+
+defaults:
+  hover_over: true
+  more_info: true
+
+rules:
+  - elements:
+      - front-up
+    action:
+      service: input_number.increment
+      data:
+        entity_id: input_number.front_heating_target
+
+  - elements:
+      - front-down
+    action:
+      service: input_number.decrement
+      data:
+        entity_id: input_number.front_heating_target
+
+  - elements:
+      - rear-up
+    action:
+      service: input_number.increment
+      data:
+        entity_id: input_number.rear_heating_target
+
+  - elements:
+      - rear-down
+    action:
+      service: input_number.decrement
+      data:
+        entity_id: input_number.rear_heating_target
+
+  - name: sensors_and_setpoints
+    entities:
+      - input_number.front_heating_target
+      - input_number.rear_heating_target
+      - sensor.front_temps
+      - sensor.rear_temps
+    hover_over: true
+    more_info: true
+    text_template: '${entity.state ? entity.state + "°F" : "undefined"}'
+
+  - name: clock_time_am_pm
+    entities:
+      - sensor.clock_time
+      - sensor.clock_am_pm
+    hover_over: false
+    more_info: false
+    text_template: '${entity.state ? entity.state : "undefined"}'
