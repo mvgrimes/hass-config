@@ -43,6 +43,32 @@ sensor:
               Barf
             {%- endif -%}
 
+      rear_desired_state:
+        friendly_name: Rear Desired State
+        entity_id:
+          - input_select.rear_thermostat_mode
+          - sensor.rear_temps
+          - input_number.rear_heating_target
+          - input_number.rear_cooling_target
+        value_template: >-
+          {% if states.input_select.rear_thermostat_mode.state == "heat" -%}
+            {% if float(states.sensor.rear_temps.state)
+                  < float(states.input_number.rear_heating_target.state) -%}
+              Heating
+            {%- else -%}
+              Off
+            {%- endif %}
+          {% elif states.input_select.rear_thermostat_mode.state == "cool" -%}
+            {% if float(states.sensor.rear_temps.state)
+                  > float(states.input_number.rear_cooling_target.state) -%}
+              Cooling
+            {%- else -%}
+              Off
+            {%- endif %}
+          {% else %}
+            Unknown
+          {% endif %}
+
 input_select:
   # --- Rear Thermostate Mode dropdown ---
   rear_thermostat_mode:
@@ -99,6 +125,7 @@ group:
     - input_select.rear_function
     - input_select.rear_thermostat_mode
     # - switch.rear_thermostat_fan_mode
+    - sensor.rear_desired_state
     - sensor.kitchen_thermostat_current_state
     - input_number.rear_heating_target
     - input_number.rear_cooling_target

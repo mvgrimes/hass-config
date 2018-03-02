@@ -37,6 +37,34 @@ sensor:
     state_topic: "smartthings/Kitchen Thermostat/battery"
     unit_of_measurement: '%'
 
+  - platform: template
+    sensors:
+      kitchen_expected_state:
+        friendly_name: Kitchen Expected State
+        entity_id:
+          - input_select.kitchen_thermostat_current_mode
+          - sensor.kitchen_thermostat_temp
+          - input_number.kitchen_heating_target
+          - input_number.kitchen_cooling_target
+        value_template: >-
+          {% if states.input_select.kitchen_thermostat_mode.state == "heat" %}
+            {% if float(states.sensor.kitchen_thermostat_temp.state)
+                    < float(states.input_number.kitchen_heating_target.state) -%}
+              Heating
+            {%- else -%}
+              Off
+            {%- endif %}
+          {% elif states.input_select.kitchen_thermostat_mode.state == "cool" %}
+            {% if float(states.sensor.kitchen_thermostat_temp.state)
+                    > float(states.input_number.kitchen_cooling_target.state) -%}
+              Cooling
+            {%- else -%}
+              Off
+            {%- endif %}
+          {% else %}
+            Unknown
+          {% endif %}
+
 switch:
   # --- Kitchen Fan Mode ---
   - platform: mqtt
@@ -155,6 +183,7 @@ group:
     - sensor.kitchen_thermostat_temp
     - input_select.kitchen_thermostat_mode
     - switch.kitchen_thermostat_fan_mode
+    - sensor.kitchen_expected_state
     - sensor.kitchen_thermostat_current_state
     - input_number.kitchen_heating_target
     - input_number.kitchen_cooling_target

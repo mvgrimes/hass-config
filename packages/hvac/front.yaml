@@ -43,6 +43,32 @@ sensor:
               Barf
             {%- endif -%}
 
+      front_desired_state:
+        friendly_name: Front Desired State
+        entity_id:
+          - input_select.front_thermostat_mode
+          - sensor.front_temps
+          - input_number.front_heating_target
+          - input_number.front_cooling_target
+        value_template: >-
+          {% if states.input_select.front_thermostat_mode.state == "heat" -%}
+            {% if float(states.sensor.front_temps.state)
+                  < float(states.input_number.front_heating_target.state) -%}
+              Heating
+            {%- else -%}
+              Off
+            {%- endif %}
+          {% elif states.input_select.front_thermostat_mode.state == "cool" -%}
+            {% if float(states.sensor.front_temps.state)
+                  > float(states.input_number.front_cooling_target.state) -%}
+              Cooling
+            {%- else -%}
+              Off
+            {%- endif %}
+          {% else %}
+            Unknown
+          {% endif %}
+
 input_select:
   # --- Front Thermostat Mode dropdown ---
   front_thermostat_mode:
@@ -99,6 +125,7 @@ group:
     - input_select.front_function
     - input_select.front_thermostat_mode
     # - switch.front_thermostat_fan_mode
+    - sensor.front_desired_state
     - sensor.den_thermostat_current_state
     - input_number.front_heating_target
     - input_number.front_cooling_target
