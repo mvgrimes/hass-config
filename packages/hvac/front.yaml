@@ -83,15 +83,15 @@ input_boolean:
   den_thermostat_occupied:
     name: Den Occupied
     initial: 'on'
+    icon: mdi:account
   girls_br_occupied:
     name: Girls Bedroom Occupied
     initial: 'on'
+    icon: mdi:account
   office_occupied:
     name: Office Occupied
     initial: 'off'
-      # - sensor.kitchen_thermostat_temp
-      # - sensor.mbr_temp
-      # - sensor.office_temp
+    icon: mdi:account
 
 group:
   front_thermostat:
@@ -160,11 +160,14 @@ automation:
           value: >-
             {%  set temp = { "observed":   float(states.sensor.front_temps.state),
                              "target":     float(states.input_number.front_heating_target.state),
-                             "thermostat": float(states.sensor.den_thermostat_temp.state) } %}
+                             "thermostat": float(states.sensor.den_thermostat_temp.state),
+                             "min":        float(states.input_number.den_heating_target.attributes.min),
+                             "max":        float(states.input_number.den_heating_target.attributes.max)
+                           }  %}
             {% if temp.observed < temp.target - 1 %}
-                {{ [ temp.thermostat + 1.5, 70 ] | min }}
+                {{ [ temp.thermostat + 2, temp.max ] | min }}
             {% elif temp.observed >= temp.target - 1 %}
-                {{ [ temp.thermostat - 1.5, 50 ] | max }}
+                {{ [ temp.thermostat - 2, temp.min ] | max }}
             {% endif %}
       - service: system_log.write
         data_template:
@@ -193,11 +196,14 @@ automation:
           value: >-
             {%  set temp = { "observed":   float(states.sensor.rear_temps.state),
                              "target":     float(states.input_number.rear_cooling_target.state),
-                             "thermostat": float(states.sensor.kitchen_thermostat_temp.state) } %}
+                             "thermostat": float(states.sensor.kitchen_thermostat_temp.state),
+                             "min":        float(states.input_number.den_cooling_target.attributes.min),
+                             "max":        float(states.input_number.den_cooling_target.attributes.max)
+                           }  %}
             {% if temp.observed > temp.target + 1 %}
-                {{ [ temp.thermostat - 1.5, 64 ] | max }}
+                {{ [ temp.thermostat - 2, temp.min ] | max }}
             {% elif temp.observed <= temp.target + 1 %}
-                {{ [ temp.thermostat - 1.5, 80 ] | min }}
+                {{ [ temp.thermostat - 2, temp.max ] | min }}
             {% endif %}
       - service: system_log.write
         data_template:

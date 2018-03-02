@@ -81,6 +81,7 @@ input_boolean:
   kitchen_thermostat_occupied:
     name: Kitchen Occupied
     initial: 'on'
+    icon: mdi:account
   mbr_occupied:
     name: Master Bedroom Occupied
     initial: 'on'
@@ -153,11 +154,14 @@ automation:
           value: >-
             {%  set temp = { "observed":   float(states.sensor.rear_temps.state),
                              "target":     float(states.input_number.rear_heating_target.state),
-                             "thermostat": float(states.sensor.kitchen_thermostat_temp.state) } %}
+                             "thermostat": float(states.sensor.kitchen_thermostat_temp.state),
+                             "min":        float(states.input_number.kitchen_heating_target.attributes.min),
+                             "max":        float(states.input_number.kitchen_heating_target.attributes.max)
+                           }  %}
             {% if temp.observed < temp.target - 1 %}
-                {{ [ temp.thermostat + 1.5, 70 ] | min }}
+                {{ [ temp.thermostat + 2, temp.max ] | min }}
             {% elif temp.observed >= temp.target - 1 %}
-                {{ [ temp.thermostat - 1.5, 50 ] | max }}
+                {{ [ temp.thermostat - 2, temp.min ] | max }}
             {% endif %}
       - service: system_log.write
         data_template:
@@ -186,11 +190,14 @@ automation:
           value: >-
             {%  set temp = { "observed":   float(states.sensor.rear_temps.state),
                              "target":     float(states.input_number.rear_cooling_target.state),
-                             "thermostat": float(states.sensor.kitchen_thermostat_temp.state) } %}
+                             "thermostat": float(states.sensor.kitchen_thermostat_temp.state),
+                             "min":        float(states.input_number.kitchen_cooling_target.attributes.min),
+                             "max":        float(states.input_number.kitchen_cooling_target.attributes.max)
+                           }  %}
             {% if temp.observed > temp.target + 1 %}
-                {{ [ temp.thermostat - 1.5, 64 ] | max }}
+                {{ [ temp.thermostat - 2, temp.min ] | max }}
             {% elif temp.observed <= temp.target + 1 %}
-                {{ [ temp.thermostat - 1.5, 80 ] | min }}
+                {{ [ temp.thermostat - 2, temp.max ] | min }}
             {% endif %}
       - service: system_log.write
         data_template:
