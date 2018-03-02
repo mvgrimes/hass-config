@@ -19,7 +19,11 @@ sensor:
           - input_boolean.den_thermostat_occupied
           - input_boolean.girls_br_occupied
           - input_boolean.office_occupied
+          - input_select.front_function
         value_template: >
+            {% macro mean(values) -%}
+               {{- (values|sum) / (values|length) -}}
+            {%- endmacro %}
             {% macro get_temp(rooms) -%}
               {% for room in rooms -%}
                 {%- if states.input_boolean[room ~ "_occupied"].state == "on" -%}
@@ -27,12 +31,20 @@ sensor:
                 {%- endif -%}
               {%- endfor -%}
             {%- endmacro %}
-            {% set the_rooms = ['den_thermostat', 'girls_br', 'office'] %}
-            {% set temps = get_temp(the_rooms).split(",") | reject('eq','') | map('float') | list %}
-            {{ (temps | sum) / (temps | length) }}
+            {%- set the_rooms = ['den_thermostat', 'girls_br', 'office'] -%}
+            {%- set temps = get_temp(the_rooms).split(",") | reject('eq','') | map('float') | list -%}
+            {%- if states.input_select.front_function.state == "mean" -%}
+              {{- mean(temps) | round(1) -}}
+            {%- elif states.input_select.front_function.state == "max" -%}
+              {{- temps | max | round(1) -}}
+            {%- elif states.input_select.front_function.state == "min" -%}
+              {{- temps | min | round(1) -}}
+            {%- else -%}
+              Barf
+            {%- endif -%}
 
 input_select:
-  # --- Front Thermostate Mode dropdown ---
+  # --- Front Thermostat Mode dropdown ---
   front_thermostat_mode:
     name: Front Thermostat Mode
     options:
@@ -41,6 +53,15 @@ input_select:
       - "cool"
       - "heat"
     icon: mdi:fan
+
+  front_function:
+    name: Front Combining Function
+    initial: mean
+    options:
+      - "min"
+      - "max"
+      - "mean"
+    icon: mdi:function
 
 input_number:
   # -- Front Therm targets ---
@@ -75,6 +96,7 @@ input_boolean:
 group:
   front_thermostat:
     - sensor.front_temps
+    - input_select.front_function
     - input_select.front_thermostat_mode
     # - switch.front_thermostat_fan_mode
     - sensor.den_thermostat_current_state
