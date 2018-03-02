@@ -103,12 +103,14 @@ group:
     entities:
       - input_boolean.kitchen_thermostat_occupied
       - input_boolean.mbr_occupied
+      - input_boolean.basement_occupied
 
 automation:
 
   # --- Rear Thermostat ---
   # Keep mode in sync b/w MQTT/dropdown
   - alias: Set Rear Thermostat Mode Selector
+    initial_state: 'on'
     trigger:
       - platform: mqtt
         topic: "smartthings/Kitchen Thermostat/thermostatMode"
@@ -118,6 +120,7 @@ automation:
           entity_id: input_select.rear_thermostat_mode
           option: '{{ trigger.payload }}'
   - alias: Set Rear Thermostat Mode
+    initial_state: 'on'
     trigger:
       - platform: state
         entity_id: input_select.rear_thermostat_mode
@@ -135,7 +138,7 @@ automation:
 
   # Adj Kitchen Thermostat to meet Rear Temp (heat)
   - alias: Rear Heating Target Set
-    initial_state: 'off'
+    initial_state: 'on'
     trigger:
       - platform: state
         entity_id: input_number.rear_heating_target
@@ -171,7 +174,7 @@ automation:
 
   # Adj Kitchen Thermostat to meet Rear Temp (a/c)
   - alias: Rear A/C Target Set
-    initial_state: 'off'
+    initial_state: 'on'
     trigger:
       - platform: state
         entity_id: input_number.rear_cooling_target

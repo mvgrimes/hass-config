@@ -78,6 +78,7 @@ automation:
   # --- Den Thermostat ---
   # Keep mode in sync b/w MQTT/dropdown
   - alias: Set Den Thermostat Mode Selector
+    initial_state: 'on'
     trigger:
       - platform: mqtt
         topic: "smartthings/Den Thermostat/thermostatMode"
@@ -87,6 +88,7 @@ automation:
           entity_id: input_select.den_thermostat_mode
           option: '{{ trigger.payload }}'
   - alias: Set Den Thermostat Mode
+    initial_state: 'on'
     trigger:
       - platform: state
         entity_id: input_select.den_thermostat_mode
@@ -104,6 +106,7 @@ automation:
 
   # Keep heatSetpoint in sync b/w MQTT and slider
   - alias: Den Heating Target Set
+    initial_state: 'on'
     trigger:
       - platform: mqtt
         topic: "smartthings/Den Thermostat/heatingSetpoint"
@@ -113,6 +116,7 @@ automation:
           entity_id: input_number.den_heating_target
           value: '{{ trigger.payload}}'
   - alias: Set Den Heating Target
+    initial_state: 'off'
     trigger:
       - platform: state
         entity_id: input_number.den_heating_target
@@ -125,6 +129,7 @@ automation:
 
   # Keep coolingSetpoint in sync b/w MQTT and slider
   - alias: Den Cooling Target Set
+    initial_state: 'on'
     trigger:
       - platform: mqtt
         topic: "smartthings/Den Thermostat/coolingSetpoint"
@@ -134,6 +139,7 @@ automation:
           entity_id: input_number.den_cooling_target
           value: '{{ trigger.payload}}'
   - alias: Set Den Cooling Target
+    initial_state: 'off'
     trigger:
       - platform: state
         entity_id: input_number.den_cooling_target
