@@ -158,7 +158,7 @@ automation:
       - condition: state
         entity_id: input_boolean.debug_mode
         state: 'on'
-      - service: notify.notify
+      - service: notify.pushover
         data_template:
           title: 'HA HVAC'
           message: >-
@@ -194,7 +194,7 @@ automation:
       - condition: state
         entity_id: input_boolean.debug_mode
         state: 'on'
-      - service: notify.notify
+      - service: notify.pushover
         data_template:
           title: 'HA HVAC'
           message: >-
