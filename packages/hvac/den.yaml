@@ -163,11 +163,11 @@ automation:
           title: 'HA HVAC'
           message: >-
             [Den heat]
-            setpoint={{ state.input_number.den_heating_target.state | int }},
-            temp={{ state.sensor.den_thermostat_temp.state }}
-            target={{ state.input_number.front_heating_target.state }},
-            v_temp={{ state.sensor.front_temps.state }},
-            temps={{ state.sensor.den_thermostat_temp.state }}/{{ state.sensor.girls_br_temp.state }}
+            setpoint={{ states.input_number.den_heating_target.states | int }},
+            temp={{ states.sensor.den_thermostat_temp.states }}
+            target={{ states.input_number.front_heating_target.states }},
+            v_temp={{ states.sensor.front_temps.states }},
+            temps={{ states.sensor.den_thermostat_temp.states }}/{{ states.sensor.girls_br_temp.states }}
 
   # Keep coolingSetpoint in sync b/w MQTT and slider
   - alias: Den Cooling Target Set
@@ -199,11 +199,11 @@ automation:
           title: 'HA HVAC'
           message: >-
             [Den cool]
-            setpoint={{ state.input_number.den_cooling_target.state | int }},
-            temp={{ state.sensor.den_thermostat_temp }}
-            target={{ state.input_number.front_cooling_target.state }},
-            v_temp={{ state.sensor.front_temps }},
-            temps={{ state.sensor.den_thermostat_temp.state }}/{{ state.sensor.girls_br_temp.state }}
+            setpoint={{ states.input_number.den_cooling_target.states | int }},
+            temp={{ states.sensor.den_thermostat_temp }}
+            target={{ states.input_number.front_cooling_target.states }},
+            v_temp={{ states.sensor.front_temps }},
+            temps={{ states.sensor.den_thermostat_temp.states }}/{{ states.sensor.girls_br_temp.states }}
 
 group:
   den_thermostat:

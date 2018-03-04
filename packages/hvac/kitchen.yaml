@@ -162,11 +162,11 @@ automation:
           title: 'HA HVAC'
           message: >-
             [Kitchen heat]
-            setpoint={{ state.input_number.kitchen_heating_target.state | int }},
-            temp={{ state.sensor.kitchen_thermostat_temp }}
-            target={{ state.input_number.rear_heating_target.state }},
-            v_temp={{ state.sensor.rear_temps }},
-            temps={{ state.sensor.kitchen_thermostat_temp.state }}/{{ state.sensor.mbr_temp.state }}
+            setpoint={{ states.input_number.kitchen_heating_target.states | int }},
+            temp={{ states.sensor.kitchen_thermostat_temp }}
+            target={{ states.input_number.rear_heating_target.states }},
+            v_temp={{ states.sensor.rear_temps }},
+            temps={{ states.sensor.kitchen_thermostat_temp.states }}/{{ states.sensor.mbr_temp.states }}
 
   # Keep coolingSetpoint in sync b/w MQTT and slider
   - alias: Kitchen Cooling Target Set
@@ -198,11 +198,11 @@ automation:
           title: 'HA HVAC'
           message: >-
             [Kitchen cool]
-            setpoint={{ state.input_number.kitchen_cooling_target.state | int }},
-            temp={{ state.sensor.kitchen_thermostat_temp }}
-            target={{ state.input_number.rear_cooling_target.state }},
-            v_temp={{ state.sensor.rear_temps }},
-            temps={{ state.sensor.kitchen_thermostat_temp.state }}/{{ state.sensor.mbr_temp.state }}
+            setpoint={{ states.input_number.kitchen_cooling_target.states | int }},
+            temp={{ states.sensor.kitchen_thermostat_temp }}
+            target={{ states.input_number.rear_cooling_target.states }},
+            v_temp={{ states.sensor.rear_temps }},
+            temps={{ states.sensor.kitchen_thermostat_temp.states }}/{{ states.sensor.mbr_temp.states }}
 
 group:
   kitchen_thermostat:
