@@ -82,7 +82,7 @@ input_select:
 
   rear_function:
     name: Rear Combining Function
-    initial: mean
+    initial: max
     options:
       - "min"
       - "max"

@@ -82,7 +82,7 @@ input_select:
 
   front_function:
     name: Front Combining Function
-    initial: mean
+    initial: max
     options:
       - "min"
       - "max"
