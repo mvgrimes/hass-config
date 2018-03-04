@@ -1,0 +1,6 @@
+# Flag we can use to choose to send debug info
+
+input_boolean:
+  debug_mode:
+    name: 'Debug Mode'
+    icon: 'mdi:bug'

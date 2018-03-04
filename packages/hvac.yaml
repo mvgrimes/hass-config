@@ -2,8 +2,8 @@
 #  Fire Tablet HVAC Panel - Simple interface to HVAC
 # -------------------------------------------
 
-homeassistant:
-  customize:
+# homeassistant:
+#   customize:
 
 media_player:
   - platform: floorplan_speaker
