@@ -5,16 +5,9 @@ default_view:
     - group.notices
     - group.weather_simple
     - group.switch_group
-    - group.mode_group
+    - group.modes
     - group.status_panel
     - group.finance
-
-mode_group:
-  name: Modes
-  control: hidden
-  entities:
-    - group.home
-    - group.vaction
 
 switch_group:
   name: Switches

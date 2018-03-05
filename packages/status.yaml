@@ -47,9 +47,9 @@ group:
     name: Status Panel
     control: hidden
     entities:
+      - input_boolean.carpool_week
       - binary_sensor.status_panel_motion
       - binary_sensor.status_panel_plugged
-      - input_boolean.carpool_week
       - light.status_panel_screensaver
 
 automation:

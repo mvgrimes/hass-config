@@ -1,5 +1,0 @@
-pets_view:
-  view: yes
-  name: Pets
-  entities:
-    - group.pets

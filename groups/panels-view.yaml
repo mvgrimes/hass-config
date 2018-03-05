@@ -1,6 +1,7 @@
-status_view:
+panel_view:
   view: yes
-  name: Status
+  name: Panels
   entities:
     - group.status_panel
+    - group.pets
     - group.date_time

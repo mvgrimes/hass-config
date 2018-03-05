@@ -1,5 +1,0 @@
-mode_view:
-  view: yes
-  name: Modes
-  entities:
-    - group.modes

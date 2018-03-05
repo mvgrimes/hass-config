@@ -10,3 +10,5 @@ hvac_view:
     - group.rear_occupied
     - group.heating_targets
     - group.cooling_targets
+    - group.cooling_targets
+    - group.temps
