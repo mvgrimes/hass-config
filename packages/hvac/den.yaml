@@ -163,7 +163,7 @@ automation:
           title: 'HA HVAC'
           message: >-
             [Den heat]
-            setpoint={{ states.input_number.den_heating_target.state | int }},
+            setpoint={{ states.input_number.den_heating_target.state }},
             temp={{ states.sensor.den_thermostat_temp.state }}
             target={{ states.input_number.front_heating_target.state }},
             v_temp={{ states.sensor.front_temps.state }},
@@ -199,7 +199,7 @@ automation:
           title: 'HA HVAC'
           message: >-
             [Den cool]
-            setpoint={{ states.input_number.den_cooling_target.state | int }},
+            setpoint={{ states.input_number.den_cooling_target.state }},
             temp={{ states.sensor.den_thermostat_temp.state }}
             target={{ states.input_number.front_cooling_target.state }},
             v_temp={{ states.sensor.front_temps.state }},
