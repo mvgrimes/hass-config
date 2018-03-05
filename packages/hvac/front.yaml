@@ -82,7 +82,7 @@ input_select:
 
   front_function:
     name: Front Combining Function
-    initial: max
+    # initial: max
     options:
       - "min"
       - "max"
@@ -93,14 +93,14 @@ input_number:
   # -- Front Therm targets ---
   front_heating_target:
     name: Front Heating Target
-    initial: 68
+    # initial: 68
     min: 50
     max: 75
     step: 1
 
   front_cooling_target:
     name: Front Cooling Target
-    initial: 76
+    # initial: 76
     min: 70
     max: 110
     step: 1

@@ -90,14 +90,14 @@ input_number:
   # -- Den Therm targets ---
   den_heating_target:
     name: Den Heating Target
-    initial: 68
+    # initial: 68
     min: 50
     max: 75
     step: 1
 
   den_cooling_target:
     name: Den Cooling Target
-    initial: 76
+    # initial: 76
     min: 68
     max: 110
     step: 1

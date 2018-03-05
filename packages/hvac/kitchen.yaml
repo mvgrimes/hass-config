@@ -89,14 +89,14 @@ input_number:
   # -- Kitchen Therm targets ---
   kitchen_heating_target:
     name: Kitchen Heating Target
-    initial: 68
+    # initial: 68
     min: 50
     max: 75
     step: 1
 
   kitchen_cooling_target:
     name: Kitchen Cooling Target
-    initial: 76
+    # initial: 76
     min: 68
     max: 110
     step: 1
