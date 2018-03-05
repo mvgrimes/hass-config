@@ -6,6 +6,27 @@ input_boolean:
     icon: 'mdi:home'
 
 automation:
+  - alias: 'Home Mode: Home - nest home'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.home_mode
+        from: 'off'
+        to: 'on'
+    action:
+      service: script.nest_home
+
+  - alias: 'Home Mode: Away - nest away'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.home_mode
+        from: 'on'
+        to: 'off'
+    action:
+      - delay: 00:15:00
+      - service: script.nest_away
+
   # --- When arrive Home adjust temps ---
   - alias: 'Home Mode: Home - adj therm targets'
     initial_state: 'on'
