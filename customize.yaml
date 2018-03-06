@@ -9,25 +9,23 @@ group.all_scripts:
   control: hidden
   hidden: false
 
-group.hvac_view:
+group.default_view:
   order: 1
-group.switch_view:
+group.hvac_view:
   order: 2
-group.weather_view:
+group.switch_view:
   order: 3
-group.presence_view:
+group.weather_view:
   order: 4
-group.pets_view:
+group.presence_view:
   order: 5
 group.media_view:
   order: 6
-group.clock_view:
+group.panel_view:
   order: 7
-group.status_view:
-  order: 8
 group.miner_view:
+  order: 8
+group.sensor_view:
   order: 9
-group.temp_view:
-  order: 10
 group.system_view:
-  order: 11
+  order: 10
