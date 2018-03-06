@@ -1,6 +1,7 @@
 sensor_view:
   view: yes
   name: Sensors
+  icon: mdi:thermometer
   entities:
     - group.temps
     - group.sensor_node_1_card

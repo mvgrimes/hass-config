@@ -1,6 +1,7 @@
 weather_view:
   view: yes
   name: Weather
+  icon: mdi:weather-partlycloudy
   entities:
     - group.weather_wu
     - group.weather_ds

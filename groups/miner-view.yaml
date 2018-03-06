@@ -1,6 +1,7 @@
 miner_view:
   view: yes
   name: Miner
+  icon: mdi:key-variant
   entities:
     - group.miner
 

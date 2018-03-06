@@ -1,6 +1,7 @@
 system_view:
   view: yes
   name: System
+  icon: mdi:settings
   entities:
     - group.all_automations
     - group.all_scripts

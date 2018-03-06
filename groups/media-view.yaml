@@ -1,6 +1,7 @@
 media_view:
   view: yes
   name: Media
+  icon: mdi:music
   entities:
     - group.music
     - configurator.nest

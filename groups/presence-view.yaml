@@ -1,6 +1,7 @@
 presence_view:
   view: yes
   name: Presence
+  icon: mdi:map-marker
   entities:
     - group.family
 

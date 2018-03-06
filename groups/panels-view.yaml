@@ -1,6 +1,7 @@
 panel_view:
   view: yes
   name: Panels
+  icon: mdi:tablet
   entities:
     - group.status_panel
     - group.pets

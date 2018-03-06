@@ -1,6 +1,7 @@
 hvac_view:
   view: yes
   name: HVAC
+  icon: mdi:fan
   entities:
     - group.front_thermostat
     - group.rear_thermostat
