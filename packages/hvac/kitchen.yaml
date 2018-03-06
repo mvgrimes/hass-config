@@ -163,7 +163,7 @@ automation:
           message: >-
             [Kitchen heat]
             setpoint={{ states.input_number.kitchen_heating_target.state }},
-            temp={{ states.sensor.kitchen_thermostat_temp.state }}
+            temp={{ states.sensor.kitchen_thermostat_temp.state }},
             target={{ states.input_number.rear_heating_target.state }},
             v_temp={{ states.sensor.rear_temps.state }},
             temps={{ states.sensor.kitchen_thermostat_temp.state }}/{{ states.sensor.mbr_temp.state }}
@@ -199,7 +199,7 @@ automation:
           message: >-
             [Kitchen cool]
             setpoint={{ states.input_number.kitchen_cooling_target.state }},
-            temp={{ states.sensor.kitchen_thermostat_temp.state }}
+            temp={{ states.sensor.kitchen_thermostat_temp.state }},
             target={{ states.input_number.rear_cooling_target.state }},
             v_temp={{ states.sensor.rear_temps.state }},
             temps={{ states.sensor.kitchen_thermostat_temp.state }}/{{ states.sensor.mbr_temp.state }}

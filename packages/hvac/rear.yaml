@@ -193,9 +193,9 @@ automation:
                              "min":        float(states.input_number.kitchen_heating_target.attributes.min),
                              "max":        float(states.input_number.kitchen_heating_target.attributes.max)
                            }  %}
-            {% if temp.observed < temp.target - 1 %}
+            {% if temp.observed < temp.target - 1 %}          {# ON #}
                 {{ [ temp.thermostat + 2, temp.max ] | min }}
-            {% elif temp.observed >= temp.target - 1 %}
+            {% elif temp.observed >= temp.target + 1 %}       {# OFF #}
                 {{ [ temp.thermostat - 2, temp.min ] | max }}
             {% endif %}
       - service: system_log.write
@@ -229,10 +229,10 @@ automation:
                              "min":        float(states.input_number.kitchen_cooling_target.attributes.min),
                              "max":        float(states.input_number.kitchen_cooling_target.attributes.max)
                            }  %}
-            {% if temp.observed > temp.target + 1 %}
+            {% if temp.observed > temp.target + 1 %}          {# ON #}
                 {{ [ temp.thermostat - 2, temp.min ] | max }}
-            {% elif temp.observed <= temp.target + 1 %}
-                {{ [ temp.thermostat - 2, temp.max ] | min }}
+            {% elif temp.observed <= temp.target - 1 %}       {# OFF #}
+                {{ [ temp.thermostat + 2, temp.max ] | min }}
             {% endif %}
       - service: system_log.write
         data_template:

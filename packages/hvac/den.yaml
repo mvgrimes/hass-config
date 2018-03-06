@@ -164,7 +164,7 @@ automation:
           message: >-
             [Den heat]
             setpoint={{ states.input_number.den_heating_target.state }},
-            temp={{ states.sensor.den_thermostat_temp.state }}
+            temp={{ states.sensor.den_thermostat_temp.state }},
             target={{ states.input_number.front_heating_target.state }},
             v_temp={{ states.sensor.front_temps.state }},
             temps={{ states.sensor.den_thermostat_temp.state }}/{{ states.sensor.girls_br_temp.state }}
@@ -200,7 +200,7 @@ automation:
           message: >-
             [Den cool]
             setpoint={{ states.input_number.den_cooling_target.state }},
-            temp={{ states.sensor.den_thermostat_temp.state }}
+            temp={{ states.sensor.den_thermostat_temp.state }},
             target={{ states.input_number.front_cooling_target.state }},
             v_temp={{ states.sensor.front_temps.state }},
             temps={{ states.sensor.den_thermostat_temp.state }}/{{ states.sensor.girls_br_temp.state }}
