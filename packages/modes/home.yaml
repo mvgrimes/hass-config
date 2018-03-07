@@ -102,7 +102,9 @@ automation:
           entity_id: input_boolean.home_mode
           state: 'on'
     action:
-      service: script.set_temp_targets_night
+      - service: script.set_temp_targets_night
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.kitchen_thermostat_occupied
 
   # --- When Home adjust temps in the morning ---
   - alias: 'End Night Mode: Update Thermostat Targets'
@@ -123,7 +125,9 @@ automation:
           entity_id: input_boolean.home_mode
           state: 'on'
     action:
-      service: script.set_temp_targets_home
+      - service: script.set_temp_targets_home
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.kitchen_thermostat_occupied
 
 
 script:
