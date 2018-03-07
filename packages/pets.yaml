@@ -38,9 +38,16 @@ binary_sensor:
 
   - platform: mqtt
     state_topic: floorplan/pet_panel_plugged
-    name: Pet Panel Clock Plugged
+    name: Pet Panel Plugged
     retain: true
     hidden: false
+
+light:
+  - platform: mqtt_json
+    name: Pet Panel Screensaver
+    state_topic: floorplan/pet_screensaver
+    command_topic: floorplan/pet_screensaver/set
+    brightness: true
 
 # This is a bit complicated b/c we to trigger an update based on
 # a combination of the <pet>fed_time and now().
@@ -128,6 +135,7 @@ group:
       - binary_sensor.pet_panel_motion
       - binary_sensor.pet_panel_plugged
       - light.pet_panel_screensaver
+      # - media_player.pet_panel
 
 intent_script:
   WhenPetFedIntent:
