@@ -204,28 +204,28 @@ automation:
             Changing den_heating_target to {{ states.sensor.den_heating_target.state }}
           level: info
 
-  # Adj kitchen Thermostat to meet Front Temp (a/c)
+  # Adj den Thermostat to meet Front Temp (a/c)
   - alias: Front A/C Target Set
     initial_state: 'on'
     trigger:
       - platform: state
-        entity_id: input_number.rear_cooling_target
+        entity_id: input_number.front_cooling_target
       - platform: state
-        entity_id: input_select.rear_thermostat_mode
+        entity_id: input_select.front_thermostat_mode
       - platform: state
-        entity_id: sensor.rear_temps
+        entity_id: sensor.front_temps
     condition:
       condition: state
-      entity_id: input_select.rear_thermostat_mode
+      entity_id: input_select.front_thermostat_mode
       state: 'cool'
     action:
       - service: input_number.set_value
         data_template:
-          entity_id: input_number.kitchen_cooling_target
+          entity_id: input_number.den_cooling_target
           value: >-
-            {%  set temp = { "observed":   float(states.sensor.rear_temps.state),
-                             "target":     float(states.input_number.rear_cooling_target.state),
-                             "thermostat": float(states.sensor.kitchen_thermostat_temp.state),
+            {%  set temp = { "observed":   float(states.sensor.front_temps.state),
+                             "target":     float(states.input_number.front_cooling_target.state),
+                             "thermostat": float(states.sensor.den_thermostat_temp.state),
                              "min":        float(states.input_number.den_cooling_target.attributes.min),
                              "max":        float(states.input_number.den_cooling_target.attributes.max)
                            }  %}
@@ -237,5 +237,5 @@ automation:
       - service: system_log.write
         data_template:
           message: >-
-            Changing kitchen_cooling_target to {{ states.sensor.kitchen_cooling_target.state }}
+            Changing den_cooling_target to {{ states.sensor.den_cooling_target.state }}
           level: info

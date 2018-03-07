@@ -42,21 +42,21 @@ sensor:
       den_expected_state:
         friendly_name: Den Expected State
         entity_id:
-          - input_select.kitchen_thermostat_current_mode
-          - sensor.kitchen_thermostat_temp
-          - input_number.kitchen_heating_target
-          - input_number.kitchen_cooling_target
+          - input_select.den_thermostat_current_mode
+          - sensor.den_thermostat_temp
+          - input_number.den_heating_target
+          - input_number.den_cooling_target
         value_template: >-
-          {% if states.input_select.kitchen_thermostat_mode.state == "heat" %}
-            {% if float(states.sensor.kitchen_thermostat_temp.state)
-                    < float(states.input_number.kitchen_heating_target.state) -%}
+          {% if states.input_select.den_thermostat_mode.state == "heat" %}
+            {% if float(states.sensor.den_thermostat_temp.state)
+                    < float(states.input_number.den_heating_target.state) -%}
               Heating
             {%- else -%}
               Off
             {%- endif %}
-          {% elif states.input_select.kitchen_thermostat_mode.state == "cool" %}
-            {% if float(states.sensor.kitchen_thermostat_temp.state)
-                    > float(states.input_number.kitchen_cooling_target.state) -%}
+          {% elif states.input_select.den_thermostat_mode.state == "cool" %}
+            {% if float(states.sensor.den_thermostat_temp.state)
+                    > float(states.input_number.den_cooling_target.state) -%}
               Cooling
             {%- else -%}
               Off
