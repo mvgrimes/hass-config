@@ -26,6 +26,7 @@ binary_sensor:
   - platform: mqtt
     state_topic: floorplan/status_plugged
     name: Status Panel Plugged
+    device_class: plug
     retain: true
     hidden: false
 

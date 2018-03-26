@@ -20,7 +20,7 @@ homeassistant:
       friendly_name: Pig Fed
     sensor.fishfed_time:
       friendly_name: Fish Fed
-    sensor.dogwalk_time:
+    sensor.dogwalked_time:
       friendly_name: Dog Walked
 
 media_player:
@@ -39,6 +39,7 @@ binary_sensor:
   - platform: mqtt
     state_topic: floorplan/pet_panel_plugged
     name: Pet Panel Plugged
+    device_class: plug
     retain: true
     hidden: false
 
