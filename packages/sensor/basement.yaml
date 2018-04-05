@@ -1,0 +1,76 @@
+group:
+  basement_lights:
+    name: Basement lights
+    entities:
+      - switch.basement_lights
+      - switch.basement_step_lights
+
+  sensornode_basement_card:
+    name: Basement Sensor
+    entities:
+      - sensor.basement_temperature
+      - sensor.basement_humidity
+      - sensor.basement_ldr
+      - sensor.basement_pir
+      - sensor.basement_real_feel
+      - light.basement_led
+
+sensor:
+  - platform: mqtt
+    state_topic: "hass/sensor-basement"
+    name: "Basement Humidity"
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.humidity | round(1) }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-basement"
+    name: "Basement LDR"
+    # This sensor is not calibrated to actual LUX. Rather, this a map of the input voltage ranging from 0 - 1023.
+    unit_of_measurement: "LUX"
+    value_template: '{{ value_json.ldr }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-basement"
+    name: "Basement PIR"
+    value_template: '{{ value_json.motion }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-basement"
+    name: "Basement Temperature"
+    unit_of_measurement: "°F"
+    value_template: '{{ value_json.temperature | round(1) }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-basement"
+    name: "Basement Real Feel"
+    unit_of_measurement: "°F"
+    value_template: '{{ value_json.heatIndex | round(1) }}'
+
+automation:
+  - alias: Basement steps switch turns on all lights
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id:
+        - switch.basement_step_lights
+        # - switch.basement_lights
+      to: "on"
+    action:
+      service: switch.turn_on
+      entity_id:
+        # - group.basement_lights
+        - switch.basement_lights
+
+  - alias: Basement steps switch turns off all lights
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id:
+        - switch.basement_step_lights
+        # - switch.basement_lights
+      to: "off"
+    action:
+      service: switch.turn_off
+      entity_id:
+        # - group.basement_lights
+        - switch.basement_lights

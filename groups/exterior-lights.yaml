@@ -1,4 +1,0 @@
-exterior_lights:
-  name: Exterior Lights
-  entities:
-    - light.porch_lights

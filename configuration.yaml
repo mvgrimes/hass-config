@@ -118,14 +118,14 @@ panel_custom: !include_dir_merge_list custom_panels
 # Allow Amazon Echo to control some things
 emulated_hue: !include alexa.yaml
 logger: !include logger.yaml
-light: !include_dir_merge_list lights
+# light: !include_dir_merge_list lights
 wemo: !include wemo.yaml
-sensor: !include_dir_merge_list sensors
-switch: !include_dir_merge_list switches
+# sensor: !include_dir_merge_list sensors
+# switch: !include_dir_merge_list switches
 zone: !include zones.yaml
-lock: !include_dir_merge_list locks
-nest: !include nest.yaml
+# lock: !include_dir_merge_list locks
+# nest: !include nest.yaml
 script: !include_dir_merge_named scripts
-automation: !include_dir_merge_list automations
+# automation: !include_dir_merge_list automations
 shell_command: !include_dir_merge_named shell_commands
 group: !include_dir_merge_named groups

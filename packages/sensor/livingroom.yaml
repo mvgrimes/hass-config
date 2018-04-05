@@ -1,0 +1,124 @@
+group:
+  family_room:
+    name: Family Room Lights
+    entities:
+      - switch.floor_lamp
+      - switch.reading_lamp
+      - switch.antique_lamp
+
+  sensornode_livingroom_card:
+    name: Living Room Sensor
+    entities:
+      - sensor.livingroom_button
+      - sensor.livingroom_temperature
+      - sensor.livingroom_humidity
+      - sensor.livingroom_ldr
+      - sensor.livingroom_pir
+      - sensor.livingroom_real_feel
+      - light.livingroom_led
+
+
+sensor:
+  - platform: mqtt
+    state_topic: "hass/sensor-livingroom"
+    name: "LivingRoom Humidity"
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.humidity | round(1) }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-livingroom"
+    name: "LivingRoom LDR"
+    # This sensor is not calibrated to actual LUX. Rather, this a map of the input voltage ranging from 0 - 1023.
+    unit_of_measurement: "LUX"
+    value_template: '{{ value_json.ldr }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-livingroom"
+    name: "LivingRoom PIR"
+    value_template: '{{ value_json.motion }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-livingroom"
+    name: "LivingRoom Temperature"
+    unit_of_measurement: "°F"
+    value_template: '{{ value_json.temperature | round(1) }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-livingroom"
+    name: "LivingRoom Real Feel"
+    unit_of_measurement: "°F"
+    value_template: '{{ value_json.heatIndex | round(1) }}'
+
+# Light switch
+binary_sensor:
+  - platform: mqtt
+    state_topic: "hass/sensor-livingroom"
+    name: "LivingRoom Button"
+    device_class: light
+    value_template: '{{ value_json.button }}'
+
+automation:
+  - alias: Turn on family room lights
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: sensor.livingroom_pir
+      to: "motion detected"
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.livingroom_ldr
+        below: 500
+      - condition: template
+        value_template: '{{ as_timestamp(now()) - as_timestamp(states.sensor.livingroom_button.last_updated) | int > 60 }}'
+      # - condition: template
+      #   value_template: '{{ states.sensor.livingroom_ldr.state | float < 500 }}'
+    action:
+      service: switch.turn_on
+      entity_id:
+        - group.family_room
+
+  - alias: Turn off family room lights
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: sensor.livingroom_pir
+        to: "standby"
+        for:
+          minutes: 60
+    condition:
+      - condition: template
+        value_template: '{{ as_timestamp(now()) - as_timestamp(states.sensor.livingroom_button.last_updated) | int > 60 }}'
+    #   - condition: time
+    #     after: '21:00:00'
+    action:
+      service: switch.turn_off
+      entity_id:
+        - group.family_room
+
+  - alias: Toggle family room lights off
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: sensor.livingroom_button
+    condition:
+      - condition: state
+        entity_id: group.family_room
+        state: "on"
+    action:
+      service: switch.turn_off
+      entity_id:
+        - group.family_room
+
+  - alias: Toggle family room lights on
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: sensor.livingroom_button
+    condition:
+      - condition: state
+        entity_id: group.family_room
+        state: "off"
+    action:
+      service: switch.turn_on
+      entity_id:
+        - group.family_room

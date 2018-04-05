@@ -9,9 +9,22 @@ homeassistant:
       hidden: true
       homebridge_hidden: true
 
+group:
+  date_time:
+    name: Date/Time
+    entities:
+      - sensor.date
+      - sensor.time
+      - sensor.date__time
 
 # ---Sensor for Time and Date.-----------------------------
 sensor:
+
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      - 'date_time'
 
   - platform: template
     sensors:

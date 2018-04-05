@@ -1,7 +1,0 @@
-
-date_time:
-  name: Date/Time
-  entities:
-    - sensor.date
-    - sensor.time
-    - sensor.date__time

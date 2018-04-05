@@ -1,6 +1,0 @@
-basement_lights:
-  name: Basement lights
-  entities:
-    - switch.basement_lights
-    - switch.basement_step_lights
-

@@ -1,0 +1,41 @@
+group:
+  sensornode_thirdfloor_card:
+    name: Third Floor Sensor
+    entities:
+      - sensor.third_flr_temperature
+      - sensor.third_flr_humidity
+      - sensor.third_flr_ldr
+      - sensor.third_flr_pir
+      - sensor.third_flr_real_feel
+      - light.third_flr_led
+
+sensor:
+  - platform: mqtt
+    state_topic: "hass/sensor-thirdfloor"
+    name: "Third Flr Humidity"
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.humidity | round(1) }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-thirdfloor"
+    name: "Third Flr LDR"
+    # This sensor is not calibrated to actual LUX. Rather, this a map of the input voltage ranging from 0 - 1023.
+    unit_of_measurement: "LUX"
+    value_template: '{{ value_json.ldr }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-thirdfloor"
+    name: "Third Flr PIR"
+    value_template: '{{ value_json.motion }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-thirdfloor"
+    name: "Third Flr Temperature"
+    unit_of_measurement: "°F"
+    value_template: '{{ value_json.temperature | round(1) }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-thirdfloor"
+    name: "Third Flr Real Feel"
+    unit_of_measurement: "°F"
+    value_template: '{{ value_json.heatIndex | round(1) }}'

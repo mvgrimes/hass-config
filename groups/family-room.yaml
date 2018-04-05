@@ -1,6 +1,0 @@
-family_room:
-  name: Family Room Lights
-  entities:
-    - switch.floor_lamp
-    - switch.reading_lamp
-    - switch.antique_lamp

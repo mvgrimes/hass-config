@@ -1,9 +1,0 @@
-- platform: mqtt_json
-  name: "SN1 LED"
-  state_topic: "hass/sensornode1"
-  command_topic: "hass/sensornode1/set"
-  brightness: true
-  flash: true
-  rgb: true
-  optimistic: false
-  qos: 0

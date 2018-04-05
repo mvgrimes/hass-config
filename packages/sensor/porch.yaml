@@ -1,0 +1,89 @@
+group:
+  exterior_lights:
+    name: Exterior Lights
+    entities:
+      - light.porch_lights
+
+  sensornode_porch_card:
+    name: Porch Sensor
+    entities:
+      - sensor.porch_temperature
+      - sensor.porch_humidity
+      - sensor.porch_ldr
+      - sensor.porch_pir
+      - sensor.porch_real_feel
+      - light.porch_led
+
+sensor:
+  - platform: mqtt
+    state_topic: "hass/sensor-porch"
+    name: "Porch Humidity"
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.humidity | round(1) }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-porch"
+    name: "Porch LDR"
+    # This sensor is not calibrated to actual LUX. Rather, this a map of the input voltage ranging from 0 - 1023.
+    unit_of_measurement: "LUX"
+    value_template: '{{ value_json.ldr }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-porch"
+    name: "Porch PIR"
+    value_template: '{{ value_json.motion }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-porch"
+    name: "Porch Temperature"
+    unit_of_measurement: "°F"
+    value_template: '{{ value_json.temperature | round(1) }}'
+
+  - platform: mqtt
+    state_topic: "hass/sensor-porch"
+    name: "Porch Real Feel"
+    unit_of_measurement: "°F"
+    value_template: '{{ value_json.heatIndex | round(1) }}'
+
+automation:
+  - alias: Turn on porch light at sunset
+    initial_state: 'on'
+    trigger:
+      platform: sun
+      event: sunset
+      offset: -00:30
+    action:
+      service: light.turn_on
+      entity_id:
+        - light.porch_lights
+
+  - alias: Turn off porch light at sunrise
+    initial_state: 'on'
+    trigger:
+      platform: sun
+      event: sunrise
+      offset: +00:30
+    action:
+      service: light.turn_off
+      entity_id:
+        - light.porch_lights
+
+  # - alias: Turn on trim lights
+  #   initial_state: 'on'
+  #   trigger:
+  #     platform: time
+  #     at: '14:00:00'
+  #   action:
+  #     service: switch.turn_on
+  #     entity_id:
+  #       - switch.zwave_plug_switch
+  #
+  # - alias: Turn off trim lights
+  #   initial_state: 'on'
+  #   trigger:
+  #     platform: time
+  #     at: '8:20:00'
+  #   action:
+  #     service: switch.turn_off
+  #     entity_id:
+  #       - switch.zwave_plug_switch

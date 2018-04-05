@@ -1,0 +1,31 @@
+group:
+  camera:
+    name: Cameras
+    entities:
+      - camera.entryway
+      - camera.kitchen
+      - binary_sensor.entryway_camera_motion_detected
+      - binary_sensor.entryway_camera_online
+      - binary_sensor.entryway_camera_person_detected
+      - binary_sensor.entryway_camera_sound_detected
+      - binary_sensor.kitchen_camera_motion_detected
+      - binary_sensor.kitchen_camera_online
+      - binary_sensor.kitchen_camera_person_detected
+      - binary_sensor.kitchen_camera_sound_detected
+
+nest:
+  client_id: !secret nest_productid
+  client_secret: !secret nest_secret
+
+script:
+  nest_home:
+    sequence:
+      - service: nest.set_mode
+        data:
+          home_mode: home
+
+  nest_away:
+    sequence:
+      - service: nest.set_mode
+        data:
+          home_mode: away
