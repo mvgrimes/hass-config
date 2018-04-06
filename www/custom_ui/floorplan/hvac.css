@@ -81,3 +81,6 @@ svg, svg * {
 .chore-done {
   fill: #F8D2B9 !important;
 }
+
+.radio-on{fill:#ccc !important;}
+.radio-off{fill:none;}

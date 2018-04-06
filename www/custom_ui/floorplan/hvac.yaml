@@ -62,3 +62,42 @@ rules:
     hover_over: false
     more_info: false
     text_template: '${entity.state ? entity.state : "undefined"}'
+
+  - name: "Heat radio button"
+    elements:
+      - 'radio_button.heat'
+    class_template: >
+      return entities["input_select.kitchen_thermostat_mode"].state == "heat" ? "radio-on" : "radio-off";
+    action:
+      service: input_select.select_option
+      entity_id:
+        - input_select.kitchen_thermostat_mode
+        - input_select.den_thermostat_mode
+      data:
+        option: heat
+
+  - name: "Cool radio button"
+    elements:
+      - 'radio_button.cool'
+    class_template: >
+      return entities["input_select.kitchen_thermostat_mode"].state == "cool" ? "radio-on" : "radio-off";
+    action:
+      service: input_select.select_option
+      entity_id:
+        - input_select.kitchen_thermostat_mode
+        - input_select.den_thermostat_mode
+      data:
+        option: 'cool'
+
+  - name: "Off radio button"
+    elements:
+      - 'radio_button.nope'
+    class_template: >
+      return entities["input_select.kitchen_thermostat_mode"].state == "off" ? "radio-on" : "radio-off";
+    action:
+      service: input_select.select_option
+      entity_id:
+        - input_select.kitchen_thermostat_mode
+        - input_select.den_thermostat_mode
+      data:
+        option: 'off'
