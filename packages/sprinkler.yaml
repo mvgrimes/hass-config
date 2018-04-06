@@ -129,7 +129,7 @@ switch:
           service: mqtt.publish
           data:
             topic: 'hass/sprinkler01/set'
-            payload_template: '{ "on": true, "zones": { "1": {{ states.input_number.zone_1.state }} } }'
+            payload_template: '{ "on": true, "zones": [{ "id": 1, "dur": {{ states.input_number.zone_1.state }} }] }'
         turn_off:
           service: mqtt.publish
           data:
@@ -142,7 +142,7 @@ switch:
           service: mqtt.publish
           data:
             topic: 'hass/sprinkler01/set'
-            payload_template: '{ "on": true, "zones": { "2": {{ states.input_nuber.zone_2.state }} } }'
+            payload_template: '{ "on": true, "zones": [{ "id": 2, "dur": {{ states.input_nuber.zone_2.state }} }] }'
         turn_off:
           service: mqtt.publish
           data:
@@ -155,7 +155,7 @@ switch:
           service: mqtt.publish
           data:
             topic: 'hass/sprinkler01/set'
-            payload_template: '{ "on": true, "zones": { "3": {{ states.input_nuber.zone_3.state }} } }'
+            payload_template: '{ "on": true, "zones": [{ "id": 3, "dur": {{ states.input_nuber.zone_3.state }} }] }'
         turn_off:
           service: mqtt.publish
           data:
@@ -168,7 +168,7 @@ switch:
           service: mqtt.publish
           data:
             topic: 'hass/sprinkler01/set'
-            payload_template: '{ "on": true, "zones": { "4": {{ states.input_nuber.zone_4.state }} } }'
+            payload_template: '{ "on": true, "zones": [{ "id": 4, "dur": {{ states.input_nuber.zone_4.state }} }] }'
         turn_off:
           service: mqtt.publish
           data:
@@ -181,7 +181,7 @@ switch:
           service: mqtt.publish
           data:
             topic: 'hass/sprinkler01/set'
-            payload_template: '{ "on": true, "zones": { "5": {{ states.input_nuber.zone_5.state }} } }'
+            payload_template: '{ "on": true, "zones": [{ "id": 5, "dur": {{ states.input_nuber.zone_5.state }} }] }'
         turn_off:
           service: mqtt.publish
           data:
@@ -194,7 +194,7 @@ switch:
           service: mqtt.publish
           data:
             topic: 'hass/sprinkler01/set'
-            payload_template: '{ "on": true, "zones": { "6": {{ states.input_nuber.zone_6.state }} } }'
+            payload_template: '{ "on": true, "zones": [{ "id": 6, "dur": {{ states.input_nuber.zone_6.state }} }] }'
         turn_off:
           service: mqtt.publish
           data:
@@ -347,14 +347,14 @@ automation:
         data_template:
           topic: "hass/sprinkler01/set"
           payload: >
-            { "on": true, "zones": {
-              "1": {{ states.input_number.sch_zone_1.state | int }},
-              "2": {{ states.input_number.sch_zone_2.state | int }},
-              "3": {{ states.input_number.sch_zone_3.state | int }},
-              "4": {{ states.input_number.sch_zone_4.state | int }},
-              "5": {{ states.input_number.sch_zone_5.state | int }},
-              "6": {{ states.input_number.sch_zone_6.state | int }}
-            } }
+            { "on": true, "zones": [
+              { "id": 1, "dur": {{ states.input_number.sch_zone_1.state | int }} },
+              { "id": 2, "dur": {{ states.input_number.sch_zone_2.state | int }} },
+              { "id": 3, "dur": {{ states.input_number.sch_zone_3.state | int }} },
+              { "id": 4, "dur": {{ states.input_number.sch_zone_4.state | int }} },
+              { "id": 5, "dur": {{ states.input_number.sch_zone_5.state | int }} },
+              { "id": 6, "dur": {{ states.input_number.sch_zone_6.state | int }} }
+            ] }
           retain: false
       # - condition: state
       #   entity_id: input_boolean.debug_mode
@@ -365,9 +365,9 @@ automation:
           message: |
             [Sprinkler]
             Starting sprinkler
-            "1": {{ states.input_number.sch_zone_1.state | int }},
-            "2": {{ states.input_number.sch_zone_2.state | int }},
-            "3": {{ states.input_number.sch_zone_3.state | int }},
-            "4": {{ states.input_number.sch_zone_4.state | int }},
-            "5": {{ states.input_number.sch_zone_5.state | int }},
-            "6": {{ states.input_number.sch_zone_6.state | int }}
+            1: {{ states.input_number.sch_zone_1.state | int }} mins
+            2: {{ states.input_number.sch_zone_2.state | int }} mins
+            3: {{ states.input_number.sch_zone_3.state | int }} mins
+            4: {{ states.input_number.sch_zone_4.state | int }} mins
+            5: {{ states.input_number.sch_zone_5.state | int }} mins
+            6: {{ states.input_number.sch_zone_6.state | int }} mins
