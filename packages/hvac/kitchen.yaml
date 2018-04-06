@@ -190,6 +190,16 @@ automation:
           topic: "smartthings/Kitchen Thermostat/coolingSetpoint"
           payload: '{{ states.input_number.kitchen_cooling_target.state | int }}'
           retain: true
+      - service: system_log.write
+        data_template:
+          level: info
+          message: >-
+            [Kitchen cool]
+            setpoint={{ states.input_number.kitchen_cooling_target.state }},
+            temp={{ states.sensor.kitchen_thermostat_temp.state }},
+            target={{ states.input_number.rear_cooling_target.state }},
+            v_temp={{ states.sensor.rear_temps.state }},
+            temps={{ states.sensor.kitchen_thermostat_temp.state }}/{{ states.sensor.mbr_temp.state }}
       - condition: state
         entity_id: input_boolean.debug_mode
         state: 'on'
