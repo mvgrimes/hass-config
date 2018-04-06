@@ -57,6 +57,7 @@ group:
       - input_number.sch_zone_4
       - input_number.sch_zone_5
       - input_number.sch_zone_6
+      - binary_sensor.rain_expected
 
 sensor:
   - platform: mqtt
@@ -118,6 +119,15 @@ sensor:
       - duration
       - queued
       - secs_left
+
+binary_sensor:
+  - platform: template
+    sensors:
+      rain_expected:
+        friendly_name: "Rain expected"
+        device_class: moisture
+        value_template: >
+          {{ float(states("sensor.pws_precip_1d_in")) + float(states("sensor.pws_precip_1d_in")) > 0.5 }}
 
 switch:
   - platform: template
@@ -342,6 +352,9 @@ automation:
               ( is_state("sensor.clock_day","Sunday") and states("input_boolean.sprinkler_sunday") )
             ) == "on"
           }}
+      - condition: state
+        entity_id: binary_sensor.rain_expected
+        state: 'off'
     action:
       - service: mqtt.publish
         data_template:
@@ -371,3 +384,34 @@ automation:
             4: {{ states.input_number.sch_zone_4.state | int }} mins
             5: {{ states.input_number.sch_zone_5.state | int }} mins
             6: {{ states.input_number.sch_zone_6.state | int }} mins
+  - alias: 'Sprinkler notify'
+    initial_state: 'on'
+    trigger:
+      - platform: template
+        value_template: '{{ states.input_datetime.sprinkler_time.state == states.sensor.time.state + ":00" }}'
+    condition:
+      - condition: state
+        entity_id: input_boolean.sprinkler_scheduled
+        state: 'on'
+      - condition: template
+        value_template: >
+          {{
+            ( ( is_state("sensor.clock_day","Monday") and states("input_boolean.sprinkler_monday") ) or
+              ( is_state("sensor.clock_day","Tuesday") and states("input_boolean.sprinkler_tuesday") ) or
+              ( is_state("sensor.clock_day","Wednesday") and states("input_boolean.sprinkler_wednesday") ) or
+              ( is_state("sensor.clock_day","Thursday") and states("input_boolean.sprinkler_thrusday") ) or
+              ( is_state("sensor.clock_day","Friday") and states("input_boolean.sprinkler_friday") ) or
+              ( is_state("sensor.clock_day","Saturday") and states("input_boolean.sprinkler_saturday") ) or
+              ( is_state("sensor.clock_day","Sunday") and states("input_boolean.sprinkler_sunday") )
+            ) == "on"
+          }}
+      - condition: state
+        entity_id: binary_sensor.rain_expected
+        state: 'on'
+    action:
+      - service: notify.pushover
+        data_template:
+          title: 'HA Sprinkler'
+          message: |
+            [Sprinkler]
+            Skiping watering due to expected rain.

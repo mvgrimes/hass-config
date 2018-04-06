@@ -1,7 +1,7 @@
 sprinkler_view:
   view: yes
   name: Sprinkler
-  icon: mdi:water
+  icon: mdi:water-pump
   entities:
     - group.sprinkler_status
     - group.sprinkler_switches
