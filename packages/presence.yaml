@@ -17,3 +17,27 @@ group:
       # - device_tracker.19216817
       # - device_tracker.192168119
       # - device_tracker.192168125
+
+automation:
+  - alias: 'Home Mode when Arriving'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:
+          - device_tracker.mgrimes_oneplus3t
+          - device_tracker.carrie_d81aebcb473e4ef7ab1e8965aecaa6c9
+          - device_tracker.carrie_iphone6
+          - device_tracker.campbell_iphone
+          - device_tracker.carrie_iphone
+          # - device_tracker.mark_laptop_spike
+          - device_tracker.campbell_iphone_mac
+          # - device_tracker.campbell_ipad
+          - device_tracker.mark_android
+          # - device_tracker.whitney_ipad
+          # - device_tracker.carrie_ipad
+        to: 'home'
+        for:
+          minutes: 5
+    action:
+      service: input_boolean.turn_on
+      entity_id: input_boolean.home_mode
