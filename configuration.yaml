@@ -109,7 +109,7 @@ map:
 
 # Alexa via the "Home Assistant" skill
 alexa:
-intent_script: !include_dir_merge_named intent_scripts
+# intent_script: !include_dir_merge_named intent_scripts
 
 python_script:
 
