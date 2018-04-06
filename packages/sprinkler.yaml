@@ -1,0 +1,373 @@
+# -------------------------------------------
+homeassistant:
+  customize_glob:
+    "sensor.zone_*":
+      custom_ui_state_card: state-card-custom-ui
+      icon: mdi:water
+      extra_data_template:
+        - 'queued ${attributes.queued}'
+        - 'duration ${attributes.duration}'
+  customize:
+    group.sprinkler_automation:
+      control: hidden
+
+group:
+  sprinkler_status:
+    name: Sprinkler Status
+    entities:
+      - sensor.zone_1
+      - sensor.zone_2
+      - sensor.zone_3
+      - sensor.zone_4
+      - sensor.zone_5
+      - sensor.zone_6
+  sprinkler_switches:
+    name: Sprinkler Switches
+    entities:
+      - switch.zone_1
+      - switch.zone_2
+      - switch.zone_3
+      - switch.zone_4
+      - switch.zone_5
+      - switch.zone_6
+  sprinkler_settings:
+    name: Sprinkler Settings
+    entities:
+      - input_number.zone_1
+      - input_number.zone_2
+      - input_number.zone_3
+      - input_number.zone_4
+      - input_number.zone_5
+      - input_number.zone_6
+  sprinkler_automation:
+    name: Sprinkler Automation
+    entities:
+      - input_boolean.sprinkler_scheduled
+      - input_datetime.sprinkler_time
+      - input_boolean.sprinkler_monday
+      - input_boolean.sprinkler_tuesday
+      - input_boolean.sprinkler_wednesday
+      - input_boolean.sprinkler_thrusday
+      - input_boolean.sprinkler_friday
+      - input_boolean.sprinkler_saturday
+      - input_boolean.sprinkler_sunday
+      - input_number.sch_zone_1
+      - input_number.sch_zone_2
+      - input_number.sch_zone_3
+      - input_number.sch_zone_4
+      - input_number.sch_zone_5
+      - input_number.sch_zone_6
+
+sensor:
+  - platform: mqtt
+    state_topic: "hass/sprinkler01/1"
+    name: "Zone 1"
+    # unit_of_measurement: "%"
+    value_template: '{{ value_json.on }}'
+    json_attributes:
+      - duration
+      - queued
+      - secs_left
+
+  - platform: mqtt
+    state_topic: "hass/sprinkler01/2"
+    name: "Zone 2"
+    # unit_of_measurement: "%"
+    value_template: '{{ value_json.on }}'
+    json_attributes:
+      - duration
+      - queued
+      - secs_left
+
+  - platform: mqtt
+    state_topic: "hass/sprinkler01/3"
+    name: "Zone 3"
+    # unit_of_measurement: "%"
+    value_template: '{{ value_json.on }}'
+    json_attributes:
+      - duration
+      - queued
+      - secs_left
+
+  - platform: mqtt
+    state_topic: "hass/sprinkler01/4"
+    name: "Zone 4"
+    # unit_of_measurement: "%"
+    value_template: '{{ value_json.on }}'
+    json_attributes:
+      - duration
+      - queued
+      - secs_left
+
+  - platform: mqtt
+    state_topic: "hass/sprinkler01/5"
+    name: "Zone 5"
+    # unit_of_measurement: "%"
+    value_template: '{{ value_json.on }}'
+    json_attributes:
+      - duration
+      - queued
+      - secs_left
+
+  - platform: mqtt
+    state_topic: "hass/sprinkler01/6"
+    name: "Zone 6"
+    # unit_of_measurement: "%"
+    value_template: '{{ value_json.on }}'
+    json_attributes:
+      - duration
+      - queued
+      - secs_left
+
+switch:
+  - platform: template
+    switches:
+      zone_1:
+        friendly_name: Zone 1
+        value_template: "{{ states.sensor.zone_1.state }}"
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": true, "zones": { "1": {{ states.input_number.zone_1.state }} } }'
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": false, "zones": [ 1 ] }'
+      zone_2:
+        friendly_name: Zone 2
+        value_template: "{{ states.sensor.zone_2.state }}"
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": true, "zones": { "2": {{ states.input_nuber.zone_2.state }} } }'
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": false, "zones": [ 2 ] }'
+      zone_3:
+        friendly_name: Zone 3
+        value_template: "{{ states.sensor.zone_3.state }}"
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": true, "zones": { "3": {{ states.input_nuber.zone_3.state }} } }'
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": false, "zones": [ 3 ] }'
+      zone_4:
+        friendly_name: Zone 4
+        value_template: "{{ states.sensor.zone_4.state }}"
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": true, "zones": { "4": {{ states.input_nuber.zone_4.state }} } }'
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": false, "zones": [ 4 ] }'
+      zone_5:
+        friendly_name: Zone 5
+        value_template: "{{ states.sensor.zone_5.state }}"
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": true, "zones": { "5": {{ states.input_nuber.zone_5.state }} } }'
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": false, "zones": [ 5 ] }'
+      zone_6:
+        friendly_name: Zone 6
+        value_template: "{{ states.sensor.zone_6.state }}"
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": true, "zones": { "6": {{ states.input_nuber.zone_6.state }} } }'
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": false, "zones": [ 6 ] }'
+
+input_number:
+  zone_1:
+    name: Zone 1
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
+  zone_2:
+    name: Zone 2
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
+  zone_3:
+    name: Zone 3
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
+  zone_4:
+    name: Zone 4
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
+  zone_5:
+    name: Zone 5
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
+  zone_6:
+    name: Zone 6
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
+  # -- schedule --
+  sch_zone_1:
+    name: Zone 1
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
+  sch_zone_2:
+    name: Zone 2
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
+  sch_zone_3:
+    name: Zone 3
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
+  sch_zone_4:
+    name: Zone 4
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
+  sch_zone_5:
+    name: Zone 5
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
+  sch_zone_6:
+    name: Zone 6
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
+
+input_boolean:
+  sprinkler_scheduled:
+    name: Sprinkler Scheduled
+    icon: mdi:alarm
+  sprinkler_monday:
+    name: Mon
+    icon: mdi:calendar
+  sprinkler_tuesday:
+    name: Tues
+    icon: mdi:calendar
+  sprinkler_wednesday:
+    name: Wed
+    icon: mdi:calendar
+  sprinkler_thrusday:
+    name: Thur
+    icon: mdi:calendar
+  sprinkler_friday:
+    name: Fri
+    icon: mdi:calendar
+  sprinkler_saturday:
+    name: Sat
+    icon: mdi:calendar
+  sprinkler_sunday:
+    name: Sun
+    icon: mdi:calendar
+
+input_datetime:
+  sprinkler_time:
+    name: Sprinkler Start
+    has_date: false
+    has_time: true
+
+automation:
+  - alias: 'Sprinkler schedule'
+    initial_state: 'on'
+    trigger:
+      - platform: template
+        value_template: '{{ states.input_datetime.sprinkler_time.state == states.sensor.time.state + ":00" }}'
+    condition:
+      - condition: state
+        entity_id: input_boolean.sprinkler_scheduled
+        state: 'on'
+      - condition: template
+        value_template: >
+          {{
+            ( ( is_state("sensor.clock_day","Monday") and states("input_boolean.sprinkler_monday") ) or
+              ( is_state("sensor.clock_day","Tuesday") and states("input_boolean.sprinkler_tuesday") ) or
+              ( is_state("sensor.clock_day","Wednesday") and states("input_boolean.sprinkler_wednesday") ) or
+              ( is_state("sensor.clock_day","Thursday") and states("input_boolean.sprinkler_thrusday") ) or
+              ( is_state("sensor.clock_day","Friday") and states("input_boolean.sprinkler_friday") ) or
+              ( is_state("sensor.clock_day","Saturday") and states("input_boolean.sprinkler_saturday") ) or
+              ( is_state("sensor.clock_day","Sunday") and states("input_boolean.sprinkler_sunday") )
+            ) == "on"
+          }}
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "hass/sprinkler01/set"
+          payload: >
+            { "on": true, "zones": {
+              "1": {{ states.input_number.sch_zone_1.state | int }},
+              "2": {{ states.input_number.sch_zone_2.state | int }},
+              "3": {{ states.input_number.sch_zone_3.state | int }},
+              "4": {{ states.input_number.sch_zone_4.state | int }},
+              "5": {{ states.input_number.sch_zone_5.state | int }},
+              "6": {{ states.input_number.sch_zone_6.state | int }}
+            } }
+          retain: false
+      # - condition: state
+      #   entity_id: input_boolean.debug_mode
+      #   state: 'on'
+      - service: notify.pushover
+        data_template:
+          title: 'HA Sprinkler'
+          message: |
+            [Sprinkler]
+            Starting sprinkler
+            "1": {{ states.input_number.sch_zone_1.state | int }},
+            "2": {{ states.input_number.sch_zone_2.state | int }},
+            "3": {{ states.input_number.sch_zone_3.state | int }},
+            "4": {{ states.input_number.sch_zone_4.state | int }},
+            "5": {{ states.input_number.sch_zone_5.state | int }},
+            "6": {{ states.input_number.sch_zone_6.state | int }}

@@ -1,0 +1,9 @@
+sprinkler_view:
+  view: yes
+  name: Sprinkler
+  icon: mdi:water
+  entities:
+    - group.sprinkler_status
+    - group.sprinkler_switches
+    - group.sprinkler_settings
+    - group.sprinkler_automation

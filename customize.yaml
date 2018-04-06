@@ -17,15 +17,17 @@ group.switch_view:
   order: 3
 group.weather_view:
   order: 4
-group.presence_view:
+group.sprinkler_view:
   order: 5
-group.media_view:
+group.presence_view:
   order: 6
-group.panel_view:
+group.media_view:
   order: 7
-group.miner_view:
+group.panel_view:
   order: 8
-group.sensor_view:
+group.miner_view:
   order: 9
-group.system_view:
+group.sensor_view:
   order: 10
+group.system_view:
+  order: 11
