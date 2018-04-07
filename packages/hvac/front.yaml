@@ -78,6 +78,7 @@ input_select:
       - "off"
       - "cool"
       - "heat"
+      - "emergency heat"
     icon: mdi:fan
 
   front_function:

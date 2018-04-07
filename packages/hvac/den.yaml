@@ -84,6 +84,7 @@ input_select:
       - "off"
       - "cool"
       - "heat"
+      - "emergency heat"
     icon: mdi:fan
 
 input_number:
