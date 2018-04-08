@@ -50,7 +50,7 @@ sensor:
     value_template: '{{ value_json.heatIndex | round(1) }}'
 
 # Light switch
-binary_sensor:
+# binary_switch:
   - platform: mqtt
     state_topic: "hass/sensor-livingroom"
     name: "LivingRoom Button"
