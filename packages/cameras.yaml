@@ -23,9 +23,15 @@ script:
       - service: nest.set_mode
         data:
           home_mode: home
+      - service: notify.pushover
+        data_template:
+          message: "Switched to nest home"
 
   nest_away:
     sequence:
       - service: nest.set_mode
         data:
           home_mode: away
+      - service: notify.pushover
+        data_template:
+          message: "Switched to nest away"

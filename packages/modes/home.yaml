@@ -14,7 +14,10 @@ automation:
         from: 'off'
         to: 'on'
     action:
-      service: script.nest_home
+      - service: script.nest_home
+      - service: notify.pushover
+        data_template:
+          message: "Home Assistant mode: home"
 
   - alias: 'Home Mode: Away - nest away'
     initial_state: 'on'
@@ -26,6 +29,9 @@ automation:
     action:
       - delay: 00:15:00
       - service: script.nest_away
+      - service: notify.pushover
+        data_template:
+          message: "Home Assistant mode: away"
 
   # --- When arrive Home adjust temps ---
   - alias: 'Home Mode: Home - adj therm targets'
@@ -53,7 +59,10 @@ automation:
           entity_id: input_boolean.windows_open_mode
           state: 'off'
     action:
-      service: script.set_temp_targets_home
+      - service: script.set_temp_targets_home
+      - service: notify.pushover
+        data_template:
+          message: "Home Assistant: adj temps to home"
 
   # --- When departing Home adjust temps ---
   - alias: 'Home Mode: Away - adj therm targets'
@@ -81,7 +90,10 @@ automation:
           entity_id: input_boolean.windows_open_mode
           state: 'off'
     action:
-      service: script.set_temp_targets_away
+      - service: script.set_temp_targets_away
+      - service: notify.pushover
+        data_template:
+          message: "Home Assistant: adj temps to away"
 
   # --- When Home adjust temps at night ---
   - alias: 'Night Mode: Update Thermostat Targets'
@@ -105,6 +117,9 @@ automation:
       - service: script.set_temp_targets_night
       - service: input_boolean.turn_off
         entity_id: input_boolean.kitchen_thermostat_occupied
+      - service: notify.pushover
+        data_template:
+          message: "Home Assistant: adj temps to night"
 
   # --- When Home adjust temps in the morning ---
   - alias: 'End Night Mode: Update Thermostat Targets'
@@ -128,6 +143,9 @@ automation:
       - service: script.set_temp_targets_home
       - service: input_boolean.turn_on
         entity_id: input_boolean.kitchen_thermostat_occupied
+      - service: notify.pushover
+        data_template:
+          message: "Home Assistant: adj temps to normal"
 
 
 script:
