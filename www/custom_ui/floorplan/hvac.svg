@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" baseProfile="full" width="1024px" height="600px" viewBox="0 0 1024 600" preserveAspectRatio="xMidYMid meet" id="svg_document" style="zoom: 1;">
 <title id="svg_document_title">Untitled.svg</title>
 <defs id="svg_document_defs">
-<style>
-.radio-btn{fill:none;stroke:#ccc;stroke-miterlimit:10;stroke-width:5px;}
+<style>.radio-btn{fill:none;stroke:#ccc;stroke-miterlimit:10;stroke-width:5px;} 
 <!-- .radio-on{fill:#ccc} -->
-<!-- .radio-off{fill:none} -->
-</style>
-</defs>
+<!-- .radio-off{fill:none} --></style></defs>
 <g id="main_group">
 <rect x="0px" height="600px" y="1px" id="background_rect" width="1024px" fill="#000"></rect>
-<path id="reset" d="M59.699997,33.599998 c-4.2,-8.7 -13.6,-13.1 -22.6,-11.5 l2.4,-4.5 c0.6,-1 0.2,-2.3 -0.8,-2.8 c-1,-0.6 -2.3,-0.2 -2.8,0.8 L31,24.700001 c0,0 -1.1,1.8 0.6,2.6 l9.1,4.9 c0.3,0.2 0.7,0.3 1,0.3 c0.7,0 1.5,-0.4 1.8,-1.1 c0.6,-1 0.2,-2.3 -0.8,-2.8 L38,26 c7.1,-1.2 14.5,2.4 17.8,9.2 c4,8.3 0.5,18.3 -7.8,22.2 c-4,1.9 -8.5,2.2 -12.7,0.7 s-7.6,-4.5 -9.5,-8.5 s-2.2,-8.5 -0.7,-12.7 c0.4,-1.1 -0.2,-2.3 -1.3,-2.7 c-1,-0.2 -2.2,0.4 -2.6,1.5 C19.400002,41 19.700001,46.599998 22.099998,51.599998 S28.700001,60.400002 34,62.300003 c2.3,0.8 4.6,1.2 6.9,1.2 c3.1,0 6.2,-0.7 9,-2.1 C60.300003,56.400002 64.699997,43.900002 59.699997,33.599998 z" fill="#ccc"></path>
+<!-- <path id="reset" d="M59.699997,33.599998 c-4.2,-8.7 -13.6,-13.1 -22.6,-11.5 l2.4,-4.5 c0.6,-1 0.2,-2.3 -0.8,-2.8 c-1,-0.6 -2.3,-0.2 -2.8,0.8 L31,24.700001 c0,0 -1.1,1.8 0.6,2.6 l9.1,4.9 c0.3,0.2 0.7,0.3 1,0.3 c0.7,0 1.5,-0.4 1.8,-1.1 c0.6,-1 0.2,-2.3 -0.8,-2.8 L38,26 c7.1,-1.2 14.5,2.4 17.8,9.2 c4,8.3 0.5,18.3 -7.8,22.2 c-4,1.9 -8.5,2.2 -12.7,0.7 s-7.6,-4.5 -9.5,-8.5 s-2.2,-8.5 -0.7,-12.7 c0.4,-1.1 -0.2,-2.3 -1.3,-2.7 c-1,-0.2 -2.2,0.4 -2.6,1.5 C19.400002,41 19.700001,46.599998 22.099998,51.599998 S28.700001,60.400002 34,62.300003 c2.3,0.8 4.6,1.2 6.9,1.2 c3.1,0 6.2,-0.7 9,-2.1 C60.300003,56.400002 64.699997,43.900002 59.699997,33.599998 z" fill="#ccc"></path> -->
 <text id="sensor.clock_time" y="2px" style="fill:#00ADEE; enable-background:new; font-family:'Helvetica'; font-size:24;" transform="matrix(0.8191 0 0 1 950 30)" x="-9.766819px">10:36</text>
 <text id="sensor.clock_am_pm" transform="matrix(0.8191 0 0 1 995 30)" style="fill:#00ADEE; font-family:'Helvetica'; font-size:12px;">XX</text>
 <g id="front">
@@ -38,20 +36,16 @@
 <path d="M764,160 C745.443237,160 730.400024,175.043243 730.400024,193.600006 C730.400024,212.156769 745.443237,227.200012 764,227.200012 C782.556763,227.200012 797.599976,212.156769 797.599976,193.600006 C797.599976,175.043243 782.556763,160 764,160 z M763.875,180.800003 A1.60016,1.60016 0 0 1 765.174988,181.300003 L782.775024,200.5 A1.601039,1.601039 0 0 1 780.424988,202.675003 L764,184.75 L747.575012,202.675003 A1.601039,1.601039 0 0 1 745.224976,200.5 L762.825012,181.300003 A1.60016,1.60016 0 0 1 763.875,180.800003 z" id="rear-up" fill="#F8D2B9"></path>
 <path d="M767,344 C748.443237,344 733.400024,359.043243 733.400024,377.600006 C733.400024,396.156769 748.443237,411.200012 767,411.200012 C785.556763,411.200012 800.599976,396.156769 800.599976,377.600006 C800.599976,359.043243 785.556763,344 767,344 z M749.299988,367.975006 A1.60016,1.60016 0 0 1 750.575012,368.5 L767,386.424988 L783.424988,368.5 A1.601025,1.601025 0 1 1 785.775024,370.674988 L768.174988,389.875 A1.60016,1.60016 0 0 1 765.825012,389.875 L748.224976,370.674988 A1.60016,1.60016 0 0 1 749.299988,367.975006 z" id="rear-down" fill="#F8D2B9"></path>
 </g>
-
 <!-- <rect id="input_boolean.windows_open_mode" x="126px" height="49px" y="442px" stroke-width="0px" width="85px" fill="#000"></rect> -->
 <!-- <text y="476px" id="text1" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="middle" x="306px">Windows Open</text> -->
-
-<rect height="20" x="715px" y="447px" width="20" rx="17.25" ry="17.25" class="radio-btn"></rect>
-<rect id="radio_button.heat" x="719px" height="12" y="451px" width="12" rx="10.98" ry="10.98"></rect>
-<text id="text2" y="467px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="middle" x="765px">Heat</text>
-
-<rect height="20" x="715px" y="479px" width="20" rx="17.25" ry="17.25" class="radio-btn"></rect>
-<rect id="radio_button.cool" x="719px" height="12" y="483px" width="12" rx="10.98" ry="10.98"></rect>
-<text id="text3" y="499px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="middle" x="761px">A/C</text>
-
-<rect height="20" x="715px" y="512px" width="20" rx="17.25" ry="17.25" class="radio-btn"></rect>
-<rect id="radio_button.nope" x="719px" height="12" y="516px" width="12" rx="10.98" ry="10.98"></rect>
-<text id="text4" y="532px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="middle" x="756px">Off
-
-</text></g></svg>
+<rect x="715px" height="30" y="447px" width="30" class="radio-btn" rx="17.25" ry="17.25"></rect>
+<rect id="radio_button.heat" x="720px" height="20" y="452px" width="20" rx="10.98" ry="10.98"></rect>
+<text id="text2" y="471px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="left" x="765px">Heat</text>
+<rect x="715px" height="30" y="484px" width="30" class="radio-btn" rx="17.25" ry="17.25"></rect>
+<rect id="radio_button.cool" x="720px" height="20" y="489px" width="20" rx="10.98" ry="10.98"></rect>
+<text id="text3" y="507px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="left" x="765px">A/C</text>
+<rect x="715px" height="30" y="521px" width="30" class="radio-btn" rx="17.25" ry="17.25"></rect>
+<rect id="radio_button.nope" x="720px" height="20" y="526px" width="20" rx="10.98" ry="10.98"></rect>
+<text id="text4" y="544px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="left" x="765px">Off</text>
+</g>
+</svg>
