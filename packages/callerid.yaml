@@ -10,7 +10,7 @@ sensor:
     devide: /dev/ttyACM0
 
 shell_command:
-  notify_if_known: '/srv/app/hass/config/bin/notify-if-known.sh -n "{{ states.sensor.modem_callerid.attributes.cid_name }}" -p "{{ states.sensor.modem_callerid.attributes.cid_number }} -m {{ mqtt_pw }} -H {{ http_pw }}"'
+  notify_if_known: '/srv/app/hass/config/bin/notify-if-known.sh -n "{{ cid_name }}" -p "{{ cid_number }}" -H "{{ http_pw }}"'
 
 group:
   phone:
@@ -52,7 +52,8 @@ automation:
       service: shell_command.notify_if_known
       data:
         http_pw: !secret http_api_password
-        mqtt_pw: !secret mqtt_password
+        cid_name: '{{ states.sensor.modem_callerid.attributes.cid_name }}'
+        cid_number: '{{ states.sensor.modem_callerid.attributes.cid_number }}'
 
   # Disable voice annoucements
   #   - Don't like the TTS on rPi

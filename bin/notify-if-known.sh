@@ -3,27 +3,31 @@
 url="http://localhost:8123"
 topic_ring="hass/mqtt-say/ring"
 topic_say="hass/mqtt-say/message"
+# database="/Users/mgrimes/src/hass/config/phones.sqlite"
+# pysqlite="/Users/mgrimes/src/hass/config/bin/check-is-known.py"
+# logfile="/Users/mgrimes/src/hass/config/nik.log"
 database="/srv/app/hass/config/phones.sqlite"
 pysqlite="/srv/app/hass/config/bin/check-is-known.py"
+logfile="/srv/app/hass/config/nik.log"
+
+[ -t 0 ] && exec >> "$logfile" 2>&1
 
 usage() {
-  echo "usage: notify-if-known -p <phone number> -n <name> -t <mqtt topic>"
+  echo "usage: notify-if-known -p <phone number> -n <name> -H <http API password> -t <mqtt topic>"
   echo $@
   echo "   -p  phone number to lookup"
   echo "   -n  name to use in notification"
   echo "   -t  topic to publish to (default: $topic)"
-  echo "   -m  <mqtt password>"
-  echo "   -H  <http password>"
+  echo "   -H  <http API password>"
   echo "   -h  help"
   exit 1
 }
 
-while getopts ":p:n:t:m:H:" opt; do
+while getopts ":p:n:t:H:" opt; do
     case $opt in
         p)  phone="$OPTARG"                               ;;
         n)  name="$OPTARG"                                ;;
         t)  topic="$OPTARG"                               ;;
-        m)  mqtt_password="$OPTARG"                       ;;
         H)  http_api_password="$OPTARG"                   ;;
         \?) usage "Invalid option: -$OPTARG"              ;;
         :)  usage "Option -$OPTARG requires an argument." ;;
