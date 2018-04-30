@@ -180,7 +180,7 @@ switch:
           service: mqtt.publish
           data:
             topic: 'hass/sprinkler01/set'
-            payload_template: '{ "on": true, "zones": [{ "id": 2, "dur": {{ states.input_nuber.zone_2.state }} }] }'
+            payload_template: '{ "on": true, "zones": [{ "id": 2, "dur": {{ states.input_number.zone_2.state }} }] }'
         turn_off:
           service: mqtt.publish
           data:
@@ -193,7 +193,7 @@ switch:
           service: mqtt.publish
           data:
             topic: 'hass/sprinkler01/set'
-            payload_template: '{ "on": true, "zones": [{ "id": 3, "dur": {{ states.input_nuber.zone_3.state }} }] }'
+            payload_template: '{ "on": true, "zones": [{ "id": 3, "dur": {{ states.input_number.zone_3.state }} }] }'
         turn_off:
           service: mqtt.publish
           data:
@@ -206,7 +206,7 @@ switch:
           service: mqtt.publish
           data:
             topic: 'hass/sprinkler01/set'
-            payload_template: '{ "on": true, "zones": [{ "id": 4, "dur": {{ states.input_nuber.zone_4.state }} }] }'
+            payload_template: '{ "on": true, "zones": [{ "id": 4, "dur": {{ states.input_number.zone_4.state }} }] }'
         turn_off:
           service: mqtt.publish
           data:
@@ -219,7 +219,7 @@ switch:
           service: mqtt.publish
           data:
             topic: 'hass/sprinkler01/set'
-            payload_template: '{ "on": true, "zones": [{ "id": 5, "dur": {{ states.input_nuber.zone_5.state }} }] }'
+            payload_template: '{ "on": true, "zones": [{ "id": 5, "dur": {{ states.input_number.zone_5.state }} }] }'
         turn_off:
           service: mqtt.publish
           data:
@@ -232,7 +232,7 @@ switch:
           service: mqtt.publish
           data:
             topic: 'hass/sprinkler01/set'
-            payload_template: '{ "on": true, "zones": [{ "id": 6, "dur": {{ states.input_nuber.zone_6.state }} }] }'
+            payload_template: '{ "on": true, "zones": [{ "id": 6, "dur": {{ states.input_number.zone_6.state }} }] }'
         turn_off:
           service: mqtt.publish
           data:
@@ -245,7 +245,7 @@ switch:
           service: mqtt.publish
           data:
             topic: 'hass/sprinkler01/set'
-            payload_template: '{ "on": true, "zones": [{ "id": 7, "dur": {{ states.input_nuber.zone_7.state }} }] }'
+            payload_template: '{ "on": true, "zones": [{ "id": 7, "dur": {{ states.input_number.zone_7.state }} }] }'
         turn_off:
           service: mqtt.publish
           data:
@@ -258,7 +258,7 @@ switch:
           service: mqtt.publish
           data:
             topic: 'hass/sprinkler01/set'
-            payload_template: '{ "on": true, "zones": [{ "id": 8, "dur": {{ states.input_nuber.zone_8.state }} }] }'
+            payload_template: '{ "on": true, "zones": [{ "id": 8, "dur": {{ states.input_number.zone_8.state }} }] }'
         turn_off:
           service: mqtt.publish
           data:
