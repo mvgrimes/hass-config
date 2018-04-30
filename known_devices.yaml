@@ -512,3 +512,48 @@ campbell_iphone:
   picture:
   track: false
   vendor: Apple, Inc.
+
+'192168140':
+  hide_if_away: false
+  icon:
+  mac: 08:E6:89:AB:B6:FF
+  name: 192.168.1.40
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+'192168130_2':
+  hide_if_away: false
+  icon:
+  mac: 60:01:94:51:C2:09
+  name: 192.168.1.30
+  picture:
+  track: false
+  vendor: Espressif Inc.
+
+'192168121':
+  hide_if_away: false
+  icon:
+  mac: F0:98:9D:52:F7:52
+  name: 192.168.1.21
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+'192168140_2':
+  hide_if_away: false
+  icon:
+  mac: 20:DF:B9:3D:7D:04
+  name: 192.168.1.40
+  picture:
+  track: false
+  vendor: Google, Inc.
+
+'192168121_2':
+  hide_if_away: false
+  icon:
+  mac: 20:DF:B9:46:10:D5
+  name: 192.168.1.21
+  picture:
+  track: false
+  vendor: Google, Inc.
