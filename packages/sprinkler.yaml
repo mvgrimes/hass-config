@@ -21,6 +21,8 @@ group:
       - sensor.zone_4
       - sensor.zone_5
       - sensor.zone_6
+      - sensor.zone_7
+      - sensor.zone_8
   sprinkler_switches:
     name: Sprinkler Switches
     entities:
@@ -30,6 +32,8 @@ group:
       - switch.zone_4
       - switch.zone_5
       - switch.zone_6
+      - switch.zone_7
+      - switch.zone_8
   sprinkler_settings:
     name: Sprinkler Settings
     entities:
@@ -39,6 +43,8 @@ group:
       - input_number.zone_4
       - input_number.zone_5
       - input_number.zone_6
+      - input_number.zone_7
+      - input_number.zone_8
   sprinkler_automation:
     name: Sprinkler Automation
     entities:
@@ -57,6 +63,8 @@ group:
       - input_number.sch_zone_4
       - input_number.sch_zone_5
       - input_number.sch_zone_6
+      - input_number.sch_zone_7
+      - input_number.sch_zone_8
       - binary_sensor.rain_expected
 
 sensor:
@@ -113,6 +121,26 @@ sensor:
   - platform: mqtt
     state_topic: "hass/sprinkler01/6"
     name: "Zone 6"
+    # unit_of_measurement: "%"
+    value_template: '{{ value_json.on }}'
+    json_attributes:
+      - duration
+      - queued
+      - secs_left
+
+  - platform: mqtt
+    state_topic: "hass/sprinkler01/7"
+    name: "Zone 7"
+    # unit_of_measurement: "%"
+    value_template: '{{ value_json.on }}'
+    json_attributes:
+      - duration
+      - queued
+      - secs_left
+
+  - platform: mqtt
+    state_topic: "hass/sprinkler01/8"
+    name: "Zone 8"
     # unit_of_measurement: "%"
     value_template: '{{ value_json.on }}'
     json_attributes:
@@ -210,6 +238,32 @@ switch:
           data:
             topic: 'hass/sprinkler01/set'
             payload_template: '{ "on": false, "zones": [ 6 ] }'
+      zone_7:
+        friendly_name: Zone 7
+        value_template: "{{ states.sensor.zone_7.state }}"
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": true, "zones": [{ "id": 7, "dur": {{ states.input_nuber.zone_7.state }} }] }'
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": false, "zones": [ 7 ] }'
+      zone_8:
+        friendly_name: Zone 8
+        value_template: "{{ states.sensor.zone_8.state }}"
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": true, "zones": [{ "id": 8, "dur": {{ states.input_nuber.zone_8.state }} }] }'
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: 'hass/sprinkler01/set'
+            payload_template: '{ "on": false, "zones": [ 8 ] }'
 
 input_number:
   zone_1:
@@ -254,6 +308,20 @@ input_number:
     max: 40
     step: 1
     unit_of_measurement: 'min'
+  zone_7:
+    name: Zone 7
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
+  zone_8:
+    name: Zone 8
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
   # -- schedule --
   sch_zone_1:
     name: Zone 1
@@ -292,6 +360,20 @@ input_number:
     unit_of_measurement: 'min'
   sch_zone_6:
     name: Zone 6
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
+  sch_zone_7:
+    name: Zone 7
+    # initial: 10
+    min: 0
+    max: 40
+    step: 1
+    unit_of_measurement: 'min'
+  sch_zone_8:
+    name: Zone 8
     # initial: 10
     min: 0
     max: 40
@@ -367,6 +449,8 @@ automation:
               { "id": 4, "dur": {{ states.input_number.sch_zone_4.state | int }} },
               { "id": 5, "dur": {{ states.input_number.sch_zone_5.state | int }} },
               { "id": 6, "dur": {{ states.input_number.sch_zone_6.state | int }} }
+              { "id": 7, "dur": {{ states.input_number.sch_zone_7.state | int }} }
+              { "id": 8, "dur": {{ states.input_number.sch_zone_8.state | int }} }
             ] }
           retain: false
       # - condition: state
@@ -384,6 +468,8 @@ automation:
             4: {{ states.input_number.sch_zone_4.state | int }} mins
             5: {{ states.input_number.sch_zone_5.state | int }} mins
             6: {{ states.input_number.sch_zone_6.state | int }} mins
+            7: {{ states.input_number.sch_zone_7.state | int }} mins
+            8: {{ states.input_number.sch_zone_8.state | int }} mins
   - alias: 'Sprinkler notify'
     initial_state: 'on'
     trigger:
