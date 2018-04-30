@@ -22,8 +22,12 @@ logs:
   homeassistant.components.recorder: error
   homeassistant.components.sensor.darksky: warn
   homeassistant.components.sensor.pi_hole: critical
-  homeassistant.components.shell_command: debug
-  homeassistant.components.shell_commands: debug
+  # homeassistant.components.shell_command: debug
+  # homeassistant.components.shell_commands: debug
+  homeassistant.helpers.shell_commands: debug
+  homeassistant.helpers.shell_command: debug
+  homeassistant.components.shell_command: info
+  homeassistant.components.shell_commands: info
   homeassistant.components.switch: warn
   homeassistant.components.updater: info
   homeassistant.components.zha: debug
