@@ -8,6 +8,18 @@ homeassistant:
         - 'queued ${attributes.queued}'
         - 'duration ${attributes.duration}'
   customize:
+    sensor.zone_1:
+      friendly_name: Front Bushes
+    sensor.zone_2:
+      friendly_name: Front Lawn
+    sensor.zone_3:
+      friendly_name: Back Bushes
+    sensor.zone_4:
+      friendly_name: Back Lawn
+    sensor.zone_5:
+      friendly_name: Back Fence
+    sensor.zone_6:
+      friendly_name: Flower Boxes
     group.sprinkler_automation:
       control: hidden
 
@@ -70,7 +82,7 @@ group:
 sensor:
   - platform: mqtt
     state_topic: "hass/sprinkler01/1"
-    name: "Front Bushes"
+    name: "Zone 1"
     # unit_of_measurement: "%"
     value_template: '{{ value_json.on }}'
     json_attributes:
@@ -80,7 +92,7 @@ sensor:
 
   - platform: mqtt
     state_topic: "hass/sprinkler01/2"
-    name: "Front Lawn"
+    name: "Zone 2"
     # unit_of_measurement: "%"
     value_template: '{{ value_json.on }}'
     json_attributes:
@@ -90,7 +102,7 @@ sensor:
 
   - platform: mqtt
     state_topic: "hass/sprinkler01/3"
-    name: "Back Bushes"
+    name: "Zone 3"
     # unit_of_measurement: "%"
     value_template: '{{ value_json.on }}'
     json_attributes:
@@ -100,7 +112,7 @@ sensor:
 
   - platform: mqtt
     state_topic: "hass/sprinkler01/4"
-    name: "Back Lawn"
+    name: "Zone 4"
     # unit_of_measurement: "%"
     value_template: '{{ value_json.on }}'
     json_attributes:
@@ -110,7 +122,7 @@ sensor:
 
   - platform: mqtt
     state_topic: "hass/sprinkler01/5"
-    name: "Back Fence"
+    name: "Zone 5"
     # unit_of_measurement: "%"
     value_template: '{{ value_json.on }}'
     json_attributes:
@@ -120,7 +132,7 @@ sensor:
 
   - platform: mqtt
     state_topic: "hass/sprinkler01/6"
-    name: "Flower Boxes"
+    name: "Zone 6"
     # unit_of_measurement: "%"
     value_template: '{{ value_json.on }}'
     json_attributes:
