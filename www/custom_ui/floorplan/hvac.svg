@@ -38,14 +38,14 @@
 </g>
 <!-- <rect id="input_boolean.windows_open_mode" x="126px" height="49px" y="442px" stroke-width="0px" width="85px" fill="#000"></rect> -->
 <!-- <text y="476px" id="text1" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="middle" x="306px">Windows Open</text> -->
-<rect x="715px" height="30" y="447px" width="30" class="radio-btn" rx="17.25" ry="17.25"></rect>
-<rect id="radio_button.heat" x="720px" height="20" y="452px" width="20" rx="10.98" ry="10.98"></rect>
-<text id="text2" y="471px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="left" x="765px">Heat</text>
-<rect x="715px" height="30" y="484px" width="30" class="radio-btn" rx="17.25" ry="17.25"></rect>
-<rect id="radio_button.cool" x="720px" height="20" y="489px" width="20" rx="10.98" ry="10.98"></rect>
-<text id="text3" y="507px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="left" x="765px">A/C</text>
-<rect x="715px" height="30" y="521px" width="30" class="radio-btn" rx="17.25" ry="17.25"></rect>
-<rect id="radio_button.nope" x="720px" height="20" y="526px" width="20" rx="10.98" ry="10.98"></rect>
-<text id="text4" y="544px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="left" x="765px">Off</text>
+<rect x="865px" height="45" y="427px" width="45" class="radio-btn" rx="17.25" ry="17.25"></rect>
+<rect id="radio_button.heat" x="870px" height="35" y="432px" width="35" rx="10.98" ry="10.98"></rect>
+<text id="text2" y="461px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="left" x="925px">Heat</text>
+<rect x="865px" height="45" y="484px" width="45" class="radio-btn" rx="17.25" ry="17.25"></rect>
+<rect id="radio_button.cool" x="870px" height="35" y="489px" width="35" rx="10.98" ry="10.98"></rect>
+<text id="text3" y="517px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="left" x="925px">A/C</text>
+<rect x="865px" height="45" y="541px" width="45" class="radio-btn" rx="17.25" ry="17.25"></rect>
+<rect id="radio_button.nope" x="870px" height="35" y="546px" width="35" rx="10.98" ry="10.98"></rect>
+<text id="text4" y="574px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="left" x="925px">Off</text>
 </g>
 </svg>
