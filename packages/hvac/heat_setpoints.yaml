@@ -10,7 +10,7 @@ input_number:
   front_heating_target_away:
     name: Front Away Heating Target
     # initial: 62
-    min: 62
+    min: 50
     max: 72
     step: 1
 
@@ -38,7 +38,7 @@ input_number:
   rear_heating_target_away:
     name: Rear Away Heating Target
     # initial: 62
-    min: 62
+    min: 50
     max: 72
     step: 1
 

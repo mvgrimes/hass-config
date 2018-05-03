@@ -102,7 +102,7 @@ input_number:
   front_cooling_target:
     name: Front Cooling Target
     # initial: 76
-    min: 70
+    min: 65
     max: 110
     step: 1
 

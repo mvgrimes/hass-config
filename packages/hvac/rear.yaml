@@ -102,7 +102,7 @@ input_number:
   rear_cooling_target:
     name: Rear Cooling Target
     # initial: 76
-    min: 70
+    min: 65
     max: 110
     step: 1
 
