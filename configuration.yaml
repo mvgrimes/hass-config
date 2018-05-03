@@ -14,8 +14,11 @@ homeassistant:
 
 # Enables the frontend
 frontend:
-  # javascript_version: es5
-  # javascript_version: latest
+  # Specify handling of js: es5=compile to es5, latest=use new features, auto=default
+  # Floorplan files (panels/*.html) have been written with new js features and
+  # don't seem to be compiled to es5. 'auto' attempts to load es5 on
+  # FullyBrowsers which failes. Force 'latest' here.
+  javascript_version: latest
   extra_html_url:
     - /local/custom_ui/state-card-custom-ui.html
     # - /local/custom_ui/state-card-stock-price.html
@@ -29,6 +32,7 @@ frontend:
 # Enables configuration UI
 config:
 
+# Enable the web frontend and provide password/config
 http:
   api_password: !secret http_api_password
   base_url: hass.markandcarrie.com
@@ -45,6 +49,7 @@ updater:
 # Discover some devices automatically
 # discovery:
 
+# Mysql database for recording events; exclude some events
 recorder: !include recorder.yaml
 
 # Record events in influxdb
@@ -57,7 +62,7 @@ influxdb:
 
 
 # Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
+# conversation:
 
 # Enables support for tracking state changes over time
 history:
@@ -71,7 +76,6 @@ sun:
 # z-wave and zibgee keep dropping (dead/cached) under home assistant
 # moving all z-wave/zibgee back to smart things and using smarter
 # smartthings to interact with those devices
-#
 # zwave:
 #   usb_path: /dev/ttyUSB0
 #   network_key: !secret zwave_network_key
@@ -86,6 +90,7 @@ mqtt:
   username: hass
   password: !secret mqtt_password
 
+# Setup device trackers
 device_tracker:
   - platform: actiontec
     host: 192.168.1.1
@@ -99,33 +104,31 @@ device_tracker:
 tts:
   - platform: google
 
+# Use pushover.net for notifications
 notify:
   - name: pushover
     platform: pushover
     api_key: !secret pushover_api_key
     user_key: !secret pushover_user_key
 
+# Load the map component
 map:
 
 # Alexa via the "Home Assistant" skill
 alexa:
-# intent_script: !include_dir_merge_named intent_scripts
 
+# Make scripts from the python_scripts dir available
 python_script:
 
+# Load custom panels (floorplan)
 panel_custom: !include_dir_merge_list custom_panels
 
 # Allow Amazon Echo to control some things
 emulated_hue: !include alexa.yaml
+
+# Load config from files/directorys
 logger: !include logger.yaml
-# light: !include_dir_merge_list lights
 wemo: !include wemo.yaml
-# sensor: !include_dir_merge_list sensors
-# switch: !include_dir_merge_list switches
 zone: !include zones.yaml
-# lock: !include_dir_merge_list locks
-# nest: !include nest.yaml
 script: !include_dir_merge_named scripts
-# automation: !include_dir_merge_list automations
-# shell_command: !include_dir_merge_named shell_commands
 group: !include_dir_merge_named groups
