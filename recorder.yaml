@@ -7,7 +7,8 @@
 #   GRANT ALL PRIVILEGES ON hass.* to hass@localhost identified by 'hasspass';
 # Add to homeassistant.service systemd unit:
 #   After=network.target mariadb.service
-db_url: 'mysql://hass:hasspass@localhost/hass?charset=utf8'
+# db_url: 'mysql://hass:hasspass@localhost/hass?charset=utf8'
+db_url: 'mysql://hass:hasspass@pip/hass?charset=utf8'
 
 purge_interval: 1
 purge_keep_days: 14
