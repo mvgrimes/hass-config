@@ -460,8 +460,8 @@ automation:
               { "id": 3, "dur": {{ states.input_number.sch_zone_3.state | int }} },
               { "id": 4, "dur": {{ states.input_number.sch_zone_4.state | int }} },
               { "id": 5, "dur": {{ states.input_number.sch_zone_5.state | int }} },
-              { "id": 6, "dur": {{ states.input_number.sch_zone_6.state | int }} }
-              { "id": 7, "dur": {{ states.input_number.sch_zone_7.state | int }} }
+              { "id": 6, "dur": {{ states.input_number.sch_zone_6.state | int }} },
+              { "id": 7, "dur": {{ states.input_number.sch_zone_7.state | int }} },
               { "id": 8, "dur": {{ states.input_number.sch_zone_8.state | int }} }
             ] }
           retain: false
