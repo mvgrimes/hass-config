@@ -20,8 +20,6 @@ homeassistant:
       friendly_name: Back Fence
     sensor.zone_6:
       friendly_name: Flower Boxes
-    group.sprinkler_automation:
-      control: hidden
 
 group:
   sprinkler_status:
@@ -57,27 +55,6 @@ group:
       - input_number.zone_6
       - input_number.zone_7
       - input_number.zone_8
-  sprinkler_automation:
-    name: Sprinkler Automation
-    entities:
-      - input_boolean.sprinkler_scheduled
-      - input_datetime.sprinkler_time
-      - input_boolean.sprinkler_monday
-      - input_boolean.sprinkler_tuesday
-      - input_boolean.sprinkler_wednesday
-      - input_boolean.sprinkler_thrusday
-      - input_boolean.sprinkler_friday
-      - input_boolean.sprinkler_saturday
-      - input_boolean.sprinkler_sunday
-      - input_number.sch_zone_1
-      - input_number.sch_zone_2
-      - input_number.sch_zone_3
-      - input_number.sch_zone_4
-      - input_number.sch_zone_5
-      - input_number.sch_zone_6
-      - input_number.sch_zone_7
-      - input_number.sch_zone_8
-      - binary_sensor.rain_expected
 
 sensor:
   - platform: mqtt
@@ -334,182 +311,17 @@ input_number:
     max: 40
     step: 1
     unit_of_measurement: 'min'
-  # -- schedule --
-  sch_zone_1:
-    name: Front Bushes
-    # initial: 10
-    min: 0
-    max: 40
-    step: 1
-    unit_of_measurement: 'min'
-  sch_zone_2:
-    name: Front Lawn
-    # initial: 10
-    min: 0
-    max: 40
-    step: 1
-    unit_of_measurement: 'min'
-  sch_zone_3:
-    name: Back Bushes
-    # initial: 10
-    min: 0
-    max: 40
-    step: 1
-    unit_of_measurement: 'min'
-  sch_zone_4:
-    name: Back Lawn
-    # initial: 10
-    min: 0
-    max: 40
-    step: 1
-    unit_of_measurement: 'min'
-  sch_zone_5:
-    name: Back Fence
-    # initial: 10
-    min: 0
-    max: 40
-    step: 1
-    unit_of_measurement: 'min'
-  sch_zone_6:
-    name: Flower Boxes
-    # initial: 10
-    min: 0
-    max: 40
-    step: 1
-    unit_of_measurement: 'min'
-  sch_zone_7:
-    name: Zone 7
-    # initial: 10
-    min: 0
-    max: 40
-    step: 1
-    unit_of_measurement: 'min'
-  sch_zone_8:
-    name: Zone 8
-    # initial: 10
-    min: 0
-    max: 40
-    step: 1
-    unit_of_measurement: 'min'
-
-input_boolean:
-  sprinkler_scheduled:
-    name: Sprinkler Scheduled
-    icon: mdi:alarm
-  sprinkler_monday:
-    name: Mon
-    icon: mdi:calendar
-  sprinkler_tuesday:
-    name: Tues
-    icon: mdi:calendar
-  sprinkler_wednesday:
-    name: Wed
-    icon: mdi:calendar
-  sprinkler_thrusday:
-    name: Thur
-    icon: mdi:calendar
-  sprinkler_friday:
-    name: Fri
-    icon: mdi:calendar
-  sprinkler_saturday:
-    name: Sat
-    icon: mdi:calendar
-  sprinkler_sunday:
-    name: Sun
-    icon: mdi:calendar
-
-input_datetime:
-  sprinkler_time:
-    name: Sprinkler Start
-    has_date: false
-    has_time: true
 
 automation:
-  - alias: 'Sprinkler schedule'
-    initial_state: 'on'
-    trigger:
-      - platform: template
-        value_template: '{{ states.input_datetime.sprinkler_time.state == states.sensor.time.state + ":00" }}'
-    condition:
-      - condition: state
-        entity_id: input_boolean.sprinkler_scheduled
-        state: 'on'
-      - condition: template
-        value_template: >
-          {{
-            ( ( is_state("sensor.clock_day","Monday") and states("input_boolean.sprinkler_monday") ) or
-              ( is_state("sensor.clock_day","Tuesday") and states("input_boolean.sprinkler_tuesday") ) or
-              ( is_state("sensor.clock_day","Wednesday") and states("input_boolean.sprinkler_wednesday") ) or
-              ( is_state("sensor.clock_day","Thursday") and states("input_boolean.sprinkler_thrusday") ) or
-              ( is_state("sensor.clock_day","Friday") and states("input_boolean.sprinkler_friday") ) or
-              ( is_state("sensor.clock_day","Saturday") and states("input_boolean.sprinkler_saturday") ) or
-              ( is_state("sensor.clock_day","Sunday") and states("input_boolean.sprinkler_sunday") )
-            ) == "on"
-          }}
-      - condition: state
-        entity_id: binary_sensor.rain_expected
-        state: 'off'
-    action:
-      - service: mqtt.publish
-        data_template:
-          topic: "hass/sprinkler01/set"
-          payload: >
-            { "on": true, "zones": [
-              { "id": 1, "dur": {{ states.input_number.sch_zone_1.state | int }} },
-              { "id": 2, "dur": {{ states.input_number.sch_zone_2.state | int }} },
-              { "id": 3, "dur": {{ states.input_number.sch_zone_3.state | int }} },
-              { "id": 4, "dur": {{ states.input_number.sch_zone_4.state | int }} },
-              { "id": 5, "dur": {{ states.input_number.sch_zone_5.state | int }} },
-              { "id": 6, "dur": {{ states.input_number.sch_zone_6.state | int }} },
-              { "id": 7, "dur": {{ states.input_number.sch_zone_7.state | int }} },
-              { "id": 8, "dur": {{ states.input_number.sch_zone_8.state | int }} }
-            ] }
-          retain: false
-      # - condition: state
-      #   entity_id: input_boolean.debug_mode
-      #   state: 'on'
-      - service: notify.pushover
-        data_template:
-          title: 'HA Sprinkler'
-          message: |
-            [Sprinkler]
-            Starting sprinkler
-            1: {{ states.input_number.sch_zone_1.state | int }} mins
-            2: {{ states.input_number.sch_zone_2.state | int }} mins
-            3: {{ states.input_number.sch_zone_3.state | int }} mins
-            4: {{ states.input_number.sch_zone_4.state | int }} mins
-            5: {{ states.input_number.sch_zone_5.state | int }} mins
-            6: {{ states.input_number.sch_zone_6.state | int }} mins
-            7: {{ states.input_number.sch_zone_7.state | int }} mins
-            8: {{ states.input_number.sch_zone_8.state | int }} mins
   - alias: 'Sprinkler notify'
     initial_state: 'on'
     trigger:
-      - platform: template
-        value_template: '{{ states.input_datetime.sprinkler_time.state == states.sensor.time.state + ":00" }}'
-    condition:
-      - condition: state
-        entity_id: input_boolean.sprinkler_scheduled
-        state: 'on'
-      - condition: template
-        value_template: >
-          {{
-            ( ( is_state("sensor.clock_day","Monday") and states("input_boolean.sprinkler_monday") ) or
-              ( is_state("sensor.clock_day","Tuesday") and states("input_boolean.sprinkler_tuesday") ) or
-              ( is_state("sensor.clock_day","Wednesday") and states("input_boolean.sprinkler_wednesday") ) or
-              ( is_state("sensor.clock_day","Thursday") and states("input_boolean.sprinkler_thrusday") ) or
-              ( is_state("sensor.clock_day","Friday") and states("input_boolean.sprinkler_friday") ) or
-              ( is_state("sensor.clock_day","Saturday") and states("input_boolean.sprinkler_saturday") ) or
-              ( is_state("sensor.clock_day","Sunday") and states("input_boolean.sprinkler_sunday") )
-            ) == "on"
-          }}
-      - condition: state
-        entity_id: binary_sensor.rain_expected
-        state: 'on'
+      platform: state
+      entity_id: sensor.zone_1, sensor.zone_2, sensor.zone_3, sensor.zone_4, sensor.zone_5, sensor.zone_6, sensor.zone_7, sensor.zone_8
+      from: 'False'
+      to: 'True'
     action:
       - service: notify.pushover
         data_template:
-          title: 'HA Sprinkler'
-          message: |
-            [Sprinkler]
-            Skiping watering due to expected rain.
+          title: 'HA Sprinkler On'
+          message: 'Sprinkler Zone {{ trigger.payload_json.zone }} on for {{ trigger.payload_json.duration }} seconds'

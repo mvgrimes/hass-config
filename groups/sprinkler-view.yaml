@@ -6,4 +6,5 @@ sprinkler_view:
     - group.sprinkler_status
     - group.sprinkler_switches
     - group.sprinkler_settings
-    - group.sprinkler_automation
+    - group.sprinkler_automation01
+    - group.sprinkler_automation02
