@@ -324,4 +324,4 @@ automation:
       - service: notify.pushover
         data_template:
           title: 'HA Sprinkler On'
-          message: 'Sprinkler Zone {{ trigger.payload_json.zone }} on for {{ trigger.payload_json.duration }} seconds'
+          message: 'Sprinkler Zone {{ trigger.entity_id }} ON'
