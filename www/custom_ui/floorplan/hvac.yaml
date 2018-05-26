@@ -22,33 +22,33 @@ rules:
     action:
       service: input_number.increment
       data:
-        entity_id: input_number.front_heating_target
+        entity_id: input_number.front_cooling_target
 
   - elements:
       - front-down
     action:
       service: input_number.decrement
       data:
-        entity_id: input_number.front_heating_target
+        entity_id: input_number.front_cooling_target
 
   - elements:
       - rear-up
     action:
       service: input_number.increment
       data:
-        entity_id: input_number.rear_heating_target
+        entity_id: input_number.rear_cooling_target
 
   - elements:
       - rear-down
     action:
       service: input_number.decrement
       data:
-        entity_id: input_number.rear_heating_target
+        entity_id: input_number.rear_cooling_target
 
   - name: sensors_and_setpoints
     entities:
-      - input_number.front_heating_target
-      - input_number.rear_heating_target
+      - input_number.front_cooling_target
+      - input_number.rear_cooling_target
       - sensor.front_temps
       - sensor.rear_temps
     hover_over: true
