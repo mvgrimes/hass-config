@@ -146,7 +146,7 @@ binary_sensor:
         friendly_name: "Rain expected"
         device_class: moisture
         value_template: >
-          {{ float(states("sensor.pws_precip_1d_in")) + float(states("sensor.pws_precip_1d_in")) > 0.5 }}
+          {{ (states("sensor.pws_precip_1d_in")|float) + (states("sensor.pws_precip_1d_in")|float) > 0.5 }}
 
 switch:
   - platform: template
