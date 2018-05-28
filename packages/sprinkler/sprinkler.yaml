@@ -8,7 +8,7 @@ homeassistant:
         - 'queued ${attributes.queued}'
         - 'duration ${attributes.duration}'
     "input_number.zone_*":
-      persistant: true
+      persistent: true
   customize:
     sensor.zone_1:
       friendly_name: Front Bushes
