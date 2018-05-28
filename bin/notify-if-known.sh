@@ -36,7 +36,7 @@ database="$config_dir/phones.sqlite"
 pysqlite="$config_dir/bin/check-is-known.py"
 logfile="$config_dir/nik.log"
 
-# [ -t 0 ] && exec >> "$logfile" 2>&1
+[ -t 0 ] || exec >> "$logfile" 2>&1
 
 # TODO: ensure payload is properly escaped
 mqtt-publish() {
@@ -89,10 +89,10 @@ is-friend() {
 
 if is-friend "$phone" ; then
     [ -n "$name" ] || name="$phone"
-    # mqtt-publish "$topic_ring" "short-ring"
 
     tts_url=$( get-tts-file "Incoming call from $name" )
-    mqtt-publish "$topic_say" "$tts_url"
+    mqtt-publish "$topic_ring" "$tts_url"
+    # mqtt-publish "$topic_say" "$tts_url"
 else
     echo "We don't know you!" >&2
 fi
