@@ -17,8 +17,60 @@ group:
       # - device_tracker.19216817
       # - device_tracker.192168119
       # - device_tracker.192168125
+  present:
+    name: Present
+    entities:
+      - binary_sensor.mark_is_home
+
+binary_sensor:
+  - platform: bayesian
+    name: "Mark is home"
+    prior: 0.5
+    observations:
+      - entity_id: 'device_tracker.mgrimes_oneplus3t'
+        prob_given_true: 0.7
+        prob_given_false: 0.3
+        platform: 'state'
+        to_state: 'home'
+      - entity_id: 'device_tracker.mark_android'
+        prob_given_true: 0.7
+        prob_given_false: 0.3
+        platform: 'state'
+        to_state: 'home'
 
 automation:
+  - alias: 'Mark is Arriving'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.mark_is_home
+    action:
+      - service: notify.pushover
+        data_template:
+          title: 'Marks location changed'
+          message: >
+            Mark is {{ trigger.to_state.state }}.
+            This changed {{ trigger.to_state.last_changed }}.
+            This updated {{ trigger.to_state.last_updated }}.
+            Last changed {{ trigger.from_state.last_changed }}.
+            Last updated {{ trigger.from_state.last_updated }}.
+      - condition: template
+        value_template: '{{ trigger.to_state.state == "on" }}'
+      - condition: template
+        value_template: >
+          {{ (( as_timestamp(now()) - as_timestamp(trigger.from_state.last_changed) ) / 60) > 20 }}
+          # We've been gone for at least 20 minutes
+      - service: notify.pushover
+        data_template:
+          title: 'Marks location changed'
+          message: >
+            Mark is {{ trigger.to_state.state }}.
+            This changed {{ trigger.to_state.last_changed }}.
+            This updated {{ trigger.to_state.last_updated }}.
+            Last changed {{ trigger.from_state.last_changed }}.
+            Last updated {{ trigger.from_state.last_updated }}.
+
   - alias: 'Home Mode when Arriving'
     initial_state: 'on'
     trigger:

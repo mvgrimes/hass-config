@@ -4,4 +4,4 @@ presence_view:
   icon: mdi:map-marker
   entities:
     - group.family
-
+    - group.present
