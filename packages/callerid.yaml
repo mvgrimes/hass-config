@@ -10,7 +10,7 @@ sensor:
     devide: /dev/ttyACM0
 
 shell_command:
-  notify_if_known: '/srv/app/hass/config/bin/notify-if-known.sh -n "{{ cid_name }}" -p "{{ cid_number }}" -H "{{ http_pw }}"'
+  notify_if_known: '/config/bin/notify-if-known.sh -n "{{ cid_name }}" -p "{{ cid_number }}" -H "{{ http_pw }}"'
 
 group:
   phone:
