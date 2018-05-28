@@ -325,3 +325,9 @@ automation:
         data_template:
           title: 'HA Sprinkler On'
           message: 'Sprinkler Zone {{ trigger.entity_id }} ON'
+
+# script:
+#   turn_on_sprinklers:
+#     sequence:
+#       - service: media_player.media_pause
+#         entity_id: media_player.kitchen

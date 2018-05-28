@@ -114,3 +114,17 @@ intent_script:
             {% else %} pandora://3141420448449849928.mp3
             {% endif %}
           media_content_type: music
+
+script:
+  skip_song:
+    sequence:
+      - service: media_player.media_next_track
+        entity_id: media_player.kitchen
+  play_song:
+    sequence:
+      - service: media_player.media_play
+        entity_id: media_player.kitchen
+  stop_song:
+    sequence:
+      - service: media_player.media_pause
+        entity_id: media_player.kitchen
