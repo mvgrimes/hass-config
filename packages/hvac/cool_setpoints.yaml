@@ -1,3 +1,8 @@
+homeassistant:
+  customize_glob:
+    "input_number.*_cooling_target_*":
+      persistent: true
+
 input_number:
 
   front_cooling_target_home:

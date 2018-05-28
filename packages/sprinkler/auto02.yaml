@@ -3,6 +3,15 @@ homeassistant:
   customize:
     group.sprinkler_automation02:
       control: hidden
+    input_boolean.sprinkler02_scheduled:
+      persistant: true
+    input_datetime.sprinkler02_time:
+      persistant: true
+  customize_glob:
+    "input_boolean.sprinkler02_*day":
+      persistant: true
+    "input_number.sprinkler02_sch_zone_*":
+      persistant: true
 
 group:
   sprinkler_automation02:

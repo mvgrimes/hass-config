@@ -5,6 +5,12 @@ homeassistant:
       icon: mdi:fan
     sensor.front_temps:
       icon: mdi:thermometer
+    input_select.front_function:
+      persistent: true
+    input_number.front_heating_target:
+      persistent: true
+    input_number.front_cooling_target:
+      persistent: true
 
 sensor:
   - platform: template

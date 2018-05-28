@@ -5,6 +5,12 @@ homeassistant:
       icon: mdi:fan
     sensor.rear_temps:
       icon: mdi:thermometer
+    input_select.rear_function:
+      persistent: true
+    input_number.rear_heating_target:
+      persistent: true
+    input_number.rear_cooling_target:
+      persistent: true
 
 sensor:
   - platform: template
