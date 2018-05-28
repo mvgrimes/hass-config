@@ -50,7 +50,7 @@ automation:
       to: "callerid"
     action:
       service: shell_command.notify_if_known
-      data:
+      data_template:
         http_pw: !secret http_api_password
         cid_name: '{{ states.sensor.modem_callerid.attributes.cid_name }}'
         cid_number: '{{ states.sensor.modem_callerid.attributes.cid_number }}'

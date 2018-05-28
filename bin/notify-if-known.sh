@@ -5,6 +5,8 @@ topic_ring="hass/mqtt-say/ring"
 topic_say="hass/mqtt-say/message"
 config_dir="/config"
 
+log() { echo "$@" >&2; }
+
 usage() {
   echo "usage: notify-if-known -p <phone number> -n <name> -d <config dir> -H <http API password> -t <mqtt topic>"
   echo $@
@@ -43,7 +45,7 @@ mqtt-publish() {
     local topic=$1
     local payload=$2
 
-    echo "publish: $payload" >&2
+    log "publish: $payload"
     curl -s -X POST \
         -H "x-ha-access: $http_api_password" \
         -H "Content-TYpe: application/json" \
@@ -55,12 +57,12 @@ mqtt-publish() {
 get-tts-file() {
     local text="$1"
 
-    echo "get-tts-file: $text" >&2
+    log "get-tts-file: $text"
     curl -s -X POST \
         -H "x-ha-access: $http_api_password" \
         -H "Content-TYpe: application/json" \
         -d "{\"message\": \"$text\", \"platform\": \"google\"}" \
-        "$url/api/tts_get_url" | jq -r .url
+        "$url/api/tts_get_url" | perl -MJSON::PP=decode_json -E'print decode_json(<>)->{url}'
 }
 
 is-friend() {
@@ -68,12 +70,12 @@ is-friend() {
     phone=$( echo "$1" | perl -pE's{\D}{}g; s{^1}{}g' )
     [ -n "$phone" ] || return 1  # false
 
-    echo "checking $phone" >&2
+    log "checking $phone"
     res=$( $pysqlite "$database" "$phone" )
     err=$?
 
-    # echo "is-friend -> $res"
-    # echo "is-friend => $err"
+    # log "is-friend -> $res"
+    # log "is-friend => $err"
 
     if [ -n "$res" ] ; then
         # [ -z "$name" ] && name="$res"
@@ -94,5 +96,5 @@ if is-friend "$phone" ; then
     mqtt-publish "$topic_ring" "$tts_url"
     # mqtt-publish "$topic_say" "$tts_url"
 else
-    echo "We don't know you!" >&2
+    log "We don't know you! $phone"
 fi
