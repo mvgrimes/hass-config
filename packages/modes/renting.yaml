@@ -1,6 +1,9 @@
 # Toggle to set renting mode
 
 homeassistant:
+  customize:
+    input_boolean.renting_mode:
+      persistent: true
 
 input_boolean:
   renting_mode:

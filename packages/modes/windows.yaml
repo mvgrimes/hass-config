@@ -1,6 +1,9 @@
 # Toggle to set window open mode
 
 homeassistant:
+  customize:
+    input_boolean.windows_open_mode:
+      persistent: true
 
 input_boolean:
   windows_open_mode:

@@ -1,5 +1,10 @@
 # Toggle to set home mode
 
+homeassistant:
+  customize:
+    input_boolean.home_mode:
+      persistent: true
+
 input_boolean:
   home_mode:
     name: 'Home Mode'

@@ -4,6 +4,9 @@
 # Thermostat adjustment controlled by Home/Away mode
 
 homeassistant:
+  customize:
+    input_boolean.vacation_mode:
+      persistent: true
 
 input_boolean:
   vacation_mode:
