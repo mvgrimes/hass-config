@@ -316,6 +316,7 @@ input_number:
 
 automation:
   - alias: 'Sprinkler notify'
+    hide_entity: true
     initial_state: 'on'
     trigger:
       platform: state

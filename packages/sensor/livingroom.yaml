@@ -58,7 +58,7 @@ sensor:
     value_template: '{{ value_json.button }}'
 
 automation:
-  - alias: Turn on family room lights
+  - alias: Turn on family room lights w/ motion
     initial_state: 'on'
     trigger:
       platform: state
@@ -69,7 +69,8 @@ automation:
         entity_id: sensor.livingroom_ldr
         below: 500
       - condition: template
-        value_template: '{{ as_timestamp(now()) - as_timestamp(states.sensor.livingroom_button.last_updated) | int > 60 }}'
+        value_template: >
+          {{ as_timestamp(now()) - as_timestamp(states.sensor.livingroom_button.last_updated) | int > 60 }}
       # - condition: template
       #   value_template: '{{ states.sensor.livingroom_ldr.state | float < 500 }}'
     action:
@@ -77,7 +78,7 @@ automation:
       entity_id:
         - group.family_room
 
-  - alias: Turn off family room lights
+  - alias: Turn off family room lights w/o motion
     initial_state: 'on'
     trigger:
       - platform: state
@@ -87,7 +88,8 @@ automation:
           minutes: 60
     condition:
       - condition: template
-        value_template: '{{ as_timestamp(now()) - as_timestamp(states.sensor.livingroom_button.last_updated) | int > 60 }}'
+        value_template: >
+          {{ as_timestamp(now()) - as_timestamp(states.sensor.livingroom_button.last_updated) | int > 60 }}
     #   - condition: time
     #     after: '21:00:00'
     action:
@@ -95,7 +97,8 @@ automation:
       entity_id:
         - group.family_room
 
-  - alias: Toggle family room lights off
+  - alias: Toggle family room lights off w/ switch
+    hide_entity: true
     initial_state: 'on'
     trigger:
       platform: state
@@ -109,7 +112,8 @@ automation:
       entity_id:
         - group.family_room
 
-  - alias: Toggle family room lights on
+  - alias: Toggle family room lights on w/ switch
+    hide_entity: true
     initial_state: 'on'
     trigger:
       platform: state

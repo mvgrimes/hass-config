@@ -149,6 +149,7 @@ automation:
   # --- Rear Thermostat ---
   # Keep mode in sync b/w MQTT/dropdown
   - alias: Set Rear Thermostat Mode Selector
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: mqtt
@@ -159,6 +160,7 @@ automation:
           entity_id: input_select.rear_thermostat_mode
           option: '{{ trigger.payload }}'
   - alias: Set Rear Thermostat Mode
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: state
@@ -177,6 +179,7 @@ automation:
 
   # Adj Kitchen Thermostat to meet Rear Temp (heat)
   - alias: Rear Heating Target Set
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: state
@@ -215,6 +218,7 @@ automation:
 
   # Adj Kitchen Thermostat to meet Rear Temp (a/c)
   - alias: Rear A/C Target Set
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: state

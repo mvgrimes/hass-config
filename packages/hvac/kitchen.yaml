@@ -107,6 +107,7 @@ automation:
   # --- Kitchen Thermostat ---
   # Keep mode in sync b/w MQTT/dropdown
   - alias: Set Kitchen Thermostat Mode Selector
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: mqtt
@@ -117,6 +118,7 @@ automation:
           entity_id: input_select.kitchen_thermostat_mode
           option: '{{ trigger.payload }}'
   - alias: Set Kitchen Thermostat Mode
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: state
@@ -135,6 +137,7 @@ automation:
 
   # Keep heatSetpoint in sync b/w MQTT and slider
   - alias: Kitchen Heating Target Set
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: mqtt
@@ -145,6 +148,7 @@ automation:
           entity_id: input_number.kitchen_heating_target
           value: '{{ trigger.payload}}'
   - alias: Set Kitchen Heating Target
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: state
@@ -171,6 +175,7 @@ automation:
 
   # Keep coolingSetpoint in sync b/w MQTT and slider
   - alias: Kitchen Cooling Target Set
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: mqtt
@@ -181,6 +186,7 @@ automation:
           entity_id: input_number.kitchen_cooling_target
           value: '{{ trigger.payload}}'
   - alias: Set Kitchen Cooling Target
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: state

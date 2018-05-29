@@ -35,6 +35,7 @@ automation:
 
   # --- When arrive Home adjust temps ---
   - alias: 'Home Mode: Home - adj therm targets'
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: state
@@ -66,6 +67,7 @@ automation:
 
   # --- When departing Home adjust temps ---
   - alias: 'Home Mode: Away - adj therm targets'
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: state
@@ -97,6 +99,7 @@ automation:
 
   # --- When Home adjust temps at night ---
   - alias: 'Night Mode: Update Thermostat Targets'
+    hide_entity: true
     initial_state: 'on'
     trigger:
       platform: time
@@ -123,6 +126,7 @@ automation:
 
   # --- When Home adjust temps in the morning ---
   - alias: 'End Night Mode: Update Thermostat Targets'
+    hide_entity: true
     initial_state: 'on'
     trigger:
       platform: time

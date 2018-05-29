@@ -11,6 +11,7 @@ automation:
 
   # --- When Renting opened adjust temps ---
   - alias: 'Renting Mode: adj therm targets'
+    hide_entity: true
     initial_state: 'on'
     trigger:
       platform: state

@@ -11,6 +11,7 @@ automation:
 
   # --- When Windows opened adjust temps ---
   - alias: 'Window Open Mode: adj therm targets'
+    hide_entity: true
     initial_state: 'on'
     trigger:
       platform: state

@@ -149,6 +149,7 @@ automation:
   # --- Front Thermostat ---
   # Keep mode in sync b/w MQTT/dropdown
   - alias: Set Front Thermostat Mode Selector
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: mqtt
@@ -159,6 +160,7 @@ automation:
           entity_id: input_select.front_thermostat_mode
           option: '{{ trigger.payload }}'
   - alias: Set Front Thermostat Mode
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: state
@@ -177,6 +179,7 @@ automation:
 
   # Adj Den Thermostat to meet Front Temp (heat)
   - alias: Front Heating Target Set
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: state
@@ -215,6 +218,7 @@ automation:
 
   # Adj den Thermostat to meet Front Temp (a/c)
   - alias: Front A/C Target Set
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: state

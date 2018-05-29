@@ -128,6 +128,7 @@ input_number:
 
 automation:
   - alias: 'Sprinkler schedule'
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: template
@@ -185,6 +186,7 @@ automation:
             7: {{ states.input_number.sprinkler01_sch_zone_7.state | int }} mins
             8: {{ states.input_number.sprinkler01_sch_zone_8.state | int }} mins
   - alias: 'Sprinkler skip notify'
+    hide_entity: true
     initial_state: 'on'
     trigger:
       - platform: template

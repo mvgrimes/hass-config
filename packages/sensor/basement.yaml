@@ -48,6 +48,7 @@ sensor:
 
 automation:
   - alias: Basement steps switch turns on all lights
+    hide_entity: true
     initial_state: 'on'
     trigger:
       platform: state
@@ -62,6 +63,7 @@ automation:
         - switch.basement_lights
 
   - alias: Basement steps switch turns off all lights
+    hide_entity: true
     initial_state: 'on'
     trigger:
       platform: state
