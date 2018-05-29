@@ -54,7 +54,6 @@ sensor:
   - platform: mqtt
     state_topic: "hass/sensor-livingroom"
     name: "LivingRoom Button"
-    device_class: light
     value_template: '{{ value_json.button }}'
 
 automation:
