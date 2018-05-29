@@ -52,11 +52,9 @@ automation:
       - service: notify.pushover
         data_template:
           title: 'Marks location changed'
-          message: >
-            Mark is {{ trigger.to_state.state }}.
-            Was away for {{ ( as_timestamp(now()) - as_timestamp(trigger.from_state.last_changed) ) / 60 }} minutes.
-            This changed {{ trigger.to_state.last_changed }}.
-            This updated {{ trigger.to_state.last_updated }}.
+          message: |
+            Mark arriving is {{ trigger.to_state.state }}.
+            Was away for {{ (( as_timestamp(now()) - as_timestamp(trigger.from_state.last_changed) ) / 60) | int }} minutes.
             Last changed {{ trigger.from_state.last_changed }}.
             Last updated {{ trigger.from_state.last_updated }}.
       # We've been gone for at least 20 minutes
@@ -67,11 +65,7 @@ automation:
         data_template:
           title: 'Marks location changed'
           message: >
-            Mark is {{ trigger.to_state.state }}.
-            This changed {{ trigger.to_state.last_changed }}.
-            This updated {{ trigger.to_state.last_updated }}.
-            Last changed {{ trigger.from_state.last_changed }}.
-            Last updated {{ trigger.from_state.last_updated }}.
+            Mark is home. Do the stuff!
 
   - alias: 'Home Mode when Arriving'
     initial_state: 'on'
