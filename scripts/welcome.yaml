@@ -1,4 +1,5 @@
 welcome_home:
+  alias: Welcome Home
   sequence:
     - service: input_boolean.turn_on
       entity_id: input_boolean.home_mode
@@ -6,12 +7,8 @@ welcome_home:
     - service: media_player.media_play
       entity_id: media_player.kitchen
 
-    # Handled by home mode -> home
-    # - service: nest.set_mode
-    #   data:
-    #     home_mode: home
-
 goodbye:
+  alias: Goodbye
   sequence:
     - service: input_boolean.turn_off
       entity_id: input_boolean.home_mode
@@ -23,13 +20,8 @@ goodbye:
     - service: switch.turn_off
       entity_id: group.basement_lights
 
-    # Hanled by home mode -> away
-    # - delay: 00:15:00
-    # - service: nest.set_mode
-    #   data:
-    #     home_mode: away
-
 goodnight:
+  alias: Good Night
   sequence:
     - service: input_boolean.turn_on
       entity_id: input_boolean.home_mode
