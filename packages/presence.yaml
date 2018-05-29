@@ -45,21 +45,19 @@ automation:
       - platform: state
         entity_id:
           - binary_sensor.mark_is_home
+        from: 'off'
+        to: 'on'
     action:
       - service: notify.pushover
         data_template:
           title: 'Marks location changed'
           message: >
             Mark is {{ trigger.to_state.state }}.
+            Was away for {{ ( as_timestamp(now()) - as_timestamp(trigger.from_state.last_changed) ) / 60 }} minutes.
             This changed {{ trigger.to_state.last_changed }}.
             This updated {{ trigger.to_state.last_updated }}.
             Last changed {{ trigger.from_state.last_changed }}.
             Last updated {{ trigger.from_state.last_updated }}.
-      # These two can be combined into the trigger to:/from: once we are done testing
-      - condition: template
-        value_template: '{{ trigger.to_state.state == "on" }}'
-      - condition: template
-        value_template: '{{ trigger.from_state.state == "off" }}'
       # We've been gone for at least 20 minutes
       - condition: template
         value_template: >
