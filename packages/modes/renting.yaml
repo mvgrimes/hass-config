@@ -26,6 +26,7 @@ automation:
 
 script:
   set_temp_targets_renting:
+    alias: Set HVAC Targets for Renting Mode
     sequence:
       - service: script.set_temp_targets
         data_template:

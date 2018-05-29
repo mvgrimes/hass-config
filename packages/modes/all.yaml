@@ -1,3 +1,8 @@
+homeassistant:
+  customize:
+    script.set_temp_targets:
+      hidden: true
+
 group:
   modes:
     name: Modes

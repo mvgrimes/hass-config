@@ -19,6 +19,7 @@ nest:
 
 script:
   nest_home:
+    alias: Set Nest Home Mode
     sequence:
       - service: nest.set_mode
         data:
@@ -28,6 +29,7 @@ script:
           message: "Switched to nest home"
 
   nest_away:
+    alias: Set Nest Away Mode
     sequence:
       - service: nest.set_mode
         data:

@@ -8,6 +8,7 @@ automation:
 
 script:
   announce_ha_start:
+    alias: Announce HA Restarted
     sequence:
       - service: mqtt.publish
         data:

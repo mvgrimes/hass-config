@@ -117,14 +117,17 @@ intent_script:
 
 script:
   skip_song:
+    alias: Music Skip
     sequence:
       - service: media_player.media_next_track
         entity_id: media_player.kitchen
   play_song:
+    alias: Music Play
     sequence:
       - service: media_player.media_play
         entity_id: media_player.kitchen
   stop_song:
+    alias: Music Stop
     sequence:
       - service: media_player.media_pause
         entity_id: media_player.kitchen

@@ -154,6 +154,7 @@ automation:
 
 script:
   set_temp_targets_home:
+    alias: Set HVAC Targets for Home Mode
     sequence:
       - service: script.set_temp_targets
         data_template:
@@ -163,6 +164,7 @@ script:
           front_cooling_target: "{{ states.input_number.front_cooling_target_home.state }}"
 
   set_temp_targets_away:
+    alias: Set HVAC Targets for Away Mode
     sequence:
       - service: script.set_temp_targets
         data_template:
@@ -172,6 +174,7 @@ script:
           front_cooling_target: "{{ states.input_number.front_cooling_target_away.state }}"
 
   set_temp_targets_night:
+    alias: Set HVAC Targets for Night Mode
     sequence:
       - service: script.set_temp_targets
         data_template:

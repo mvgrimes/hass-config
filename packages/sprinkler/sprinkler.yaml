@@ -329,7 +329,9 @@ automation:
           title: 'HA Sprinkler On'
           message: 'Sprinkler Zone {{ trigger.entity_id }} ON'
 
+# For Alexa/Google
 # script:
+#   alias: Turn on Sprinklers
 #   turn_on_sprinklers:
 #     sequence:
 #       - service: media_player.media_pause

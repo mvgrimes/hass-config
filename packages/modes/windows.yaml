@@ -23,6 +23,7 @@ automation:
 
 script:
   set_temp_targets_windows_open:
+    alias: Set HVAC Targets for Windows Open Mode
     sequence:
       - service: script.set_temp_targets
         data_template:
