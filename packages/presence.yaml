@@ -48,19 +48,12 @@ automation:
           - binary_sensor.mark_is_home
         from: 'off'
         to: 'on'
-    action:
-      - service: notify.pushover
-        data_template:
-          title: 'Marks location changed'
-          message: |
-            Mark arriving is {{ trigger.to_state.state }}.
-            Was away for {{ (( as_timestamp(now()) - as_timestamp(trigger.from_state.last_changed) ) / 60) | int }} minutes.
-            Last changed {{ trigger.from_state.last_changed }}.
-            Last updated {{ trigger.from_state.last_updated }}.
+    condition:
       # We've been gone for at least 20 minutes
       - condition: template
         value_template: >
           {{ (( as_timestamp(now()) - as_timestamp(trigger.from_state.last_changed) ) / 60) > 20 }}
+    action:
       - service: notify.pushover
         data_template:
           title: 'Marks location changed'
