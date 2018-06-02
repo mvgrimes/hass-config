@@ -54,11 +54,21 @@ automation:
         value_template: >
           {{ (( as_timestamp(now()) - as_timestamp(trigger.from_state.last_changed) ) / 60) > 20 }}
     action:
+      - service: system_log.write
+        data_template:
+          message: >-
+            Mark arrived home after
+            {{ (( as_timestamp(now()) - as_timestamp(trigger.from_state.last_changed) ) / 60) | int }}
+            minutes.
+          level: info
       - service: notify.pushover
         data_template:
           title: 'Marks location changed'
           message: >
             Mark is home. Do the stuff!
+      - service: lock.unlock
+        data:
+          entity_id: lock.mqtt_lock
 
   - alias: 'Home Mode when Arriving'
     initial_state: 'on'
