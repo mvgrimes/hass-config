@@ -25,8 +25,13 @@ rules:
       - sensor.fishfed
     class_template: '
       if( entity.state < entity.attributes.hours_between ) {
-        return "chore-done";
+
+        var pct = Math.round( ( entity.state / entity.attributes.hours_between ) * 10 ) / .1;
+        console.log("chore-done-" + pct);
+
+        return "chore-done-" + pct;
       } else {
+        console.log("chore-waiting");
         return "chore-waiting";
       }
     '

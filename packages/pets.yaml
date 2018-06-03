@@ -6,12 +6,12 @@
 homeassistant:
   customize_glob:
     "sensor.*fed":
-      hours_between: 6
+      hours_between: 12
     "sensor.*walked":
-      hours_between: 6
+      hours_between: 12
   customize:
     sensor.fishfed:
-      hours_between: 18
+      hours_between: 24
     sensor.dogfed_time:
       friendly_name: Dog Fed
     sensor.catfed_time:

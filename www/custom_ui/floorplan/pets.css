@@ -77,7 +77,40 @@ svg, svg * {
 .chore-waiting {
   fill: #777 !important;
 }
-
 .chore-done {
-  fill: #F8D2B9 !important;
+  fill: #FFBB8E !important;
+}
+
+.chore-done-0 {
+  fill: #FFBB8E !important;
+}
+.chore-done-10 {
+  fill: #F1B48C !important;
+}
+.chore-done-20 {
+  fill: #E4AD89 !important;
+}
+.chore-done-30 {
+  fill: #D6A787 !important;
+}
+.chore-done-40 {
+  fill: #C9A085 !important;
+}
+.chore-done-50 {
+  fill: #BB9983 !important;
+}
+.chore-done-60 {
+  fill: #AD9280 !important;
+}
+.chore-done-70 {
+  fill: #A08B7E !important;
+}
+.chore-done-80 {
+  fill: #92857C !important;
+}
+.chore-done-90 {
+  fill: #857E79 !important;
+}
+.chore-done-100 {
+  fill: #777777 !important;
 }
