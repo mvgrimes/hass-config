@@ -26,15 +26,15 @@ binary_sensor:
   - platform: bayesian
     name: "Mark is home"
     prior: 0.5
-    probability_threshold: 0.75
+    probability_threshold: 0.8
     observations:
       - entity_id: 'device_tracker.mgrimes_oneplus3t'
-        prob_given_true: 0.7
+        prob_given_true: 0.8
         prob_given_false: 0.3
         platform: 'state'
         to_state: 'home'
       - entity_id: 'device_tracker.mark_android'
-        prob_given_true: 0.7
+        prob_given_true: 0.8
         prob_given_false: 0.3
         platform: 'state'
         to_state: 'home'
