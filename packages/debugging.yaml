@@ -10,8 +10,6 @@ script:
   announce_ha_start:
     alias: Announce HA Restarted
     sequence:
-      - service: mqtt.publish
+      - service: notify.mqtt_say
         data:
-          topic: hass/mqtt-say/message
-          payload: Home Assistant Restarted
-          retain: false
+          message: "Home Assistant restarted"
