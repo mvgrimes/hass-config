@@ -1,0 +1,503 @@
+name: Home
+views:
+  - name: Lovelace
+    tab_icon: mdi:home
+    cards:
+      - type: entities
+        title: Notices
+        entities:
+          - updater.updater
+      - type: entities
+        title: Weather
+        entities:
+          - sensor.pws_weather_1d
+          - sensor.dark_sky_temperature
+          - sensor.dark_sky_wind_speed
+          - sensor.uv_burn_time
+      - type: entities
+        title: Switches
+        entities: []
+      - - type: entities
+          title: Exterior Lights
+          entities:
+            - light.porch_lights
+        - []
+      - - type: entities
+          title: Basement lights
+          entities:
+            - switch.basement_lights
+            - switch.basement_step_lights
+        - []
+      - - type: entities
+          title: Side Door
+          entities:
+            - lock.mqtt_lock
+        - []
+      - - type: entities
+          title: Family Room Lights
+          entities:
+            - switch.floor_lamp
+            - switch.reading_lamp
+            - switch.antique_lamp
+        - []
+      - type: entities
+        title: Modes
+        entities:
+          - input_boolean.home_mode
+          - input_boolean.vacation_mode
+          - input_boolean.renting_mode
+          - input_boolean.windows_open_mode
+          - input_boolean.debug_mode
+      - type: entities
+        title: Status Panel
+        entities:
+          - input_boolean.carpool_week
+          - binary_sensor.status_panel_motion
+          - binary_sensor.status_panel_plugged
+          - light.status_panel_screensaver
+      - type: entities
+        title: Finance
+        entities:
+          - sensor.sp500
+          - sensor.bitcoin_value
+  - name: Sensors
+    tab_icon: mdi:thermometer
+    cards:
+      - type: entities
+        title: Temps
+        entities:
+          - sensor.den_thermostat_temp
+          - sensor.kitchen_thermostat_temp
+          - sensor.girls_br_temp
+          - sensor.mbr_temp
+          - sensor.office_temp
+      - type: entities
+        title: Basement Sensor
+        entities:
+          - sensor.basement_temperature
+          - sensor.basement_humidity
+          - sensor.basement_ldr
+          - sensor.basement_pir
+          - sensor.basement_real_feel
+          - light.basement_led
+      - type: entities
+        title: Living Room Sensor
+        entities:
+          - sensor.livingroom_button
+          - sensor.livingroom_temperature
+          - sensor.livingroom_humidity
+          - sensor.livingroom_ldr
+          - sensor.livingroom_pir
+          - sensor.livingroom_real_feel
+          - light.livingroom_led
+      - type: entities
+        title: Porch Sensor
+        entities:
+          - sensor.porch_temperature
+          - sensor.porch_humidity
+          - sensor.porch_ldr
+          - sensor.porch_pir
+          - sensor.porch_real_feel
+          - light.porch_led
+  - name: Presence
+    tab_icon: mdi:map-marker
+    cards:
+      - type: entities
+        title: Family
+        entities:
+          - device_tracker.mgrimes_oneplus3t
+          - device_tracker.carrie_d81aebcb473e4ef7ab1e8965aecaa6c9
+          - device_tracker.carrie_iphone6
+          - device_tracker.campbell_iphone
+          - device_tracker.whitney_iphone6
+          - device_tracker.carrie_iphone
+          - device_tracker.mark_laptop_spike
+          - device_tracker.antminer_01
+          - device_tracker.campbell_iphone_mac
+          - device_tracker.campbell_ipad
+          - device_tracker.mark_android
+          - device_tracker.whitney_ipad
+          - device_tracker.carrie_ipad
+      - type: entities
+        title: Present
+        entities:
+          - binary_sensor.mark_is_home
+  - name: Media
+    tab_icon: mdi:music
+    cards:
+      - type: entities
+        title: Music
+        entities: []
+      - type: media-control
+        entity: media_player.kitchen
+      - type: media-control
+        entity: media_player.outside
+      - type: media-control
+        entity: media_player.livingroom
+      - type: media-control
+        entity: media_player.porch
+      - type: media-control
+        entity: media_player.mbr
+      - type: camera-preview
+        entity: camera.entryway
+      - type: camera-preview
+        entity: camera.kitchen
+      - type: entities
+        title: Cameras
+        entities:
+          - binary_sensor.entryway_camera_motion_detected
+          - binary_sensor.entryway_camera_online
+          - binary_sensor.entryway_camera_person_detected
+          - binary_sensor.entryway_camera_sound_detected
+          - binary_sensor.kitchen_camera_motion_detected
+          - binary_sensor.kitchen_camera_online
+          - binary_sensor.kitchen_camera_person_detected
+          - binary_sensor.kitchen_camera_sound_detected
+      - type: camera-preview
+        entity: camera.entryway
+      - type: camera-preview
+        entity: camera.kitchen
+  - name: Weather
+    tab_icon: mdi:weather-partlycloudy
+    cards:
+      - type: entities
+        title: Weather Underground
+        entities:
+          - sensor.pws_alerts
+          - sensor.pws_weather
+          - sensor.pws_temp_f
+          - sensor.pws_dewpoint_f
+          - sensor.pws_precip_today_in
+          - sensor.pws_weather_1d
+          - sensor.pws_temp_high_1d_f
+          - sensor.pws_temp_low_1d_f
+          - sensor.pws_precip_1d_in
+          - sensor.pws_precip_2d_in
+          - sensor.pws_uv
+      - type: entities
+        title: DarkSky
+        entities:
+          - sensor.dark_sky_precip_intensity
+          - sensor.dark_sky_daily_max_precip_intensity
+          - sensor.dark_sky_temperature
+          - sensor.dark_sky_wind_speed
+          - sensor.dark_sky_cloud_coverage
+          - sensor.dark_sky_humidity
+          - sensor.dark_sky_minutely_summary
+          - sensor.dark_sky_uv_index
+          - sensor.dark_sky_hourly_summary
+      - type: entities
+        title: Sun
+        entities:
+          - sun.sun
+          - sensor.yr_symbol
+      - type: entities
+        title: Date/Time
+        entities:
+          - sensor.date
+          - sensor.time
+          - sensor.date__time
+  - name: HVAC
+    tab_icon: mdi:fan
+    cards:
+      - type: entities
+        title: Front Temps/Thermostat
+        entities:
+          - sensor.front_temps
+          - input_select.front_function
+          - input_select.front_thermostat_mode
+          - sensor.front_desired_state
+          - sensor.den_thermostat_current_state
+          - input_number.front_heating_target
+          - input_number.front_cooling_target
+      - type: entities
+        title: Rear Temps/Thermostat
+        entities:
+          - sensor.rear_temps
+          - input_select.rear_function
+          - input_select.rear_thermostat_mode
+          - sensor.rear_desired_state
+          - sensor.kitchen_thermostat_current_state
+          - input_number.rear_heating_target
+          - input_number.rear_cooling_target
+      - type: entities
+        title: Den Thermostat
+        entities:
+          - sensor.den_thermostat_temp
+          - input_select.den_thermostat_mode
+          - switch.den_thermostat_fan_mode
+          - sensor.den_expected_state
+          - sensor.den_thermostat_current_state
+          - input_number.den_heating_target
+          - input_number.den_cooling_target
+          - sensor.den_thermostat_battery
+      - type: entities
+        title: Kitchen Thermostat
+        entities:
+          - sensor.kitchen_thermostat_temp
+          - input_select.kitchen_thermostat_mode
+          - switch.kitchen_thermostat_fan_mode
+          - sensor.kitchen_expected_state
+          - sensor.kitchen_thermostat_current_state
+          - input_number.kitchen_heating_target
+          - input_number.kitchen_cooling_target
+          - sensor.kitchen_thermostat_battery
+      - type: entities
+        title: Front Occupied
+        entities:
+          - input_boolean.den_thermostat_occupied
+          - input_boolean.girls_br_occupied
+          - input_boolean.office_occupied
+      - type: entities
+        title: Rear Occupied
+        entities:
+          - input_boolean.kitchen_thermostat_occupied
+          - input_boolean.mbr_occupied
+          - input_boolean.basement_occupied
+      - type: entities
+        title: Heating Targets
+        entities:
+          - input_number.front_heating_target_home
+          - input_number.rear_heating_target_home
+          - input_number.front_heating_target_away
+          - input_number.rear_heating_target_away
+          - input_number.front_heating_target_night
+          - input_number.rear_heating_target_night
+          - input_number.front_heating_target_renting
+          - input_number.rear_heating_target_renting
+      - type: entities
+        title: Cooling Targets
+        entities:
+          - input_number.front_cooling_target_home
+          - input_number.rear_cooling_target_home
+          - input_number.front_cooling_target_away
+          - input_number.rear_cooling_target_away
+          - input_number.front_cooling_target_night
+          - input_number.rear_cooling_target_night
+          - input_number.front_cooling_target_renting
+          - input_number.rear_cooling_target_renting
+      - type: entities
+        title: Cooling Targets
+        entities:
+          - input_number.front_cooling_target_home
+          - input_number.rear_cooling_target_home
+          - input_number.front_cooling_target_away
+          - input_number.rear_cooling_target_away
+          - input_number.front_cooling_target_night
+          - input_number.rear_cooling_target_night
+          - input_number.front_cooling_target_renting
+          - input_number.rear_cooling_target_renting
+      - type: entities
+        title: Temps
+        entities:
+          - sensor.den_thermostat_temp
+          - sensor.kitchen_thermostat_temp
+          - sensor.girls_br_temp
+          - sensor.mbr_temp
+          - sensor.office_temp
+  - name: System
+    tab_icon: mdi:settings
+    cards:
+      - type: entity-filter
+        card_config:
+          title: All Automations
+        filter:
+          - domain: automation
+      - type: entity-filter
+        card_config:
+          title: All Scripts
+        filter:
+          - domain: script
+      - type: entities
+        title: Orphans
+        entities:
+          - sensor.catfed
+          - sensor.dogwalked
+          - sensor.fishfed
+          - sensor.pigfed
+          - sensor.dogfed
+          - binary_sensor.annapolis__away
+          - binary_sensor.duck_away
+          - sensor.annapolis__eta
+          - sensor.duck_security_state
+          - sensor.annapolis__security_state
+          - sensor.duck_eta
+      - type: media-control
+        entity: media_player.status_panel
+      - type: media-control
+        entity: media_player.pet_panel
+      - type: media-control
+        entity: media_player.hvac_panel
+      - - type: entities
+          title: Unused
+          entities:
+            - switch.plug_1
+            - switch.plug_2
+        - []
+      - type: media-control
+        entity: media_player.kitchen_2
+      - - type: entities
+          title: Phone
+          entities:
+            - sensor.modem_callerid
+        - []
+      - - type: entities
+          title: Vacation Mode
+          entities:
+            - input_boolean.vacation_mode
+        - []
+      - type: entity-filter
+        card_config:
+          title: All Switches
+        filter:
+          - domain: switch
+      - type: entity-filter
+        card_config:
+          title: All Locks
+        filter:
+          - domain: lock
+      - type: entity-filter
+        card_config:
+          title: All Lights
+        filter:
+          - domain: light
+      - type: entity-filter
+        card_config:
+          title: All Devices
+        filter:
+          - domain: device_tracker
+  - name: Panels
+    tab_icon: mdi:tablet
+    cards:
+      - type: entities
+        title: Status Panel
+        entities:
+          - input_boolean.carpool_week
+          - binary_sensor.status_panel_motion
+          - binary_sensor.status_panel_plugged
+          - light.status_panel_screensaver
+      - type: entities
+        title: Pets
+        entities:
+          - sensor.dogfed_time
+          - sensor.catfed_time
+          - sensor.dogwalked_time
+          - sensor.fishfed_time
+          - sensor.pigfed_time
+          - binary_sensor.pet_panel_motion
+          - binary_sensor.pet_panel_plugged
+          - light.pet_panel_screensaver
+      - type: entities
+        title: Date/Time
+        entities:
+          - sensor.date
+          - sensor.time
+          - sensor.date__time
+  - name: Sprinkler
+    tab_icon: mdi:water-pump
+    cards:
+      - type: entities
+        title: Sprinkler Status
+        entities:
+          - sensor.zone_1
+          - sensor.zone_2
+          - sensor.zone_3
+          - sensor.zone_4
+          - sensor.zone_5
+          - sensor.zone_6
+          - sensor.zone_7
+          - sensor.zone_8
+      - type: entities
+        title: Sprinkler Switches
+        entities:
+          - switch.zone_1
+          - switch.zone_2
+          - switch.zone_3
+          - switch.zone_4
+          - switch.zone_5
+          - switch.zone_6
+          - switch.zone_7
+          - switch.zone_8
+      - type: entities
+        title: Sprinkler Settings
+        entities:
+          - input_number.zone_1
+          - input_number.zone_2
+          - input_number.zone_3
+          - input_number.zone_4
+          - input_number.zone_5
+          - input_number.zone_6
+          - input_number.zone_7
+          - input_number.zone_8
+      - type: entities
+        title: Sprinkler Automation 01
+        entities:
+          - input_boolean.sprinkler01_scheduled
+          - input_datetime.sprinkler01_time
+          - input_boolean.sprinkler01_monday
+          - input_boolean.sprinkler01_tuesday
+          - input_boolean.sprinkler01_wednesday
+          - input_boolean.sprinkler01_thrusday
+          - input_boolean.sprinkler01_friday
+          - input_boolean.sprinkler01_saturday
+          - input_boolean.sprinkler01_sunday
+          - input_number.sprinkler01_sch_zone_1
+          - input_number.sprinkler01_sch_zone_2
+          - input_number.sprinkler01_sch_zone_3
+          - input_number.sprinkler01_sch_zone_4
+          - input_number.sprinkler01_sch_zone_5
+          - input_number.sprinkler01_sch_zone_6
+          - input_number.sprinkler01_sch_zone_7
+          - input_number.sprinkler01_sch_zone_8
+          - binary_sensor.rain_expected
+      - type: entities
+        title: Sprinkler Automation 02
+        entities:
+          - input_boolean.sprinkler02_scheduled
+          - input_datetime.sprinkler02_time
+          - input_boolean.sprinkler02_monday
+          - input_boolean.sprinkler02_tuesday
+          - input_boolean.sprinkler02_wednesday
+          - input_boolean.sprinkler02_thrusday
+          - input_boolean.sprinkler02_friday
+          - input_boolean.sprinkler02_saturday
+          - input_boolean.sprinkler02_sunday
+          - input_number.sprinkler02_sch_zone_1
+          - input_number.sprinkler02_sch_zone_2
+          - input_number.sprinkler02_sch_zone_3
+          - input_number.sprinkler02_sch_zone_4
+          - input_number.sprinkler02_sch_zone_5
+          - input_number.sprinkler02_sch_zone_6
+          - input_number.sprinkler02_sch_zone_7
+          - input_number.sprinkler02_sch_zone_8
+          - binary_sensor.rain_expected
+  - name: Switches
+    tab_icon: mdi:lightbulb
+    cards:
+      - type: entities
+        title: Exterior Lights
+        entities:
+          - light.porch_lights
+      - type: entities
+        title: Basement lights
+        entities:
+          - switch.basement_lights
+          - switch.basement_step_lights
+      - type: entities
+        title: Side Door
+        entities:
+          - lock.mqtt_lock
+      - type: entities
+        title: Family Room Lights
+        entities:
+          - switch.floor_lamp
+          - switch.reading_lamp
+          - switch.antique_lamp
+  - name: All Entities
+    tab_icon: mdi:settings
+    cards:
+      - type: entity-filter
+        card_config:
+          title: All Entities
+        filter:
+          - {}
