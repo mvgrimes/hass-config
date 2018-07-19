@@ -1,0 +1,11 @@
+automation:
+  - alias: Get Ungrouped Entities On Start
+    # hide_entity: true
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+      service: python_script.scan_orphans
+      # data:
+      #   domains_to_ignore: "zone,group,script,zwave"
+      #   target_group: "group.catchall"

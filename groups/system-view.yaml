@@ -5,3 +5,4 @@ system_view:
   entities:
     - group.all_automations
     - group.all_scripts
+    - group.orphans
