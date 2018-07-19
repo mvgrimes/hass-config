@@ -157,7 +157,7 @@ notify:
     user_key: !secret pushover_user_key
   - name: mqtt_say
     platform: command_line
-    command: '/config/bin/mqtt-say.sh'
+    command: '/config/bin/mqtt-tts.sh'
 
 # Load the map component
 map:
