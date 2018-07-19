@@ -16,7 +16,7 @@ purge_keep_days: 14
 exclude:
   domains:
     - updater
-    - device_tracker
+    # - device_tracker
     - group
     - scene
     # - automation
