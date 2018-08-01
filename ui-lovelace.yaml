@@ -1,12 +1,14 @@
 name: Home
 views:
-  - name: Lovelace
-    tab_icon: mdi:home
+  - title: Home
+    icon: mdi:home
     cards:
-      - type: entities
-        title: Notices
-        entities:
-          - updater.updater
+      # - type: entities
+      #   title: Notices
+      #   entities:
+      #     - updater.updater
+      # - type: weather-forecast
+      #   entity: weather.darksky
       - type: entities
         title: Weather
         entities:
@@ -14,32 +16,18 @@ views:
           - sensor.dark_sky_temperature
           - sensor.dark_sky_wind_speed
           - sensor.uv_burn_time
+
       - type: entities
         title: Switches
-        entities: []
-      - - type: entities
-          title: Exterior Lights
-          entities:
-            - light.porch_lights
-        - []
-      - - type: entities
-          title: Basement lights
-          entities:
-            - switch.basement_lights
-            - switch.basement_step_lights
-        - []
-      - - type: entities
-          title: Side Door
-          entities:
-            - lock.mqtt_lock
-        - []
-      - - type: entities
-          title: Family Room Lights
-          entities:
-            - switch.floor_lamp
-            - switch.reading_lamp
-            - switch.antique_lamp
-        - []
+        show_header_toggle: true
+        entities:
+          - light.porch_lights
+          - switch.basement_lights
+          - switch.basement_step_lights
+          - lock.mqtt_lock
+          - switch.floor_lamp
+          - switch.reading_lamp
+          - switch.antique_lamp
       - type: entities
         title: Modes
         entities:
@@ -60,8 +48,8 @@ views:
         entities:
           - sensor.sp500
           - sensor.bitcoin_value
-  - name: Sensors
-    tab_icon: mdi:thermometer
+  - title: Sensors
+    icon: mdi:thermometer
     cards:
       - type: entities
         title: Temps
@@ -99,15 +87,14 @@ views:
           - sensor.porch_pir
           - sensor.porch_real_feel
           - light.porch_led
-  - name: Presence
-    tab_icon: mdi:map-marker
+  - title: Presence
+    icon: mdi:map-marker
     cards:
       - type: entities
         title: Family
         entities:
           - device_tracker.mgrimes_oneplus3t
           - device_tracker.carrie_d81aebcb473e4ef7ab1e8965aecaa6c9
-          - device_tracker.carrie_iphone6
           - device_tracker.campbell_iphone
           - device_tracker.whitney_iphone6
           - device_tracker.carrie_iphone
@@ -122,8 +109,8 @@ views:
         title: Present
         entities:
           - binary_sensor.mark_is_home
-  - name: Media
-    tab_icon: mdi:music
+  - title: Media
+    icon: mdi:music
     cards:
       - type: entities
         title: Music
@@ -157,8 +144,8 @@ views:
         entity: camera.entryway
       - type: camera-preview
         entity: camera.kitchen
-  - name: Weather
-    tab_icon: mdi:weather-partlycloudy
+  - title: Weather
+    icon: mdi:weather-partlycloudy
     cards:
       - type: entities
         title: Weather Underground
@@ -197,8 +184,8 @@ views:
           - sensor.date
           - sensor.time
           - sensor.date__time
-  - name: HVAC
-    tab_icon: mdi:fan
+  - title: HVAC
+    icon: mdi:fan
     cards:
       - type: entities
         title: Front Temps/Thermostat
@@ -295,14 +282,16 @@ views:
           - sensor.girls_br_temp
           - sensor.mbr_temp
           - sensor.office_temp
-  - name: System
-    tab_icon: mdi:settings
+
+  - title: System
+    icon: mdi:settings
     cards:
-      - type: entity-filter
-        card_config:
+      - type: entities
+        card:
           title: All Automations
-        filter:
-          - domain: automation
+        entities:
+          - domain.automation
+
       - type: entity-filter
         card_config:
           title: All Scripts
@@ -366,8 +355,8 @@ views:
           title: All Devices
         filter:
           - domain: device_tracker
-  - name: Panels
-    tab_icon: mdi:tablet
+  - title: Panels
+    icon: mdi:tablet
     cards:
       - type: entities
         title: Status Panel
@@ -393,8 +382,8 @@ views:
           - sensor.date
           - sensor.time
           - sensor.date__time
-  - name: Sprinkler
-    tab_icon: mdi:water-pump
+  - title: Sprinkler
+    icon: mdi:water-pump
     cards:
       - type: entities
         title: Sprinkler Status
@@ -471,8 +460,8 @@ views:
           - input_number.sprinkler02_sch_zone_7
           - input_number.sprinkler02_sch_zone_8
           - binary_sensor.rain_expected
-  - name: Switches
-    tab_icon: mdi:lightbulb
+  - title: Switches
+    icon: mdi:lightbulb
     cards:
       - type: entities
         title: Exterior Lights
@@ -493,8 +482,8 @@ views:
           - switch.floor_lamp
           - switch.reading_lamp
           - switch.antique_lamp
-  - name: All Entities
-    tab_icon: mdi:settings
+  - title: All Entities
+    icon: mdi:settings
     cards:
       - type: entity-filter
         card_config:
