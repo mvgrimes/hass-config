@@ -69,7 +69,7 @@ automation:
             Mark is home. Do the stuff!
       - service: lock.unlock
         data:
-          entity_id: lock.mqtt_lock
+          entity_id: lock.sidedoor
 
   - alias: 'Home Mode when Arriving'
     initial_state: 'on'

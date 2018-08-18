@@ -685,3 +685,83 @@ whitney_whiphone6:
   name: 192.168.1.47
   picture:
   track: false
+
+'192168142':
+  hide_if_away: false
+  icon:
+  mac: B4:8B:19:47:E7:25
+  name: 192.168.1.42
+  picture:
+  track: false
+
+'192168143_4':
+  hide_if_away: false
+  icon:
+  mac: 5C:AD:CF:BF:96:90
+  name: 192.168.1.43
+  picture:
+  track: false
+
+'192168144_2':
+  hide_if_away: false
+  icon:
+  mac: B8:D7:AF:B0:C9:26
+  name: 192.168.1.44
+  picture:
+  track: false
+
+'192168146_2':
+  hide_if_away: false
+  icon:
+  mac: 00:24:D6:4A:9B:30
+  name: 192.168.1.46
+  picture:
+  track: false
+
+'192168121_3':
+  hide_if_away: false
+  icon:
+  mac: F4:F5:D8:40:33:82
+  name: 192.168.1.21
+  picture:
+  track: false
+
+'192168142_2':
+  hide_if_away: false
+  icon:
+  mac: 6C:72:E7:54:D6:63
+  name: 192.168.1.42
+  picture:
+  track: false
+
+'192168143_5':
+  hide_if_away: false
+  icon:
+  mac: 20:3C:AE:D4:B7:A9
+  name: 192.168.1.43
+  picture:
+  track: false
+
+'192168121_4':
+  hide_if_away: false
+  icon:
+  mac: CC:C7:60:01:E8:B4
+  name: 192.168.1.21
+  picture:
+  track: false
+
+'192168142_3':
+  hide_if_away: false
+  icon:
+  mac: 88:19:08:C7:80:F7
+  name: 192.168.1.42
+  picture:
+  track: false
+
+'192168143_6':
+  hide_if_away: false
+  icon:
+  mac: 28:FF:3C:24:4F:0D
+  name: 192.168.1.43
+  picture:
+  track: false

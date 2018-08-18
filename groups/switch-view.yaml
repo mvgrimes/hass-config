@@ -8,11 +8,10 @@ switch_view:
     - group.locks
     - group.family_room
 
-
-locks:
-  name: Side Door
-  entities:
-    - lock.mqtt_lock
+# locks:
+#   name: Side Door
+#   entities:
+#     - lock.mqtt_lock
 
 unused_switch:
   name: Unused

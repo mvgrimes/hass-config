@@ -1,6 +1,0 @@
-lock:
-  - platform: mqtt
-    state_topic: "smartthings/Side Door Lock/lock"
-    command_topic: "smartthings/Side Door Lock/lock"
-    payload_lock: "locked"
-    payload_unlock: "unlocked"
