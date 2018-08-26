@@ -15,6 +15,7 @@ group:
       - device_tracker.mark_android
       - device_tracker.whitney_ipad
       - device_tracker.carrie_ipad
+      - device_tracker.sprinkler01
       # - device_tracker.19216817
       # - device_tracker.192168119
       # - device_tracker.192168125
@@ -93,3 +94,17 @@ automation:
     action:
       service: input_boolean.turn_on
       entity_id: input_boolean.home_mode
+
+  - alias: 'Notify when device not at home'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:
+          - device_tracker.sprinkler01
+        to: 'not_home'
+        for:
+          minutes: 5
+    action:
+      service: notify.pushover
+      data_template:
+        message: '{{ trigger.to_state.object_id }} is not at home!'

@@ -1,0 +1,32 @@
+
+
+# automation:
+#   - alias: Hide system view
+#     trigger:
+#       platform: homeassistant
+#       event: start
+#     action:
+#       service: script.toggle_dev_views
+#       data:
+#         visible: '{{ states("input_number.dev_mode") }}'
+#
+#   - alias: Toggle system view
+#     trigger:
+#       platform: state
+#       entity_id: input_number.dev_mode
+#     action:
+#       service: script.toggle_dev_views
+#       data:
+#         visible: '{{ trigger.to_state }}'
+
+script:
+  toggle_dev_views:
+    sequence:
+      - service: group.set_visibility
+        data_template:
+          entity_id: group.orphans
+          visible: '{{ visible }}'
+      - service: group.set_visibility
+        data_template:
+          entity_id: group.keypads
+          visible: '{{ visible }}'

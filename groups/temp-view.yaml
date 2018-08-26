@@ -11,3 +11,4 @@ sensor_view:
     - group.sensornode_livingroom_card
     - group.sensornode_master_card
     - group.sensornode_porch_card
+    - group.sensornode_thirdflr_card

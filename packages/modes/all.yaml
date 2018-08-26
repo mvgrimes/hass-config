@@ -13,6 +13,7 @@ group:
       - input_boolean.renting_mode
       - input_boolean.windows_open_mode
       - input_boolean.debug_mode
+      - input_boolean.dev_mode
 
 script:
   set_temp_targets:

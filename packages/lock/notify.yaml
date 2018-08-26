@@ -1,0 +1,94 @@
+#
+
+homeassistant:
+  customize_glob:
+    "input_*.door_keypad_*":
+      persistent: true
+
+input_boolean:
+  door_keypad_1_notify:
+    name: Notify
+  door_keypad_2_notify:
+    name: Notify
+  door_keypad_3_notify:
+    name: Notify
+  door_keypad_4_notify:
+    name: Notify
+  door_keypad_5_notify:
+    name: Notify
+  door_keypad_6_notify:
+    name: Notify
+  door_keypad_7_notify:
+    name: Notify
+  door_keypad_8_notify:
+    name: Notify
+  door_keypad_9_notify:
+    name: Notify
+  door_keypad_10_notify:
+    name: Notify
+
+sensor:
+  - platform: template
+    sensors:
+      sidedoor_action:
+        friendly_name: 'Side Door Action'
+        value_template: >
+          {% if is_state('sensor.sidedoor_alarm_type', '22') %}
+            Manual Unlock
+          {% elif is_state('sensor.sidedoor_alarm_type', '21') %}
+            Manual Lock
+          {% elif is_state('sensor.sidedoor_alarm_type', '19') %}
+            Keypad Unlock
+          {% elif is_state('sensor.sidedoor_alarm_type', '18') %}
+            Keypad Lock
+          {% elif is_state('sensor.sidedoor_alarm_type', '25') %}
+            Wireless Unlock
+          {% elif is_state('sensor.sidedoor_alarm_type', '24') %}
+            Wireless Lock
+          {% elif is_state('sensor.sidedoor_alarm_type', '9') %}
+            Lock Jammed
+          {% elif is_state('sensor.sidedoor_alarm_type', '161') %}
+            Tamper Alarm
+          {% else %}
+            Other {{ states.sensor.sidedoor_alarm_type.state }}
+          {% endif %}
+      sidedoor_code:
+        friendly_name: 'Side Door Code'
+        value_template: >-
+          {%- if is_state('sensor.sidedoor_alarm_type', '19') or is_state('sensor.sidedoor_alarm_type', '18') -%}
+            {%- set code_slot = states("sensor.sidedoor_alarm_level") -%}
+            {%- set select_id = 'door_keypad_' ~ code_slot ~ '_name' -%}
+            {{ states("input_text." ~ select_id) }}
+          {%- else -%}
+            n/a
+          {%- endif -%}
+
+automation:
+  - alias: Notify when unlocked
+    trigger:
+      - platform: state
+        to: '19'
+        entity_id:
+          - sensor.sidedoor_alarm_type
+    action:
+      - service: notify.pushover
+        data_template:
+          message: >-
+            {%- set code_slot = states.sensor.sidedoor_alarm_level.state -%}
+            {%- set select_id = 'door_keypad_' ~ code_slot ~ '_name' -%}
+            {{ states['input_text'][select_id].state }} unlocked the door.
+            {% set notify_id = 'door_keypad_' ~ code_slot ~ '_notify' %}
+            Notify ( {{ notify_id }} ) is {{ states['input_boolean'][notify_id].state }}
+      - condition: and
+        conditions:
+          - condition: template
+            value_template: >-
+              {% set code_slot = states.sensor.sidedoor_alarm_level.state %}
+              {% set select_id = 'door_keypad_' ~ code_slot ~ '_notify' %}
+              {{ is_state('input_boolean.' ~ select_id, 'on') }}
+      - service: notify.pushover
+        data_template:
+          message: >-
+            {%- set code_slot = states.sensor.sidedoor_alarm_level.state -%}
+            {%- set select_id = 'door_keypad_' ~ code_slot ~ '_name' -%}
+            {{ states['input_text'][select_id].state }} unlocked the door.

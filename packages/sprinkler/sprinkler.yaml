@@ -27,6 +27,7 @@ group:
   sprinkler_status:
     name: Sprinkler Status
     entities:
+      - binary_sensor.sprinkler01_online
       - sensor.zone_1
       - sensor.zone_2
       - sensor.zone_3
@@ -147,6 +148,12 @@ binary_sensor:
         device_class: moisture
         value_template: >
           {{ (states("sensor.pws_precip_1d_in")|float) + (states("sensor.pws_precip_1d_in")|float) > 0.5 }}
+  - platform: mqtt
+    name: "Sprinkler01 Online"
+    state_topic: "hass/sprinkler01/online"
+    payload_on: online
+    payload_off: offline
+    value_template: '{{ value_json.status }}'
 
 switch:
   - platform: template
@@ -328,6 +335,18 @@ automation:
         data_template:
           title: 'HA Sprinkler On'
           message: 'Sprinkler Zone {{ trigger.entity_id }} ON'
+
+  - alias: 'Sprinkler on/offline notify'
+    hide_entity: true
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.sprinkler01_online
+    action:
+      - service: notify.pushover
+        data_template:
+          title: 'HA Sprinkler01 State'
+          message: 'Sprinkler01 is {{ trigger.to_state.state }}'
 
 # For Alexa/Google
 # script:

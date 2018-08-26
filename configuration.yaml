@@ -6,6 +6,9 @@ homeassistant:
   elevation: 8
   unit_system: imperial
   time_zone: America/New_York
+  # auth_providers:
+  #   - type: homeassistant
+  #   - type: legacy_api_password   # backwards compat API password support
   customize: !include customize.yaml
   packages: !include_dir_named packages
 
@@ -29,6 +32,9 @@ frontend:
 
 # Enables configuration UI
 config:
+
+# Enable the auth component
+# auth:
 
 # Enable the Home Assistant Cloud service
 cloud:

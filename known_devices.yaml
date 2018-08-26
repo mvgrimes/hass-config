@@ -97,6 +97,15 @@ campbell_iphone:
   track: true
   vendor: Apple, Inc.
 
+'sprinkler01':
+  hide_if_away: false
+  icon: mdi:water
+  mac: BC:83:85:95:8B:9D
+  name: 192.168.1.6
+  picture:
+  track: true
+  vendor: unknown
+
 # Untracked -------------------------
 
 '1921681225':
@@ -107,15 +116,6 @@ campbell_iphone:
   picture:
   track: false
   vendor: Seiko Epson Corporation
-
-'19216816':
-  hide_if_away: false
-  icon:
-  mac: BC:83:85:95:8B:9D
-  name: 192.168.1.6
-  picture:
-  track: false
-  vendor: unknown
 
 '19216819':
   hide_if_away: false
@@ -763,5 +763,21 @@ whitney_whiphone6:
   icon:
   mac: 28:FF:3C:24:4F:0D
   name: 192.168.1.43
+  picture:
+  track: false
+
+'192168144_3':
+  hide_if_away: false
+  icon:
+  mac: 10:94:BB:F0:14:50
+  name: 192.168.1.44
+  picture:
+  track: false
+
+'192168141':
+  hide_if_away: false
+  icon:
+  mac: 2C:3A:E8:43:11:EE
+  name: 192.168.1.41
   picture:
   track: false

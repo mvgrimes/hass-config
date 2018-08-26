@@ -2,5 +2,9 @@
 
 input_boolean:
   debug_mode:
-    name: 'Debug Mode'
-    icon: 'mdi:bug'
+    name: Debug Mode
+    icon: mdi:bug
+  dev_mode:
+    name: Development Mode
+    icon: mdi:developer-board
+    initial: False

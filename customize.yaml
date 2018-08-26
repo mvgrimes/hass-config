@@ -29,5 +29,7 @@ group.miner_view:
   order: 9
 group.sensor_view:
   order: 10
-group.system_view:
+group.keypads_view:
   order: 11
+group.system_view:
+  order: 12

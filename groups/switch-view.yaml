@@ -1,7 +1,7 @@
 switch_view:
   view: yes
   name: Switches
-  icon: mdi:lightbulb
+  icon: mdi:toggle-switch
   entities:
     - group.exterior_lights
     - group.basement_lights

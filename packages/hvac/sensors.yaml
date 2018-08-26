@@ -38,3 +38,4 @@ group:
       - sensor.girls_br_temp
       - sensor.mbr_temp
       - sensor.office_temp
+      - sensor.third_flr_temperature
