@@ -1,0 +1,23 @@
+name: Home
+
+# Copy resources from anywhere to www/lovelace and include them
+resources:
+  - url: !resource monster-card/monster-card.js
+    type: js
+  - url: !resource entity-attributes-card/entity-attributes-card.js
+    type: js
+  - url: !resource sprinkler-card/sprinkler-card.js
+    type: js
+
+views:
+  - !include home-view.yaml
+  - !include hvac-view.yaml
+  - !include lights-view.yaml
+  - !include sensor-view.yaml
+  - !include sprinkler-view.yaml
+  - !include presence-view.yaml
+  - !include media-view.yaml
+  - !include weather-view.yaml
+  - !include panels-view.yaml
+  - !include keypads-view.yaml
+  - !include system-view.yaml

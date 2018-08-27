@@ -1,0 +1,40 @@
+title: Presence
+icon: mdi:map-marker
+cards:
+  - type: entities
+    title: Family
+    entities:
+      - device_tracker.mgrimes_oneplus3t
+      - device_tracker.carrie_d81aebcb473e4ef7ab1e8965aecaa6c9
+      - device_tracker.carrie_iphone6
+      - device_tracker.campbell_iphone
+      - device_tracker.whitney_iphone6
+      - device_tracker.carrie_iphone
+      - device_tracker.mark_laptop_spike
+      - device_tracker.antminer_01
+      - device_tracker.campbell_iphone_mac
+      - device_tracker.campbell_ipad
+      - device_tracker.mark_android
+      - device_tracker.whitney_ipad
+      - device_tracker.carrie_ipad
+      - device_tracker.sprinkler01
+      # - device_tracker.19216817
+      # - device_tracker.192168119
+      # - device_tracker.192168125
+
+  - type: entities
+    title: Present
+    entities:
+      - binary_sensor.mark_is_home
+
+  - type: custom:monster-card
+    title: Not Home
+    card:
+      type: glance
+    filter:
+      include:
+        - domain: device_tracker
+          state: 'not_home'
+          options:
+            secondary_info: last-changed
+

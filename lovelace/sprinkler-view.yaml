@@ -1,0 +1,110 @@
+title: Sprinkler
+icon: mdi:water-pump
+cards:
+  # - type: custom:sprinkler-card
+  #   title: Sprinkler01
+  #   entity:
+  #     - sensor.zone_1
+
+
+  - type: entities
+    title: Sprinkler Status
+    entities:
+      - binary_sensor.sprinkler01_online
+
+      - sensor.zone_1
+      - type: custom:sprinkler-card
+        entity: sensor.zone_1
+
+      - sensor.zone_2
+      - type: custom:sprinkler-card
+        entity: sensor.zone_2
+
+      - sensor.zone_3
+      - type: custom:sprinkler-card
+        entity: sensor.zone_3
+
+      - sensor.zone_4
+      - type: custom:sprinkler-card
+        entity: sensor.zone_4
+
+      - sensor.zone_5
+      - type: custom:sprinkler-card
+        entity: sensor.zone_5
+
+      - sensor.zone_6
+      - type: custom:sprinkler-card
+        entity: sensor.zone_6
+
+      - sensor.zone_7
+      - type: custom:sprinkler-card
+        entity: sensor.zone_7
+
+      - sensor.zone_8
+      - type: custom:sprinkler-card
+        entity: sensor.zone_8
+
+  - type: entities
+    title: Sprinkler Switches
+    entities:
+      - switch.zone_1
+      - switch.zone_2
+      - switch.zone_3
+      - switch.zone_4
+      - switch.zone_5
+      - switch.zone_6
+      - switch.zone_7
+      - switch.zone_8
+  - type: entities
+    title: Sprinkler Settings
+    entities:
+      - input_number.zone_1
+      - input_number.zone_2
+      - input_number.zone_3
+      - input_number.zone_4
+      - input_number.zone_5
+      - input_number.zone_6
+      - input_number.zone_7
+      - input_number.zone_8
+  - type: entities
+    title: Sprinkler Automation 01
+    entities:
+      - input_boolean.sprinkler01_scheduled
+      - input_datetime.sprinkler01_time
+      - input_boolean.sprinkler01_monday
+      - input_boolean.sprinkler01_tuesday
+      - input_boolean.sprinkler01_wednesday
+      - input_boolean.sprinkler01_thrusday
+      - input_boolean.sprinkler01_friday
+      - input_boolean.sprinkler01_saturday
+      - input_boolean.sprinkler01_sunday
+      - input_number.sprinkler01_sch_zone_1
+      - input_number.sprinkler01_sch_zone_2
+      - input_number.sprinkler01_sch_zone_3
+      - input_number.sprinkler01_sch_zone_4
+      - input_number.sprinkler01_sch_zone_5
+      - input_number.sprinkler01_sch_zone_6
+      - input_number.sprinkler01_sch_zone_7
+      - input_number.sprinkler01_sch_zone_8
+      - binary_sensor.rain_expected
+  - type: entities
+    title: Sprinkler Automation 02
+    entities:
+      - input_boolean.sprinkler02_scheduled
+      - input_datetime.sprinkler02_time
+      - input_boolean.sprinkler02_monday
+      - input_boolean.sprinkler02_tuesday
+      - input_boolean.sprinkler02_wednesday
+      - input_boolean.sprinkler02_thrusday
+      - input_boolean.sprinkler02_friday
+      - input_boolean.sprinkler02_saturday
+      - input_boolean.sprinkler02_sunday
+      - input_number.sprinkler02_sch_zone_1
+      - input_number.sprinkler02_sch_zone_2
+      - input_number.sprinkler02_sch_zone_3
+      - input_number.sprinkler02_sch_zone_4
+      - input_number.sprinkler02_sch_zone_5
+      - input_number.sprinkler02_sch_zone_6
+      - input_number.sprinkler02_sch_zone_7
+      - input_number.sprinkler02_sch_zone_8
+      - binary_sensor.rain_expected

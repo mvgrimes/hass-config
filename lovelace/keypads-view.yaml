@@ -1,0 +1,126 @@
+title: Keypads
+icon: mdi:home
+icon: mdi:dialpad
+cards:
+  - !include lock.yaml
+
+  - type: entities
+    show_header_toggle: false
+    title: Entry Code 1
+    entities:
+      - input_text.door_keypad_1_name
+      - input_text.door_keypad_1_code
+      # - input_select.door_keypad_1_access_schedule
+      # - input_datetime.door_keypad_1_date_start
+      # - input_datetime.door_keypad_1_date_end
+      - input_boolean.door_keypad_1_notify
+      - input_boolean.door_keypad_1_sidedoor
+      - script.door_keypad_1_delete
+  - type: entities
+    show_header_toggle: false
+    title: Entry Code 2
+    entities:
+      - input_text.door_keypad_2_name
+      - input_text.door_keypad_2_code
+      # - input_select.door_keypad_2_access_schedule
+      # - input_datetime.door_keypad_2_date_start
+      # - input_datetime.door_keypad_2_date_end
+      - input_boolean.door_keypad_2_notify
+      - input_boolean.door_keypad_2_sidedoor
+      - script.door_keypad_2_delete
+  - type: entities
+    show_header_toggle: false
+    title: Entry Code 3
+    entities:
+      - input_text.door_keypad_3_name
+      - input_text.door_keypad_3_code
+      # - input_select.door_keypad_3_access_schedule
+      # - input_datetime.door_keypad_3_date_start
+      # - input_datetime.door_keypad_3_date_end
+      - input_boolean.door_keypad_3_notify
+      - input_boolean.door_keypad_3_sidedoor
+      - script.door_keypad_3_delete
+  - type: entities
+    show_header_toggle: false
+    title: Entry Code 4
+    entities:
+      - input_text.door_keypad_4_name
+      - input_text.door_keypad_4_code
+      # - input_select.door_keypad_4_access_schedule
+      # - input_datetime.door_keypad_4_date_start
+      # - input_datetime.door_keypad_4_date_end
+      - input_boolean.door_keypad_4_notify
+      - input_boolean.door_keypad_4_sidedoor
+      - script.door_keypad_4_delete
+  - type: entities
+    show_header_toggle: false
+    title: Entry Code 5
+    entities:
+      - input_text.door_keypad_5_name
+      - input_text.door_keypad_5_code
+      # - input_select.door_keypad_5_access_schedule
+      # - input_datetime.door_keypad_5_date_start
+      # - input_datetime.door_keypad_5_date_end
+      - input_boolean.door_keypad_5_notify
+      - input_boolean.door_keypad_5_sidedoor
+      - script.door_keypad_5_delete
+  - type: entities
+    show_header_toggle: false
+    title: Entry Code 6
+    entities:
+      - input_text.door_keypad_6_name
+      - input_text.door_keypad_6_code
+      # - input_select.door_keypad_6_access_schedule
+      # - input_datetime.door_keypad_6_date_start
+      # - input_datetime.door_keypad_6_date_end
+      - input_boolean.door_keypad_6_notify
+      - input_boolean.door_keypad_6_sidedoor
+      - script.door_keypad_6_delete
+  - type: entities
+    show_header_toggle: false
+    title: Entry Code 7
+    entities:
+      - input_text.door_keypad_7_name
+      - input_text.door_keypad_7_code
+      # - input_select.door_keypad_7_access_schedule
+      # - input_datetime.door_keypad_7_date_start
+      # - input_datetime.door_keypad_7_date_end
+      - input_boolean.door_keypad_7_notify
+      - input_boolean.door_keypad_7_sidedoor
+      - script.door_keypad_7_delete
+  - type: entities
+    show_header_toggle: false
+    title: Entry Code 8
+    entities:
+      - input_text.door_keypad_8_name
+      - input_text.door_keypad_8_code
+      # - input_select.door_keypad_8_access_schedule
+      # - input_datetime.door_keypad_8_date_start
+      # - input_datetime.door_keypad_8_date_end
+      - input_boolean.door_keypad_8_notify
+      - input_boolean.door_keypad_8_sidedoor
+      - script.door_keypad_8_delete
+  - type: entities
+    show_header_toggle: false
+    title: Entry Code 9
+    entities:
+      - input_text.door_keypad_9_name
+      - input_text.door_keypad_9_code
+      # - input_select.door_keypad_9_access_schedule
+      # - input_datetime.door_keypad_9_date_start
+      # - input_datetime.door_keypad_9_date_end
+      - input_boolean.door_keypad_9_notify
+      - input_boolean.door_keypad_9_sidedoor
+      - script.door_keypad_9_delete
+  - type: entities
+    show_header_toggle: false
+    title: Entry Code 10
+    entities:
+      - input_text.door_keypad_10_name
+      - input_text.door_keypad_10_code
+      # - input_select.door_keypad_10_access_schedule
+      # - input_datetime.door_keypad_10_date_start
+      # - input_datetime.door_keypad_10_date_end
+      - input_boolean.door_keypad_10_notify
+      - input_boolean.door_keypad_10_sidedoor
+      - script.door_keypad_10_delete

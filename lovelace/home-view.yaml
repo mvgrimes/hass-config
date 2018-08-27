@@ -1,0 +1,46 @@
+title: Home
+icon: mdi:home
+cards:
+  # - type: entities
+  #   title: Notices
+  #   entities:
+  #     - updater.updater
+  # - type: weather-forecast
+  #   entity: weather.darksky
+  - !include weather.yaml
+
+  - !include lock.yaml
+
+  - type: entities
+    title: Switches
+    show_header_toggle: true
+    entities:
+      - light.porch_lights
+      - switch.basement_lights
+      - switch.basement_step_lights
+      - switch.floor_lamp
+      - switch.reading_lamp
+      - switch.antique_lamp
+
+  - type: entities
+    title: Modes
+    entities:
+      - input_boolean.home_mode
+      - input_boolean.vacation_mode
+      - input_boolean.renting_mode
+      - input_boolean.windows_open_mode
+      - input_boolean.debug_mode
+
+  - type: entities
+    title: Status Panel
+    entities:
+      - input_boolean.carpool_week
+      - binary_sensor.status_panel_motion
+      - binary_sensor.status_panel_plugged
+      - light.status_panel_screensaver
+
+  - type: entities
+    title: Finance
+    entities:
+      - sensor.sp500
+      - sensor.bitcoin_value

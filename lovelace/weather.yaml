@@ -1,0 +1,7 @@
+type: entities
+title: Weather
+entities:
+  - sensor.pws_weather_1d
+  - sensor.dark_sky_temperature
+  - sensor.dark_sky_wind_speed
+  - sensor.uv_burn_time

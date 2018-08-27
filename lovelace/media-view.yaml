@@ -1,0 +1,35 @@
+title: Media
+icon: mdi:music
+cards:
+  - type: entities
+    title: Cameras
+    entities:
+      - binary_sensor.entryway_camera_motion_detected
+      - binary_sensor.entryway_camera_online
+      - binary_sensor.entryway_camera_person_detected
+      - binary_sensor.entryway_camera_sound_detected
+      - binary_sensor.kitchen_camera_motion_detected
+      - binary_sensor.kitchen_camera_online
+      - binary_sensor.kitchen_camera_person_detected
+      - binary_sensor.kitchen_camera_sound_detected
+
+  - type: media-control
+    entity: media_player.kitchen
+  - type: media-control
+    entity: media_player.outside
+  - type: media-control
+    entity: media_player.livingroom
+  - type: media-control
+    entity: media_player.porch
+  - type: media-control
+    entity: media_player.mbr
+
+
+  # - type: camera-preview
+  #   entity: camera.entryway
+  # - type: camera-preview
+  #   entity: camera.kitchen
+  # - type: camera-preview
+  #   entity: camera.entryway
+  # - type: camera-preview
+  #   entity: camera.kitchen

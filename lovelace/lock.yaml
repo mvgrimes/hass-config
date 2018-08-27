@@ -1,0 +1,10 @@
+
+type: entities
+title: Lock
+show_header_toggle: false
+entities:
+  - lock.sidedoor
+  - sensor.sidedoor_alarm_level
+  - sensor.sidedoor_alarm_type
+  - sensor.sidedoor_action
+  - sensor.sidedoor_code

@@ -1,0 +1,48 @@
+title: Sensors
+icon: mdi:thermometer
+cards:
+  - type: entities
+    title: Temps
+    entities:
+      - sensor.den_thermostat_temp
+      - sensor.kitchen_thermostat_temp
+      - sensor.girls_br_temp
+      - sensor.mbr_temp
+      - sensor.office_temp
+  - type: entities
+    title: Basement Sensor
+    entities:
+      - sensor.basement_temperature
+      - sensor.basement_humidity
+      - sensor.basement_ldr
+      - sensor.basement_pir
+      - sensor.basement_real_feel
+      # - light.basement_led
+  - type: entities
+    title: Living Room Sensor
+    entities:
+      - sensor.livingroom_button
+      - sensor.livingroom_temperature
+      - sensor.livingroom_humidity
+      - sensor.livingroom_ldr
+      - sensor.livingroom_pir
+      - sensor.livingroom_real_feel
+      # - light.livingroom_led
+  - type: entities
+    title: Porch Sensor
+    entities:
+      - sensor.porch_temperature
+      - sensor.porch_humidity
+      - sensor.porch_ldr
+      - sensor.porch_pir
+      - sensor.porch_real_feel
+      # - light.porch_led
+  - type: entities
+    title: Third Floor Sensor
+    entities:
+      - sensor.third_flr_temperature
+      - sensor.third_flr_humidity
+      - sensor.third_flr_ldr
+      - sensor.third_flr_pir
+      - sensor.third_flr_real_feel
+      # - light.third_flr_led

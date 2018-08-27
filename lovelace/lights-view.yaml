@@ -1,0 +1,21 @@
+title: Lights
+icon: mdi:lightbulb
+cards:
+
+  - type: entities
+    title: Exterior Lights
+    entities:
+      - light.porch_lights
+
+  - type: entities
+    title: Basement lights
+    entities:
+      - switch.basement_lights
+      - switch.basement_step_lights
+
+  - type: entities
+    title: Family Room Lights
+    entities:
+      - switch.floor_lamp
+      - switch.reading_lamp
+      - switch.antique_lamp

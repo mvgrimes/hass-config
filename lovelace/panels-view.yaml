@@ -1,0 +1,27 @@
+title: Panels
+icon: mdi:tablet
+cards:
+  - type: entities
+    title: Status Panel
+    entities:
+      - input_boolean.carpool_week
+      - binary_sensor.status_panel_motion
+      - binary_sensor.status_panel_plugged
+      - light.status_panel_screensaver
+  - type: entities
+    title: Pets
+    entities:
+      - sensor.dogfed_time
+      - sensor.catfed_time
+      - sensor.dogwalked_time
+      - sensor.fishfed_time
+      - sensor.pigfed_time
+      - binary_sensor.pet_panel_motion
+      - binary_sensor.pet_panel_plugged
+      - light.pet_panel_screensaver
+  - type: entities
+    title: Date/Time
+    entities:
+      - sensor.date
+      - sensor.time
+      - sensor.date__time
