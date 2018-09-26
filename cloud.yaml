@@ -1,0 +1,91 @@
+google_actions:
+  filter:
+    include_entities:
+      - script.welcome_home
+      - script.goodbye
+      - script.goodnight
+      - script.nest_away
+      - script.nest_home
+      - script.skip_song
+      - script.play_song
+      - script.stop_song
+      - switch.antique_lamp
+      - switch.reading_lamp
+      - switch.floor_lamp
+      - switch.basement_lights
+      - switch.basement_step_lights
+      - switch.plug_1
+      - switch.plug_2
+    # include_domains:
+    #   - switch
+    #   - script
+    # exclude_entities:
+    #   - switch.den_thermostat_fan_mode
+    #   - switch.kitchen_thermostat_fan_mode
+    #   - switch.miner_power
+    #   - switch.zone_1
+    #   - switch.zone_2
+    #   - switch.zone_3
+    #   - switch.zone_4
+    #   - switch.zone_5
+    #   - switch.zone_6
+    #   - switch.zone_7
+    #   - switch.zone_8
+
+alexa:
+  filter:
+    exclude_domains:
+      - alert
+      - automation
+      - cover
+      - fan
+      - group
+      - input_boolean
+      - light
+      - lock
+      - media_player
+      - scene
+      - sensor
+      - script
+      - switch
+    include_entities:
+      # These appear as devices/lights
+      # Automations in package/alexa_cloud.yaml run
+      # the associated script when these are turned
+      # on. Not sure these are needed.
+      # - input_boolean.welcome_home
+      # - input_boolean.goodbye
+      # - input_boolean.goodnight
+      # - input_boolean.nest_away
+      # - input_boolean.nest_home
+
+      # These appear as scences
+      - script.welcome_home
+      - script.goodbye
+      - script.goodnight
+      - script.nest_away
+      - script.nest_home
+
+      - media_player.kitchen
+
+      - group.basement_lights
+      - group.family_room
+      - lock.sidedoor
+
+      # - switch.plug_1
+      # - switch.plug_2
+  entity_config:
+    group.basement_lights:
+      display_categories: LIGHT
+    group.family_room:
+      display_categories: LIGHT
+    input_boolean.welcome_home:
+      display_categories: SWITCH
+    input_boolean.goodbye:
+      display_categories: SWITCH
+    input_boolean.goodnight:
+      display_categories: SWITCH
+    input_boolean.nest_away:
+      display_categories: SWITCH
+    input_boolean.nest_home:
+      display_categories: SWITCH

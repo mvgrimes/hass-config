@@ -37,49 +37,7 @@ config:
 # auth:
 
 # Enable the Home Assistant Cloud service
-cloud:
-  google_actions:
-    filter:
-      include_entities:
-        - script.welcome_home
-        - script.goodbye
-        - script.goodnight
-        - script.nest_away
-        - script.nest_home
-        - script.skip_song
-        - script.play_song
-        - script.stop_song
-        - switch.antique_lamp
-        - switch.reading_lamp
-        - switch.floor_lamp
-        - switch.basement_lights
-        - switch.basement_step_lights
-        - switch.plug_1
-        - switch.plug_2
-      # include_domains:
-      #   - switch
-      #   - script
-      # exclude_entities:
-      #   - switch.den_thermostat_fan_mode
-      #   - switch.kitchen_thermostat_fan_mode
-      #   - switch.miner_power
-      #   - switch.zone_1
-      #   - switch.zone_2
-      #   - switch.zone_3
-      #   - switch.zone_4
-      #   - switch.zone_5
-      #   - switch.zone_6
-      #   - switch.zone_7
-      #   - switch.zone_8
-
-  # alexa:
-  #   filter:
-  #     include_entities:
-  #       - script.welcome_home
-  #       - script.goodbye
-  #       - script.goodnight
-  #       - script.nest_away
-  #       - script.nest_home
+cloud: !include cloud.yaml
 
 # Enable the web frontend and provide password/config
 http:
@@ -166,7 +124,8 @@ notify:
 # Load the map component
 map:
 
-# Alexa via the "Home Assistant" skill
+# Alexa custom commands via the "Home Assistant" skill
+# See packages/{alexa,music,pets}.yaml
 alexa:
 
 # Make scripts from the python_scripts dir available
@@ -175,8 +134,10 @@ python_script:
 # Load custom panels (floorplan)
 panel_custom: !include_dir_merge_list custom_panels
 
-# Allow Amazon Echo to control some things
-emulated_hue: !include alexa.yaml
+# Allow Amazon Echo to control some things vie the emulated_hue component. This
+# is great, but I want to support the HA project so am subscribing to the cloud
+# service. So, why not use it.
+# emulated_hue: !include emulated_hue.yaml
 
 # Load config from files/directorys
 logger: !include logger.yaml

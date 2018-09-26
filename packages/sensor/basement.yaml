@@ -1,10 +1,4 @@
 group:
-  basement_lights:
-    name: Basement lights
-    entities:
-      - switch.basement_lights
-      - switch.basement_step_lights
-
   sensornode_basement_card:
     name: Basement Sensor
     entities:

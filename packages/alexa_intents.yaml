@@ -1,3 +1,5 @@
+# Custom intents for Alexa
+
 intent_script:
   StatusUpdateIntent:  # Intent type
     speech:

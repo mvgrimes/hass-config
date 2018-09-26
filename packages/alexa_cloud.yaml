@@ -1,0 +1,46 @@
+# Items just for Alexa cloud interation
+# No needed, didn't realize that scripts appear under scene. Well, I did see
+# they appeared there, but it didn't look like you could activate them, just
+# enable/disable.
+
+# input_boolean:
+#   goodbye:
+#     name: Goodbye
+#     initial: off
+#     # icon: mdi:television
+#
+#   goodnight:
+#     name: Good Night
+#     initial: off
+#
+#   welcome_home:
+#     name: Welcome Home
+#     initial: off
+#
+#   nest_away:
+#     name: Nest Away
+#     initial: off
+#
+#   nest_home:
+#     name: Nest Home
+#     initial: off
+#
+#
+# automation:
+#   - alias: "Run script when boolean turned on"
+#     trigger:
+#      - platform: state
+#        entity_id:
+#          - input_boolean.goodbye
+#          - input_boolean.goodnight
+#          - input_boolean.welcome_home
+#          - input_boolean.nest_away
+#          - input_boolean.nest_home
+#        to: 'on'
+#     action:
+#       - service: script.turn_on
+#         data_template:
+#           entity_id: '{{ "script" ~ trigger.entity_id.split(".")[1:2] }}'
+#       - service: input_boolean.turn_off
+#         data_template:
+#           entity_id: '{{ trigger.entity_id }}'
