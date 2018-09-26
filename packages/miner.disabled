@@ -42,6 +42,10 @@ script:
 
 # Create a switch just so we can use custom-ui confirm
 switch:
+  - platform: tplink
+    host: 192.168.1.29
+    name: Miner Power
+
   - platform: template
     switches:
       restart_miner:
