@@ -12,37 +12,29 @@ cards:
     entities:
       - binary_sensor.sprinkler01_online
 
-      - sensor.zone_1
-      - type: custom:sprinkler-card
-        entity: sensor.zone_1
+      - entity: sensor.zone_1
+        type: custom:sprinkler-zone-row
 
-      - sensor.zone_2
-      - type: custom:sprinkler-card
-        entity: sensor.zone_2
+      - entity: sensor.zone_2
+        type: custom:sprinkler-zone-row
 
-      - sensor.zone_3
-      - type: custom:sprinkler-card
-        entity: sensor.zone_3
+      - entity: sensor.zone_3
+        type: custom:sprinkler-zone-row
 
-      - sensor.zone_4
-      - type: custom:sprinkler-card
-        entity: sensor.zone_4
+      - entity: sensor.zone_4
+        type: custom:sprinkler-zone-row
 
-      - sensor.zone_5
-      - type: custom:sprinkler-card
-        entity: sensor.zone_5
+      - entity: sensor.zone_5
+        type: custom:sprinkler-zone-row
 
-      - sensor.zone_6
-      - type: custom:sprinkler-card
-        entity: sensor.zone_6
+      - entity: sensor.zone_6
+        type: custom:sprinkler-zone-row
 
-      - sensor.zone_7
-      - type: custom:sprinkler-card
-        entity: sensor.zone_7
+      - entity: sensor.zone_7
+        type: custom:sprinkler-zone-row
 
-      - sensor.zone_8
-      - type: custom:sprinkler-card
-        entity: sensor.zone_8
+      - entity: sensor.zone_8
+        type: custom:sprinkler-zone-row
 
   - type: entities
     title: Sprinkler Switches

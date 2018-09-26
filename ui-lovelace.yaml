@@ -5,9 +5,9 @@
 
 name: Home
 resources:
-- {type: js, url: '/local/lovelace/monster-card.js?1535380563.7463436'}
-- {type: js, url: '/local/lovelace/entity-attributes-card.js?1535380563.7463436'}
-- {type: js, url: '/local/lovelace/sprinkler-card.js?1535380563.7463436'}
+- {type: js, url: '/local/lovelace/monster-card.js?1536061968.9615817'}
+- {type: js, url: '/local/lovelace/entity-attributes-card.js?1536061968.9615817'}
+- {type: js, url: '/local/lovelace/sprinkler-card.js?1536061968.9615817'}
 views:
 - cards:
   - entities: [sensor.pws_weather_1d, sensor.dark_sky_temperature, sensor.dark_sky_wind_speed,
@@ -130,22 +130,14 @@ views:
 - cards:
   - entities:
     - binary_sensor.sprinkler01_online
-    - sensor.zone_1
-    - {entity: sensor.zone_1, type: 'custom:sprinkler-card'}
-    - sensor.zone_2
-    - {entity: sensor.zone_2, type: 'custom:sprinkler-card'}
-    - sensor.zone_3
-    - {entity: sensor.zone_3, type: 'custom:sprinkler-card'}
-    - sensor.zone_4
-    - {entity: sensor.zone_4, type: 'custom:sprinkler-card'}
-    - sensor.zone_5
-    - {entity: sensor.zone_5, type: 'custom:sprinkler-card'}
-    - sensor.zone_6
-    - {entity: sensor.zone_6, type: 'custom:sprinkler-card'}
-    - sensor.zone_7
-    - {entity: sensor.zone_7, type: 'custom:sprinkler-card'}
-    - sensor.zone_8
-    - {entity: sensor.zone_8, type: 'custom:sprinkler-card'}
+    - {entity: sensor.zone_1, type: 'custom:sprinkler-zone-row'}
+    - {entity: sensor.zone_2, type: 'custom:sprinkler-zone-row'}
+    - {entity: sensor.zone_3, type: 'custom:sprinkler-zone-row'}
+    - {entity: sensor.zone_4, type: 'custom:sprinkler-zone-row'}
+    - {entity: sensor.zone_5, type: 'custom:sprinkler-zone-row'}
+    - {entity: sensor.zone_6, type: 'custom:sprinkler-zone-row'}
+    - {entity: sensor.zone_7, type: 'custom:sprinkler-zone-row'}
+    - {entity: sensor.zone_8, type: 'custom:sprinkler-zone-row'}
     title: Sprinkler Status
     type: entities
   - entities: [switch.zone_1, switch.zone_2, switch.zone_3, switch.zone_4, switch.zone_5,
