@@ -1,3 +1,16 @@
 title: System
 icon: mdi:settings
 cards:
+
+  - type: entities
+    title: Routines
+    show_header_toggle: false
+    entities:
+      - script.goodnight
+      - script.goodbye
+      - script.play_song
+      - script.stop_song
+      - script.skip_song
+      - script.nest_home
+      - script.nest_away
+
