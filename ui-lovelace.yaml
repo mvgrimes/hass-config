@@ -46,6 +46,7 @@ views:
   - entities: [sensor.rear_temps, input_select.rear_function, input_select.rear_thermostat_mode,
       sensor.rear_desired_state, sensor.kitchen_thermostat_current_state, input_number.rear_heating_target,
       input_number.rear_cooling_target]
+    show_header_toggle: false
     title: Rear Temps/Thermostat
     type: entities
   - entities: [sensor.den_thermostat_temp, input_select.den_thermostat_mode, switch.den_thermostat_fan_mode,
@@ -56,6 +57,7 @@ views:
   - entities: [sensor.kitchen_thermostat_temp, input_select.kitchen_thermostat_mode,
       switch.kitchen_thermostat_fan_mode, sensor.kitchen_expected_state, sensor.kitchen_thermostat_current_state,
       input_number.kitchen_heating_target, input_number.kitchen_cooling_target, sensor.kitchen_thermostat_battery]
+    show_header_toggle: false
     title: Kitchen Thermostat
     type: entities
   - entities: [input_boolean.den_thermostat_occupied, input_boolean.girls_br_occupied,
@@ -303,4 +305,11 @@ views:
     type: entities
   icon: mdi:dialpad
   title: Keypads
-- {cards: null, icon: 'mdi:settings', title: System}
+- cards:
+  - entities: [script.goodnight, script.goodbye, script.play_song, script.stop_song,
+      script.skip_song, script.nest_home, script.nest_away]
+    show_header_toggle: false
+    title: Routines
+    type: entities
+  icon: mdi:settings
+  title: System

@@ -11,8 +11,10 @@ cards:
       - sensor.den_thermostat_current_state
       - input_number.front_heating_target
       - input_number.front_cooling_target
+
   - type: entities
     title: Rear Temps/Thermostat
+    show_header_toggle: false
     entities:
       - sensor.rear_temps
       - input_select.rear_function
@@ -21,6 +23,7 @@ cards:
       - sensor.kitchen_thermostat_current_state
       - input_number.rear_heating_target
       - input_number.rear_cooling_target
+
   - type: entities
     title: Den Thermostat
     entities:
@@ -32,8 +35,10 @@ cards:
       - input_number.den_heating_target
       - input_number.den_cooling_target
       - sensor.den_thermostat_battery
+
   - type: entities
     title: Kitchen Thermostat
+    show_header_toggle: false
     entities:
       - sensor.kitchen_thermostat_temp
       - input_select.kitchen_thermostat_mode
@@ -43,18 +48,21 @@ cards:
       - input_number.kitchen_heating_target
       - input_number.kitchen_cooling_target
       - sensor.kitchen_thermostat_battery
+
   - type: entities
     title: Front Occupied
     entities:
       - input_boolean.den_thermostat_occupied
       - input_boolean.girls_br_occupied
       - input_boolean.office_occupied
+
   - type: entities
     title: Rear Occupied
     entities:
       - input_boolean.kitchen_thermostat_occupied
       - input_boolean.mbr_occupied
       - input_boolean.basement_occupied
+
   - type: entities
     title: Heating Targets
     entities:
@@ -66,6 +74,7 @@ cards:
       - input_number.rear_heating_target_night
       - input_number.front_heating_target_renting
       - input_number.rear_heating_target_renting
+
   - type: entities
     title: Cooling Targets
     entities:
@@ -88,6 +97,7 @@ cards:
       - input_number.rear_cooling_target_night
       - input_number.front_cooling_target_renting
       - input_number.rear_cooling_target_renting
+
   - type: entities
     title: Temps
     entities:
