@@ -51,10 +51,17 @@ automation:
         from: 'off'
         to: 'on'
     condition:
+      - condition: template
+        value_template: >
+          {{ is_state("lock.sidedoor","locked") }}
       # We've been gone for at least 20 minutes
       - condition: template
         value_template: >
           {{ (( as_timestamp(now()) - as_timestamp(trigger.from_state.last_changed) ) / 60) > 20 }}
+      # Door has been locked for at least 20 minutes
+      - condition: template
+        value_template: >
+          {{ (( as_timestamp(now()) - as_timestamp(states.lock.sidedoor.last_updated)) / 60) > 20 }}
     action:
       - service: system_log.write
         data_template:
@@ -95,16 +102,16 @@ automation:
       service: input_boolean.turn_on
       entity_id: input_boolean.home_mode
 
-  - alias: 'Notify when device not at home'
+  - alias: 'Notify when device location changes'
     initial_state: 'on'
     trigger:
       - platform: state
         entity_id:
           - device_tracker.sprinkler01
-        to: 'not_home'
-        for:
-          minutes: 5
+        # to: not_home
+        # for:
+        #   minutes: 5
     action:
       service: notify.pushover
       data_template:
-        message: '{{ trigger.to_state.object_id }} is not at home!'
+        message: '{{ trigger.to_state.object_id }} is {{ trigger.to_state.state }}!'
