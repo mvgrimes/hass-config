@@ -26,3 +26,5 @@ README.html
 tmp/
 *.pyc
 nik.log
+.cloud
+.storage
