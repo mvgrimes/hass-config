@@ -1,6 +1,9 @@
 title: HVAC
 icon: mdi:fan
 cards:
+  - type: thermostat
+    entity: climate.den
+
   - type: entities
     title: Front Temps/Thermostat
     entities:

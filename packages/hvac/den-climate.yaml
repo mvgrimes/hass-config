@@ -1,0 +1,17 @@
+---
+
+climate:
+  - platform: mqtt
+    name: Den
+    current_temperature_topic: "smartthings/Den Thermostat/temperature"
+    mode_state_topic: "smartthings/Den Thermostat/thermostatOperatingState"   # cooling | heating | idle
+    fan_mode_state_topic: "smartthings/Den Thermostat/thermostatFanMode"      # auto | on
+    modes:
+      - auto
+      - cooling
+      - heating
+      - idle
+      - "off"
+    fan_modes:
+      - auto
+      - "on"
