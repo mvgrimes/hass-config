@@ -18,6 +18,15 @@ homeassistant:
       templates:
         theme: >
           if (attributes.priceChangePercent > 0) return 'green'; else return 'red';
+    sensor.bitcoin_cash_value:
+      friendly_name: 'Bitcoin Cash'
+      custom_ui_state_card: state-card-custom-ui
+      extra_data_template:
+        - '${attributes.priceChangePercent}%'
+        - 'last updated ${attributes.quoteTime}'
+      templates:
+        theme: >
+          if (attributes.priceChangePercent > 0) return 'green'; else return 'red';
 
 group:
   finance:
@@ -40,6 +49,16 @@ sensor:
   - platform: mqtt
     state_topic: 'hass/stock-price/BTC='
     name: Bitcoin Value
+    unit_of_measurement: '$'
+    value_template: '{{ value_json.price }}'
+    json_attributes:
+      - name
+      - priceChangePercent
+      - quoteTime
+
+  - platform: mqtt
+    state_topic: 'hass/stock-price/BCH.CB='
+    name: Bitcoin Cash Value
     unit_of_measurement: '$'
     value_template: '{{ value_json.price }}'
     json_attributes:

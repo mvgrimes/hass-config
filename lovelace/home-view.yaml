@@ -44,3 +44,4 @@ cards:
     entities:
       - sensor.sp500
       - sensor.bitcoin_value
+      - sensor.bitcoin_cash_value

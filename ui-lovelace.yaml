@@ -5,9 +5,9 @@
 
 name: Home
 resources:
-- {type: js, url: '/local/lovelace/monster-card.js?1536061968.9615817'}
-- {type: js, url: '/local/lovelace/entity-attributes-card.js?1536061968.9615817'}
-- {type: js, url: '/local/lovelace/sprinkler-card.js?1536061968.9615817'}
+- {type: js, url: '/local/lovelace/monster-card.js?1541769560.461925'}
+- {type: js, url: '/local/lovelace/entity-attributes-card.js?1541769560.461925'}
+- {type: js, url: '/local/lovelace/sprinkler-card.js?1541769560.461925'}
 views:
 - cards:
   - entities: [sensor.pws_weather_1d, sensor.dark_sky_temperature, sensor.dark_sky_wind_speed,
@@ -32,12 +32,13 @@ views:
       light.status_panel_screensaver]
     title: Status Panel
     type: entities
-  - entities: [sensor.sp500, sensor.bitcoin_value]
+  - entities: [sensor.sp500, sensor.bitcoin_value, sensor.bitcoin_cash_value]
     title: Finance
     type: entities
   icon: mdi:home
   title: Home
 - cards:
+  - {entity: climate.den, type: thermostat}
   - entities: [sensor.front_temps, input_select.front_function, input_select.front_thermostat_mode,
       sensor.front_desired_state, sensor.den_thermostat_current_state, input_number.front_heating_target,
       input_number.front_cooling_target]
@@ -203,6 +204,14 @@ views:
   - {entity: media_player.mbr, type: media-control}
   icon: mdi:music
   title: Media
+- cards:
+  - entities: [sensor.mean_rate, switch.miner_power, switch.restart_miner, sensor.basement_temperature,
+      sensor.bitcoin_value, sensor.bitcoin_cash_value]
+    show_header_toggle: false
+    title: Controls
+    type: entities
+  icon: mdi:key-variant
+  title: Miner
 - cards:
   - entities: [sensor.pws_alerts, sensor.pws_weather, sensor.pws_temp_f, sensor.pws_dewpoint_f,
       sensor.pws_precip_today_in, sensor.pws_weather_1d, sensor.pws_temp_high_1d_f,

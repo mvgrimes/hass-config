@@ -1,0 +1,16 @@
+title: Miner
+icon: mdi:key-variant
+cards:
+
+  - type: entities
+    title: Controls
+    show_header_toggle: false
+    entities:
+      - sensor.mean_rate
+      # - sensor.miner_payout
+      # - sensor.miner_up_time
+      - switch.miner_power
+      - switch.restart_miner
+      - sensor.basement_temperature
+      - sensor.bitcoin_value
+      - sensor.bitcoin_cash_value
