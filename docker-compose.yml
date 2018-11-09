@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: homeassistant/home-assistant:0.76.2
+    image: homeassistant/home-assistant:0.81.5
     # ports:
     #   - "8123:8123"
     #   - "8300:8300"  # emulated_hue

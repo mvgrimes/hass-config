@@ -34,7 +34,7 @@ frontend:
 config:
 
 # Enable the auth component
-# auth:
+auth:
 
 # Enable the Home Assistant Cloud service
 cloud: !include cloud.yaml
@@ -84,8 +84,8 @@ sun:
 # moving all z-wave/zibgee back to smart things and using smarter
 # smartthings to interact with those devices
 zwave:
-   usb_path: /dev/ttyUSB0
-   network_key: !secret zwave_network_key
+  usb_path: /dev/ttyUSB0
+  network_key: !secret zwave_network_key
 
 # zha:
 #   usb_path: /dev/ttyUSB1
