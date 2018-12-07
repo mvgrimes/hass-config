@@ -141,3 +141,9 @@ sensor:
           {% else %}
             {{ (67 / states.sensor.pws_uv.state | float) | round }}
           {% endif %}
+
+# Track the sun
+sun:
+
+weather:
+  - platform: yweather

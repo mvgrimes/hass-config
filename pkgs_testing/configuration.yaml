@@ -1,0 +1,28 @@
+---
+# homeassistant:
+#   packages: !include_dir_named active_pkgs
+
+# Enable the web frontend and provide password/config
+http:
+  api_password: !secret http_api_password
+  base_url: localhost
+
+mqtt:
+  broker: 192.168.1.201
+  # broker: localhost
+  port: 1883
+  username: hass
+  # password: !secret mqtt_password
+  password: "homeAuto#@"
+
+# Allow Amazon Echo to control some things vie the emulated_hue component. This
+# is great, but I want to support the HA project so am subscribing to the cloud
+# service. So, why not use it.
+# emulated_hue: !include emulated_hue.yaml
+
+# Load config from files/directorys
+logger: !include ../logger.yaml
+# wemo: !include ../wemo.yaml
+# zone: !include ../zones.yaml
+# script: !include_dir_merge_named ../scripts
+group: !include_dir_merge_named ../groups

@@ -1,0 +1,92 @@
+---
+# homeassistant:
+#   packages: !include_dir_named packages
+
+# Enable the web frontend and provide password/config
+http:
+  api_password: !secret http_api_password
+  base_url: hass.markandcarrie.com
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  include_used_components: true   # Optional, allows Home Assistant developers to focus on popular components.
+
+# Discover some devices automatically
+# discovery:
+
+# Mysql database for recording events; exclude some events
+recorder: !include ../recorder.yaml
+
+# Record events in influxdb
+influxdb:
+  host: 192.168.1.201
+  port: 8086
+  # exclude:
+  #   entities:
+  #     - ensor.livingroom_real_feel
+
+mqtt:
+  broker: mqtt
+  port: 1883
+  username: hass
+  password: !secret mqtt_password
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# z-wave and zibgee keep dropping (dead/cached) under home assistant
+# moving all z-wave/zibgee back to smart things and using smarter
+# smartthings to interact with those devices
+zwave:
+  usb_path: /dev/ttyUSB0
+  network_key: !secret zwave_network_key
+
+# zha:
+#   usb_path: /dev/ttyUSB1
+#   database_path: /var/lib/hass/zibgee.db
+
+# Setup device trackers
+device_tracker:
+  - platform: actiontec
+    host: 192.168.1.1
+    username: !secret fios_username
+    password: !secret fios_password
+    new_device_defaults:
+      track_new_devices: false
+  - platform: owntracks
+
+# Text to speech
+tts:
+  - platform: google
+
+# Load the map component
+map:
+
+# Alexa custom commands via the "Home Assistant" skill
+# See packages/{alexa,music,pets}.yaml
+alexa:
+
+# Make scripts from the python_scripts dir available
+python_script:
+
+# Allow Amazon Echo to control some things vie the emulated_hue component. This
+# is great, but I want to support the HA project so am subscribing to the cloud
+# service. So, why not use it.
+# emulated_hue: !include ../emulated_hue.yaml
+
+# Load config from files/directorys
+logger: !include ../logger.yaml
+wemo: !include ../wemo.yaml
+zone: !include ../zones.yaml
+script: !include_dir_merge_named ../scripts
+group: !include_dir_merge_named ../groups
