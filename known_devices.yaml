@@ -845,3 +845,27 @@ whitney_whiphone6:
   name: 192.168.1.43
   picture:
   track: false
+
+'192168145_3':
+  hide_if_away: false
+  icon:
+  mac: 52:54:00:C9:CF:4A
+  name: 192.168.1.45
+  picture:
+  track: false
+
+'192168131_4':
+  hide_if_away: false
+  icon:
+  mac: 00:23:12:1B:93:03
+  name: 192.168.1.31
+  picture:
+  track: false
+
+'192168130_4':
+  hide_if_away: false
+  icon:
+  mac: 00:22:41:3C:64:62
+  name: 192.168.1.30
+  picture:
+  track: false
