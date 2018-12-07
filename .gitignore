@@ -28,3 +28,4 @@ tmp/
 nik.log
 .cloud
 .storage
+pkgs_testing/

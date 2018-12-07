@@ -1,0 +1,46 @@
+---
+
+# Would like to use this, but:
+# - think we need heat setpoint and coolsetpoint (not just thermostatSetpoint)
+
+# Could use a custom climate.mqtt to address:
+# https://community.home-assistant.io/t/need-help-with-value-template-for-mqtt-hvac/73395/19
+# - climate only has mode_state, we have mode (heat,cool,auto,off) and
+#   operatingState (heating, cooling, idle)
+
+# climate:
+#   - platform: mqtt
+#     name: Den
+#
+#     current_temperature_topic: "smartthings/Den Thermostat/temperature"
+#
+#     temperature_state_topic: "smartthings/Den Thermostat/thermostatSetpoint"
+#     temperature_command_topic: "smartthings/Den Thermostat/thermostatSetpoint"
+#
+#     # status_state_topic: "smartthings/Den Thermostat/thermostatOperatingState"
+#     # status_state_template: >-
+#     #   {% set values = { 'heating':'heat', 'cooling':'cool', 'idle':'idle'} %}
+#     #   {{ values[value] if value in values.keys() else 'idle' }}
+#
+#     min_temp: 55
+#     max_temp: 85
+#
+#     modes:
+#       - auto
+#       - cool
+#       - heat
+#       - idle
+#       - "off"
+#     mode_state_topic: "smartthings/Den Thermostat/thermostatOperatingState"   # cooling | heating | idle
+#     mode_state_template: >-
+#       {% set values = { 'auto':'auto', 'heating':'heat',  'cooling':'cool', 'off':'off'} %}
+#       {{ values[value] if value in values.keys() else 'off' }}
+#     mode_command_topic: "smartthings/Den Thermostat/thermostatOperatingState"
+#     mode_command_template: >-
+#       {% set values = { 'auto':'auto', 'heat':'heating',  'cool':'cooling', 'off':'off'} %}
+#       {{ values[value] if value in values.keys() else 'off' }}
+#
+#     fan_modes:
+#       - auto
+#       - "on"
+#     fan_mode_state_topic: "smartthings/Den Thermostat/thermostatFanMode"      # auto | on

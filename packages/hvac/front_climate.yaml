@@ -1,0 +1,35 @@
+---
+
+climate:
+  - platform: mqtt
+    name: Front
+
+    current_temperature_topic: "climate/Front vThermostat/temperature"
+
+    temperature_state_topic: "climate/Front vThermostat/thermostatSetpoint"
+    temperature_command_topic: "climate/Front vThermostat/thermostatSetpoint"
+
+    # status_state_topic: "climate/Front vThermostat/thermostatOperatingState"
+    # status_state_template: >-
+    #   {% set values = { 'heating':'heat', 'cooling':'cool', 'idle':'idle'} %}
+    #   {{ values[value] if value in values.keys() else 'idle' }}
+
+    min_temp: 55
+    max_temp: 85
+
+    modes:
+      - auto
+      - cool
+      - heat
+      - idle
+      - "off"
+
+    mode_state_topic: "climate/Front vThermostat/thermostatOperatingState"
+    mode_command_topic: "climate/Front vThermostat/thermostatOperatingState"
+
+    fan_modes:
+      - auto
+      - "on"
+    fan_mode_state_topic: "climate/Front vThermostat/thermostatFanMode"      # auto | on
+
+    retain: true
