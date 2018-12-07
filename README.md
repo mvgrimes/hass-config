@@ -179,4 +179,10 @@ A few other things that I'm really happy with and would like to document more:
 - A SmartThings HUB to connect to various Z-Wave/ZigBee devices 
 - mqtt-say (TODO: document)
 
+
+## Development/Testing
+
+    $ docker-compose -f docker-testing.yaml run web python -m homeassistant --script check_config --config /config
+    $ docker-compose -f docker-testing.yaml up
+
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>

@@ -1,0 +1,10 @@
+version: '3'
+services:
+  web:
+    image: homeassistant/home-assistant:0.83.3
+    ports:
+      - "8123:8123"
+      # - "8300:8300"  # emulated_hue
+    volumes:
+      - ./:/config
+    # network_mode: host
