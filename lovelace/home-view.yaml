@@ -39,7 +39,7 @@ cards:
       - binary_sensor.status_panel_plugged
       - light.status_panel_screensaver
 
-  - type: entities
+  - type: glance
     title: Finance
     entities:
       - sensor.sp500

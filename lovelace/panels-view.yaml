@@ -1,6 +1,7 @@
 title: Panels
 icon: mdi:tablet
 cards:
+
   - type: entities
     title: Status Panel
     entities:
@@ -8,6 +9,7 @@ cards:
       - binary_sensor.status_panel_motion
       - binary_sensor.status_panel_plugged
       - light.status_panel_screensaver
+
   - type: entities
     title: Pets
     entities:
@@ -25,3 +27,5 @@ cards:
       - sensor.date
       - sensor.time
       - sensor.date__time
+      - sensor.clock_time
+      - sensors.clock_am_pm

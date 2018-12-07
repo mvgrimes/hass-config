@@ -5,9 +5,9 @@
 
 name: Home
 resources:
-- {type: js, url: '/local/lovelace/monster-card.js?1544128783.5045257'}
-- {type: js, url: '/local/lovelace/entity-attributes-card.js?1544128783.5045257'}
-- {type: js, url: '/local/lovelace/sprinkler-card.js?1544128783.5045257'}
+- {type: js, url: '/local/lovelace/monster-card.js?1544141846.329546'}
+- {type: js, url: '/local/lovelace/entity-attributes-card.js?1544141846.329546'}
+- {type: js, url: '/local/lovelace/sprinkler-card.js?1544141846.329546'}
 views:
 - cards:
   - entities: [sensor.pws_weather_1d, sensor.dark_sky_temperature, sensor.dark_sky_wind_speed,
@@ -34,11 +34,11 @@ views:
     type: entities
   - entities: [sensor.sp500, sensor.bitcoin_value, sensor.bitcoin_cash_value]
     title: Finance
-    type: entities
+    type: glance
   icon: mdi:home
   title: Home
 - cards:
-  - {entity: climate.den, type: thermostat}
+  - {entity: climate.front, title: Front Thermostat, type: thermostat}
   - entities: [sensor.front_temps, input_select.front_function, input_select.front_thermostat_mode,
       sensor.front_desired_state, sensor.den_thermostat_current_state, input_number.front_heating_target,
       input_number.front_cooling_target]
@@ -246,7 +246,7 @@ views:
       light.pet_panel_screensaver]
     title: Pets
     type: entities
-  - entities: [sensor.date, sensor.time, sensor.date__time]
+  - entities: [sensor.date, sensor.time, sensor.date__time, sensor.clock_time, sensors.clock_am_pm]
     title: Date/Time
     type: entities
   icon: mdi:tablet
