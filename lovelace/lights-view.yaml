@@ -19,3 +19,9 @@ cards:
       - switch.floor_lamp
       - switch.reading_lamp
       - switch.antique_lamp
+
+  - type: entities
+    title: Misc Switches
+    entities:
+      - switch.plug_1
+      - switch.plug_2

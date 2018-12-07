@@ -5,9 +5,9 @@
 
 name: Home
 resources:
-- {type: js, url: '/local/lovelace/monster-card.js?1541769560.461925'}
-- {type: js, url: '/local/lovelace/entity-attributes-card.js?1541769560.461925'}
-- {type: js, url: '/local/lovelace/sprinkler-card.js?1541769560.461925'}
+- {type: js, url: '/local/lovelace/monster-card.js?1544128783.5045257'}
+- {type: js, url: '/local/lovelace/entity-attributes-card.js?1544128783.5045257'}
+- {type: js, url: '/local/lovelace/sprinkler-card.js?1544128783.5045257'}
 views:
 - cards:
   - entities: [sensor.pws_weather_1d, sensor.dark_sky_temperature, sensor.dark_sky_wind_speed,
@@ -102,6 +102,9 @@ views:
     type: entities
   - entities: [switch.floor_lamp, switch.reading_lamp, switch.antique_lamp]
     title: Family Room Lights
+    type: entities
+  - entities: [switch.plug_1, switch.plug_2]
+    title: Misc Switches
     type: entities
   icon: mdi:lightbulb
   title: Lights
