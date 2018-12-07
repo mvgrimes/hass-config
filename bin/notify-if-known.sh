@@ -93,7 +93,8 @@ if is-friend "$phone" ; then
     [ -n "$name" ] || name="$phone"
 
     tts_url=$( get-tts-file "Incoming call from $name" )
-    mqtt-publish "$topic_ring" "$tts_url"
+    mqtt-publish "$topic_ring"
+    # mqtt-publish "$topic_ring" "$tts_url"
     # mqtt-publish "$topic_say" "$tts_url"
 else
     log "We don't know you! $phone"
