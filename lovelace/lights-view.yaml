@@ -16,7 +16,7 @@ cards:
   - type: entities
     title: Family Room Lights
     entities:
-      - switch.floor_lamp
+      - light.floor_lamp
       - switch.reading_lamp
       - switch.antique_lamp
 

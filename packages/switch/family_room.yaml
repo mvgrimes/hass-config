@@ -2,15 +2,17 @@ group:
   family_room:
     name: Family Room Lights
     entities:
-      - switch.floor_lamp
+      - light.floor_lamp
       - switch.reading_lamp
       - switch.antique_lamp
 
-switch:
+light:
   - platform: tplink
-    host: 192.168.1.22
+    host: 192.168.1.43
     name: Floor Lamp
+    # bulb
 
+switch:
   - platform: tplink
     host: 192.168.1.23
     name: Reading Lamp

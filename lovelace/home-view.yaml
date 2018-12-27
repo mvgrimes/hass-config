@@ -18,7 +18,7 @@ cards:
       - light.porch_lights
       - switch.basement_lights
       - switch.basement_step_lights
-      - switch.floor_lamp
+      - light.floor_lamp
       - switch.reading_lamp
       - switch.antique_lamp
 
