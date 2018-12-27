@@ -6,15 +6,15 @@ cards:
     entities:
       - device_tracker.mgrimes_oneplus3t
       - device_tracker.carrie_d81aebcb473e4ef7ab1e8965aecaa6c9
-      - device_tracker.carrie_iphone6
+      # - device_tracker.carrie_iphone6
       - device_tracker.campbell_iphone
       - device_tracker.whitney_iphone6
-      - device_tracker.carrie_iphone
       - device_tracker.mark_laptop_spike
       - device_tracker.antminer_01
+      - device_tracker.mark_android
+      - device_tracker.carrie_iphone
       - device_tracker.campbell_iphone_mac
       - device_tracker.campbell_ipad
-      - device_tracker.mark_android
       - device_tracker.whitney_ipad
       - device_tracker.carrie_ipad
       - device_tracker.sprinkler01

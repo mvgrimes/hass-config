@@ -19,8 +19,9 @@ views:
     show_header_toggle: false
     title: Lock
     type: entities
-  - entities: [light.porch_lights, switch.basement_lights, switch.basement_step_lights,
-      switch.floor_lamp, switch.reading_lamp, switch.antique_lamp]
+  - entities: [light.porch_lights, switch.side_door_light, switch.basement_lights,
+      switch.basement_step_lights, light.floor_lamp, switch.reading_lamp, switch.antique_lamp,
+      switch.plug_1, switch.plug_2, switch.plug_3, switch.plug_4]
     show_header_toggle: true
     title: Switches
     type: entities
@@ -39,6 +40,7 @@ views:
   title: Home
 - cards:
   - {entity: climate.front, title: Front Thermostat, type: thermostat}
+  - {entity: climate.rear, title: Rear Thermostat, type: thermostat}
   - entities: [sensor.front_temps, input_select.front_function, input_select.front_thermostat_mode,
       sensor.front_desired_state, sensor.den_thermostat_current_state, input_number.front_heating_target,
       input_number.front_cooling_target]
@@ -81,12 +83,6 @@ views:
       input_number.front_cooling_target_renting, input_number.rear_cooling_target_renting]
     title: Cooling Targets
     type: entities
-  - entities: [input_number.front_cooling_target_home, input_number.rear_cooling_target_home,
-      input_number.front_cooling_target_away, input_number.rear_cooling_target_away,
-      input_number.front_cooling_target_night, input_number.rear_cooling_target_night,
-      input_number.front_cooling_target_renting, input_number.rear_cooling_target_renting]
-    title: Cooling Targets
-    type: entities
   - entities: [sensor.den_thermostat_temp, sensor.kitchen_thermostat_temp, sensor.girls_br_temp,
       sensor.mbr_temp, sensor.office_temp, sensor.third_flr_temperature]
     title: Temps
@@ -94,16 +90,16 @@ views:
   icon: mdi:fan
   title: HVAC
 - cards:
-  - entities: [light.porch_lights]
+  - entities: [light.porch_lights, switch.side_door_light]
     title: Exterior Lights
     type: entities
   - entities: [switch.basement_lights, switch.basement_step_lights]
     title: Basement lights
     type: entities
-  - entities: [switch.floor_lamp, switch.reading_lamp, switch.antique_lamp]
+  - entities: [light.floor_lamp, switch.reading_lamp, switch.antique_lamp]
     title: Family Room Lights
     type: entities
-  - entities: [switch.plug_1, switch.plug_2]
+  - entities: [switch.plug_1, switch.plug_2, switch.plug_3, switch.plug_4]
     title: Misc Switches
     type: entities
   icon: mdi:lightbulb
@@ -174,10 +170,10 @@ views:
   title: Sprinkler
 - cards:
   - entities: [device_tracker.mgrimes_oneplus3t, device_tracker.carrie_d81aebcb473e4ef7ab1e8965aecaa6c9,
-      device_tracker.carrie_iphone6, device_tracker.campbell_iphone, device_tracker.whitney_iphone6,
-      device_tracker.carrie_iphone, device_tracker.mark_laptop_spike, device_tracker.antminer_01,
-      device_tracker.campbell_iphone_mac, device_tracker.campbell_ipad, device_tracker.mark_android,
-      device_tracker.whitney_ipad, device_tracker.carrie_ipad, device_tracker.sprinkler01]
+      device_tracker.campbell_iphone, device_tracker.whitney_iphone6, device_tracker.mark_laptop_spike,
+      device_tracker.antminer_01, device_tracker.mark_android, device_tracker.carrie_iphone,
+      device_tracker.campbell_iphone_mac, device_tracker.campbell_ipad, device_tracker.whitney_ipad,
+      device_tracker.carrie_ipad, device_tracker.sprinkler01]
     title: Family
     type: entities
   - entities: [binary_sensor.mark_is_home]
@@ -194,6 +190,10 @@ views:
   icon: mdi:map-marker
   title: Presence
 - cards:
+  - entities: [input_boolean.living_room_music, input_boolean.porch_music, input_boolean.outside_music,
+      input_boolean.mbr_music]
+    title: Rooms
+    type: entities
   - entities: [binary_sensor.entryway_camera_motion_detected, binary_sensor.entryway_camera_online,
       binary_sensor.entryway_camera_person_detected, binary_sensor.entryway_camera_sound_detected,
       binary_sensor.kitchen_camera_motion_detected, binary_sensor.kitchen_camera_online,
@@ -207,14 +207,6 @@ views:
   - {entity: media_player.mbr, type: media-control}
   icon: mdi:music
   title: Media
-- cards:
-  - entities: [sensor.mean_rate, switch.miner_power, switch.restart_miner, sensor.basement_temperature,
-      sensor.bitcoin_value, sensor.bitcoin_cash_value]
-    show_header_toggle: false
-    title: Controls
-    type: entities
-  icon: mdi:key-variant
-  title: Miner
 - cards:
   - entities: [sensor.pws_alerts, sensor.pws_weather, sensor.pws_temp_f, sensor.pws_dewpoint_f,
       sensor.pws_precip_today_in, sensor.pws_weather_1d, sensor.pws_temp_high_1d_f,
