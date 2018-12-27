@@ -654,13 +654,13 @@ campbell_iphone:
   picture:
   track: false
 
-whitney_iphone6:
-  hide_if_away: false
-  icon: mdi:cellphone-iphone
-  mac:
-  name: Whitney's Owntrack
-  picture:
-  track: true
+# whitney_iphone6:
+#   hide_if_away: false
+#   icon: mdi:cellphone-iphone
+#   mac:
+#   name: Whitney's Owntrack
+#   picture:
+#   track: true
 
 whitney_whiphone6:
   hide_if_away: false
@@ -867,5 +867,45 @@ whitney_whiphone6:
   icon:
   mac: 00:22:41:3C:64:62
   name: 192.168.1.30
+  picture:
+  track: false
+
+'192168143_8':
+  hide_if_away: false
+  icon:
+  mac: 50:C7:BF:73:A2:45
+  name: 192.168.1.43
+  picture:
+  track: false
+
+'192168146_4':
+  hide_if_away: false
+  icon:
+  mac: 0C:80:63:08:09:F3
+  name: 192.168.1.46
+  picture:
+  track: false
+
+'192168148_2':
+  hide_if_away: false
+  icon:
+  mac: 5C:1D:D9:8D:A5:D2
+  name: 192.168.1.48
+  picture:
+  track: false
+
+'192168121_5':
+  hide_if_away: false
+  icon:
+  mac: 48:3B:38:16:74:DD
+  name: 192.168.1.21
+  picture:
+  track: false
+
+'192168150':
+  hide_if_away: false
+  icon:
+  mac: AC:84:C6:7F:D9:5B
+  name: 192.168.1.50
   picture:
   track: false
