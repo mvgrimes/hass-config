@@ -5,6 +5,10 @@ cards:
     title: Front Thermostat
     entity: climate.front
 
+  - type: thermostat
+    title: Rear Thermostat
+    entity: climate.rear
+
   - type: entities
     title: Front Temps/Thermostat
     entities:
@@ -79,17 +83,6 @@ cards:
       - input_number.front_heating_target_renting
       - input_number.rear_heating_target_renting
 
-  - type: entities
-    title: Cooling Targets
-    entities:
-      - input_number.front_cooling_target_home
-      - input_number.rear_cooling_target_home
-      - input_number.front_cooling_target_away
-      - input_number.rear_cooling_target_away
-      - input_number.front_cooling_target_night
-      - input_number.rear_cooling_target_night
-      - input_number.front_cooling_target_renting
-      - input_number.rear_cooling_target_renting
   - type: entities
     title: Cooling Targets
     entities:

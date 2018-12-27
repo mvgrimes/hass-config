@@ -14,22 +14,21 @@ climate:
     #   {% set values = { 'heating':'heat', 'cooling':'cool', 'idle':'idle'} %}
     #   {{ values[value] if value in values.keys() else 'idle' }}
 
-    min_temp: 55
-    max_temp: 85
-
     modes:
       - auto
       - cool
       - heat
       - idle
       - "off"
-
-    mode_state_topic: "climate/Front vThermostat/thermostatOperatingState"
-    mode_command_topic: "climate/Front vThermostat/thermostatOperatingState"
+    mode_state_topic: "climate/Front vThermostat/thermostatMode"
+    mode_command_topic: "climate/Front vThermostat/thermostatMode"
 
     fan_modes:
       - auto
       - "on"
     fan_mode_state_topic: "climate/Front vThermostat/thermostatFanMode"      # auto | on
+
+    min_temp: 55
+    max_temp: 85
 
     retain: true

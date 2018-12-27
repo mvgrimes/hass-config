@@ -256,8 +256,9 @@ automation:
           level: info
 
   # Create a virtual climate.mqtt sensor for Front
+
   # From virtual therm to mqtt
-  - alias: Front vTherm temperature to MQTT
+  - alias: Front temperature vTherm to climate.MQTT
     hide_entity: true
     initial_state: "on"
     trigger:
@@ -267,9 +268,9 @@ automation:
       - service: mqtt.publish
         data_template:
           topic: "climate/Front vThermostat/temperature"
-          payload: '{{ state("sensor.front_temps") }}'
+          payload: '{{ states.sensor.front_temps.state }}'
           retain: true
-  - alias: Front vTherm thermostateMode to MQTT
+  - alias: Front thermostatMode vTherm to climate.MQTT
     hide_entity: true
     initial_state: "on"
     trigger:
@@ -283,25 +284,31 @@ automation:
             {% set values = { 'heating':'heat',  'cooling':'cool' } %}
             {{ values[ trigger.to_state.state ] if value in values.keys() else trigger.to_state.state }}
           retain: true
-  - alias: Front vTherm setpoint to MQTT
+  - alias: Front setpoint vTherm to climate.MQTT
     hide_entity: true
     initial_state: "on"
     trigger:
       - platform: state
         entity_id: input_number.front_heating_target
-      - platform: state
-        entity_id: input_number.front_cooling_target
+      # - platform: state
+      #   entity_id: input_number.front_cooling_target
     action:
       - service: mqtt.publish
         data_template:
           topic: "climate/Front vThermostat/thermostatSetpoint"
           # TODO: report cooling_target if we are cooling
-          # payload: '{{ state("input_number.front_heating_target") }}'
+          # payload: '{{ states.input_number.front_heating_target.state }}'
           payload: >-
             {{ trigger.to_state.state }}
           retain: true
-  # From mqtt to virtual therm
-  - alias: Front vTherm thermostateMode to MQTT
+      - service: system_log.write
+        data_template:
+          message: >-
+            Changing posting mqtt/front/thermostatSetpoint to  {{ trigger.to_state.state }}
+          level: info
+
+  # From climate.mqtt to virtual therm
+  - alias: Front thermostatMode climate.MQTT to vTherm
     hide_entity: true
     initial_state: "on"
     trigger:
@@ -311,10 +318,17 @@ automation:
       - service: input_select.select_option
         data_template:
           entity_id: input_select.front_thermostat_mode
-          value_template: >-
+          value: >-
             {% set values = { 'heat':'heating',  'cool':'cooling' } %}
             {{ values[ trigger.to_state.state ] if value in values.keys() else trigger.to_state.state }}
-  - alias: Front vTherm setpoint to MQTT
+      - service: system_log.write
+        data_template:
+          message: >-
+            {% set values = { 'heat':'heating', 'emergency heat': 'heat', 'cool':'cooling' } %}
+            Changing front_thermostate_mode to
+            {{ values[ trigger.payload ] if value in values.keys() else trigger.payload }}
+          level: info
+  - alias: Front setpoint climate.MQTT to vTherm
     hide_entity: true
     initial_state: "on"
     trigger:
@@ -324,9 +338,13 @@ automation:
       - service: input_number.set_value
         data_template:
           entity_id: input_number.front_heating_target
-          value_template: >-
-            {{ trigger.to_state.state }}
-
+          value: >-
+            {{ trigger.payload }}
+      - service: system_log.write
+        data_template:
+          message: >-
+            Changing front_heating_target to {{ trigger.payload }}
+          level: info
 
     # mode_command_template: >-
     #         {% set values = { 'auto':'auto', 'heat':'heating',  'cool':'cooling', 'off':'off'} %}

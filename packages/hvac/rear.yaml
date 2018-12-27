@@ -254,3 +254,99 @@ automation:
           message: >-
             Changing kitchen_cooling_target to {{ states.input_number.kitchen_cooling_target.state }}
           level: info
+
+  # Create a virtual climate.mqtt sensor for Front
+
+  # From virtual therm to mqtt
+  - alias: Rear vTherm temperature to MQTT
+    hide_entity: true
+    initial_state: "on"
+    trigger:
+      - platform: state
+        entity_id: sensor.rear_temps
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "climate/Rear vThermostat/temperature"
+          payload: '{{ states.sensor.rear_temps.state }}'
+          retain: true
+  - alias: Rear vTherm thermostateMode to MQTT
+    hide_entity: true
+    initial_state: "on"
+    trigger:
+      - platform: state
+        entity_id: input_select.rear_thermostat_mode
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "climate/Rear vThermostat/thermostatMode"
+          payload: >-
+            {% set values = { 'heating':'heat',  'cooling':'cool' } %}
+            {{ values[ trigger.to_state.state ] if value in values.keys() else trigger.to_state.state }}
+          retain: true
+  - alias: Rear vTherm setpoint to MQTT
+    hide_entity: true
+    initial_state: "on"
+    trigger:
+      - platform: state
+        entity_id: input_number.rear_heating_target
+      - platform: state
+        entity_id: input_number.rear_cooling_target
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "climate/Rear vThermostat/thermostatSetpoint"
+          # TODO: report cooling_target if we are cooling
+          # payload: '{{ states.input_number.rear_heating_target.state }}'
+          payload: >-
+            {{ trigger.to_state.state }}
+          retain: true
+
+  # From mqtt to virtual therm
+  - alias: Rear thermostatMode climate.MQTT to vTherm
+    hide_entity: true
+    initial_state: "on"
+    trigger:
+      - platform: mqtt
+        topic: "climate/Rear vThermostat/thermostatMode"
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.rear_thermostat_mode
+          value: >-
+            {% set values = { 'heat':'heating', 'emergency heat': 'heat', 'cool':'cooling' } %}
+            {{ values[ trigger.payload ] if value in values.keys() else trigger.payload }}
+      - service: system_log.write
+        data_template:
+          message: >-
+            {% set values = { 'heat':'heating',  'cool':'cooling' } %}
+            Changing rear_thermostate_mode to
+            {{ values[ trigger.payload ] if value in values.keys() else trigger.payload }}
+          level: info
+  - alias: Rear setpoint climate.MQTT to vTherm
+    hide_entity: true
+    initial_state: "on"
+    trigger:
+      - platform: mqtt
+        topic: "climate/Rear vThermostat/thermostatSetpoint"
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.rear_heating_target
+          value: >-
+            {{ trigger.payload }}
+      - service: system_log.write
+        data_template:
+          message: >-
+            Changing rear_heating_target to {{ trigger.payload }}
+          level: info
+
+
+    # mode_command_template: >-
+    #         {% set values = { 'auto':'auto', 'heat':'heating',  'cool':'cooling', 'off':'off'} %}
+    #         {{ values[value] if value in values.keys() else 'off' }}
+
+    # - input_select.rear_function
+    # # - switch.rear_thermostat_fan_mode
+    # - sensor.rear_desired_state
+    # - sensor.den_thermostat_current_state
