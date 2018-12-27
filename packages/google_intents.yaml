@@ -1,0 +1,5 @@
+---
+
+# Integrate with Google Dialogflow (custom intents)
+# See packages/{intents,music,pets}.yaml
+dialogflow:

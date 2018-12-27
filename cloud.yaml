@@ -16,6 +16,10 @@ google_actions:
       - switch.basement_step_lights
       - switch.plug_1
       - switch.plug_2
+      - input_boolean.living_room_music
+      - input_boolean.porch_music
+      - input_boolean.outside_music
+      - input_boolean.mbr_music
     # include_domains:
     #   - switch
     #   - script
@@ -58,6 +62,10 @@ alexa:
       # - input_boolean.goodnight
       # - input_boolean.nest_away
       # - input_boolean.nest_home
+      - input_boolean.living_room_music
+      - input_boolean.porch_music
+      - input_boolean.outside_music
+      - input_boolean.mbr_music
 
       # These appear as scences
       - script.welcome_home

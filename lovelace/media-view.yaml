@@ -2,6 +2,14 @@ title: Media
 icon: mdi:music
 cards:
   - type: entities
+    title: Rooms
+    entities:
+      - input_boolean.living_room_music
+      - input_boolean.porch_music
+      - input_boolean.outside_music
+      - input_boolean.mbr_music
+
+  - type: entities
     title: Cameras
     entities:
       - binary_sensor.entryway_camera_motion_detected

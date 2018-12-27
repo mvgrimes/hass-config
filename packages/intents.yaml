@@ -1,0 +1,33 @@
+---
+
+# Custom intents for Alexa
+intent_script:
+  StatusUpdateIntent:  # Intent type
+    speech:
+      text: >-
+        Coming up.
+        {{ is_state("input_boolean.carpool_week","on") and "Mark" or "Jen" }} is driving this Friday.
+        {{ is_state("sensor.clock_day","Tuesday") and "Tomorrow is yard waste." or "" }}
+        {{ is_state("sensor.clock_day","Sunday") and "Tomorrow is trash day." or "" }}
+    # async_action: true
+    # action:
+    #   service: notify.pushover
+    #   data_template:
+    #     message: Hello from an intent!
+  LocateIntent:  # Intent type
+    speech:
+      text: '{{ User }} is at {{ states.device_tracker.mgrimes_oneplus3t.state }}.'
+    # async_action: true
+    # action:
+    #   service: notify.pushover
+    #   data_template:
+    #     message: Hello from an intent!
+
+  WhereAreWeIntent:
+    speech:
+      text: We are at {{ states.device_tracker.mgrimes_oneplus3t.state }}.
+    # async_action: true
+    # action:
+    #   service: notify.pushover
+    #   data_template:
+    #     message: Hello all from an intent!

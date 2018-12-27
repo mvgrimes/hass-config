@@ -21,7 +21,145 @@ group:
       - media_player.porch
       - media_player.mbr
 
-# automations:
+input_boolean:
+  living_room_music:
+    name: Living Room Music
+    # initial: 'on'
+    icon: mdi:music-note
+  porch_music:
+    name: Porch Music
+    # initial: 'on'
+    icon: mdi:music-note
+  mbr_music:
+    name: MBR Music
+    # initial: 'on'
+    icon: mdi:music-note
+  outside_music:
+    name: Outside Music
+    # initial: 'on'
+    icon: mdi:music-note
+
+automation:
+  # TODO: combine these in one
+  - alias: Turn on Porch Music
+    hide_entity: true
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.porch_music
+        to: 'on'
+    action:
+      - service: media_player.squeezebox_call_method
+        data_template:
+          entity_id: media_player.kitchen
+          command: sync
+          parameters:
+            - Porch
+  - alias: Turn off Porch Music
+    hide_entity: true
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.porch_music
+        to: 'off'
+    action:
+      - service: media_player.squeezebox_call_method
+        data_template:
+          entity_id: media_player.porch
+          command: sync
+          parameters: [ "-" ]
+
+  - alias: Turn on Living Room Music
+    hide_entity: true
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.living_room_music
+        to: 'on'
+    action:
+      - service: media_player.squeezebox_call_method
+        data_template:
+          entity_id: media_player.kitchen
+          command: sync
+          parameters:
+            - LivingRoom
+  - alias: Turn off Living Room Music
+    hide_entity: true
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.living_room_music
+        to: 'off'
+    action:
+      - service: media_player.squeezebox_call_method
+        data_template:
+          entity_id: media_player.livingroom
+          command: sync
+          parameters: [ "-" ]
+
+  - alias: Turn on MBR Music
+    hide_entity: true
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.mbr_music
+        to: 'on'
+    action:
+      - service: media_player.squeezebox_call_method
+        data_template:
+          entity_id: media_player.kitchen
+          command: sync
+          parameters:
+            - MBR
+  - alias: Turn off MBR Music
+    hide_entity: true
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.mbr_music
+        to: 'off'
+    action:
+      - service: media_player.squeezebox_call_method
+        data_template:
+          entity_id: media_player.mbr
+          command: sync
+          parameters: [ "-" ]
+
+  - alias: Turn on Outside Music
+    hide_entity: true
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.outside_music
+        to: 'on'
+    action:
+      - service: media_player.squeezebox_call_method
+        data_template:
+          entity_id: media_player.kitchen
+          command: sync
+          parameters:
+            - Outside
+  - alias: Turn off Outside Music
+    hide_entity: true
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.outside_music
+        to: 'off'
+    action:
+      - service: media_player.squeezebox_call_method
+        data_template:
+          entity_id: media_player.outside
+          command: sync
+          parameters: [ "-" ]
 
 intent_script:
   SkipSongIntent:
@@ -32,6 +170,7 @@ intent_script:
     action:
       service: media_player.media_next_track
       entity_id: media_player.kitchen
+
   PlaySongIntent:
     speech:
       text: >
@@ -40,6 +179,7 @@ intent_script:
     action:
       service: media_player.media_play
       entity_id: media_player.kitchen
+
   StopSongIntent:
     speech:
       text: >
@@ -48,6 +188,7 @@ intent_script:
     action:
       service: media_player.media_pause
       entity_id: media_player.kitchen
+
   ChangePlaylistIntent:
     speech:
       text: >
@@ -115,17 +256,45 @@ intent_script:
             {% endif %}
           media_content_type: music
 
+  # JoinGroupIntent:
+  #   speech:
+  #     text: >
+  #       Ok. Starting {{ Player }}. Joining home group.
+  #   async_action: true
+  #   action:
+  #     service: media_player.squeezebox_call_method
+  #     data_template:
+  #       entity_id: media_player.kitchen
+  #       command: sync
+  #       parameters:
+  #         - {{ Player }}
+  #
+  # LeaveGroupIntent:
+  #   speech:
+  #     text: >
+  #       Ok. Stopping {{ Player }}. Leaving home group.
+  #   async_action: true
+  #   action:
+  #     service: media_player.squeezebox_call_method
+  #     data_template:
+  #       entity_id: media_player.{{ Player.case() }}
+  #       command: sync
+  #       parameters:
+  #         - "-"
+
 script:
   skip_song:
     alias: Music Skip
     sequence:
       - service: media_player.media_next_track
         entity_id: media_player.kitchen
+
   play_song:
     alias: Music Play
     sequence:
       - service: media_player.media_play
         entity_id: media_player.kitchen
+
   stop_song:
     alias: Music Stop
     sequence:
