@@ -25,3 +25,5 @@ cards:
     entities:
       - switch.plug_1
       - switch.plug_2
+      - switch.plug_3
+      - switch.plug_4

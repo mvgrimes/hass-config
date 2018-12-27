@@ -101,3 +101,31 @@ rules:
         - input_select.den_thermostat_mode
       data:
         option: 'off'
+
+  # Lights
+  - name: The Tree
+    entities:
+      - switch.plug_1
+    states:
+      - state: 'on'
+        class: 'radio-on'
+      - state: 'off'
+        class: 'radio-off'
+    action:
+      service: homeassistant.toggle
+      data:
+        entity_id: group.christmas
+        # entity_id: switch.plug_1
+
+  - name: The Porch Lights
+    entities:
+      - switch.plug_2
+    states:
+      - state: 'on'
+        class: 'radio-on'
+      - state: 'off'
+        class: 'radio-off'
+    action:
+      service: homeassistant.toggle
+      data:
+        entity_id: switch.plug_2

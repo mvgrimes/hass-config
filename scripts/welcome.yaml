@@ -7,6 +7,10 @@ welcome_home:
     - service: media_player.media_play
       entity_id: media_player.kitchen
 
+    - service: switch.turn_on
+      entity_id:
+        - group.christmas
+
 goodbye:
   alias: Goodbye
   sequence:
@@ -15,10 +19,12 @@ goodbye:
 
     - service: media_player.media_pause
       entity_id: media_player.kitchen
+
     - service: switch.turn_off
-      entity_id: group.family_room
-    - service: switch.turn_off
-      entity_id: group.basement_lights
+      entity_id:
+        - group.family_room
+        - group.basement_lights
+        - group.christmas
 
 goodnight:
   alias: Good Night
@@ -36,3 +42,4 @@ goodnight:
       entity_id:
         - group.family_room
         - group.basement_lights
+        - group.christmas

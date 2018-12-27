@@ -72,8 +72,11 @@ alexa:
       - group.family_room
       - lock.sidedoor
 
-      # - switch.plug_1
-      # - switch.plug_2
+      - switch.plug_1
+      - switch.plug_2
+      - switch.plug_3
+      - switch.plug_4
+
   entity_config:
     group.basement_lights:
       display_categories: LIGHT

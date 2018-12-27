@@ -1,8 +1,89 @@
+homeassistant:
+  customize:
+    switch.plug_1:
+      friendly_name: Christmas Tree
+    switch.plug_2:
+      friendly_name: Porch Strands
+    switch.plug_3:
+      friendly_name: Christmas Strand 1
+    switch.plug_4:
+      friendly_name: Christmas Strand 2
+
+group:
+  christmas:
+    name: Christmas lights
+    entities:
+      - switch.plug_1
+      - switch.plug_3
+      - switch.plug_4
+
 switch:
   - platform: tplink
     host: 192.168.1.27
     name: Plug 1
+    # Tree
 
   - platform: tplink
     host: 192.168.1.35
     name: Plug 2
+    # Porch strands
+
+  - platform: tplink
+    host: 192.168.1.46
+    name: Plug 3
+    # xmas-1
+
+  - platform: tplink
+    host: 192.168.1.22
+    name: Plug 4
+    # xmas-2
+
+  - platform: tplink
+    host: 192.168.1.50
+    name: Side Door Light
+
+automation:
+  - alias: Turn on tree in the morning
+    initial_state: 'on'
+    trigger:
+      platform: time
+      at: '5:30:00'
+    action:
+      service: switch.turn_on
+      entity_id:
+        - switch.plug_1
+        - switch.plug_3
+        - switch.plug_4
+
+  - alias: Turn off tree at night
+    initial_state: 'on'
+    trigger:
+      platform: time
+      at: '22:45:00'
+    action:
+      service: switch.turn_off
+      entity_id:
+        - switch.plug_1
+        - switch.plug_3
+        - switch.plug_4
+
+  - alias: Turn on trim lights in the evening
+    initial_state: 'on'
+    trigger:
+      platform: sun
+      event: sunset
+      offset: +00:30
+    action:
+      service: switch.turn_on
+      entity_id:
+        - switch.plug_2
+
+  - alias: Turn off trim lights at night
+    initial_state: 'on'
+    trigger:
+      platform: time
+      at: '22:30:00'
+    action:
+      service: switch.turn_off
+      entity_id:
+        - switch.plug_2
