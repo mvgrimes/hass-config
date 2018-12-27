@@ -6,6 +6,7 @@ cards:
     title: Exterior Lights
     entities:
       - light.porch_lights
+      - switch.side_door_light
 
   - type: entities
     title: Basement lights

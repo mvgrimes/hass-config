@@ -16,6 +16,7 @@ cards:
     show_header_toggle: true
     entities:
       - light.porch_lights
+      - switch.side_door_light
       - switch.basement_lights
       - switch.basement_step_lights
       - light.floor_lamp
