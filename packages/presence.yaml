@@ -51,6 +51,7 @@ automation:
         from: 'off'
         to: 'on'
     condition:
+      # Door is locked
       - condition: template
         value_template: >
           {{ is_state("lock.sidedoor","locked") }}
@@ -75,9 +76,9 @@ automation:
           title: 'Marks location changed'
           message: >
             Mark is home. Do the stuff!
-      - service: lock.unlock
-        data:
-          entity_id: lock.sidedoor
+      # - service: lock.unlock
+      #   data:
+      #     entity_id: lock.sidedoor
 
   - alias: 'Home Mode when Arriving'
     initial_state: 'on'
@@ -102,16 +103,16 @@ automation:
       service: input_boolean.turn_on
       entity_id: input_boolean.home_mode
 
-  - alias: 'Notify when device location changes'
-    initial_state: 'on'
-    trigger:
-      - platform: state
-        entity_id:
-          - device_tracker.sprinkler01
-        # to: not_home
-        # for:
-        #   minutes: 5
-    action:
-      service: notify.pushover
-      data_template:
-        message: '{{ trigger.to_state.object_id }} is {{ trigger.to_state.state }}!'
+  # - alias: 'Notify when device location changes'
+  #   initial_state: 'on'
+  #   trigger:
+  #     - platform: state
+  #       entity_id:
+  #         - device_tracker.sprinkler01
+  #       # to: not_home
+  #       # for:
+  #       #   minutes: 5
+  #   action:
+  #     service: notify.pushover
+  #     data_template:
+  #       message: '{{ trigger.to_state.object_id }} is {{ trigger.to_state.state }}!'
