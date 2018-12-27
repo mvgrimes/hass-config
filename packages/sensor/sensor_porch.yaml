@@ -1,9 +1,4 @@
 group:
-  exterior_lights:
-    name: Exterior Lights
-    entities:
-      - light.porch_lights
-
   sensornode_porch_card:
     name: Porch Sensor
     entities:
@@ -44,46 +39,3 @@ sensor:
     name: "Porch Real Feel"
     unit_of_measurement: "°F"
     value_template: '{{ value_json.heatIndex | round(1) }}'
-
-automation:
-  - alias: Turn on porch light at sunset
-    initial_state: 'on'
-    trigger:
-      platform: sun
-      event: sunset
-      offset: -00:30
-    action:
-      service: light.turn_on
-      entity_id:
-        - light.porch_lights
-
-  - alias: Turn off porch light at sunrise
-    initial_state: 'on'
-    trigger:
-      platform: sun
-      event: sunrise
-      offset: +00:30
-    action:
-      service: light.turn_off
-      entity_id:
-        - light.porch_lights
-
-  # - alias: Turn on trim lights
-  #   initial_state: 'on'
-  #   trigger:
-  #     platform: time
-  #     at: '14:00:00'
-  #   action:
-  #     service: switch.turn_on
-  #     entity_id:
-  #       - switch.zwave_plug_switch
-  #
-  # - alias: Turn off trim lights
-  #   initial_state: 'on'
-  #   trigger:
-  #     platform: time
-  #     at: '8:20:00'
-  #   action:
-  #     service: switch.turn_off
-  #     entity_id:
-  #       - switch.zwave_plug_switch
