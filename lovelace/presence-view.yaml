@@ -37,4 +37,3 @@ cards:
           state: 'not_home'
           options:
             secondary_info: last-changed
-

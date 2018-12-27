@@ -11,7 +11,7 @@ fully_kiosk:
     motion_sensor: binary_sensor.hvac_panel_motion
     plugged_sensor: binary_sensor.havc_panel_plugged
     screensaver_light: light.hvac_panel_screensaver
-    media_player: media_player.hvac_panel
+    # media_player: media_player.hvac_panel
 
 pages:
   - /local/custom_ui/floorplan/hvac.yaml

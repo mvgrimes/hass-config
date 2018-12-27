@@ -1,6 +1,4 @@
 ---
-# homeassistant:
-#   packages: !include_dir_named packages
 
 # Enable the web frontend and provide password/config
 http:
@@ -14,6 +12,8 @@ http:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
   include_used_components: true   # Optional, allows Home Assistant developers to focus on popular components.
+
+cloud: !include ../cloud.yaml
 
 # Discover some devices automatically
 # discovery:
@@ -57,13 +57,15 @@ zwave:
 
 # Setup device trackers
 device_tracker:
+  # - platform: googlehome
+  #   host: 192.168.1.41
   - platform: actiontec
     host: 192.168.1.1
     username: !secret fios_username
     password: !secret fios_password
     new_device_defaults:
       track_new_devices: false
-  - platform: owntracks
+  # - platform: owntracks
 
 # Text to speech
 tts:
@@ -71,10 +73,6 @@ tts:
 
 # Load the map component
 map:
-
-# Alexa custom commands via the "Home Assistant" skill
-# See packages/{alexa,music,pets}.yaml
-alexa:
 
 # Make scripts from the python_scripts dir available
 python_script:

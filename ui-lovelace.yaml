@@ -5,9 +5,9 @@
 
 name: Home
 resources:
-- {type: js, url: '/local/lovelace/monster-card.js?1544141846.329546'}
-- {type: js, url: '/local/lovelace/entity-attributes-card.js?1544141846.329546'}
-- {type: js, url: '/local/lovelace/sprinkler-card.js?1544141846.329546'}
+- {type: js, url: '/local/lovelace/monster-card.js?1545685181.4816062'}
+- {type: js, url: '/local/lovelace/entity-attributes-card.js?1545685181.4816062'}
+- {type: js, url: '/local/lovelace/sprinkler-card.js?1545685181.4816062'}
 views:
 - cards:
   - entities: [sensor.pws_weather_1d, sensor.dark_sky_temperature, sensor.dark_sky_wind_speed,

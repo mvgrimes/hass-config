@@ -1,6 +1,4 @@
 ---
-# homeassistant:
-#   packages: !include_dir_named active_pkgs
 
 # Enable the web frontend and provide password/config
 http:

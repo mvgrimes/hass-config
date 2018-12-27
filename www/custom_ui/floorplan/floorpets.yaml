@@ -11,7 +11,7 @@ fully_kiosk:
     motion_sensor: binary_sensor.pet_panel_motion
     plugged_sensor: binary_sensor.pet_panel_plugged
     screensaver_light: light.pet_panel_screensaver
-    media_player: media_player.pet_panel
+    # media_player: media_player.pet_panel
 
 pages:
   - /local/custom_ui/floorplan/pets.yaml

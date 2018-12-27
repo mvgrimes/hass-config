@@ -21,9 +21,10 @@ script:
   nest_home:
     alias: Set Nest Home Mode
     sequence:
-      - service: nest.set_mode
+      - service: nest.set_away_mode
         data:
           home_mode: home
+          structure: Annapolis
       - service: notify.pushover
         data_template:
           message: "Switched to nest home"
@@ -31,9 +32,10 @@ script:
   nest_away:
     alias: Set Nest Away Mode
     sequence:
-      - service: nest.set_mode
+      - service: nest.set_away_mode
         data:
           home_mode: away
+          structure: Annapolis
       - service: notify.pushover
         data_template:
           message: "Switched to nest away"
