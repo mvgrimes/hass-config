@@ -17,7 +17,7 @@ views:
   - !include sprinkler-view.yaml
   - !include presence-view.yaml
   - !include media-view.yaml
-  - !include miner-view.yaml
+  # - !include miner-view.yaml
   - !include weather-view.yaml
   - !include panels-view.yaml
   - !include keypads-view.yaml
