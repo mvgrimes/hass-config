@@ -48,11 +48,10 @@
 <rect id="radio_button.nope" x="870px" height="35" y="546px" width="35" rx="10.98" ry="10.98"></rect>
 <text id="text4" y="574px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="left" x="925px">Off</text>
 
-<!--
 <rect x="65px" height="45" y="427px" width="45" class="radio-btn" rx="17.25" ry="17.25"></rect>
 <rect id="switch.plug_1" x="70px" height="35" y="432px" width="35" rx="10.98" ry="10.98"></rect>
-<text id="text2" y="461px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="left" x="125px">Tree</text>
--->
+<text id="text2" y="461px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="left" x="125px">Exterior</text>
+
 <rect x="65px" height="45" y="484px" width="45" class="radio-btn" rx="17.25" ry="17.25"></rect>
 <rect id="switch.plug_2" x="70px" height="35" y="489px" width="35" rx="10.98" ry="10.98"></rect>
 <text id="text3" y="517px" style="fill:#00ADEE; font-family:'Helvetica'; font-size:24;" text-anchor="left" x="125px">Porch</text>

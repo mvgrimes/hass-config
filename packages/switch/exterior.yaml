@@ -22,7 +22,7 @@ automation:
     trigger:
       platform: sun
       event: sunrise
-      offset: +03:30
+      offset: +00:30
     action:
       - service: system_log.write
         data_template:
@@ -51,3 +51,25 @@ automation:
   #     service: switch.turn_off
   #     entity_id:
   #       - switch.zwave_plug_switch
+
+  - alias: Turn on side door lights
+    initial_state: 'on'
+    trigger:
+      platform: sun
+      event: sunset
+      offset: -00:30
+    action:
+      service: switch.turn_on
+      entity_id:
+        - switch.side_door_light
+
+  - alias: Turn off side door lights
+    initial_state: 'on'
+    trigger:
+      platform: sun
+      event: sunset
+      offset: +04:30
+    action:
+      service: switch.turn_off
+      entity_id:
+        - switch.side_door_light

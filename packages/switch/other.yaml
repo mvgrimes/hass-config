@@ -69,23 +69,46 @@ automation:
   #       - switch.plug_3
   #       - switch.plug_4
 
-  - alias: Turn on trim lights in the evening
-    initial_state: 'on'
-    trigger:
-      platform: sun
-      event: sunset
-      offset: +00:30
-    action:
-      service: switch.turn_on
-      entity_id:
-        - switch.plug_2
+  # Porch light strands
+  # - alias: Turn on trim lights in the evening
+  #   initial_state: 'on'
+  #   trigger:
+  #     platform: sun
+  #     event: sunset
+  #     offset: +00:30
+  #   action:
+  #     service: switch.turn_on
+  #     entity_id:
+  #       - switch.plug_2
+  #
+  # - alias: Turn off trim lights at night
+  #   initial_state: 'on'
+  #   trigger:
+  #     platform: time
+  #     at: '22:30:00'
+  #   action:
+  #     service: switch.turn_off
+  #     entity_id:
+  #       - switch.plug_2
 
-  - alias: Turn off trim lights at night
-    initial_state: 'on'
-    trigger:
-      platform: time
-      at: '22:30:00'
-    action:
-      service: switch.turn_off
-      entity_id:
-        - switch.plug_2
+  # Light timers
+  # - alias: Turn on trim lights in the evening
+  #   initial_state: 'on'
+  #   trigger:
+  #     platform: sun
+  #     event: sunset
+  #     offset: +00:30
+  #   action:
+  #     service: switch.turn_on
+  #     entity_id:
+  #       - switch.plug_2
+  #
+  # - alias: Turn off trim lights at night
+  #   initial_state: 'on'
+  #   trigger:
+  #     platform: time
+  #     at: '22:30:00'
+  #   action:
+  #     service: switch.turn_off
+  #     entity_id:
+  #       - switch.plug_2

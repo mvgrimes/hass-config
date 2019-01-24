@@ -117,6 +117,20 @@ rules:
   #       entity_id: group.christmas
   #       # entity_id: switch.plug_1
 
+  - name: Exterior Lights
+    entities:
+      - switch.plug_1
+    states:
+      - state: 'on'
+        class: 'radio-on'
+      - state: 'off'
+        class: 'radio-off'
+    action:
+      service: homeassistant.toggle
+      data:
+        entity_id: group.exterior_lights
+
+  # Light strands
   - name: The Porch Lights
     entities:
       - switch.plug_2
