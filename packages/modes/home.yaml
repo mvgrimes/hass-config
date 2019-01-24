@@ -125,6 +125,8 @@ automation:
       - service: script.set_temp_targets_night
       - service: input_boolean.turn_off
         entity_id: input_boolean.kitchen_thermostat_occupied
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.den_thermostat_occupied
       - service: notify.pushover
         data_template:
           message: "Home Assistant: adj temps to night"
@@ -152,6 +154,8 @@ automation:
       - service: script.set_temp_targets_home
       - service: input_boolean.turn_on
         entity_id: input_boolean.kitchen_thermostat_occupied
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.den_thermostat_occupied
       - service: notify.pushover
         data_template:
           message: "Home Assistant: adj temps to normal"

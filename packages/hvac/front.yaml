@@ -296,15 +296,22 @@ automation:
       - service: mqtt.publish
         data_template:
           topic: "climate/Front vThermostat/thermostatSetpoint"
-          # TODO: report cooling_target if we are cooling
-          # payload: '{{ states.input_number.front_heating_target.state }}'
           payload: >-
-            {{ trigger.to_state.state }}
+            {% if states.input_select.front_thermostat_mode.state == 'cooling' %}
+                {{ states.input_number.front_cooling_target.state }}
+            {% else %}
+                {{ states.input_number.front_heating_target.state }}
+            {% endif %}
           retain: true
       - service: system_log.write
         data_template:
           message: >-
-            Changing posting mqtt/front/thermostatSetpoint to  {{ trigger.to_state.state }}
+            Changing posting mqtt/front/thermostatSetpoint to
+            {% if states.input_select.front_thermostat_mode.state == 'cooling' %}
+                {{ states.input_number.front_cooling_target.state }}
+            {% else %}
+                {{ states.input_number.front_heating_target.state }}
+            {% endif %}
           level: info
 
   # From climate.mqtt to virtual therm
@@ -319,12 +326,12 @@ automation:
         data_template:
           entity_id: input_select.front_thermostat_mode
           value: >-
-            {% set values = { 'heat':'heating',  'cool':'cooling' } %}
+            {% set values = { 'heat':'heating', 'emergency heat':'heating', 'cool':'cooling' } %}
             {{ values[ trigger.to_state.state ] if value in values.keys() else trigger.to_state.state }}
       - service: system_log.write
         data_template:
           message: >-
-            {% set values = { 'heat':'heating', 'emergency heat': 'heat', 'cool':'cooling' } %}
+            {% set values = { 'heat':'heating', 'emergency heat':'heating', 'cool':'cooling' } %}
             Changing front_thermostate_mode to
             {{ values[ trigger.payload ] if value in values.keys() else trigger.payload }}
           level: info
