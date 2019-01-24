@@ -1,6 +1,6 @@
 # Can only filter on what is inside []
 
-default: info
+default: warn
 logs:
   aiohttp.access: critical
   aiohttp.server: critical
