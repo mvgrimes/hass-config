@@ -4,7 +4,7 @@ sensor:
       low_battery:
         friendly_name: "Low Battery"
         value_template: >
-          {%- set threshold = 100 -%}
+          {%- set threshold = 33 -%}
           {%- set domains = ['light', 'switch', 'sensor', 'zwave', 'lock'] -%}
           {%- for domain in domains -%}
           {%-   for item in states[domain] -%}
