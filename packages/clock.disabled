@@ -33,7 +33,8 @@ binary_sensor:
     hidden: false
 
 light:
-  - platform: mqtt_json
+  - platform: mqtt
+    schema: json
     name: Clock Screensaver
     state_topic: floorplan/clock_screensaver
     command_topic: floorplan/clock_screensaver/set

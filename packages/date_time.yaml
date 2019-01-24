@@ -15,7 +15,7 @@ group:
     entities:
       - sensor.date
       - sensor.time
-      - sensor.date__time
+      - sensor.date_time
 
 # ---Sensor for Time and Date.-----------------------------
 sensor:

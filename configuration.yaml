@@ -36,6 +36,9 @@ config:
 # Allows you to issue voice commands from the frontend in enabled browsers
 # conversation:
 
+lovelace:
+  mode: yaml
+
 # Use pushover.net for notifications
 notify:
   - name: pushover

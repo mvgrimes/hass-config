@@ -32,7 +32,8 @@ binary_sensor:
     hidden: false
 
 light:
-  - platform: mqtt_json
+  - platform: mqtt
+    schema: json
     name: Status Panel Screensaver
     state_topic: floorplan/status_screensaver
     command_topic: floorplan/status_screensaver/set

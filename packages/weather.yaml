@@ -78,7 +78,6 @@ group:
     name: DarkSky
     entities:
       - sensor.dark_sky_precip_intensity
-      - sensor.dark_sky_daily_max_precip_intensity
       - sensor.dark_sky_temperature
       - sensor.dark_sky_wind_speed
       - sensor.dark_sky_cloud_coverage

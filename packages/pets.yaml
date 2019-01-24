@@ -44,7 +44,8 @@ binary_sensor:
     hidden: false
 
 light:
-  - platform: mqtt_json
+  - platform: mqtt
+    schema: json
     name: Pet Panel Screensaver
     state_topic: floorplan/pet_screensaver
     command_topic: floorplan/pet_screensaver/set

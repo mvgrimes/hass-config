@@ -21,11 +21,12 @@ cards:
       - binary_sensor.pet_panel_motion
       - binary_sensor.pet_panel_plugged
       - light.pet_panel_screensaver
+
   - type: entities
     title: Date/Time
     entities:
       - sensor.date
       - sensor.time
-      - sensor.date__time
+      - sensor.date_time
       - sensor.clock_time
-      - sensors.clock_am_pm
+      - sensor.clock_am_pm
