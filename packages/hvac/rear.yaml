@@ -325,7 +325,7 @@ automation:
       - service: input_select.select_option
         data_template:
           entity_id: input_select.rear_thermostat_mode
-          value: >-
+          option: >-
             {% set values = { 'heat':'heating', 'emergency heat':'heating', 'cool':'cooling' } %}
             {{ values[ trigger.payload ] if value in values.keys() else trigger.payload }}
       - service: system_log.write

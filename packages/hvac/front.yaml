@@ -281,7 +281,7 @@ automation:
         data_template:
           topic: "climate/Front vThermostat/thermostatMode"
           payload: >-
-            {% set values = { 'heating':'heat',  'cooling':'cool' } %}
+            {% set values = { 'heating':'heat', 'cooling':'cool' } %}
             {{ values[ trigger.to_state.state ] if value in values.keys() else trigger.to_state.state }}
           retain: true
   - alias: Front setpoint vTherm to climate.MQTT
@@ -325,7 +325,7 @@ automation:
       - service: input_select.select_option
         data_template:
           entity_id: input_select.front_thermostat_mode
-          value: >-
+          option: >-
             {% set values = { 'heat':'heating', 'emergency heat':'heating', 'cool':'cooling' } %}
             {{ values[ trigger.to_state.state ] if value in values.keys() else trigger.to_state.state }}
       - service: system_log.write
