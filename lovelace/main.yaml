@@ -16,7 +16,8 @@ views:
   - !include sensor-view.yaml
   - !include sprinkler-view.yaml
   - !include presence-view.yaml
-  - !include media-view.yaml
+  - !include music-view.yaml
+  - !include camera-view.yaml
   # - !include miner-view.yaml
   - !include weather-view.yaml
   - !include panels-view.yaml

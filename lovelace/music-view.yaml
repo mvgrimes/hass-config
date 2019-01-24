@@ -1,0 +1,32 @@
+title: Music
+icon: mdi:music
+cards:
+  - type: entities
+    title: Rooms
+    entities:
+      - input_boolean.living_room_music
+      - input_boolean.porch_music
+      - input_boolean.outside_music
+      - input_boolean.mbr_music
+
+  - type: media-control
+    entity: media_player.kitchen
+  - type: media-control
+    entity: media_player.outside
+  - type: media-control
+    entity: media_player.livingroom
+  - type: media-control
+    entity: media_player.porch
+  - type: media-control
+    entity: media_player.mbr
+
+
+  # - type: camera-preview
+  #   entity: camera.entryway
+  # - type: camera-preview
+  #   entity: camera.kitchen
+  # - type: camera-preview
+  #   entity: camera.entryway
+  # - type: camera-preview
+  #   entity: camera.kitchen
+
