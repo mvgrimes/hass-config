@@ -909,3 +909,35 @@ whitney_whiphone6:
   name: 192.168.1.50
   picture:
   track: false
+
+'192168152':
+  hide_if_away: false
+  icon:
+  mac: 44:07:0B:B0:F8:36
+  name: 192.168.1.52
+  picture:
+  track: false
+
+'19216816':
+  hide_if_away: false
+  icon:
+  mac: DC:56:E7:2C:69:52
+  name: 192.168.1.6
+  picture:
+  track: false
+
+whitney_wh_iphone6:
+  hide_if_away: false
+  icon:
+  mac:
+  name: whitney
+  picture:
+  track: false
+
+carrie_d81aebcb_473e_4ef7_ab1e_8965aecaa6c9:
+  hide_if_away: false
+  icon:
+  mac:
+  name: carrie
+  picture:
+  track: false

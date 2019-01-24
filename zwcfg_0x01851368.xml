@@ -24,7 +24,7 @@
 			</CommandClass>
 			<CommandClass id="98" name="COMMAND_CLASS_DOOR_LOCK" version="1" request_flags="4" issecured="true" m_timeoutsupported="1" m_insidehandlemode="0" m_outsidehandlemode="0" m_timeoutmins="254" m_timeoutsecs="254">
 				<Instance index="1" />
-				<Value type="bool" genre="user" instance="1" index="0" label="Locked" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="0" value="False" />
+				<Value type="bool" genre="user" instance="1" index="0" label="Locked" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="0" value="True" />
 				<Value type="list" genre="user" instance="1" index="1" label="Locked (Advanced)" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="0" vindex="0" size="1">
 					<Item label="Unsecure" value="0" />
 					<Item label="Unsecured with Timeout" value="1" />
@@ -169,7 +169,7 @@
 			</CommandClass>
 			<CommandClass id="128" name="COMMAND_CLASS_BATTERY" version="1" request_flags="4" issecured="true">
 				<Instance index="1" />
-				<Value type="byte" genre="user" instance="1" index="0" label="Battery Level" units="%" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="255" value="96" />
+				<Value type="byte" genre="user" instance="1" index="0" label="Battery Level" units="%" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="255" value="97" />
 			</CommandClass>
 			<CommandClass id="133" name="COMMAND_CLASS_ASSOCIATION" version="1" request_flags="4" issecured="true">
 				<Instance index="1" />
