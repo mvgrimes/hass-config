@@ -5,13 +5,16 @@
 
 name: Home
 resources:
-- {type: js, url: '/local/lovelace/monster-card.js?1548150584.8729773'}
-- {type: js, url: '/local/lovelace/entity-attributes-card.js?1548150584.8729773'}
-- {type: js, url: '/local/lovelace/sprinkler-card.js?1548150584.8729773'}
+- {type: js, url: '/local/lovelace/monster-card.js?1548346610.5406535'}
+- {type: js, url: '/local/lovelace/entity-attributes-card.js?1548346610.5406535'}
+- {type: js, url: '/local/lovelace/sprinkler-card.js?1548346610.5406535'}
+- {type: js, url: '/local/lovelace/toggle-lock-entity-row.js?1548346610.5406535'}
+- {type: js, url: '/local/lovelace/bignumber-card.js?1548346610.5406535'}
 views:
 - cards:
   - entities: [sensor.pws_weather_1d, sensor.dark_sky_temperature, sensor.dark_sky_wind_speed,
       sensor.uv_burn_time]
+    show_header_toggle: false
     title: Weather
     type: entities
   - entities: [lock.sidedoor, sensor.sidedoor_alarm_level, sensor.sidedoor_alarm_type,
@@ -27,15 +30,36 @@ views:
     type: entities
   - entities: [input_boolean.home_mode, input_boolean.vacation_mode, input_boolean.renting_mode,
       input_boolean.windows_open_mode, input_boolean.debug_mode]
+    show_header_toggle: false
     title: Modes
     type: entities
-  - entities: [input_boolean.carpool_week, binary_sensor.status_panel_motion, binary_sensor.status_panel_plugged,
-      light.status_panel_screensaver]
+  - entities:
+    - {entity: input_boolean.carpool_week, secondary_info: last-changed}
+    - binary_sensor.status_panel_motion
+    - binary_sensor.status_panel_plugged
+    - light.status_panel_screensaver
+    show_header_toggle: false
     title: Status Panel
     type: entities
-  - entities: [sensor.sp500, sensor.bitcoin_value, sensor.bitcoin_cash_value]
+  - entities:
+    - sensor.sp500
+    - entity: sensor.sp500
+      filter:
+        include: [sensor.sp500.priceChangePercent, sensor.sp500.quoteTime]
+      type: custom:entity-attributes-card
+    - entity: sensor.bitcoin_value
+      from: bottom
+      max: 5000
+      min: 0
+      scale: 30px
+      severity:
+      - {style: var(--label-badge-green), value: 2000}
+      - {style: var(--label-badge-yellow), value: 3000}
+      - {style: var(--label-badge-red), value: 4000}
+      type: custom:bignumber-card
+    - sensor.bitcoin_cash_value
     title: Finance
-    type: glance
+    type: entities
   icon: mdi:home
   title: Home
 - cards:
@@ -44,6 +68,7 @@ views:
   - entities: [sensor.front_temps, input_select.front_function, input_select.front_thermostat_mode,
       sensor.front_desired_state, sensor.den_thermostat_current_state, input_number.front_heating_target,
       input_number.front_cooling_target]
+    show_header_toggle: false
     title: Front Temps/Thermostat
     type: entities
   - entities: [sensor.rear_temps, input_select.rear_function, input_select.rear_thermostat_mode,
@@ -55,6 +80,7 @@ views:
   - entities: [sensor.den_thermostat_temp, input_select.den_thermostat_mode, switch.den_thermostat_fan_mode,
       sensor.den_expected_state, sensor.den_thermostat_current_state, input_number.den_heating_target,
       input_number.den_cooling_target, sensor.den_thermostat_battery]
+    show_header_toggle: false
     title: Den Thermostat
     type: entities
   - entities: [sensor.kitchen_thermostat_temp, input_select.kitchen_thermostat_mode,
@@ -75,20 +101,24 @@ views:
       input_number.front_heating_target_away, input_number.rear_heating_target_away,
       input_number.front_heating_target_night, input_number.rear_heating_target_night,
       input_number.front_heating_target_renting, input_number.rear_heating_target_renting]
+    show_header_toggle: false
     title: Heating Targets
     type: entities
   - entities: [input_number.front_cooling_target_home, input_number.rear_cooling_target_home,
       input_number.front_cooling_target_away, input_number.rear_cooling_target_away,
       input_number.front_cooling_target_night, input_number.rear_cooling_target_night,
       input_number.front_cooling_target_renting, input_number.rear_cooling_target_renting]
+    show_header_toggle: false
     title: Cooling Targets
     type: entities
   - entities: [sensor.den_thermostat_temp, sensor.kitchen_thermostat_temp, sensor.girls_br_temp,
       sensor.mbr_temp, sensor.office_temp, sensor.third_flr_temperature]
+    show_header_toggle: false
     title: Temps
     type: entities
   - entities: [sensor.den_thermostat_battery, sensor.kitchen_thermostat_battery, sensor.girls_br_battery,
       sensor.mbr_battery, sensor.office_battery]
+    show_header_toggle: false
     title: Batteries
     type: entities
   icon: mdi:fan
@@ -111,22 +141,27 @@ views:
 - cards:
   - entities: [sensor.den_thermostat_temp, sensor.kitchen_thermostat_temp, sensor.girls_br_temp,
       sensor.mbr_temp, sensor.office_temp]
+    show_header_toggle: false
     title: Temps
     type: entities
   - entities: [sensor.basement_temperature, sensor.basement_humidity, sensor.basement_ldr,
       sensor.basement_pir, sensor.basement_real_feel]
+    show_header_toggle: false
     title: Basement Sensor
     type: entities
   - entities: [sensor.livingroom_button, sensor.livingroom_temperature, sensor.livingroom_humidity,
       sensor.livingroom_ldr, sensor.livingroom_pir, sensor.livingroom_real_feel]
+    show_header_toggle: false
     title: Living Room Sensor
     type: entities
   - entities: [sensor.porch_temperature, sensor.porch_humidity, sensor.porch_ldr,
       sensor.porch_pir, sensor.porch_real_feel]
+    show_header_toggle: false
     title: Porch Sensor
     type: entities
   - entities: [sensor.third_flr_temperature, sensor.third_flr_humidity, sensor.third_flr_ldr,
       sensor.third_flr_pir, sensor.third_flr_real_feel]
+    show_header_toggle: false
     title: Third Floor Sensor
     type: entities
   icon: mdi:thermometer
@@ -142,6 +177,7 @@ views:
     - {entity: sensor.zone_6, type: 'custom:sprinkler-zone-row'}
     - {entity: sensor.zone_7, type: 'custom:sprinkler-zone-row'}
     - {entity: sensor.zone_8, type: 'custom:sprinkler-zone-row'}
+    show_header_toggle: false
     title: Sprinkler Status
     type: entities
   - entities: [switch.zone_1, switch.zone_2, switch.zone_3, switch.zone_4, switch.zone_5,
@@ -150,6 +186,7 @@ views:
     type: entities
   - entities: [input_number.zone_1, input_number.zone_2, input_number.zone_3, input_number.zone_4,
       input_number.zone_5, input_number.zone_6, input_number.zone_7, input_number.zone_8]
+    show_header_toggle: false
     title: Sprinkler Settings
     type: entities
   - entities: [input_boolean.sprinkler01_scheduled, input_datetime.sprinkler01_time,
@@ -159,6 +196,7 @@ views:
       input_number.sprinkler01_sch_zone_3, input_number.sprinkler01_sch_zone_4, input_number.sprinkler01_sch_zone_5,
       input_number.sprinkler01_sch_zone_6, input_number.sprinkler01_sch_zone_7, input_number.sprinkler01_sch_zone_8,
       binary_sensor.rain_expected]
+    show_header_toggle: false
     title: Sprinkler Automation 01
     type: entities
   - entities: [input_boolean.sprinkler02_scheduled, input_datetime.sprinkler02_time,
@@ -168,6 +206,7 @@ views:
       input_number.sprinkler02_sch_zone_3, input_number.sprinkler02_sch_zone_4, input_number.sprinkler02_sch_zone_5,
       input_number.sprinkler02_sch_zone_6, input_number.sprinkler02_sch_zone_7, input_number.sprinkler02_sch_zone_8,
       binary_sensor.rain_expected]
+    show_header_toggle: false
     title: Sprinkler Automation 02
     type: entities
   icon: mdi:water-pump
@@ -178,9 +217,11 @@ views:
       device_tracker.antminer_01, device_tracker.mark_android, device_tracker.carrie_iphone,
       device_tracker.campbell_iphone_mac, device_tracker.campbell_ipad, device_tracker.whitney_ipad,
       device_tracker.carrie_ipad, device_tracker.sprinkler01]
+    show_header_toggle: false
     title: Family
     type: entities
   - entities: [binary_sensor.mark_is_home]
+    show_header_toggle: false
     title: Present
     type: entities
   - card: {type: glance}
@@ -210,6 +251,7 @@ views:
       binary_sensor.entryway_camera_person_detected, binary_sensor.entryway_camera_sound_detected,
       binary_sensor.kitchen_camera_motion_detected, binary_sensor.kitchen_camera_online,
       binary_sensor.kitchen_camera_person_detected, binary_sensor.kitchen_camera_sound_detected]
+    show_header_toggle: false
     title: Cameras
     type: entities
   icon: mdi:camera
@@ -219,17 +261,21 @@ views:
       sensor.pws_precip_today_in, sensor.pws_weather_1d, sensor.pws_temp_high_1d_f,
       sensor.pws_temp_low_1d_f, sensor.pws_precip_1d_in, sensor.pws_precip_2d_in,
       sensor.pws_uv]
+    show_header_toggle: false
     title: Weather Underground
     type: entities
   - entities: [sensor.dark_sky_precip_intensity, sensor.dark_sky_temperature, sensor.dark_sky_wind_speed,
       sensor.dark_sky_cloud_coverage, sensor.dark_sky_humidity, sensor.dark_sky_minutely_summary,
       sensor.dark_sky_uv_index, sensor.dark_sky_hourly_summary]
+    show_header_toggle: false
     title: DarkSky
     type: entities
   - entities: [sun.sun, sensor.yr_symbol]
+    show_header_toggle: false
     title: Sun
     type: entities
   - entities: [sensor.date, sensor.time, sensor.date_time]
+    show_header_toggle: false
     title: Date/Time
     type: entities
   icon: mdi:weather-partlycloudy
@@ -237,14 +283,17 @@ views:
 - cards:
   - entities: [input_boolean.carpool_week, binary_sensor.status_panel_motion, binary_sensor.status_panel_plugged,
       light.status_panel_screensaver]
+    show_header_toggle: false
     title: Status Panel
     type: entities
   - entities: [sensor.dogfed_time, sensor.catfed_time, sensor.dogwalked_time, sensor.fishfed_time,
       sensor.pigfed_time, binary_sensor.pet_panel_motion, binary_sensor.pet_panel_plugged,
       light.pet_panel_screensaver]
+    show_header_toggle: false
     title: Pets
     type: entities
   - entities: [sensor.date, sensor.time, sensor.date_time, sensor.clock_time, sensor.clock_am_pm]
+    show_header_toggle: false
     title: Date/Time
     type: entities
   icon: mdi:tablet

@@ -29,7 +29,6 @@ exclude:
     - sensor.time
     - sensor.date
     - sensor.date_time
-    - sensor.date__time
     - binary_sensor.pet_panel_motion
     - binary_sensor.status_panel_motion
     - binary_sensor.hvac_panel_motion

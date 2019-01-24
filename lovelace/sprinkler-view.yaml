@@ -9,6 +9,7 @@ cards:
 
   - type: entities
     title: Sprinkler Status
+    show_header_toggle: false
     entities:
       - binary_sensor.sprinkler01_online
 
@@ -49,6 +50,7 @@ cards:
       - switch.zone_8
   - type: entities
     title: Sprinkler Settings
+    show_header_toggle: false
     entities:
       - input_number.zone_1
       - input_number.zone_2
@@ -60,6 +62,7 @@ cards:
       - input_number.zone_8
   - type: entities
     title: Sprinkler Automation 01
+    show_header_toggle: false
     entities:
       - input_boolean.sprinkler01_scheduled
       - input_datetime.sprinkler01_time
@@ -81,6 +84,7 @@ cards:
       - binary_sensor.rain_expected
   - type: entities
     title: Sprinkler Automation 02
+    show_header_toggle: false
     entities:
       - input_boolean.sprinkler02_scheduled
       - input_datetime.sprinkler02_time

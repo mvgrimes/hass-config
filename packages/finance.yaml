@@ -2,28 +2,28 @@ homeassistant:
   customize:
     sensor.sp500:
       friendly_name: 'S&P 500'
-      custom_ui_state_card: state-card-custom-ui
-      extra_data_template:
-        - '${attributes.priceChangePercent}%'
-        - 'last updated ${attributes.quoteTime}'
+      # custom_ui_state_card: state-card-custom-ui
+      # extra_data_template:
+      #   - '${attributes.priceChangePercent}%'
+      #   - 'last updated ${attributes.quoteTime}'
       templates:
         theme: >
           if (attributes.priceChangePercent > 0) return 'green'; else return 'red';
     sensor.bitcoin_value:
       friendly_name: 'Bitcoin'
-      custom_ui_state_card: state-card-custom-ui
-      extra_data_template:
-        - '${attributes.priceChangePercent}%'
-        - 'last updated ${attributes.quoteTime}'
+      # custom_ui_state_card: state-card-custom-ui
+      # extra_data_template:
+      #   - '${attributes.priceChangePercent}%'
+      #   - 'last updated ${attributes.quoteTime}'
       templates:
         theme: >
           if (attributes.priceChangePercent > 0) return 'green'; else return 'red';
     sensor.bitcoin_cash_value:
       friendly_name: 'Bitcoin Cash'
-      custom_ui_state_card: state-card-custom-ui
-      extra_data_template:
-        - '${attributes.priceChangePercent}%'
-        - 'last updated ${attributes.quoteTime}'
+      # custom_ui_state_card: state-card-custom-ui
+      # extra_data_template:
+      #   - '${attributes.priceChangePercent}%'
+      #   - 'last updated ${attributes.quoteTime}'
       templates:
         theme: >
           if (attributes.priceChangePercent > 0) return 'green'; else return 'red';

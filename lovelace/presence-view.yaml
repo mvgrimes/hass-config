@@ -3,6 +3,7 @@ icon: mdi:map-marker
 cards:
   - type: entities
     title: Family
+    show_header_toggle: false
     entities:
       - device_tracker.mgrimes_oneplus3t
       - device_tracker.carrie_d81aebcb473e4ef7ab1e8965aecaa6c9
@@ -24,6 +25,7 @@ cards:
 
   - type: entities
     title: Present
+    show_header_toggle: false
     entities:
       - binary_sensor.mark_is_home
 

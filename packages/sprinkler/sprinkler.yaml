@@ -2,11 +2,11 @@
 homeassistant:
   customize_glob:
     "sensor.zone_*":
-      custom_ui_state_card: state-card-custom-ui
+      # custom_ui_state_card: state-card-custom-ui
+      # extra_data_template:
+      #   - 'queued ${attributes.queued}'
+      #   - 'duration ${attributes.duration}'
       icon: mdi:water
-      extra_data_template:
-        - 'queued ${attributes.queued}'
-        - 'duration ${attributes.duration}'
     "input_number.zone_*":
       persistent: true
   customize:

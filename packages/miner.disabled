@@ -4,17 +4,9 @@ homeassistant:
   customize:
     sensor.mean_rate:
       friendly_name: Mean Hash Rate (30m)
-      custom_ui_state_card: state-card-custom-ui
-      show_last_changed: true
 
     switch.restart_miner:
       friendly_name: Restart Miner
-      custom_ui_state_card: state-card-custom-ui
-      confirm_controls_show_lock: true
-
-    switch.miner_power:
-      custom_ui_state_card: state-card-custom-ui
-      confirm_controls_show_lock: true
 
     group.miner:
       control: hidden

@@ -2,11 +2,15 @@ name: Home
 
 # Copy resources from anywhere to www/lovelace and include them
 resources:
-  - url: !resource monster-card/monster-card.js
+  - url: !resource custom-cards/monster-card.js
     type: js
-  - url: !resource entity-attributes-card/entity-attributes-card.js
+  - url: !resource custom-cards/entity-attributes-card.js
     type: js
-  - url: !resource sprinkler-card/sprinkler-card.js
+  - url: !resource custom-cards/sprinkler-card.js
+    type: js
+  - url: !resource custom-cards/toggle-lock-entity-row.js
+    type: js
+  - url: !resource custom-cards/bignumber-card.js
     type: js
 
 views:

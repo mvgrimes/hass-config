@@ -22,9 +22,9 @@ frontend:
   # don't seem to be compiled to es5. 'auto' attempts to load es5 on
   # FullyBrowsers which failes. Force 'latest' here.
   javascript_version: latest
-  extra_html_url:
-    - /local/custom_ui/state-card-custom-ui.b031b2a424.html
-    # - /local/custom_ui/state-card-stock-price.html
+  # extra_html_url:
+  #   - /local/custom_ui/state-card-custom-ui.b031b2a424.html
+  #   # - /local/custom_ui/state-card-stock-price.html
   themes: !include themes.yaml
 
 # customizer:

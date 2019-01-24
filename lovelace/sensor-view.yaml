@@ -3,6 +3,7 @@ icon: mdi:thermometer
 cards:
   - type: entities
     title: Temps
+    show_header_toggle: false
     entities:
       - sensor.den_thermostat_temp
       - sensor.kitchen_thermostat_temp
@@ -11,6 +12,7 @@ cards:
       - sensor.office_temp
   - type: entities
     title: Basement Sensor
+    show_header_toggle: false
     entities:
       - sensor.basement_temperature
       - sensor.basement_humidity
@@ -20,6 +22,7 @@ cards:
       # - light.basement_led
   - type: entities
     title: Living Room Sensor
+    show_header_toggle: false
     entities:
       - sensor.livingroom_button
       - sensor.livingroom_temperature
@@ -30,6 +33,7 @@ cards:
       # - light.livingroom_led
   - type: entities
     title: Porch Sensor
+    show_header_toggle: false
     entities:
       - sensor.porch_temperature
       - sensor.porch_humidity
@@ -39,6 +43,7 @@ cards:
       # - light.porch_led
   - type: entities
     title: Third Floor Sensor
+    show_header_toggle: false
     entities:
       - sensor.third_flr_temperature
       - sensor.third_flr_humidity

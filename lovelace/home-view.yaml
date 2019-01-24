@@ -29,6 +29,7 @@ cards:
 
   - type: entities
     title: Modes
+    show_header_toggle: false
     entities:
       - input_boolean.home_mode
       - input_boolean.vacation_mode
@@ -38,15 +39,37 @@ cards:
 
   - type: entities
     title: Status Panel
+    show_header_toggle: false
     entities:
-      - input_boolean.carpool_week
+      - entity: input_boolean.carpool_week
+        secondary_info: last-changed
       - binary_sensor.status_panel_motion
       - binary_sensor.status_panel_plugged
       - light.status_panel_screensaver
 
-  - type: glance
+  - type: entities
     title: Finance
     entities:
       - sensor.sp500
-      - sensor.bitcoin_value
+      - type: custom:entity-attributes-card
+        entity: sensor.sp500
+        filter:
+          include:
+            - sensor.sp500.priceChangePercent
+            - sensor.sp500.quoteTime
+            # - '${attributes.priceChangePercent}%'
+            # - 'last updated ${attributes.quoteTime}'
+      - type: custom:bignumber-card
+        entity: sensor.bitcoin_value
+        scale: 30px
+        from: bottom
+        min: 0
+        max: 5000
+        severity:
+          - value: 2000
+            style: 'var(--label-badge-green)'
+          - value: 3000
+            style: 'var(--label-badge-yellow)'
+          - value: 4000
+            style: 'var(--label-badge-red)'
       - sensor.bitcoin_cash_value

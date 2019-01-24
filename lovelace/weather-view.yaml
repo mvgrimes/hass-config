@@ -3,6 +3,7 @@ icon: mdi:weather-partlycloudy
 cards:
   - type: entities
     title: Weather Underground
+    show_header_toggle: false
     entities:
       - sensor.pws_alerts
       - sensor.pws_weather
@@ -17,6 +18,7 @@ cards:
       - sensor.pws_uv
   - type: entities
     title: DarkSky
+    show_header_toggle: false
     entities:
       - sensor.dark_sky_precip_intensity
       - sensor.dark_sky_temperature
@@ -28,11 +30,13 @@ cards:
       - sensor.dark_sky_hourly_summary
   - type: entities
     title: Sun
+    show_header_toggle: false
     entities:
       - sun.sun
       - sensor.yr_symbol
   - type: entities
     title: Date/Time
+    show_header_toggle: false
     entities:
       - sensor.date
       - sensor.time

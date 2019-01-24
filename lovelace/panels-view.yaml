@@ -4,6 +4,7 @@ cards:
 
   - type: entities
     title: Status Panel
+    show_header_toggle: false
     entities:
       - input_boolean.carpool_week
       - binary_sensor.status_panel_motion
@@ -12,6 +13,7 @@ cards:
 
   - type: entities
     title: Pets
+    show_header_toggle: false
     entities:
       - sensor.dogfed_time
       - sensor.catfed_time
@@ -24,6 +26,7 @@ cards:
 
   - type: entities
     title: Date/Time
+    show_header_toggle: false
     entities:
       - sensor.date
       - sensor.time

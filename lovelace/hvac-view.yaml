@@ -11,6 +11,7 @@ cards:
 
   - type: entities
     title: Front Temps/Thermostat
+    show_header_toggle: false
     entities:
       - sensor.front_temps
       - input_select.front_function
@@ -34,6 +35,7 @@ cards:
 
   - type: entities
     title: Den Thermostat
+    show_header_toggle: false
     entities:
       - sensor.den_thermostat_temp
       - input_select.den_thermostat_mode
@@ -73,6 +75,7 @@ cards:
 
   - type: entities
     title: Heating Targets
+    show_header_toggle: false
     entities:
       - input_number.front_heating_target_home
       - input_number.rear_heating_target_home
@@ -85,6 +88,7 @@ cards:
 
   - type: entities
     title: Cooling Targets
+    show_header_toggle: false
     entities:
       - input_number.front_cooling_target_home
       - input_number.rear_cooling_target_home
@@ -97,6 +101,7 @@ cards:
 
   - type: entities
     title: Temps
+    show_header_toggle: false
     entities:
       - sensor.den_thermostat_temp
       - sensor.kitchen_thermostat_temp
@@ -107,6 +112,7 @@ cards:
 
   - type: entities
     title: Batteries
+    show_header_toggle: false
     entities:
       - sensor.den_thermostat_battery
       - sensor.kitchen_thermostat_battery

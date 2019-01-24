@@ -1,5 +1,6 @@
 type: entities
 title: Weather
+show_header_toggle: false
 entities:
   - sensor.pws_weather_1d
   - sensor.dark_sky_temperature

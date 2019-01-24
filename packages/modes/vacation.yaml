@@ -85,7 +85,7 @@ automation:
   - alias: 'Vaction Mode: Living Room test ON'
     initial_state: 'off'
     trigger:
-      platform: time
+      platform: time_pattern
       minutes: '/5'
       seconds: '00'
     condition:
@@ -99,7 +99,7 @@ automation:
   - alias: 'Vaction Mode: Living Room test OFF'
     initial_state: 'off'
     trigger:
-      platform: time
+      platform: time_pattern
       minutes: '/5'
       seconds: '45'
     condition:

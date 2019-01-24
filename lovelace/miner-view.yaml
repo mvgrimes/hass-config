@@ -6,11 +6,14 @@ cards:
     title: Controls
     show_header_toggle: false
     entities:
-      - sensor.mean_rate
+      - entity: sensor.mean_rate
+        secondary_info: last-changed
       # - sensor.miner_payout
       # - sensor.miner_up_time
-      - switch.miner_power
-      - switch.restart_miner
+      - entity: switch.miner_power
+        type: custom:custom:toggle-lock-entity-row
+      - entity: switch.restart_miner
+        type: custom:custom:toggle-lock-entity-row
       - sensor.basement_temperature
       - sensor.bitcoin_value
       - sensor.bitcoin_cash_value
