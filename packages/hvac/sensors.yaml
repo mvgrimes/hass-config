@@ -29,6 +29,28 @@ sensor:
     unit_of_measurement: "°F"
     retain: true
 
+  # --- and Battery states ---
+  - platform: mqtt
+    state_topic: "smartthings/Girls BR Temp/battery"
+    name: "Girls BR Battery"
+    unit_of_measurement: "%"
+    icon: mdi:battery-outline
+    retain: true
+
+  - platform: mqtt
+    state_topic: "smartthings/MBR Temp/battery"
+    name: "MBR Battery"
+    unit_of_measurement: "%"
+    icon: mdi:battery-outline
+    retain: true
+
+  - platform: mqtt
+    state_topic: "smartthings/Office Sensor/battery"
+    name: "Office Battery"
+    unit_of_measurement: "%"
+    icon: mdi:battery-outline
+    retain: true
+
 group:
   temps:
     name: Temps

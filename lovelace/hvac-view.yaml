@@ -104,3 +104,12 @@ cards:
       - sensor.mbr_temp
       - sensor.office_temp
       - sensor.third_flr_temperature
+
+  - type: entities
+    title: Batteries
+    entities:
+      - sensor.den_thermostat_battery
+      - sensor.kitchen_thermostat_battery
+      - sensor.girls_br_battery
+      - sensor.mbr_battery
+      - sensor.office_battery
