@@ -1,0 +1,29 @@
+---
+
+input_boolean:
+  charging_phone_marks:
+    name: 'Marks Phone Charging'
+    icon: 'mdi:plug'
+
+automation:
+  - alias: Marks Phone Plugged In
+    trigger:
+      - platform: webhook
+        webhook_id: 52714bb1718e41c9b69a4a18aa3bd8d5dc9421722da841cfb7c6c9e7b494156a
+    action:
+      service: input_boolean.turn_on
+      entity_id: input_boolean.charging_phone_marks
+      # service: notify.pushover
+      # data_template:
+      #   message: 'Got: {{ trigger.data.id }}'
+
+  - alias: Marks Phone Unplugged
+    trigger:
+      - platform: webhook
+        webhook_id: 52714bb1718e41c9b69a4a18aa3bd8da87c238731034f1585422ddcc57297cd5
+    action:
+      service: input_boolean.turn_off
+      entity_id: input_boolean.charging_phone_marks
+      # service: notify.pushover
+      # data_template:
+      #   message: 'Got: {{ trigger.data.id }}'
