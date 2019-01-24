@@ -71,14 +71,6 @@ automation:
         entity_id:
           - sensor.sidedoor_alarm_type
     action:
-      # - service: notify.pushover
-      #   data_template:
-      #     message: >-
-      #       {%- set code_slot = states.sensor.sidedoor_alarm_level.state -%}
-      #       {%- set select_id = 'door_keypad_' ~ code_slot ~ '_name' -%}
-      #       {{ states['input_text'][select_id].state }} unlocked the door.
-      #       {% set notify_id = 'door_keypad_' ~ code_slot ~ '_notify' %}
-      #       Notify ( {{ notify_id }} ) is {{ states['input_boolean'][notify_id].state }}
       - condition: and
         conditions:
           - condition: template
@@ -92,3 +84,12 @@ automation:
             {%- set code_slot = states.sensor.sidedoor_alarm_level.state -%}
             {%- set select_id = 'door_keypad_' ~ code_slot ~ '_name' -%}
             {{ states['input_text'][select_id].state }} unlocked the door.
+      # Uncomment and put this after action: for debuging info
+      # - service: notify.pushover
+      #   data_template:
+      #     message: >-
+      #       {%- set code_slot = states.sensor.sidedoor_alarm_level.state -%}
+      #       {%- set select_id = 'door_keypad_' ~ code_slot ~ '_name' -%}
+      #       {{ states['input_text'][select_id].state }} unlocked the door.
+      #       {% set notify_id = 'door_keypad_' ~ code_slot ~ '_notify' %}
+      #       Notify ( {{ notify_id }} ) is {{ states['input_boolean'][notify_id].state }}
