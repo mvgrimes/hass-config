@@ -5,9 +5,9 @@
 
 name: Home
 resources:
-- {type: js, url: '/local/lovelace/monster-card.js?1545685181.4816062'}
-- {type: js, url: '/local/lovelace/entity-attributes-card.js?1545685181.4816062'}
-- {type: js, url: '/local/lovelace/sprinkler-card.js?1545685181.4816062'}
+- {type: js, url: '/local/lovelace/monster-card.js?1548150584.8729773'}
+- {type: js, url: '/local/lovelace/entity-attributes-card.js?1548150584.8729773'}
+- {type: js, url: '/local/lovelace/sprinkler-card.js?1548150584.8729773'}
 views:
 - cards:
   - entities: [sensor.pws_weather_1d, sensor.dark_sky_temperature, sensor.dark_sky_wind_speed,
@@ -86,6 +86,10 @@ views:
   - entities: [sensor.den_thermostat_temp, sensor.kitchen_thermostat_temp, sensor.girls_br_temp,
       sensor.mbr_temp, sensor.office_temp, sensor.third_flr_temperature]
     title: Temps
+    type: entities
+  - entities: [sensor.den_thermostat_battery, sensor.kitchen_thermostat_battery, sensor.girls_br_battery,
+      sensor.mbr_battery, sensor.office_battery]
+    title: Batteries
     type: entities
   icon: mdi:fan
   title: HVAC
@@ -194,19 +198,22 @@ views:
       input_boolean.mbr_music]
     title: Rooms
     type: entities
-  - entities: [binary_sensor.entryway_camera_motion_detected, binary_sensor.entryway_camera_online,
-      binary_sensor.entryway_camera_person_detected, binary_sensor.entryway_camera_sound_detected,
-      binary_sensor.kitchen_camera_motion_detected, binary_sensor.kitchen_camera_online,
-      binary_sensor.kitchen_camera_person_detected, binary_sensor.kitchen_camera_sound_detected]
-    title: Cameras
-    type: entities
   - {entity: media_player.kitchen, type: media-control}
   - {entity: media_player.outside, type: media-control}
   - {entity: media_player.livingroom, type: media-control}
   - {entity: media_player.porch, type: media-control}
   - {entity: media_player.mbr, type: media-control}
   icon: mdi:music
-  title: Media
+  title: Music
+- cards:
+  - entities: [binary_sensor.entryway_camera_motion_detected, binary_sensor.entryway_camera_online,
+      binary_sensor.entryway_camera_person_detected, binary_sensor.entryway_camera_sound_detected,
+      binary_sensor.kitchen_camera_motion_detected, binary_sensor.kitchen_camera_online,
+      binary_sensor.kitchen_camera_person_detected, binary_sensor.kitchen_camera_sound_detected]
+    title: Cameras
+    type: entities
+  icon: mdi:camera
+  title: Cameras
 - cards:
   - entities: [sensor.pws_alerts, sensor.pws_weather, sensor.pws_temp_f, sensor.pws_dewpoint_f,
       sensor.pws_precip_today_in, sensor.pws_weather_1d, sensor.pws_temp_high_1d_f,
@@ -214,16 +221,15 @@ views:
       sensor.pws_uv]
     title: Weather Underground
     type: entities
-  - entities: [sensor.dark_sky_precip_intensity, sensor.dark_sky_daily_max_precip_intensity,
-      sensor.dark_sky_temperature, sensor.dark_sky_wind_speed, sensor.dark_sky_cloud_coverage,
-      sensor.dark_sky_humidity, sensor.dark_sky_minutely_summary, sensor.dark_sky_uv_index,
-      sensor.dark_sky_hourly_summary]
+  - entities: [sensor.dark_sky_precip_intensity, sensor.dark_sky_temperature, sensor.dark_sky_wind_speed,
+      sensor.dark_sky_cloud_coverage, sensor.dark_sky_humidity, sensor.dark_sky_minutely_summary,
+      sensor.dark_sky_uv_index, sensor.dark_sky_hourly_summary]
     title: DarkSky
     type: entities
   - entities: [sun.sun, sensor.yr_symbol]
     title: Sun
     type: entities
-  - entities: [sensor.date, sensor.time, sensor.date__time]
+  - entities: [sensor.date, sensor.time, sensor.date_time]
     title: Date/Time
     type: entities
   icon: mdi:weather-partlycloudy
@@ -238,7 +244,7 @@ views:
       light.pet_panel_screensaver]
     title: Pets
     type: entities
-  - entities: [sensor.date, sensor.time, sensor.date__time, sensor.clock_time, sensors.clock_am_pm]
+  - entities: [sensor.date, sensor.time, sensor.date_time, sensor.clock_time, sensor.clock_am_pm]
     title: Date/Time
     type: entities
   icon: mdi:tablet
