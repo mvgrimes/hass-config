@@ -10,8 +10,7 @@ mqtt:
   # broker: localhost
   port: 1883
   username: hass
-  # password: !secret mqtt_password
-  password: "homeAuto#@"
+  password: !secret mqtt_password
 
 # Allow Amazon Echo to control some things vie the emulated_hue component. This
 # is great, but I want to support the HA project so am subscribing to the cloud
